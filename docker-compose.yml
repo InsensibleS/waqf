@@ -42,7 +42,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_DATABASE: waqf
       MYSQL_ROOT_PASSWORD: WpY75n#k23dRmaQ&t
