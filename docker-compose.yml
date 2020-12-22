@@ -1,64 +1,50 @@
-version: '3'
+version: "3.7"
 services:
-
-  #PHP Service
   app:
     build:
-      context: .
+      args:
+        user: sammy
+        uid: 1000
+      context: ./
       dockerfile: Dockerfile
-    image: digitalocean.com/php
+    image: travellist
     container_name: app
     restart: unless-stopped
-    tty: true
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
-    working_dir: /var/www
+    working_dir: /var/www/
     volumes:
       - ./:/var/www
-      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
-      - app-network
+      - travellist
 
-  #Nginx Service
-  webserver:
-    image: nginx:alpine
-    container_name: webserver
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "8000:80"
-      - "443:443"
-    volumes:
-      - ./:/var/www
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-    networks:
-      - app-network
-
-  #MySQL Service
   db:
-    image: mysql:5.7.22
+    image: mysql:5.7
     container_name: db
     restart: unless-stopped
     tty: true
     ports:
-      - "3307:3306"
+      - "8080:80"
     environment:
-      MYSQL_DATABASE: waqf
-      MYSQL_ROOT_PASSWORD: WpY75n#k23dRmaQ&t
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
     volumes:
-      - dbdata:/var/lib/mysql/
-      - ./mysql/my.cnf:/etc/mysql/my.cnf
+       - ./database/migrations/
     networks:
-      - app-network
+      - travellist
 
-#Docker Networks
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - travellist
+
 networks:
-  app-network:
+  travellist:
     driver: bridge
-#Volumes
-volumes:
-  dbdata:
-    driver: local
