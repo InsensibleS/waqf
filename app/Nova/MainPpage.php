@@ -44,10 +44,10 @@ class MainPpage extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Title', 'title'),
-            Textarea::make('Description', 'description'),
-            Text::make('Email', 'footer_email'),
-            Place:: make('Address', 'footer_adress')
+            Text::make('Title', 'title')->rules('required', 'max:255')->sortable(),
+            Textarea::make('Description', 'description')->rules('required', 'max:255')->sortable(),
+            Text::make('Email', 'footer_email')->rules('required', 'max:255')->sortable(),
+            Place:: make('Address', 'footer_adress')-> rules('required', 'max:255')->sortable(),
         ];
     }
 
