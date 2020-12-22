@@ -6,17 +6,18 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\Place;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class MainPpage extends Resource
+class News extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\main_page_attribute::class;
+    public static $model = \App\Models\News::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -49,17 +50,19 @@ class MainPpage extends Resource
             ->rules('required', 'max:255')
             ->sortable(),
 
+            Image::make('Image', 'image')
+            ->disk('public')
+            ->rules('required'),
+
             Textarea::make('Description', 'description')
             ->rules('required', 'max:255')
             ->sortable(),
 
-            Text::make('Email', 'footer_email')
-            ->rules('required', 'max:255')
+            DateTime::make('Date','publication_date')
+            ->hideFromIndex()
+            ->rules('required')
             ->sortable(),
 
-            Place:: make('Address', 'footer_adress')
-            ->rules('required', 'max:255')
-            ->sortable(),
         ];
     }
 

@@ -5,15 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class main_page_attribute extends Model
+class News extends Model
 {
-  protected $table = 'main_page_attribute';
+  protected $table = 'news';
   protected $fillable = [
       'title',
       'description',
-      'footer_email',
-      'footer_address'
+      'image',
+      'publication_date'
   ];
+
+  protected $casts = [
+        'publication_date' => 'datetime'
+      ];
 
   public $timestamps = false;
 }
