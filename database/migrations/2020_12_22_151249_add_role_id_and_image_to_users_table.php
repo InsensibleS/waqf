@@ -16,6 +16,7 @@ class AddRoleIdAndImageToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->foreignId('role_id')->constrained('roles');
             $table->string('image', 255)->nullable();
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +30,7 @@ class AddRoleIdAndImageToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign('users_role_id_foreign');
             $table->dropColumn('image');
+            $table->dropColumn('deleted_at');
         });
     }
 }

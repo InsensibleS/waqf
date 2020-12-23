@@ -19,6 +19,7 @@ class CreatePartnersTable extends Migration
             $table->string('image', 255);
             $table->text('description');
             $table->integer('order')->default(0);
+            $table->softDeletes();
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolesTable extends Migration
+class CreateCustomerStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('customer_statuses', function (Blueprint $table) {
             $table->id();
             $table->string('title', 255);
-            $table->boolean('is_admin')->default(false);
+            $table->string('image', 255);
+            $table->text('description');
+            $table->timestamps();
             $table->softDeletes();
         });
     }
@@ -28,6 +30,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('customer_statuses');
     }
 }

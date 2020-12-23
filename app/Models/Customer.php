@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Role extends Model
+class Customer extends Model
 {
     use HasFactory,  SoftDeletes;
 
     protected $dates = ['deleted_at'];
 
-    public $timestamps = false;
+    public function status()
+    {
+        return $this->belongsTo(CustomerStatus::class, 'status_id');
+    }
 }
