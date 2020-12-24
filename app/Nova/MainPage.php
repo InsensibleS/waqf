@@ -16,7 +16,7 @@ class MainPage extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\main_page_attribute::class;
+    public static $model = \App\Models\MainPageAttribute::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -57,7 +57,7 @@ class MainPage extends Resource
             ->rules('required', 'max:255')
             ->sortable(),
 
-            Place:: make('Address', 'footer_adress')
+            Place:: make('Address', 'footer_address')
             -> rules('required', 'max:255')
             ->sortable(),
 
