@@ -19,7 +19,7 @@ class CreateMainPageAttributeTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('footer_email');
-            $table->string('footer_adress'); 
+            $table->string('footer_address'); 
         });
     }
 
