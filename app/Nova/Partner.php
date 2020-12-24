@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Partner extends Resource
@@ -56,7 +57,7 @@ class Partner extends Resource
                 ->rules('required', 'max:255')
                 ->help('For example, "Coca-Cola Company"'),
 
-            Text::make('Description', 'description')
+            Textarea::make('Description', 'description')
                 ->sortable()
                 ->rules('required')
                 ->help('Brief description of the company'),

@@ -9,7 +9,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class MainPage extends Resource
+class MainPageAttribute extends Resource
 {
     /**
      * The model the resource corresponds to.
@@ -50,14 +50,14 @@ class MainPage extends Resource
             ->sortable(),
 
             Textarea::make('Description', 'description')
+            ->rules('required')
+            ->sortable(),
+
+            Text::make('Email in footer', 'footer_email')
             ->rules('required', 'max:255')
             ->sortable(),
 
-            Text::make('Email', 'footer_email')
-            ->rules('required', 'max:255')
-            ->sortable(),
-
-            Place:: make('Address', 'footer_address')
+            Place:: make('Address in footer', 'footer_address')
             -> rules('required', 'max:255')
             ->sortable(),
 
