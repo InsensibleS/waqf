@@ -15,10 +15,13 @@ class CreateMainPageAttributesTable extends Migration
     {
         Schema::create('main_page_attributes', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('heading', 255);
             $table->text('description');
-            $table->string('footer_email');
-            $table->string('footer_address');
+            $table->string('footer_email', 255);
+            $table->string('footer_address', 255);
+            $table->string('seo_title')->nullable();
+            $table->string('seo_keywords')->nullable();
+            $table->text('seo_description')->nullable();
             $table->softDeletes();
         });
     }

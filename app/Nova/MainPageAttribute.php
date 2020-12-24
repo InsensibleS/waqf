@@ -45,7 +45,7 @@ class MainPageAttribute extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
 
-            Text::make('Title', 'title')
+            Text::make('Heading', 'heading')
             ->rules('required', 'max:255')
             ->sortable(),
 
@@ -57,10 +57,21 @@ class MainPageAttribute extends Resource
             ->rules('required', 'max:255')
             ->sortable(),
 
-            Place:: make('Address in footer', 'footer_address')
-            -> rules('required', 'max:255')
-            ->sortable(),
+            Text::make('Address in footer', 'footer_address')
+                ->rules('required', 'max:255')
+                ->sortable(),
 
+            Text::make('Seo title', 'seo_title')
+                ->rules('max:255')
+                ->sortable(),
+
+            Textarea::make('Seo description', 'seo_description')
+                ->rules('max:255')
+                ->sortable(),
+
+            Place:: make('Seo keywords', 'seo_keywords')
+                -> rules('max:255')
+                ->sortable(),
         ];
     }
 
