@@ -55,7 +55,7 @@ class News extends Resource
             ->rules('required'),
 
             Textarea::make('Description', 'description')
-            ->rules('required', 'max:255')
+            ->rules('required')
             ->sortable(),
 
             DateTime::make('Date','publication_date')
