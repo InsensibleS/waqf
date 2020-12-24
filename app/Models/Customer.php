@@ -12,6 +12,8 @@ class Customer extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $guarded = [];
+
     public function status()
     {
         return $this->belongsTo(CustomerStatus::class, 'status_id');
