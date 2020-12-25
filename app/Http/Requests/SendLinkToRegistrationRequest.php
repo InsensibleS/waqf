@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class SendLinkToRegistrationRequest extends FormRequest
 {
@@ -23,8 +24,16 @@ class SendLinkToRegistrationRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-            'email' => 'required|email|max:255|unique:customers,email'
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                Rule::unique('customers', 'email')->where(function ($query) {
+                    return $query->where('is_registered', true);
+                })
+            ]
         ];
     }
 

@@ -20,13 +20,15 @@ class EmailController extends Controller
 
     public function sendLinkToCompleteRegistration(SendLinkToRegistrationRequest $request)
     {
-//        $newCustomer = $this->customerService->store($request);
+        $newCustomer = $this->customerService->store($request);
 
 //        return Mail::render('emails.send_link', [
 //            'sender' => (object)['name' => 'test', 'email' => 'test@gmail.com', 'message' => 'Test message', 'subject' => 'Test subject']
 //        ]);
 
-        Mail::to('vadim.ustinovich@softlex.pro')->send(new LinkShipped());
+        Mail::to($newCustomer->email)->send(new LinkShipped($newCustomer));
+//        Mail::to('vadim.ustinovich@softlex.pro')->send(new LinkShipped());
+//        Mail::to('parapupkin@gmail.com')->send(new LinkShipped());
 //        dd('sdafsdaf');
 
         return response()->json(['message' => '$newCustomer']);
