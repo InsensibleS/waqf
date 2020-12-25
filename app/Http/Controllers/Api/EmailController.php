@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\SendLinkToRegistrationRequest;
 use App\Services\CustomerService;
+use \App\Mail\LinkShipped;
+use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
@@ -18,8 +20,15 @@ class EmailController extends Controller
 
     public function sendLinkToCompleteRegistration(SendLinkToRegistrationRequest $request)
     {
-        $newCustomer = $this->customerService->store($request);
+//        $newCustomer = $this->customerService->store($request);
 
-        return response()->json(['message' => $newCustomer]);
+//        return Mail::render('emails.send_link', [
+//            'sender' => (object)['name' => 'test', 'email' => 'test@gmail.com', 'message' => 'Test message', 'subject' => 'Test subject']
+//        ]);
+
+        Mail::to('vadim.ustinovich@softlex.pro')->send(new LinkShipped());
+//        dd('sdafsdaf');
+
+        return response()->json(['message' => '$newCustomer']);
     }
 }
