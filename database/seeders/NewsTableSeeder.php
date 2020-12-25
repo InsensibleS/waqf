@@ -17,7 +17,7 @@ class NewsTableSeeder extends Seeder
       DB::table('news')->insert([
           [
               'title' => 'More than 400,000 register for vaccine in Saudi Arabia',
-              'image' => '/images/news/1.jng',
+              'image' => '/images/news/1.jpg',
               'description' => 'Number of virus cases dip below 50 in all regions
 JEDDAH: More than 400,000 people from Saudi Arabia’s high-risk group have registered to receive the coronavirus disease (COVID-19) vaccine through the Sehaty app, according to the Ministry of Health.
 “Participants who received the first dose of the vaccine are in stable condition with no issues arising,” said the Ministry of Health spokesman Dr. Mohammed Al-Abd Al-Aly. “We remind all that it’s vital that everyone receives their second dose (booster shots) in order to ensure full immunity against the virus.”
@@ -29,7 +29,7 @@ Six of the Kingdom’s regions have shown some stability with a slight increase 
           ],
           [
             'title' => '5m perform rituals at Grand Mosque since resumption',
-            'image' => '/images/news/2.jng',
+            'image' => '/images/news/2.jpg',
             'description' => 'JEDDAH: Saudi Arabia has received 5 million Umrah pilgrims and worshippers since the resumption of the rituals, said Minister of Hajj and Umrah Dr. Mohammed Saleh Benten.
  He said that no cases of COVID-19 infections were reported among pilgrims and worshippers.
  The statement came during a meeting with Makkah Gov. Prince Khaled Al-Faisal in Jeddah on Wednesday.
@@ -43,7 +43,7 @@ The third phase, which started on Nov. 1, permitted pilgrims from abroad to perf
           ],
           [
             'title' => 'Saudi national archives foundation Darah uncovering past with oral history tradition',
-            'image' => '/images/news/3.jng',
+            'image' => '/images/news/3.jpg',
             'description' => 'RIYADH: From one generation to another, history is told and retold. But with time, large fragments are lost, so a Riyadh-based research center is helping preserve some of Saudi Arabia’s most important historical facts.
 The earliest forms of storytelling for many cultures were primarily oral, combined with gestures and expressions, and at times, even drawings and paintings. With time these stories differ, their essence forgotten and countless tales lost through time. In recognition of the beauty of this dying art, the King Abdul Aziz Foundation for Research and Archives (Darah) has upgraded its work to record and preserve oral accounts of Saudi Arabian history and make them accessible to researchers.
 Speaking to Arab News, Darah spokesman Sultan Alawairdhi said the center’s founding is in line with the government’s policy to preserve its history. He added that it is of vital importance to ensure that historical narratives are accessible to all by using knowledge and historical facts told by the elderly who lived through major historical events that shaped the Kingdom.',
@@ -51,7 +51,7 @@ Speaking to Arab News, Darah spokesman Sultan Alawairdhi said the center’s fou
           ],
           [
             'title' => 'Saudi Arabia’s giftedness foundation Mawhiba signs deal to protect intellectual property rights',
-            'image' => '/images/news/4.jng',
+            'image' => '/images/news/4.png',
             'description' => 'RIYADH: The King Abdul Aziz and His Companions Foundation for Giftedness and Creativity (Mawhiba) on Tuesday signed an agreement with the Saudi Authority for Intellectual Property (SAIP) joining the National Network of Technology and Innovation Support Centers (TISC).
 The TISC enables innovators to protect and manage their intellectual property rights.
 The deputy secretary-general of Mawhiba, Basil Al-Sadhan, said the foundation seeks to create an environment that motivates talent and encourages the youth to pursue their passion for science and become future leaders.
@@ -63,9 +63,10 @@ Al-Sadhan said by joining the network Mawhiba has now gained access to other sup
 “The most important of these services is providing guidance on intellectual property rights such as the use of patents, industrial designs, trademarks, and copyrights,” he said.
 SAIP Vice President Sami Al-Sudais welcomed Mawhiba aboard TISC, which enables users to acquire the technical skills needed to search intellectual property databases.',
             'publication_date' =>  date('Y-m-d H:i:s'),
+          ],
           [
             'title' => 'Jeddah streets and bridges embellished with Arabic calligraphy',
-            'image' => '/images/news/5.jng',
+            'image' => '/images/news/5.png',
             'description' => 'JEDDAH: Jeddah municipality, in partnership with the Oyoun Jeddah Charitable Association (OJCA), has launched an initiative to install 50 Arabic calligraphy murals across the city, including on some of its main flyovers.
 
 The initiative, which coincides with the UN’s Arabic Language Day, aims to add an aesthetic touch to the city with Arabic calligraphy paintings and murals, some of which are more than 70 meters long and 3 meters high.
@@ -77,6 +78,6 @@ Jeddah Mayor Dr. Saleh Al-Turki said that the municipality has signed agreements
 With its more than 12 million words, Arabic is spoken by more 500 million people around the world. It is also the second-fastest-spreading language. It has enriched many languages — including Turkish, Persian, Spanish, Kurdish, French and Urdu — with its vocabulary.',
             'publication_date' =>  date('Y-m-d H:i:s'),
           ],
-
+        ]);
     }
 }

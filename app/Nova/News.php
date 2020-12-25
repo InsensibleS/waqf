@@ -51,8 +51,9 @@ class News extends Resource
             ->sortable(),
 
             Image::make('Image', 'image')
-            ->disk('public')
-            ->rules('required'),
+            ->path('/images/news')
+            ->creationRules('required', 'max:5000')
+            ->updateRules('max:5000'),
 
             Textarea::make('Description', 'description')
             ->rules('required')
