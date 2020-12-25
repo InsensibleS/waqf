@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
             RolesSeeder::class,
             UserSeeder::class,
             PartnerSeeder::class,
-            CustomerStatusSeeder::class
+            CustomerStatusSeeder::class,
+            NewsTableSeeder::class,
+
         ]);
     }
 }
