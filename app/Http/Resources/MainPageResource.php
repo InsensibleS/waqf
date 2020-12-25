@@ -33,7 +33,7 @@ class MainPageResource extends JsonResource
                 'seo_keywords' => $this->mainPageData->heading,
                 'seo_description' => $this->mainPageData->seo_description,
             ],
-            'newsData' => $this->newsData,
+            'newsData' => NewsResource::collection($this->newsData),
             'partnersData' => PartnerResource::collection($this->partnersData),
             'footerData' => [
                 'email' => $this->mainPageData->footer_email,

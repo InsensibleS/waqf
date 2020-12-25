@@ -19,6 +19,5 @@ class MainPageController extends Controller
     public function getDataMainPage()
     {
         return new MainPageResource($this->mainPageRepository->getDataMainPage());
-
     }
 }
