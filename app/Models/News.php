@@ -20,6 +20,4 @@ class News extends Model
   protected $casts = [
         'publication_date' => 'datetime'
       ];
-
-  public $timestamps = false;
 }
