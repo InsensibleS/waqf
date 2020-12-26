@@ -20,6 +20,7 @@ class CreateNewsTable extends Migration
             $table->string('image');
             $table->text('description');
             $table->dateTime('publication_date');
+            $table->softDeletes();
         });
     }
 

@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Http\Resources\MainPageResource;
+use App\Repositories\MainPageRepository;
+use Illuminate\Http\Request;
+
+class MainPageController extends Controller
+{
+    protected $mainPageRepository;
+
+    public function __construct(MainPageRepository $mainPageRepository)
+    {
+        $this->mainPageRepository = $mainPageRepository;
+    }
+
+    public function getDataMainPage()
+    {
+        return new MainPageResource($this->mainPageRepository->getDataMainPage());
+    }
+}

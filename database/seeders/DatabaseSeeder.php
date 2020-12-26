@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PartnerSeeder::class,
             CustomerStatusSeeder::class,
+            NewsTableSeeder::class,
             MainPageAttributeSeeder::class
         ]);
     }

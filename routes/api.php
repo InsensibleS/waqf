@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\MainPageController;
 use App\Http\Controllers\Api\EmailController;
 
 /*
@@ -18,5 +19,7 @@ use App\Http\Controllers\Api\EmailController;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+// data for the frontend on the main page
+Route::get('/getMainPage', [MainPageController::class, 'getDataMainPage']);
 
 Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLinkToCompleteRegistration']);
