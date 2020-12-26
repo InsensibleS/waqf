@@ -24,7 +24,7 @@ class CreateCustomersTable extends Migration
             $table->timestamp('sending_email_with_password')->nullable();
             $table->foreignId('status_id')->constrained('customer_statuses');
             $table->boolean('is_registered')->default(false);
-            $table->string('registration_string', 30)->nullable();
+            $table->string('registration_string', 32)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

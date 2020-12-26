@@ -21,5 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 // data for the frontend on the main page
 Route::get('/getMainPage', [MainPageController::class, 'getDataMainPage']);
-
+// sending an email with a link to end registration
 Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLinkToCompleteRegistration']);
+// link validation to complete registration
+Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);

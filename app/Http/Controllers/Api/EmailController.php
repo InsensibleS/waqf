@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\EmailService;
 use Illuminate\Http\Request;
 use App\Http\Requests\SendLinkToRegistrationRequest;
+use App\Http\Requests\ValidateLinkRequest;
 use App\Services\CustomerService;
 use \App\Mail\LinkShipped;
 use Illuminate\Support\Facades\Mail;
@@ -44,5 +45,19 @@ class EmailController extends Controller
         }
 
         return response()->json(['message' => $message, 'response' => $response]);
+    }
+
+    /**
+     *
+     * @param  ValidateLinkRequest  $request
+     * @return string
+     *
+     */
+    public function validationLinkToCompleteRegistration(ValidateLinkRequest $request)
+    {
+        $customer = $this->customerService->findByRegistrationString($request);
+        $this->customerService->registerCustomer($customer);
+
+        return response()->json(['message' => 'Customer registered.']);
     }
 }

@@ -29,12 +29,34 @@ class CustomerService
 
     /**
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return Customer|null
-     *
      */
-    public function checkClientExists($request): ?Customer
+    public function checkClientExists(Request $request): ?Customer
     {
         return Customer::where('email', $request->email)->first();
+    }
+
+    /**
+     *
+     * @param  Request  $request
+     * @return Customer
+     *
+     */
+    public function findByRegistrationString(Request $request): Customer
+    {
+        return Customer::where('registration_string', $request->registration_string)->first();
+    }
+
+    /**
+     *
+     * @param  Request  $request
+     * @return void
+     *
+     */
+    public function registerCustomer(Customer $customer)
+    {
+        $customer->is_registered = true;
+        $customer->save();
     }
 }
