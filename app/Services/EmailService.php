@@ -6,17 +6,21 @@ use App\Models\Customer;
 
 class EmailService
 {
-//    protected $customer;
-//
-//    public function __construct(Customer $customer)
-//    {
-//        $this->customer = $customer;
-//    }
+    private $domain = 'https://waqf.com/';
+    private $endpointConfirmationRegistration = 'confirmation-of-registration/';
 
-    public function sendLinkToEmail($request)
+    /**
+     *
+     * @param  Customer  $customer
+     * @return string
+     *
+     */
+    public function createLink(Customer $customer): string
     {
-        $request['status_id'] = 1;
+        $customer->registration_string = md5($customer->id);
+        $customer->sending_email_with_link = date('Y-m-d H:i:s');
+        $customer->save();
 
-        return $this->customer->create($request->all());
+        return $this->domain . $this->endpointConfirmationRegistration . $customer->registration_string;
     }
 }

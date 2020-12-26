@@ -11,14 +11,16 @@ class LinkShipped extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $link;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($newCustomer)
+    public function __construct($newCustomer, $link)
     {
-        //
+        $this->link = $link;
     }
 
     /**
