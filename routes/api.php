@@ -21,4 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // data for the frontend on the main page
 Route::get('/getMainPage', [MainPageController::class, 'getDataMainPage']);
 
-Route::post('/registration/google',[RegApiController::class, 'google']);
+Route::post('/registration/google','App\Http\Controllers\Api\RegApiController@google');

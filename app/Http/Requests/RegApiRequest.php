@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class RegApiRequest extends FormRequest
 {
@@ -23,12 +24,15 @@ class RegApiRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-          'id' => 'required',
-          'user_id' => 'required',
-          'provider_id  '=> 'required',
+        $rules = [
+          'provider_id' => 'required',
           'provider'  => 'required',
-          'token' => 'required',
+          'token' => 'required|unique:social_accounts,token',
         ];
+        switch ($this->getMethod())
+     {
+       case 'POST':
+       return $rules;
+      }
     }
 }

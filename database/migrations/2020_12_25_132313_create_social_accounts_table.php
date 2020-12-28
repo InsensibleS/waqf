@@ -14,9 +14,9 @@ class CreateSocialAccountsTable extends Migration
     public function up()
     {
         Schema::create('social_accounts', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->timestamps();
-            $table->foreignId('user_id')->constrained('customers');
+            $table->foreignId('user_id')->constrained('customers')->autoIncrement();
             $table->string('provider_id');
             $table->string('provider');
             $table->string('token');

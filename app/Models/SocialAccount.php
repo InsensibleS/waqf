@@ -11,11 +11,10 @@ class SocialAccount extends Model
 
     protected $table = "social_accounts";
 
-    protected $fileble = [
-      'id',
+    protected $fillable = [
       'user_id',
       'provider_id',
       'provider',
-      'token',
-    ]
+      'token'
+    ];
 }
