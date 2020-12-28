@@ -7,11 +7,8 @@ services:
         uid: 1000
       context: $PWD
       dockerfile: Dockerfile
-    env_file:
-      - back.env
     image: waqfapp
     container_name: app
-    restart: always
     working_dir: /var/www/
     ports:
       - "${IP:-127.0.0.1}:9000:9000"
@@ -23,14 +20,14 @@ services:
     container_name: db
     restart: always
     ports:
-      - "${IP:-127.0.0.1}:3306"
+      - "${IP:-127.0.0.1}:3306:3306"
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
     volumes:
-       - mysql:/var/lib/mysql
+       - $PWD/mysql:/var/lib/mysql
 
   nginx:
     image: nginx:alpine
@@ -42,6 +39,3 @@ services:
     volumes:
       - $PWD:/var/www
       - $PWD/docker-compose/nginx:/etc/nginx/conf.d
-
-volumes:
-  - mysql: {}
