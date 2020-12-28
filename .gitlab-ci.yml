@@ -11,7 +11,7 @@ before_script:
     - cd /opt/waqf
     - export PWD=$(pwd)
     - echo $PWD
-    - sudo chown -R gitlab-runner.gitlab-runner /opt/waqf
+    - sudo chown -R 1000.1000 /opt/waqf
     - docker-compose -f docker-compose-server.yml up -d --build
     - echo 'Successfully deploy'
 
