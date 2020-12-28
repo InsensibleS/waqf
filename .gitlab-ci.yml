@@ -12,6 +12,7 @@ before_script:
     - export PWD=$(pwd)
     - echo $PWD
     - sudo chown -R 1000.1000 /opt/waqf
+    - sed -i "s~http://localhost:8080;~http://$IP:8080;~" ./nginx/conf.d/app.conf
     - docker-compose -f docker-compose-server.yml up -d --build
     - echo 'Successfully deploy'
 
