@@ -37,3 +37,5 @@ RUN chmod +x /entrypoint
 ENTRYPOINT [ "/entrypoint" ]
 
 USER $user
+
+CMD [ "php-fpm" ]
