@@ -16,7 +16,7 @@ services:
     ports:
       - "${IP:-127.0.0.1}:9000:9000"
     volumes:
-      - $PDW:/var/www
+      - $PWD:/var/www
 
   db:
     image: mysql:5.7
