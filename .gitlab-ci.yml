@@ -14,7 +14,7 @@ before_script:
     - echo $PWD
     - sudo chown -R 1000.1000 /opt/waqf
     - docker-compose -f docker-compose-server.yml down
-    - docker-compose -f docker-compose-server.yml up -d --build
+    - sudo docker-compose -f docker-compose-server.yml up -d --build
     - echo 'Successfully deploy'
 
 deploy:
