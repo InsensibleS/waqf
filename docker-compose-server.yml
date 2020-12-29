@@ -39,3 +39,4 @@ services:
     volumes:
       - $PWD:/var/www
       - $PWD/docker-compose/nginx:/etc/nginx/conf.d
+      - $PWD/ssl:/ssl
