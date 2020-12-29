@@ -10,8 +10,6 @@ services:
     image: waqfapp
     container_name: app
     working_dir: /var/www/
-    ports:
-      - "${IP:-127.0.0.1}:9000:9000"
     volumes:
       - /opt/waqf:/var/www
 
