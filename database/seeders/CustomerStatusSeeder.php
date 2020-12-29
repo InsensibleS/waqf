@@ -16,6 +16,11 @@ class CustomerStatusSeeder extends Seeder
     {
         DB::table('customer_statuses')->insert([
             [
+                'title' => 'Registered',
+                'image' => '/images/statuses-logo/registered.svg',
+                'description' => 'no voting rights',
+            ],
+            [
                 'title' => 'Regular',
                 'image' => '/images/statuses-logo/regular.svg',
                 'description' => '1 vote with 1 rating point for any payment',
