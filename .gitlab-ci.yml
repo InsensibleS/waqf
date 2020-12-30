@@ -1,0 +1,25 @@
+before_script:
+    - env | sort
+
+.deploy_templ: &deploy_templ
+  stage: deploy
+  script:
+    - export IP=$(hostname -I | cut -f1 -d' ')
+    - echo $IP
+    - sudo mkdir -p /opt/waqf
+    - sudo cp -rf . /opt/waqf
+    - cd /opt/waqf
+    - export PWD=$(pwd)
+    - echo $PWD
+    - sudo chown -R 1000.1000 /opt/waqf
+    - docker-compose -f docker-compose-server.yml down
+    - sudo docker-compose -f docker-compose-server.yml up -d --build
+    - echo 'Successfully deploy'
+
+deploy:
+  <<: *deploy_templ
+  tags:
+    - shell-dev
+  only:
+    - develop
+    - devops/cicd

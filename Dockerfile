@@ -31,4 +31,13 @@ RUN mkdir -p /home/$user/.composer && \
 # Set working directory
 WORKDIR /var/www
 
+COPY entrypoint /entrypoint
+RUN chmod +x /entrypoint
+
+ENTRYPOINT [ "/entrypoint" ]
+
 USER $user
+
+
+EXPOSE 9000
+CMD ["php-fpm"]

@@ -29,5 +29,5 @@ Route::get('/auth/callback', function () {
     $user->getId();
     $user->getname();
     $user->getEmail();
-    $user-.getToken(); 
+    $user-.getToken();
     });
