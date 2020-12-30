@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MainPageController;
 use App\Http\Controllers\Api\EmailController;
+use App\Http\Controllers\Api\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,10 @@ Route::get('/getMainPage', [MainPageController::class, 'getDataMainPage']);
 Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLinkToCompleteRegistration']);
 // link validation to complete registration
 Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
+// link validation to complete registration
+Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
+// logit with fb
+Route::post('/login/fb', [SocialController::class, 'loginWithFb']);
+// logit with fb
+Route::post('/register/fb', [SocialController::class, 'registerWithFb']);
+
