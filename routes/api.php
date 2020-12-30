@@ -30,6 +30,6 @@ Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'v
 Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
 // logit with fb
 Route::post('/login/fb', [SocialController::class, 'loginWithFb']);
-// logit with fb
+// register with fb
 Route::post('/register/fb', [SocialController::class, 'registerWithFb'])->middleware('cors');
 
