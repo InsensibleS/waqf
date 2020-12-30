@@ -13,12 +13,8 @@ class SocialController extends Controller
 
     public function registerWithFb(Request $request) {
 
-        $headers = [
-            'Access-Control-Allow-Methods' => '*',
-            'Access-Control-Max-Age' => 3600,
-            'Access-Control-Allow-Headers' => 'X-Requested-With, Origin, X-Csrftoken, Content-Type, Accept',
-        ];
-//        return $response->withHeaders($headers);
-        return response()->withHeaders($headers)->json(['message' => $request->all()]);
+
+
+        return response()->json(['message' => $request->all()]);
     }
 }

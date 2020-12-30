@@ -135,7 +135,7 @@
                 surname: 'Smith'
             };
 
-            let response = await fetch('https://waqf-admin.softlex.pro/register/fb', {
+            let response = await fetch('https://waqf-admin.softlex.pro/api/register/fb', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
