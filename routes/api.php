@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MainPageController;
 use App\Http\Controllers\Api\RegApiController;
 use App\Http\Controllers\Api\EmailController;
+use App\Http\Controllers\Api\SocialController;
 
 
 /*
@@ -38,3 +39,10 @@ Route::get('/auth/callback', function () {
 Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLinkToCompleteRegistration']);
 // link validation to complete registration
 Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
+// link validation to complete registration
+Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
+// logit with fb
+Route::post('/login/fb', [SocialController::class, 'loginWithFb']);
+// logit with fb
+Route::post('/register/fb', [SocialController::class, 'registerWithFb']);
+
