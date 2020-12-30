@@ -13,7 +13,7 @@ class SocialController extends Controller
 
     public function registerWithFb(Request $request) {
 
-
+        return response()->json(['message' => 'Customer created']);
 
         return response()->json(['message' => $request->all()]);
     }
