@@ -45,4 +45,7 @@ Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'v
 Route::post('/login/fb', [SocialController::class, 'loginWithFb']);
 // logit with fb
 Route::post('/register/fb', [SocialController::class, 'registerWithFb']);
-
+//login wihit google
+Route::post('/login/google', [SocialController::class, 'loginWithGoogle']);
+//register with google
+Route::post('/register/google', [SocialController::class, 'registerWithGoogle']);

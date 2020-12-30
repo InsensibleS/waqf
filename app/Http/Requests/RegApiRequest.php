@@ -28,7 +28,6 @@ class RegApiRequest extends FormRequest
           'provider_id' => 'required',
           'provider'  => 'required',
           'token' => 'required|unique:social_accounts,token',
-          'email' => 'email', 
         ];
         switch ($this->getMethod())
      {
