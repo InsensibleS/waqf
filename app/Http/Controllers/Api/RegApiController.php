@@ -15,7 +15,7 @@ class RegApiController extends Controller
 
 $api_token = Str::random(60);
     $google = SocialAccount::create([
-      'user_id' =>  $user_id,
+      'customer_id' =>  $user_id,
       'provider' => $request ->input('provider'),
       'provider_id' => $request ->input('provider_id'),
       'token' => $request ->input('token'),

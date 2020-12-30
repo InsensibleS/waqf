@@ -4,6 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MainPageController;
 use App\Http\Controllers\Api\RegApiController;
+use App\Http\Controllers\Api\EmailController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,3 +34,7 @@ Route::get('/auth/callback', function () {
     $user->getEmail();
     $user-.getToken();
     });
+// sending an email with a link to end registration
+Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLinkToCompleteRegistration']);
+// link validation to complete registration
+Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
