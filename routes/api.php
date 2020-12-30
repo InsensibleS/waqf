@@ -31,5 +31,5 @@ Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'v
 // logit with fb
 Route::post('/login/fb', [SocialController::class, 'loginWithFb']);
 // logit with fb
-Route::post('/register/fb', [SocialController::class, 'registerWithFb']);
+Route::post('/register/fb', [SocialController::class, 'registerWithFb'])->middleware('api');
 
