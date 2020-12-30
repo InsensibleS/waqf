@@ -22,3 +22,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/getMainPage', [MainPageController::class, 'getDataMainPage']);
 
 Route::post('/registration/google','App\Http\Controllers\Api\RegApiController@google');
+
+Route::get('/auth/callback', function () {
+    $user = Socialite::driver('google')->user();
+    // All providers...
+    $user->getId();
+    $user->getname();
+    $user->getEmail();
+    $user-.getToken(); 
+    });
