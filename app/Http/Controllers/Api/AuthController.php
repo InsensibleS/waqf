@@ -22,23 +22,11 @@ class AuthController extends Controller
     public function loginWithFb(RegFbRequest $request)
     {
         $socialAccount = $this->socialService->checkClientExists('facebook', $request->userID);
-        if($socialAccount === null || $socialAccount->customer === null) {
-            return response()->json(['message' => "Customer not found"], 401);
+        $customer = $this->customerService->findOrCreate($request);
+        if($socialAccount === null) {
+            $socialAccount = $this->socialService->createSocialAccount($request, $customer->id, 'facebook');
         }
         $customerToken = $this->customerService->createToken($socialAccount->customer);
-
-        return response()->json(['message' => 'Success!', 'token' => $customerToken]);
-    }
-
-    public function registerWithFb(RegFbRequest $request)
-    {
-        $socialAccount = $this->socialService->checkClientExists('facebook', $request->userID);
-        if($socialAccount !== null) {
-            return response()->json(['message' => 'This social account is already registered']);
-        }
-        $customer = $this->customerService->findOrCreate($request);
-        $customerToken = $this->customerService->createToken($customer);
-        $socialAccount = $this->socialService->createSocialAccount($request, $customer->id, 'facebook');
 
         return response()->json(['message' => 'Success!', 'token' => $customerToken]);
     }
