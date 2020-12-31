@@ -45,5 +45,5 @@ Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
  *  Routes for authorized users
  */
 Route::middleware('auth:api')->group( function () {
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
