@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Services\CustomerService;
 use App\Services\SocialService;
 use Illuminate\Http\Request;
-use App\Http\Requests\RegApiRequest;
+use App\Http\Requests\RegFbRequest;
 
 class AuthController extends Controller
 {
@@ -19,9 +19,9 @@ class AuthController extends Controller
         $this->socialService = $socialService;
     }
 
-    public function loginWithFb(RegApiRequest $request)
+    public function loginWithFb(RegFbRequest $request)
     {
-        $socialAccount = $this->socialService->checkClientExists('facebook', $request->userId);
+        $socialAccount = $this->socialService->checkClientExists('facebook', $request->userID);
         if($socialAccount === null || $socialAccount->customer === null) {
             return response()->json(['message' => "Customer not found"], 401);
         }
@@ -30,9 +30,9 @@ class AuthController extends Controller
         return response()->json(['message' => 'Success!', 'token' => $customerToken]);
     }
 
-    public function registerWithFb(RegApiRequest $request)
+    public function registerWithFb(RegFbRequest $request)
     {
-        $socialAccount = $this->socialService->checkClientExists('facebook', $request->userId);
+        $socialAccount = $this->socialService->checkClientExists('facebook', $request->userID);
         if($socialAccount !== null) {
             return response()->json(['message' => 'This social account is already registered']);
         }
