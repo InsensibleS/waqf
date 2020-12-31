@@ -14,6 +14,8 @@ before_script:
     - sudo chown -R 1000.1000 /opt/waqf
     - docker-compose -f docker-compose-server.yml down
     - sudo docker-compose -f docker-compose-server.yml up -d --build
+    - sudo docker rm $(docker ps -aq) || echo "OK"
+    - sudo docker rmi $(docker images --filter "dangling=true" -q --no-trunc) || echo "OK"
     - echo 'Successfully deploy'
 
 deploy:
