@@ -25,7 +25,7 @@ class RegApiRequest extends FormRequest
     public function rules()
     {
         $rules = [
-//            'provider' => 'required||max:255',
+            'provider' => 'required||max:255',
             'accessToken' => 'required||max:255',
             'name' => 'max:255',
             'email' => 'email',

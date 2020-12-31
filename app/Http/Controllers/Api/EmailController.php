@@ -57,7 +57,8 @@ class EmailController extends Controller
     {
         $customer = $this->customerService->findByRegistrationString($request);
         $this->customerService->registerCustomer($customer);
+        $customerToken = $this->customerService->createToken($customer);
 
-        return response()->json(['message' => 'Customer registered.']);
+        return response()->json(['message' => 'Customer registered.', 'token' => $customerToken]);
     }
 }
