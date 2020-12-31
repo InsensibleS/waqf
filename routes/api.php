@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MainPageController;
 use App\Http\Controllers\Api\RegApiController;
 use App\Http\Controllers\Api\EmailController;
-use App\Http\Controllers\Api\SocialController;
+//use App\Http\Controllers\Api\SocialController;
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,14 +27,14 @@ Route::get('/getMainPage', [MainPageController::class, 'getDataMainPage']);
 
 Route::post('/registration/google','App\Http\Controllers\Api\RegApiController@google');
 
-Route::get('/auth/callback', function () {
-    $user = Socialite::driver('google')->user();
-    // All providers...
-    $user->getId();
-    $user->getname();
-    $user->getEmail();
-    $user-.getToken();
-    });
+//Route::get('/auth/callback', function () {
+//    $user = Socialite::driver('google')->user();
+//    // All providers...
+//    $user->getId();
+//    $user->getname();
+//    $user->getEmail();
+//    $user-.getToken();
+//    });
 // sending an email with a link to end registration
 Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLinkToCompleteRegistration']);
 // link validation to complete registration
@@ -41,10 +42,17 @@ Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'v
 // link validation to complete registration
 Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
 // logit with fb
-Route::post('/login/fb', [SocialController::class, 'loginWithFb']);
+Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 // logit with fb
-Route::post('/register/fb', [SocialController::class, 'registerWithFb']);
-//login wihit google
-Route::post('/login/google', [SocialController::class, 'loginWithGoogle']);
-//register with google
-Route::post('/register/google', [SocialController::class, 'registerWithGoogle']);
+Route::post('/register/fb', [AuthController::class, 'registerWithFb']);
+////login wihit google
+//Route::post('/login/google', [SocialController::class, 'loginWithGoogle']);
+////register with google
+//Route::post('/register/google', [SocialController::class, 'registerWithGoogle']);
+
+/**
+ *  Routes for authorized users
+ */
+Route::middleware('auth:api')->group( function () {
+    Route::get('/logout', [AuthController::class, 'logout']);
+});

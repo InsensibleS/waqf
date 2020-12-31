@@ -7,7 +7,7 @@ use App\Models\Customer;
 class EmailService
 {
     private $domain = 'https://waqf.softlex.pro/';
-    private $endpointConfirmationRegistration = 'acc/';
+    private $endpointConfirmationRegistration = 'acc-settings/';
 
     /**
      *

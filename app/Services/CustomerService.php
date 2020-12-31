@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CustomerService
 {
@@ -50,7 +51,7 @@ class CustomerService
 
     /**
      *
-     * @param  Request  $request
+     * @param  Customer  $customer
      * @return void
      *
      */
@@ -58,5 +59,45 @@ class CustomerService
     {
         $customer->is_registered = true;
         $customer->save();
+    }
+
+    /**
+     *
+     * @param  Request  $request
+     * @return Customer
+     *
+     */
+    public function findOrCreate(Request $request)
+    {
+       $customer = null;
+
+        if($request->email !== null) {
+            $customer = $this->customer->where('email', $request->email)->first();
+       }
+
+        if($customer === null) {
+            $customerData = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'status_id' => 1
+            ];
+            $customer =  $this->customer->create($customerData);
+        }
+        return $customer;
+    }
+
+    /**
+     *
+     * @param  Customer  $customer
+     * @return string
+     *
+     */
+    public function createToken(Customer $customer): string
+    {
+        $token = Str::random(80);
+        $customer->api_token = hash('sha256', $token);
+        $customer->save();
+
+        return $token;
     }
 }

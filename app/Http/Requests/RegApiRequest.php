@@ -25,14 +25,16 @@ class RegApiRequest extends FormRequest
     public function rules()
     {
         $rules = [
-          'provider_id' => 'required',
-          'provider'  => 'required',
-          'token' => 'required|unique:social_accounts,token',
+//            'provider' => 'required||max:255',
+            'accessToken' => 'required||max:255',
+            'name' => 'max:255',
+            'email' => 'email',
+            'userId' => 'required|max:255',
         ];
         switch ($this->getMethod())
-     {
-       case 'POST':
-       return $rules;
-      }
+        {
+           case 'POST':
+           return $rules;
+       }
     }
 }

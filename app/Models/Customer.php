@@ -5,24 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Customer extends Model
+class Customer extends Authenticatable
 {
-    use HasFactory,  SoftDeletes;
+    use Notifiable, HasFactory,  SoftDeletes;
 
     protected $dates = ['deleted_at'];
 
-    protected $fillable = [
-      'name',
-      'email',
-      'phone',
-      'phone_verified_code',
-      'phone_verified_at'
-      'ending_email_with_link'
-      'sending_email_with_password'
-      'status_id',
-      'api_token',
-    ];
+    protected $guarded = ['id'];
 
     public function status()
     {

@@ -128,26 +128,5 @@
                 </div>
             </div>
         </div>
-    <script type="text/javascript">
-        async function f() {
-            let user = {
-                name: 'John',
-                surname: 'Smith'
-            };
-
-            let response = await fetch('https://waqf-admin.softlex.pro/api/register/fb', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify(user)
-            });
-
-            let result = await response.json();
-            console.log(result);
-        }
-        f();
-        // alert(result.message);
-    </script>
     </body>
 </html>

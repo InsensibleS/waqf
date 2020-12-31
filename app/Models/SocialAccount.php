@@ -12,9 +12,13 @@ class SocialAccount extends Model
     protected $table = "social_accounts";
 
     protected $fillable = [
-      'user_id',
-      'provider_id',
-      'provider',
-      'token'
+        'customer_id',
+        'customer_id_by_provider',
+        'provider',
+        'token'
     ];
+
+    public function customer() {
+        return $this->belongsTo(Customer::class, 'customer_id');
+    }
 }

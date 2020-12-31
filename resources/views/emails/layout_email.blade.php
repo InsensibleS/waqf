@@ -162,7 +162,7 @@ font-family: 'Red Hat Display';
                         "text-align: center;
                                     vertical-align: middle;">
                         <a
-                            href="#"
+                            href="@yield('link')"
                             class="main-link"
                             style=
                             "font-size: 14px;

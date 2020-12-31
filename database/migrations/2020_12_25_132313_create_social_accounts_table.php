@@ -17,7 +17,7 @@ class CreateSocialAccountsTable extends Migration
             $table->id()->autoIncrement();
             $table->timestamps();
             $table->foreignId('customer_id')->constrained('customers');
-            $table->string('provider_id');
+            $table->string('customer_id_by_provider');
             $table->string('provider');
             $table->string('token');
         });

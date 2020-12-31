@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
-
+use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-Route::get('/test', function () {
-    return view('welcome');
-});
+//Route::get('/test', function () {
+//    return view('welcome');
+//});
+
+Route::get('/test', [AuthController::class, 'test']);
