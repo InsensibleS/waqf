@@ -29,4 +29,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+
+    'facebook' => [
+        'client_id'     => '451379605898388',
+        'client_secret' => '90b4cb446b95ed91007a7114b4ea1460',
+        'redirect'      => 'https://waqf.softlex.pro/',
+    ],
 ];

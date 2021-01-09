@@ -37,7 +37,7 @@ Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 // logit with fb
 //Route::post('/register/fb', [AuthController::class, 'registerWithFb']);
 ////login wihit google
-//Route::post('/login/google', [SocialController::class, 'loginWithGoogle']);
+Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 ////register with google
 //Route::post('/register/google', [SocialController::class, 'registerWithGoogle']);
 
