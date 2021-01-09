@@ -1,6 +1,7 @@
 version: "3.7"
 services:
   app:
+    restart: always
     build:
       args:
         user: waqf
