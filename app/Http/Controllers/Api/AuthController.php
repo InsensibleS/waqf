@@ -23,29 +23,24 @@ class AuthController extends Controller
 
     public function loginWithFb(RegFbRequest $request)
     {
-        $socialAccount = $this->socialService->checkClientExists('facebook', $request->userID);
-        $customer = $this->customerService->findOrCreate($request);
-        if($socialAccount === null) {
-            $socialAccount = $this->socialService->createSocialAccount($request, $customer->id, 'facebook');
-        } else {
-            $socialAccount->token = $request->accessToken;
-            $socialAccount->save();
+        if(!$this->socialService->checkFbAccount($request)) {
+            return response()->json(['error' => 'The user was not verified in FB!']);
         }
-        $customerToken = $this->customerService->createToken($socialAccount->customer);
+        $customer = $this->customerService->findOrCreate($request);
+        $socialAccount = $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->userID, 'facebook');
 
-        return response()->json(['message' => 'Success!', 'token' => $customerToken]);
+        return response()->json(['message' => 'Success!', 'token' => $this->customerService->createToken($socialAccount->customer)]);
     }
 
     public function loginWithGoogle(RegGoogleRequest $request)
     {
-//        $socialAccount = $this->socialService->checkClientExists('facebook', $request->userID);
-//        $customer = $this->customerService->findOrCreate($request);
-//        if($socialAccount === null) {
-//            $socialAccount = $this->socialService->createSocialAccount($request, $customer->id, 'facebook');
-//        }
-//        $customerToken = $this->customerService->createToken($socialAccount->customer);
-//
-//        return response()->json(['message' => 'Success!', 'token' => $customerToken]);
+        if(!$this->socialService->checkGoogleAccount($request)) {
+            return response()->json(['error' => 'The user was not verified in Google!']);
+        }
+        $customer = $this->customerService->findOrCreate($request);
+        $socialAccount = $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->googleId, 'google');
+
+        return response()->json(['message' => 'Success!', 'token' => $this->customerService->createToken($socialAccount->customer)]);
     }
 
     public function logout (Request $request)
@@ -56,7 +51,7 @@ class AuthController extends Controller
     }
 
     public function test() {
-        $user = Socialite::driver('facebook')->userFromToken('EAAGahwERhJQBAONJvTs7rQb56juGjxiiYddfZAM6eCkc9CTOkYwdqMA9Gf7uTckcx53yHTYmAYvPSK3g2Wkq76wehwf8NqsIKIilN1ZC8lEAVBiZAth5QYrpAuWacHxJjQf7KRqBV4nkgxh2wX3N4iQ0DnYtBQOwNwkQtkDUje9ONyIIZCRCpofgqaxzq3wRp9peiY3lumjaUEYLvP5SgXLontjvUHcZD');
+        $user = Socialite::driver('facebook')->userFromToken('EAAGahwERhJQBAErJiUuH13GxWls09D80KkwzXwKaDLgo50qmhx2yYLXuhRUpsBJJZCDTMbNecQKM0xKZBBhHCYLFxnlLAEAargm3AK2vroOa03PPod5AYRPPuIlXr1JTNYZBswiO08sKXrJpQZCfbvKyjp6hpI1BJavhBveCgtl3C3tMNs3Ner2pZBcwT9xe4FpZAiiuIigdV0fPNwoUZBlABCmlUwJuNMZD');
         dd($user);
     }
 }

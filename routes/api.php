@@ -24,8 +24,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 // data for the frontend on the main page
 Route::get('/getMainPage', [MainPageController::class, 'getDataMainPage']);
-
-Route::post('/registration/google','App\Http\Controllers\Api\RegApiController@google');
 // sending an email with a link to end registration
 Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLinkToCompleteRegistration']);
 // link validation to complete registration
@@ -34,13 +32,8 @@ Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'v
 Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
 // logit with fb
 Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
-// logit with fb
-//Route::post('/register/fb', [AuthController::class, 'registerWithFb']);
 ////login wihit google
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
-////register with google
-//Route::post('/register/google', [SocialController::class, 'registerWithGoogle']);
-
 /**
  *  Routes for authorized users
  */

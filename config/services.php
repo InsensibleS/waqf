@@ -31,8 +31,14 @@ return [
     ],
 
     'facebook' => [
-        'client_id'     => '451379605898388',
-        'client_secret' => '90b4cb446b95ed91007a7114b4ea1460',
-        'redirect'      => 'https://waqf.softlex.pro/',
+        'client_id'     => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect'      => env('FACEBOOK_CALLBACK_URL'),
+    ],
+
+    'google' => [
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect'      => env('GOOGLE_REDIRECT')
     ],
 ];

@@ -25,16 +25,10 @@ class RegGoogleRequest extends FormRequest
     {
         return [
             'accessToken' => 'required||max:255',
-            'name' => 'max:255',
-            'email' => 'email',
+            'profileObj.name' => 'required|max:255',
+            'profileObj.email' => 'required|email',
             'googleId' => 'required|max:255',
+            'profileObj.imageUrl' => 'max:255',
         ];
     }
-
-//email: "maksat.imanaliev@softlex.pro"
-//familyName: "Иманалиев"
-//givenName: "Максат"
-//googleId: "113921764590254474699"
-//imageUrl: "https://lh6.googleusercontent.com/-5lgeKO__aAY/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucmGS0vfFJkJAUqK1N9Qa8jyD98SmA/s96-c/photo.jpg"
-//name: "Максат Иманалиев"
 }
