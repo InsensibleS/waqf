@@ -97,15 +97,15 @@ class CustomerService
     public function findOrCreateWithGoogle(Request $request) {
         $customer = null;
 
-        if($request->profileObj->email !== null) {
-            $customer = $this->customer->where('email', $request->profileObj->email)->first();
+        if($request['profileObj']['email'] !== null) {
+            $customer = $this->customer->where('email', $request['profileObj']['email'])->first();
         }
 
         if($customer === null) {
             $imageUrl = $request['profileObj']['imageUrl'] ?? null;
             $customerData = [
-                'name' => $request->profileObj->name,
-                'email' => $request->profileObj->email,
+                'name' => $request['profileObj']['name'],
+                'email' => $request['profileObj']['email'],
                 'status_id' => 1,
                 'avatar' => $this->createCustomerAvatar($imageUrl)
             ];

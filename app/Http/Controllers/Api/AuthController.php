@@ -37,9 +37,9 @@ class AuthController extends Controller
 
     public function loginWithGoogle(RegGoogleRequest $request)
     {
-//        if(!$this->socialService->checkGoogleAccount($request)) {
-//            return response()->json(['error' => 'The user was not verified in Google!']);
-//        }
+        if(!$this->socialService->checkGoogleAccount($request)) {
+            return response()->json(['error' => 'The user was not verified in Google!']);
+        }
 
         $customer = $this->customerService->findOrCreateWithGoogle($request);
         $socialAccount = $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->googleId, 'google');
