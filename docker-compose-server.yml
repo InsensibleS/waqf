@@ -39,3 +39,7 @@ services:
       - /opt/waqf:/var/www
       - /opt/waqf/docker-compose/nginx:/etc/nginx/conf.d
       - /opt/waqf/ssl:/ssl
+
+  adminer:
+    image: adminer
+    restart: always
