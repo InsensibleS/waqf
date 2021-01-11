@@ -30,7 +30,7 @@ Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLin
 Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
 // logit with fb
 Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
-////login wihit google
+// login wihit google
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 /**
  *  Routes for authorized users
@@ -38,3 +38,6 @@ Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 Route::middleware('auth:api')->group( function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 });
+
+// test
+Route::post('/test', [AuthController::class, 'test']);

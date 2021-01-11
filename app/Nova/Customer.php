@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -47,6 +48,8 @@ class Customer extends Resource
             Text::make('Name', 'name')
                 ->sortable()
                 ->rules('max:255'),
+
+            Avatar::make('Avatar', 'avatar')->path('/customer-photos'),
 
             Text::make('Email')
                 ->sortable()

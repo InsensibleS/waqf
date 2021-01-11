@@ -8,9 +8,13 @@ use App\Services\SocialService;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegFbRequest;
 use App\Http\Requests\RegGoogleRequest;
+use Illuminate\Support\Facades\Storage;
+
 
 class AuthController extends Controller
 {
+    private const PUBLIC_PATH = '/public/photos/';
+
     protected $customerService;
     protected $socialService;
 
@@ -25,7 +29,7 @@ class AuthController extends Controller
         if(!$this->socialService->checkFbAccount($request)) {
             return response()->json(['error' => 'The user was not verified in FB!']);
         }
-        $customer = $this->customerService->findOrCreate($request);
+        $customer = $this->customerService->findOrCreateWithFb($request);
         $socialAccount = $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->userID, 'facebook');
 
         return response()->json(['message' => 'Success!', 'token' => $this->customerService->createToken($socialAccount->customer)]);
@@ -33,10 +37,11 @@ class AuthController extends Controller
 
     public function loginWithGoogle(RegGoogleRequest $request)
     {
-        if(!$this->socialService->checkGoogleAccount($request)) {
-            return response()->json(['error' => 'The user was not verified in Google!']);
-        }
-        $customer = $this->customerService->findOrCreate($request);
+//        if(!$this->socialService->checkGoogleAccount($request)) {
+//            return response()->json(['error' => 'The user was not verified in Google!']);
+//        }
+
+        $customer = $this->customerService->findOrCreateWithGoogle($request);
         $socialAccount = $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->googleId, 'google');
 
         return response()->json(['message' => 'Success!', 'token' => $this->customerService->createToken($socialAccount->customer)]);
@@ -47,5 +52,11 @@ class AuthController extends Controller
         $request->user()->update(['api_token' => null]);
 
         return response(['message' => 'Success!']);
+    }
+
+    public function test (Request $request)
+    {
+        $imageUrl = $request['profileObj']['imageUrl'];
+
     }
 }
