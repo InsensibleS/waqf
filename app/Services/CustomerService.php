@@ -81,7 +81,7 @@ class CustomerService
         }
 
         if($customer === null) {
-            $imageUrl = $request->picture->data->url ?? null;
+            $imageUrl = $request['picture']['data']['url'] ?? null;
             $customerData = [
                 'name' => $request->name,
                 'email' => $request->email,
