@@ -68,7 +68,6 @@ class CustomerService
     /**
      *
      * @param  Request  $request
-     * @param string|null $imageUrl
      * @return Customer
      *
      */
@@ -86,7 +85,8 @@ class CustomerService
                 'name' => $request->name,
                 'email' => $request->email,
                 'status_id' => 1,
-                'avatar' => $this->createCustomerAvatar($imageUrl)
+                'avatar' => $this->createCustomerAvatar($imageUrl),
+                'is_registered' => true
             ];
             $customer =  $this->customer->create($customerData);
         }
@@ -94,6 +94,12 @@ class CustomerService
         return $customer;
     }
 
+    /**
+     *
+     * @param  Request  $request
+     * @return Customer
+     *
+     */
     public function findOrCreateWithGoogle(Request $request) {
         $customer = null;
 
@@ -107,7 +113,8 @@ class CustomerService
                 'name' => $request['profileObj']['name'],
                 'email' => $request['profileObj']['email'],
                 'status_id' => 1,
-                'avatar' => $this->createCustomerAvatar($imageUrl)
+                'avatar' => $this->createCustomerAvatar($imageUrl),
+                'is_registered' => true
             ];
             $customer =  $this->customer->create($customerData);
         }
