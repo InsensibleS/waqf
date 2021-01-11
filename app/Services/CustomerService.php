@@ -139,7 +139,7 @@ class CustomerService
     {
         if($imageUrl !== null) {
             $contents = file_get_contents($imageUrl);
-            $name = time() . '_' . basename($imageUrl);
+            $name = (string)time();
             Storage::put(self::PUBLIC_PATH . $name, $contents);
 
             return self::FILES_PATH . $name;
