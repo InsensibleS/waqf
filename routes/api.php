@@ -28,8 +28,6 @@ Route::get('/getMainPage', [MainPageController::class, 'getDataMainPage']);
 Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLinkToCompleteRegistration']);
 // link validation to complete registration
 Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
-// link validation to complete registration
-Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
 // logit with fb
 Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 ////login wihit google

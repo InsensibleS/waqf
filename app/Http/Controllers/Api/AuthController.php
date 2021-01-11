@@ -8,7 +8,6 @@ use App\Services\SocialService;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegFbRequest;
 use App\Http\Requests\RegGoogleRequest;
-use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -48,10 +47,5 @@ class AuthController extends Controller
         $request->user()->update(['api_token' => null]);
 
         return response(['message' => 'Success!']);
-    }
-
-    public function test() {
-        $user = Socialite::driver('facebook')->userFromToken('EAAGahwERhJQBAErJiUuH13GxWls09D80KkwzXwKaDLgo50qmhx2yYLXuhRUpsBJJZCDTMbNecQKM0xKZBBhHCYLFxnlLAEAargm3AK2vroOa03PPod5AYRPPuIlXr1JTNYZBswiO08sKXrJpQZCfbvKyjp6hpI1BJavhBveCgtl3C3tMNs3Ner2pZBcwT9xe4FpZAiiuIigdV0fPNwoUZBlABCmlUwJuNMZD');
-        dd($user);
     }
 }

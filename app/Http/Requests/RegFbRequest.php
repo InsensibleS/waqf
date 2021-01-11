@@ -28,17 +28,7 @@ class RegFbRequest extends FormRequest
             'name' => 'max:255',
             'email' => 'email',
             'userID' => 'required|max:255',
+            'picture.data.url' => 'max:255'
         ];
-
-//        accessToken: "........."
-//data_access_expiration_time: 1617093162
-//email: "maximanaliev@gmail.com"
-//expiresIn: 5238
-//graphDomain: "facebook"
-//id: "2901219159915677"
-//name: "Mid Point"
-//picture: {data: {…}}
-//signedRequest: ".........."
-//userID: "2901219159915677"
     }
 }

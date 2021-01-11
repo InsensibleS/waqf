@@ -73,7 +73,7 @@ class CustomerService
 
         if($request->email !== null) {
             $customer = $this->customer->where('email', $request->email)->first();
-       }
+        }
 
         if($customer === null) {
             $customerData = [

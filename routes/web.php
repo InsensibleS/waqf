@@ -18,5 +18,3 @@ use App\Http\Controllers\Api\AuthController;
 //Route::get('/test', function () {
 //    return view('welcome');
 //});
-
-Route::get('/test', [AuthController::class, 'test']);
