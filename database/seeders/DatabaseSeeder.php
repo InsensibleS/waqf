@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Policies\ProjectStatusPolicy;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,7 +21,8 @@ class DatabaseSeeder extends Seeder
             CustomerStatusSeeder::class,
             NewsTableSeeder::class,
             MainPageAttributeSeeder::class,
-            CountrySeeder::class
+            CountrySeeder::class,
+            ProjectStatusSeeder::class,
         ]);
     }
 }
