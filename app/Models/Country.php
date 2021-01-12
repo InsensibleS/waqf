@@ -11,8 +11,4 @@ class Country extends Model
     use HasFactory,  SoftDeletes;
     protected $table = 'countries';
     protected $dates = ['deleted_at'];
-
-    protected $casts = [
-        'publication_date' => 'datetime'
-    ];
 }
