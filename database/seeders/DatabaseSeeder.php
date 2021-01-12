@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             MainPageAttributeSeeder::class,
             CountrySeeder::class,
             ProjectStatusSeeder::class,
+            GrantStagesSeeder::class,
         ]);
     }
 }
