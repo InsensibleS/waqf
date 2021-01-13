@@ -30,6 +30,8 @@ class LinkShipped extends Mailable
      */
     public function build()
     {
-        return $this->subject('Confirm your email address')->view('emails.send_link');
+        return $this->from(config('mail.from.address'), 'Digital WAQF')
+            ->subject('Confirm your email address')
+            ->view('emails.send_link');
     }
 }
