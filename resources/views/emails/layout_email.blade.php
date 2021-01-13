@@ -136,44 +136,7 @@ font-family: 'Red Hat Display';
                     </td>
                 </tr>
             </table>
-            <table
-                class="link-table"
-                style=
-                "background-color: #ffffff;
-                            border: 0;
-                            border-spacing: 0;
-                            padding: 0;
-                            width: 100%;
-                            text-align: center;"
-            >
-                <tr>
-                    <td class="center"
-                        style="text-align: center;
-                                        vertical-align: middle;
-                                        height: 15px;
-                                        line-height:15px;
-                                        font-size:8px;">
-                        &nbsp;
-                    </td>
-                </tr>
-                <tr>
-                    <td class="center"
-                        style=
-                        "text-align: center;
-                                    vertical-align: middle;">
-                        <a
-                            href="@yield('link')"
-                            class="main-link"
-                            style=
-                            "font-size: 14px;
-                                        text-decoration: underline;
-                                        color: #f46036;
-                                        text-align: center;"
-                        >@yield('link')</a>
-                    </td>
-                </tr>
-                @yield('margin-after-link')
-            </table>
+            @yield('link-btn')
             @yield('text-after-link')
             <table
                 class="grey-text-table"

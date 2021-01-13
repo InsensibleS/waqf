@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\LinkShipped;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Api\AuthController;
@@ -14,7 +15,3 @@ use App\Http\Controllers\Api\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-//Route::get('/test', function () {
-//    return view('welcome');
-//});

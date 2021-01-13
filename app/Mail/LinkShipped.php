@@ -30,6 +30,6 @@ class LinkShipped extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.send_link');
+        return $this->subject('Confirm your email address')->view('emails.send_link');
     }
 }
