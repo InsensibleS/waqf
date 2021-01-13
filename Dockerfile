@@ -3,7 +3,6 @@ FROM php:7.4-fpm
 # Arguments defined in docker-compose.yml
 ARG user
 ARG uid
-
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
@@ -12,7 +11,13 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    unzip
+    unzip\
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libxpm-dev \
+    libvpx-dev \
+ && docker-php-ext-configure gd --with-freetype=/usr --with-jpeg=/usr
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
