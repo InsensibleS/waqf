@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Services\CustomerService;
+use App\Services\HashTagService;
 use App\Services\SocialService;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegFbRequest;
 use App\Http\Requests\RegGoogleRequest;
+use App\Http\Requests\ProjectRequest;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -54,9 +56,11 @@ class AuthController extends Controller
         return response(['message' => 'Success!']);
     }
 
-    public function test (Request $request)
+    public function test (ProjectRequest $request)
     {
-        $imageUrl = $request['profileObj']['imageUrl'];
-
+        $sdf = new HashTagService();
+        return $sdf->getHashtagsFromString($request->hashtags);
+//        return explode('#', $request->hashtags);
+//        return $request->all();
     }
 }

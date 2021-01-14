@@ -40,4 +40,4 @@ Route::middleware('auth:api')->group( function () {
 });
 
 // test
-Route::post('/test', [AuthController::class, 'test']);
+Route::post('/saveHashTags', [AuthController::class, 'test']);
