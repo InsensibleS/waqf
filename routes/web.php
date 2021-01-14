@@ -4,7 +4,7 @@ use App\Mail\LinkShipped;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\ImageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,4 @@ use App\Http\Controllers\ImageController;
 //Route::get('/test', function () {
    // return view('welcome');
 //});
-Route::get('/test', Function () {
-    return view('image/imageuplode');
-});
-Route::post('/image', [ImageController::class, 'upload'])->name('image.upload');
+
