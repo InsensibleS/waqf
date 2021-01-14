@@ -27,7 +27,6 @@ class AddAvatarToCustomersTable extends Migration
     {
         Schema::table('customers', function (Blueprint $table) {
             $table->dropColumn('avatar');
-
         });
     }
 }

@@ -17,35 +17,27 @@ class GrantStagesSeeder extends Seeder
         DB::table('grant_stages')->insert([
             [
                 'title' => 'Wating',
-
             ],
             [
                 'title' => 'Selection of project',
-
             ],
             [
                 'title' => 'Moderation',
-
             ],
             [
                 'title' => 'Qualifying round',
-
             ],
             [
                 'title' => 'Semifinal',
-
             ],
             [
                 'title' => 'Final',
-
             ],
             [
                 'title' => 'Summarizing',
-
             ],
             [
                 'title' => 'Archive',
-
             ],
         ]);
     }
