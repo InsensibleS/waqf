@@ -17,23 +17,18 @@ class HashtagSeeder extends Seeder
         DB::table('hashtags')->insert([
             [
                 'title' => '#smile',
-
             ],
             [
                 'title' => '#ilovemydog',
-
             ],
             [
                 'title' => '#home',
-
             ],
             [
                 'title' => '#style',
-
             ],
             [
                 'title' => '#earth',
-
             ],
         ]);
     }
