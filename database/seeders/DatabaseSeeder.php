@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             CountrySeeder::class,
             ProjectStatusSeeder::class,
             GrantStagesSeeder::class,
+            HashtagSeeder::class,
         ]);
     }
 }
