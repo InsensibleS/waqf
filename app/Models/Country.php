@@ -11,4 +11,8 @@ class Country extends Model
     use HasFactory,  SoftDeletes;
     protected $table = 'countries';
     protected $dates = ['deleted_at'];
+
+    public function project(){
+        return $this->hasMany(Project::class);
+    }
 }
