@@ -14,6 +14,6 @@ class ImageController extends Controller
             $constraint->aspectRatio();
         })->save('img/project/'.time().$name);
 
-        return view('image/imageuplode', ['path' => $path]);
+        return response($path);
     }
 }
