@@ -21,4 +21,17 @@ class HashTagService
             return trim($hashtag);
         }, $hashtags);
     }
+
+    /**
+     *
+     * @param string $hashtagTitle
+     * @return int
+     */
+    public function findOrCreate(string $hashtagTitle): int
+    {
+        $hashtag =Hashtag::where('title', $hashtagTitle)->first();
+        $hashtag = $hashtag ?: Hashtag::create(['title' => $hashtagTitle]);
+
+        return $hashtag->id;
+    }
 }

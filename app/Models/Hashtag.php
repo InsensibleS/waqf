@@ -11,4 +11,5 @@ class Hashtag extends Model
     use HasFactory, SoftDeletes;
     protected $table = 'hashtags';
     protected $dates = ['deleted_at'];
+    protected $guarded = ['id'];
 }

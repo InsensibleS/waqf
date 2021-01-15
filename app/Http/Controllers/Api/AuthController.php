@@ -10,13 +10,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\RegFbRequest;
 use App\Http\Requests\RegGoogleRequest;
 use App\Http\Requests\ProjectRequest;
-use Illuminate\Support\Facades\Storage;
-
 
 class AuthController extends Controller
 {
-    private const PUBLIC_PATH = '/public/photos/';
-
     protected $customerService;
     protected $socialService;
 
@@ -59,7 +55,7 @@ class AuthController extends Controller
     public function test (ProjectRequest $request)
     {
         $sdf = new HashTagService();
-        return $sdf->getHashtagsFromString($request->hashtags);
+        return $sdf->findOrCreate($request->hashtags);
 //        return explode('#', $request->hashtags);
 //        return $request->all();
     }
