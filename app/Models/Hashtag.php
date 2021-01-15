@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class GrantStage extends Model
+class Hashtag extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = 'grant_stages';
+    protected $table = 'hashtags';
     protected $dates = ['deleted_at'];
 
-    public function project(){
+    public function Projects(){
         return $this->hasMany(Project::class);
     }
 }

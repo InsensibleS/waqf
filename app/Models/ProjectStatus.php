@@ -12,7 +12,7 @@ class ProjectStatus extends Model
     protected $table = 'project_statuses';
     protected $dates = ['deleted_at'];
 
-    public function project(){
+    public function projects(){
         return $this->hasMany(Project::class);
     }
 }

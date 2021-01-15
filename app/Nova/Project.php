@@ -49,7 +49,7 @@ class Project extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
             Text::make('Title','title')
-                ->rules('required'),
+                ->rules('required', 'max:255'),
 
             Textarea::make('Description', 'description')
                 ->rules('required'),
@@ -78,7 +78,7 @@ class Project extends Resource
                 ->sortable()
                 ->withoutTrashed(),
 
-            BelongsTo::make('Grant Stages', 'grantStages', GrantStages::class)
+            BelongsTo::make('Grant Stages', 'grantStage', GrantStages::class)
                 ->sortable()
                 ->default(2)
                 ->rules('required')
@@ -90,23 +90,28 @@ class Project extends Resource
             Image::make('Main image', 'image1')
                 ->path('images/project')
                 ->sortable()
-                ->rules('required'),
+                ->creationRules('required', 'max:5000')
+                ->updateRules('max:5000'),
 
             Image::make('The second image', 'image2')
                 ->path('images/project')
-                ->sortable(),
+                ->sortable()
+                ->rules('max:5000'),
 
             Image::make('The third image', 'image3')
                 ->path('images/project')
-                ->sortable(),
+                ->sortable()
+                ->rules('max:5000'),
 
             Image::make('The fourth image', 'image4')
                 ->path('images/project')
-                ->sortable(),
+                ->sortable()
+                ->rules('max:5000'),
 
             Image::make('The fifth image', 'image5')
                 ->path('images/project')
-                ->sortable(),
+                ->sortable()
+                ->rules('max:5000'),
         ];
     }
 

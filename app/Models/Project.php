@@ -33,12 +33,12 @@ class Project extends Model
     {
         return $this->belongsTo(Customer::class,'customer_id');
     }
-    public function grantStages()
+    public function grantStage()
     {
-        return $this->belongsTo(GrantStage::class,'grant_stage_id');
+        return $this->belongsTo(GrantStages::class,'grant_stage_id');
     }
 
-    public function hashtagProject(){
-        return $this->hasMany(HashtagProject::class);
+    public function Hashtags(){
+        return $this->hasMany(Hashtag::class);
     }
 }

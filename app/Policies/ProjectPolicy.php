@@ -6,43 +6,13 @@ namespace App\Policies;
 
 use App\Models\User;
 
-class ProjectPolicy
+class ProjectPolicy extends DefaultPolicy
 {
-    public function __construct()
-    {
-        //
-    }
-
-    public function viewAny(User $user)
-    {
-        return $user->role->is_admin;
-    }
-
     public function view(User $user)
     {
-        if (($user->role->titel ='Administrator') or ($user->role->titel='Moderator')){
+        if (($user->role->id='1') or ($user->role->id='2')){
          return true;
         }
         return false;
-    }
-
-    public function create(User $user)
-    {
-        return $user->role->is_admin;
-    }
-
-    public function update(User $user)
-    {
-        return $user->role->is_admin;
-    }
-
-    public function delete(User $user)
-    {
-        return $user->role->is_admin;
-    }
-
-    public function restore(User $user)
-    {
-        return $user->role->is_admin;
     }
 }

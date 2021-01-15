@@ -20,7 +20,7 @@ class Customer extends Authenticatable
     {
         return $this->belongsTo(CustomerStatus::class, 'status_id');
     }
-    public function project(){
+    public function projects(){
         return $this->hasMany(Project::class);
     }
 }
