@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Policies\ProjectStatusPolicy;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,6 +24,9 @@ class DatabaseSeeder extends Seeder
             ProjectStatusSeeder::class,
             GrantStagesSeeder::class,
             HashtagSeeder::class,
+            GrantSeeder::class,
+            CustomerSeeder::class,
+            SocialAccountSeeder::class,
         ]);
     }
 }
