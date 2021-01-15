@@ -15,7 +15,137 @@ class ProjectSeeder extends Seeder
     public function run()
     {
         DB::table('projects')->insert([
-            //Archiv//**
+            [
+                'country_id' => '13',
+                'grant_id' => '2',
+                'status_id' => '1',
+                'customer_id' => '2',
+                'grant_stage_id' => '2',
+                'title' => 'Masks for everyone!',
+                'description' => " Masks are an integral part of our lives. Modern industry is not able to provide the whole world with masks that could protect people from COVID-19, I have developed a business plan for the concern for the production of masks to provide the whole world with masks, the concern will include a scientific bureau, factories that produce masks. The outline of the plan is attached below.",
+                'publication_date' => '2021-01-16',
+                'disposal_date' => '2020-01-23',
+                'image1' => '/images/project/Mask.jpg',
+                'image2' => '',
+                'image3' => '',
+                'image4' => '',
+                'image5' => '',
+
+            ],
+            [
+                'country_id' => '13',
+                'grant_id' => '2',
+                'status_id' => '1',
+                'customer_id' => '2',
+                'grant_stage_id' => '2',
+                'title' => 'Antiseptic for everyone!',
+                'description' => " Antiseptic are an integral part of our lives. Modern industry is not able to provide the whole world with antiseptic that could protect people from COVID-19, I have developed a business plan for the concern for the production of antiseptic to provide the whole world with masks, the concern will include a scientific bureau, factories that produce antiseptic. The outline of the plan is attached below.",
+                'publication_date' => '2021-01-16',
+                'disposal_date' => '2020-01-23',
+                'image1' => '/images/project/Sept.jpg',
+                'image2' => '',
+                'image3' => '',
+                'image4' => '',
+                'image5' => '',
+
+            ],
+            [
+                'country_id' => '13',
+                'grant_id' => '2',
+                'status_id' => '1',
+                'customer_id' => '2',
+                'grant_stage_id' => '2',
+                'title' => 'Development of an outdoor disinfectant',
+                'description' => "The fight against viruses is important. Especially now, when a pandemic of a deadly disease has been raging for a year. Our project consists in the development and installation of disinfection lamps on the streets. We want to base the lamps on quartz lamps that can be turned on at night. It is the night that is the time when the life of big cities stops. Based on our calculations, one such lug cleans 1,000,000 m³ per day.",
+                'publication_date' => '2021-01-16',
+                'disposal_date' => '2020-01-23',
+                'image1' => '/images/project/Lamp.jpg',
+                'image2' => '',
+                'image3' => '',
+                'image4' => '',
+                'image5' => '',
+
+            ],
+            [
+                'country_id' => '17',
+                'grant_id' => '2',
+                'status_id' => '1',
+                'customer_id' => '1',
+                'grant_stage_id' => '2',
+                'title' => "The fight against coronavirus is everyone's business",
+                'description' => "Why do we care?
+ All of humanity is under stress, the social fabric of society is disrupted.  People are suffering, they are sick, they are afraid.  Our world is facing a common enemy.  We are at war with the virus.
+
+What measures are needed?
+ More than ever, we need solidarity, hope and political will to get through this crisis together.
+
+The Secretary General has identified the necessary actions in three key areas:
+
+
+ - Preparedness for health emergencies
+ We must move immediately from a situation where each country is implementing its own health strategies and adopt a strategy that is fully transparent and is backed by a coordinated global response that includes helping countries least prepared to confront this crisis.
+
+
+ - Targeting social change, economic response and recovery
+ Most importantly, we must focus on the interests of the people - the interests of the most vulnerable, low-paid workers, small and medium-sized enterprises.  This means guaranteeing wages, insurance and social security, as well as preventing bankruptcies and layoffs.  It also underscores the need to develop financial and monetary responses to ensure that the burden of responsibility is not placed on the most vulnerable - those who definitely cannot afford it.
+
+
+ - Global responsibility for sustainable recovery
+ We must ensure that lessons are learned and that this crisis is a watershed moment that will force all nations to take more seriously the issues of preparedness for health emergencies, investment in critical public services of the 21st century and effective delivery of global public goods.  We have a framework for action - the 2030 Agenda for Sustainable Development and the Paris Agreement on Climate Change.  We must keep our promises to humans and planets",
+                'publication_date' => '2021-01-16',
+                'disposal_date' => '2020-01-23',
+                'image1' => '/images/project/all.jpg',
+                'image2' => '',
+                'image3' => '',
+                'image4' => '',
+                'image5' => '',
+
+            ],
+            [
+                'country_id' => '13',
+                'grant_id' => '2',
+                'status_id' => '1',
+                'customer_id' => '2',
+                'grant_stage_id' => '2',
+                'title' => 'UAE makes home stretch against COVID-19',
+                'description' => "Dubai, UAE.  The United Arab Emirates is planning a definitive recovery from COVID-19, said Dr. Seif Al Dhaheri, spokesman for the UAE's National Emergency, Crisis and Disaster Administration.
+
+At an official briefing, a representative of the department clarified that the country is fully prepared to overcome the pandemic and urged local residents to cooperate with the authorities to further improve the epidemiological situation.
+
+He recalled that a number of sectors of the economy, such as tourism, aviation and education, have been seriously affected by the outbreak of the coronavirus and its aftermath, but the UAE's ability to adapt to changes, for example, quickly introduce technologies for remote work and learning, helped to smooth the situation",
+                'publication_date' => '2021-01-16',
+                'disposal_date' => '2020-01-23',
+                'image1' => '/images/project/city.jpg',
+                'image2' => '',
+                'image3' => '',
+                'image4' => '',
+                'image5' => '',
+
+            ],
+            [
+                'country_id' => '13',
+                'grant_id' => '2',
+                'status_id' => '1',
+                'customer_id' => '1',
+                'grant_stage_id' => '2',
+                'title' => 'COVID-19. Measures to combat coronavirus infection and support the economy',
+                'description' => "Meeting of the Presidium of the Coordination Council on the fight against coronavirus.
+The New Year holidays are over.  The Russian health care system worked in difficult conditions.  At this time, as a rule, the number of requests for medical care is growing.  Despite this, patients, including those with coronavirus, received the necessary treatment.
+Meeting participants
+List of participants in the meeting of the Coordination Council under the Government to combat the spread of the new coronavirus infection in the Russian Federation, January 12, 2021
+Now people are returning from New Year's holidays.  There was a large passenger flow at airports and train stations.  Many met with friends, relatives and did not always take precautions.  It is necessary to closely monitor the development of events and, if necessary, take prompt action.  This concerns the reserve of the bed fund, drugs for the treatment of people - all this must be available.
+Coronavirus vaccination continues throughout the country.  She went on non-working days.  In some regions, the second stage has already started.  The list of those who have the opportunity to get vaccinated is gradually expanding.
+There is one more question to which I would like to draw your attention.  The coronavirus has shown that additional measures are needed to minimize the risk of dangerous infections entering our country, and a clear plan to combat them.  The President signed the federal law On biological safety in the Russian Federation.  It provides comprehensive regulation in this area and involves a number of measures that are aimed at protecting citizens.  Now the Government defines a unified state policy in the field of biological safety, as well as coordinates the work of federal departments, regions, organizes their interaction on all related issues.  A state information system in this area will also be created.  Colleagues, we need to prepare all the necessary regulatory framework for the law to work in full force.",
+                'publication_date' => '2021-01-16',
+                'disposal_date' => '2020-01-23',
+                'image1' => '/images/project/flag.jpg',
+                'image2' => '',
+                'image3' => '',
+                'image4' => '',
+                'image5' => '',
+
+            ],
+            //Archive//**
             [
                 'country_id' => '1',
                 'grant_id' => '1',

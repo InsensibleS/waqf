@@ -11,4 +11,8 @@ class Hashtags extends Model
     use HasFactory, SoftDeletes;
     protected $table = 'hashtags';
     protected $dates = ['deleted_at'];
+
+    public function hashtagProject(){
+        return $this->hasMany(HashtagProject::class);
+    }
 }

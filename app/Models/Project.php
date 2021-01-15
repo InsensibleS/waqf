@@ -9,8 +9,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Project extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = 'project_statuses';
+    public $timestamps = false;
+    protected $table = 'projects';
     protected $dates = ['deleted_at'];
+    protected $casts = [
+        'disposal_date' => 'datetime',
+        'publication_date' => 'datetime'
+    ];
+
     public function country()
     {
         return $this->belongsTo(Country::class, 'country_id');
@@ -30,5 +36,9 @@ class Project extends Model
     public function grantStages()
     {
         return $this->belongsTo(GrantStage::class,'grant_stage_id');
+    }
+
+    public function hashtagProject(){
+        return $this->hasMany(HashtagProject::class);
     }
 }

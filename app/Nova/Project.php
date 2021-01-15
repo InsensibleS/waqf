@@ -26,7 +26,7 @@ class Project extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -47,12 +47,11 @@ class Project extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+
             Text::make('Title','title')
-                ->sortable()
                 ->rules('required'),
 
             Textarea::make('Description', 'description')
-                ->sortable()
                 ->rules('required'),
 
             DateTime::make('Publication date', 'publication_date')
@@ -89,24 +88,24 @@ class Project extends Resource
                 ]]),
 
             Image::make('Main image', 'image1')
-                ->path('image/project')
+                ->path('images/project')
                 ->sortable()
                 ->rules('required'),
 
             Image::make('The second image', 'image2')
-                ->path('/images/project')
+                ->path('images/project')
                 ->sortable(),
 
             Image::make('The third image', 'image3')
-                ->path('/images/project')
+                ->path('images/project')
                 ->sortable(),
 
             Image::make('The fourth image', 'image4')
-                ->path('/images/project')
+                ->path('images/project')
                 ->sortable(),
 
             Image::make('The fifth image', 'image5')
-                ->path('/images/project')
+                ->path('images/project')
                 ->sortable(),
         ];
     }
