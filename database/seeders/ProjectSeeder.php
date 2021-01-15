@@ -30,7 +30,6 @@ class ProjectSeeder extends Seeder
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
-
             ],
             [
                 'country_id' => '13',
@@ -47,7 +46,6 @@ class ProjectSeeder extends Seeder
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
-
             ],
             [
                 'country_id' => '13',
@@ -64,7 +62,6 @@ class ProjectSeeder extends Seeder
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
-
             ],
             [
                 'country_id' => '17',
@@ -99,7 +96,6 @@ The Secretary General has identified the necessary actions in three key areas:
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
-
             ],
             [
                 'country_id' => '13',
@@ -120,7 +116,6 @@ He recalled that a number of sectors of the economy, such as tourism, aviation a
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
-
             ],
             [
                 'country_id' => '13',
@@ -143,7 +138,6 @@ There is one more question to which I would like to draw your attention.  The co
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
-
             ],
             //Archive//**
             [
@@ -170,7 +164,6 @@ Drainroof Geoplast suspended gardens have been selected for a new luxury residen
                 'image3' => '/images/project/Afric3.jpg',
                 'image4' => '/images/project/Afric4.jpg',
                 'image5' => '/images/project/Afric5.jpg',
-
             ],
             [
                 'country_id' => '187',
@@ -206,5 +199,7 @@ According to forecasts of the International Renewable Energy Agency (IRENA), as 
                 'image5' => '',
             ],
         ]);
+
+
     }
 }

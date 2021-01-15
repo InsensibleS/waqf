@@ -16,19 +16,19 @@ class HashtagSeeder extends Seeder
     {
         DB::table('hashtags')->insert([
             [
-                'title' => '#smile',
+                'title' => 'smile',
             ],
             [
-                'title' => '#ilovemydog',
+                'title' => 'ilovemydog',
             ],
             [
-                'title' => '#home',
+                'title' => 'home',
             ],
             [
-                'title' => '#style',
+                'title' => 'style',
             ],
             [
-                'title' => '#earth',
+                'title' => 'earth',
             ],
         ]);
     }

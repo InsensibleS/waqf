@@ -7,7 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 
-class Hashtags extends Resource
+class Hashtag extends Resource
 {
     /**
      * The model the resource corresponds to.

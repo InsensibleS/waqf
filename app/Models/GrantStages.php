@@ -12,7 +12,7 @@ class GrantStages extends Model
     protected $table = 'grant_stages';
     protected $dates = ['deleted_at'];
 
-    public function project(){
+    public function projects(){
         return $this->hasMany(Project::class);
     }
 }

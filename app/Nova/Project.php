@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Image;
-use Laravel\Nova\Fields\HasOne;
+use Laravel\Nova\Fields\BelongsToMany;
 
 class Project extends Resource
 {
@@ -86,6 +86,7 @@ class Project extends Resource
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true
                 ]]),
+            BelongsToMany::make('Hashtags', 'hashtags', Hashtag::class),
 
             Image::make('Main image', 'image1')
                 ->path('images/project')

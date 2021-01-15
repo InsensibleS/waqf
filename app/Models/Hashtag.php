@@ -12,7 +12,7 @@ class Hashtag extends Model
     protected $table = 'hashtags';
     protected $dates = ['deleted_at'];
 
-    public function Projects(){
-        return $this->hasMany(Project::class);
+    public function projects(){
+        return $this->belongsToMany(Project::class);
     }
 }

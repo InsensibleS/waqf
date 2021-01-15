@@ -38,7 +38,7 @@ class Project extends Model
         return $this->belongsTo(GrantStages::class,'grant_stage_id');
     }
 
-    public function Hashtags(){
-        return $this->hasMany(Hashtag::class);
+    public function hashtags(){
+        return $this->belongsToMany(Hashtag::class);
     }
 }
