@@ -61,10 +61,7 @@ class Project extends Resource
 
             DateTime::make('Disposal date', 'disposal_date')
                 ->sortable()
-                ->rules('required')
-                ->withMeta(['extraAttributes' => [
-                    'readonly' => true
-                ]]),
+                ->rules('required'),
 
             BelongsTo::make('Country', 'country' )
                 ->sortable()
