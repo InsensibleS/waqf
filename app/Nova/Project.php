@@ -89,28 +89,28 @@ class Project extends Resource
             BelongsToMany::make('Hashtags', 'hashtags', Hashtag::class),
 
             Image::make('Main image', 'image1')
-                ->path('images/project')
+                ->path('images/projects')
                 ->sortable()
                 ->creationRules('required', 'max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000')
                 ->updateRules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
             Image::make('The second image', 'image2')
-                ->path('images/project')
+                ->path('images/projects')
                 ->sortable()
                 ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
             Image::make('The third image', 'image3', )
-                ->path('images/project')
+                ->path('images/projects')
                 ->sortable()
                 ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
             Image::make('The fourth image', 'image4')
-                ->path('images/project')
+                ->path('images/projects')
                 ->sortable()
                 ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
             Image::make('The fifth image', 'image5')
-                ->path('images/project')
+                ->path('images/projects')
                 ->sortable()
                 ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
         ];
