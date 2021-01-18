@@ -30,4 +30,8 @@ class Grant extends Model
     {
         return $this->belongsTo(GrantStages::class, 'grant_stage_id');
     }
+
+    public function projects(){
+        return $this->hasMany(Project::class);
+    }
 }

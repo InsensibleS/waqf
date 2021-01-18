@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MainPageController;
-use App\Http\Controllers\Api\RegApiController;
 use App\Http\Controllers\Api\EmailController;
 //use App\Http\Controllers\Api\SocialController;
 use App\Http\Controllers\Api\AuthController;
@@ -32,12 +31,13 @@ Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'v
 Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 // login wihit google
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
+
+//Get country
 /**
  *  Routes for authorized users
  */
 Route::middleware('auth:api')->group( function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 });
-
 // test
 Route::post('/test', [AuthController::class, 'test']);

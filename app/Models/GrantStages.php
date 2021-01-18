@@ -11,4 +11,8 @@ class GrantStages extends Model
     use HasFactory, SoftDeletes;
     protected $table = 'grant_stages';
     protected $dates = ['deleted_at'];
+
+    public function projects(){
+        return $this->hasMany(Project::class);
+    }
 }

@@ -11,4 +11,8 @@ class ProjectStatus extends Model
     use HasFactory, SoftDeletes;
     protected $table = 'project_statuses';
     protected $dates = ['deleted_at'];
+
+    public function projects(){
+        return $this->belongsToMany(Project::class);
+    }
 }
