@@ -112,7 +112,7 @@ class Project extends Resource
             Image::make('The fifth image', 'image5')
                 ->path('images/project')
                 ->sortable()
-                ->rules('max:5000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
+                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
         ];
     }
 
