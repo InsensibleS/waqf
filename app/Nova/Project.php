@@ -91,28 +91,28 @@ class Project extends Resource
             Image::make('Main image', 'image1')
                 ->path('images/project')
                 ->sortable()
-                ->creationRules('required', 'max:5000')
-                ->updateRules('max:5000'),
+                ->creationRules('required', 'max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000')
+                ->updateRules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
             Image::make('The second image', 'image2')
                 ->path('images/project')
                 ->sortable()
-                ->rules('max:5000'),
+                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
-            Image::make('The third image', 'image3')
+            Image::make('The third image', 'image3', )
                 ->path('images/project')
                 ->sortable()
-                ->rules('max:5000'),
+                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
             Image::make('The fourth image', 'image4')
                 ->path('images/project')
                 ->sortable()
-                ->rules('max:5000'),
+                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
             Image::make('The fifth image', 'image5')
                 ->path('images/project')
                 ->sortable()
-                ->rules('max:5000'),
+                ->rules('max:5000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
         ];
     }
 
