@@ -10,9 +10,9 @@ class CountryResource extends JsonResource
 {
     protected $countryData;
 
-    public function __construct($countryData)
+    public function __construct($country)
     {
-        $this->countryData = $countryData['countryData'];
+        $this->countryData = $country;
     }
 
     /**
@@ -23,10 +23,6 @@ class CountryResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'countryData' => [
-                'title' => $this->countryData,
-            ],
-        ];
+        return $this->countryData->title;
     }
 }
