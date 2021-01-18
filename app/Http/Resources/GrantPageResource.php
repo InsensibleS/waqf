@@ -30,18 +30,19 @@ class GrantPageResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'grant' => [
-                'id' => $this->grant->id,
+        $grant = null;
+        if($this->grant) {
+            $grant = [
+                'id' =>  $this->grant->id,
                 'title' => $this->grant->title,
-            ],
+            ];
+        }
+
+        return [
+            'grant' => $grant,
             'grantStages' => $this->grantStages,
             'news' => NewsResource::collection($this->news),
             'projects' => ProjectsResource::collection($this->projects),
-//            'footerData' => [
-//                'email' => $this->mainPageData->footer_email,
-//                'address' => $this->mainPageData->footer_address,
-//            ],
         ];
     }
 }

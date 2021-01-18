@@ -13,10 +13,10 @@ class GrantStageProcessingService
     /**
      *
      * @param Grant|null $grant
-     * @param Collection $grantStages
+     * @param $grantStages
      * @return array
      */
-    public static function getProcessedGrantStage($grant, Collection $grantStages, GrantStageHelper $grantStageHelper): array
+    public static function getProcessedGrantStage($grant, $grantStages, GrantStageHelper $grantStageHelper): array
     {
         if ($grant === null) {
             return [];
