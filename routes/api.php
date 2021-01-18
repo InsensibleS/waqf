@@ -33,7 +33,7 @@ Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 
 //Get country
-Route::get('/getCountry', [CountryController::class, 'getDataCountry']);
+Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
 /**
  *  Routes for authorized users
  */

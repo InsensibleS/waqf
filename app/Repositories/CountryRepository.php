@@ -9,7 +9,7 @@ class CountryRepository
     /**
      * @return array
      */
-    public function getCountry()
+    public function getAllCountries()
     {
         $country= Country::orderBy('title')->get();
         return $country;

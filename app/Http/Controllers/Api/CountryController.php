@@ -15,9 +15,9 @@ class CountryController extends Controller
     {
         $this->CountryRepository = $countryRepository;
     }
-    public function getDataCountry()
+    public function getDataCountries()
     {
-        return new CountryResource($this->CountryRepository->getCountry());
+        return CountryResource::collection($this->CountryRepository->getAllCountries());
     }
 }
 

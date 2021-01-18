@@ -200,6 +200,20 @@ According to forecasts of the International Renewable Energy Agency (IRENA), as 
             ],
         ]);
 
+        DB::table('hashtag_project')->insert([
+            [
+                'hashtag_id' => '1',
+                'project_id' => '1'
+            ],
+            [
+                'hashtag_id' => '2',
+                'project_id' => '1'
+            ],
+            [
+                'hashtag_id' => '3',
+                'project_id' => '1'
+            ],
+        ]);
 
     }
 }
