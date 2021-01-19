@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Grant extends Model
 {
@@ -33,5 +34,9 @@ class Grant extends Model
 
     public function projects(){
         return $this->hasMany(Project::class);
+    }
+
+    public function customerProjects(){
+        return $this->hasMany(Project::class)->where('customer_id', Auth::id());
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\EmailController;
 use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\GrantController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +43,6 @@ Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
  */
 Route::middleware('auth:api')->group( function () {
     Route::post('/logout', [AuthController::class, 'logout']);
+    // receiving projects of the current user, broken down by grants
+    Route::post('/getProjectsForProfile', [ProjectController::class, 'getProjectsForProfile']);
 });
