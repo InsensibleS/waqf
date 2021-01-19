@@ -41,5 +41,3 @@ Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 Route::middleware('auth:api')->group( function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 });
-// test
-Route::post('/test', [AuthController::class, 'test']);
