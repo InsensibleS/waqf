@@ -11,8 +11,8 @@ class CountryRepository
      */
     public function getAllCountries()
     {
-        $country= Country::orderBy('title')->get();
-        return $country;
+        $countries = Country::orderBy('title')->get();
+        return $countries;
     }
 
 }
