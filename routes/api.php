@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MainPageController;
 use App\Http\Controllers\Api\EmailController;
-//use App\Http\Controllers\Api\SocialController;
+use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\AuthController;
 
 /*
@@ -33,6 +33,7 @@ Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 
 //Get country
+Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
 /**
  *  Routes for authorized users
  */
