@@ -5,6 +5,9 @@ namespace App\Policies;
 
 
 use App\Models\User;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 
 class ProjectPolicy extends DefaultPolicy
 {
