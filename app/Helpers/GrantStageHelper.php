@@ -49,14 +49,31 @@ class GrantStageHelper
      */
     public function getAnalysisGrantStage(int  $grantStageId, Grant $grant): string
     {
-        $current = date('Y-m-d');
         $fields = self::RATIO_TABLE_FIELDS_AND_STAGES[$grantStageId];
-        if($grant->$fields['field_start'] >= $current && $grant->$fields['field_end'] <= $current) {
+        $current = date('Y-m-d');
+        $startDate =  date('Y-m-d', strtotime($grant->{$fields['field_start']}));
+        $endDate =  date('Y-m-d', strtotime($grant->{$fields['field_end']}));
+
+        if($startDate <= $current && $endDate >= $current) {
             return 'current';
-        }  elseif ($grant->$fields['field_start'] < $current && $grant->$fields['field_end'] < $current) {
+        }  elseif ($startDate < $current && $endDate < $current) {
             return 'passed';
         }
 
         return 'future';
+    }
+
+    /**
+     *
+     * @param int $grantStageId
+     * @param Grant $grant
+     * @param string $fieldName
+     *
+     * @return string
+     */
+    public function getDateStage(int  $grantStageId, Grant $grant, string $fieldName) {
+        $fieldInGrantTable = self::RATIO_TABLE_FIELDS_AND_STAGES[$grantStageId][$fieldName];
+
+        return date('Y-m-d', strtotime($grant->$fieldInGrantTable));
     }
 }
