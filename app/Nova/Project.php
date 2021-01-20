@@ -5,7 +5,6 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Date;
@@ -69,7 +68,7 @@ class Project extends Resource
                 ->sortable()
                 ->withoutTrashed(),
 
-            BelongsTo::make('Grant Stages', 'grantStage', GrantStages::class)
+            BelongsTo::make('Grant Stages', 'grantStage', GrantStage::class)
                 ->sortable()
                 ->default(2)
                 ->rules('required')
@@ -89,8 +88,6 @@ class Project extends Resource
             Textarea::make('Description', 'description')
                 ->hideFromIndex()
                 ->rules('required'),
-
-
 
             Date::make('Disposal date', 'disposal_date')
                 ->sortable()

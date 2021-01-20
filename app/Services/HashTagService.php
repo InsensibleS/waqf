@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Hashtag;
+use App\Models\Project;
 
 class HashTagService
 {
@@ -33,5 +34,20 @@ class HashTagService
         $hashtag = $hashtag ?: Hashtag::create(['title' => $hashtagTitle]);
 
         return $hashtag->id;
+    }
+
+    /**
+     *
+     * @param string $hashtagString
+     * @param Project $project
+     * @return void
+     */
+    public function attachHashtagsToProject(string $hashtagString, Project $project)
+    {
+        $hashtags = self::getHashtagsFromString($hashtagString);
+        foreach ($hashtags as $hashtag) {
+            $hashtagId = self::findOrCreate($hashtag);
+            $project->hashtags()->attach($hashtagId);
+        }
     }
 }

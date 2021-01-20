@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Services\CustomerService;
-use App\Services\HashTagService;
 use App\Services\SocialService;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegFbRequest;
 use App\Http\Requests\RegGoogleRequest;
-use App\Http\Requests\ProjectRequest;
 
 class AuthController extends Controller
 {
@@ -50,13 +48,5 @@ class AuthController extends Controller
         $request->user()->update(['api_token' => null]);
 
         return response(['message' => 'Success!']);
-    }
-
-    public function test (ProjectRequest $request)
-    {
-        $sdf = new HashTagService();
-        return $sdf->findOrCreate($request->hashtags);
-//        return explode('#', $request->hashtags);
-//        return $request->all();
     }
 }

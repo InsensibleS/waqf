@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Grant;
-use App\Models\GrantStages;
+use App\Models\GrantStage;
 use App\Models\Project;
 use App\Models\News;
 
@@ -19,7 +19,7 @@ class GrantPageRepository
             ->first();
 
         $projects = $grant ? Project::where('grant_id', $grant->id)->get() : [];
-        $grantStages = $grant ? GrantStages::all() : [];
+        $grantStages = $grant ? GrantStage::all() : [];
 
         return [
             'grant' => $grant,
