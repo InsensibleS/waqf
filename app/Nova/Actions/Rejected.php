@@ -2,17 +2,14 @@
 
 namespace App\Nova\Actions;
 
-use App\Models\ProjectStatus;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Select;
 
-class Moderation extends Action
+class Rejected extends Action
 {
     use InteractsWithQueue, Queueable;
 
@@ -23,14 +20,16 @@ class Moderation extends Action
      * @param  \Illuminate\Support\Collection  $models
      * @return mixed
      */
+
     public function handle(ActionFields $fields, Collection $models)
     {
+        foreach ($models as $model) {
 
-          foreach ($models as $model) {
-            $model-> status_id = $fields->projectStatus;
+            $data = 3;
+            $model-> status_id = $data;
             $model->update();
-          }
-        return Action::message('Project status changed');
+            return Action::message('Project status changed "Rejected"');
+        }
     }
 
     /**
@@ -38,13 +37,9 @@ class Moderation extends Action
      *
      * @return array
      */
+
     public function fields()
     {
-        $statuses = ProjectStatus::all()->pluck('title','id');
-        return [
-            Select::make('Project Status', 'projectStatus')
-                ->sortable()
-                ->options( $statuses),
-        ];
+        return [];
     }
 }

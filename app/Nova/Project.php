@@ -2,7 +2,8 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\Moderation;
+use App\Nova\Actions\Published;
+use App\Nova\Actions\Rejected;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
@@ -11,6 +12,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsToMany;
+
 
 class Project extends Resource
 {
@@ -166,7 +168,27 @@ class Project extends Resource
     public function actions(Request $request)
     {
         return [
-            (new Moderation)
+
+            (new Published)
+                ->showOnTableRow()
+                ->exceptOnIndex()
+                ->canSee(function($request){
+                    return true;
+                })
+                ->canrun(function($request, $project){
+                    return $project-> status_id  === 2;
+                }),
+
+            (new Rejected)
+                ->showOnTableRow()
+                ->exceptOnIndex()
+                ->canSee(function($request){
+                    return true;
+                })
+                ->canrun(function($request, $project){
+
+                    return $project-> status_id  === 2;
+                }),
         ];
     }
 }
