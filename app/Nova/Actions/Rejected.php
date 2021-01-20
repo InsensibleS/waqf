@@ -26,7 +26,7 @@ class Rejected extends Action
         foreach ($models as $model) {
 
             $data = 3;
-            $model-> status_id =$data;
+            $model-> status_id = $data;
             $model->update();
             return Action::message('Project status changed "Rejected"');
         }
