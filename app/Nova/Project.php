@@ -2,7 +2,6 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\Moderation;
 use App\Nova\Actions\Published;
 use App\Nova\Actions\Rejected;
 use Illuminate\Http\Request;
@@ -13,7 +12,7 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsToMany;
-use App\Models\Role;
+
 
 class Project extends Resource
 {
@@ -169,43 +168,26 @@ class Project extends Resource
     public function actions(Request $request)
     {
         return [
-            (new Moderation)
-                ->showOnTableRow()
-                ->exceptOnIndex()
-                ->canSee(function ($request) {
-                    //checks if the request url ends in 'update-fields', the API
-                    //request used to get fields for the "/edit" page
-                    if ($request->is('Project status')) {
-                        return $request->user()->can('Administrator ');
-                    } else {
-                        return  false;
-                    }
-                }),
 
             (new Published)
                 ->showOnTableRow()
                 ->exceptOnIndex()
-                ->canSee(function ($request) {
-                    //checks if the request url ends in 'update-fields', the API
-                    //request used to get fields for the "/edit" page
-                    if ($request->is('update-fields')) {
-                        return $request->user()->can('');
-                    } else {
-                        return false;
-                    }
+                ->canSee(function($request){
+                    return true;
+                })
+                ->canrun(function($request, $project){
+                    return $project-> status_id  === 2;
                 }),
 
             (new Rejected)
                 ->showOnTableRow()
                 ->exceptOnIndex()
-                ->canSee(function ($request) {
-                    //checks if the request url ends in 'update-fields', the API
-                    //request used to get fields for the "/edit" page
-                    if ($request->is('update-fields')) {
-                        return $request->user()->can('');
-                    } else {
-                        return false;
-                    }
+                ->canSee(function($request){
+                    return true;
+                })
+                ->canrun(function($request, $project){
+
+                    return $project-> status_id  === 2;
                 }),
         ];
     }
