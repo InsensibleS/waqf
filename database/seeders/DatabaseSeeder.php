@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             GrantSeeder::class,
             CustomerSeeder::class,
             SocialAccountSeeder::class,
+            ProjectSeeder::class,
         ]);
     }
 }

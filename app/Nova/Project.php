@@ -9,7 +9,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsToMany;
 
@@ -52,30 +52,21 @@ class Project extends Resource
             Text::make('Title','title')
                 ->rules('required', 'max:255'),
 
-            Textarea::make('Description', 'description')
-                ->rules('required'),
-
-            DateTime::make('Publication date', 'publication_date')
+            Image::make('Main image', 'image1')
+                ->path('images/projects')
                 ->sortable()
-                ->rules('required'),
-
-            DateTime::make('Disposal date', 'disposal_date')
-                ->sortable()
-                ->rules('required'),
+                ->creationRules('required', 'max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000')
+                ->updateRules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
             BelongsTo::make('Country', 'country' )
                 ->sortable()
                 ->withoutTrashed(),
 
+            Date::make('Publication date', 'publication_date')
+                ->sortable()
+                ->rules('required'),
+
             BelongsTo::make('Grant', 'grant')
-                ->sortable()
-                ->withoutTrashed(),
-
-            BelongsTo::make('Project status', 'projectStatus')
-                ->sortable()
-                ->withoutTrashed(),
-
-            BelongsTo::make('Customer', 'customer')
                 ->sortable()
                 ->withoutTrashed(),
 
@@ -87,32 +78,51 @@ class Project extends Resource
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true
                 ]]),
-            BelongsToMany::make('Hashtags', 'hashtags', Hashtag::class),
 
-            Image::make('Main image', 'image1')
-                ->path('images/project')
+            BelongsTo::make('Project status', 'projectStatus')
                 ->sortable()
-                ->creationRules('required', 'max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000')
-                ->updateRules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
+                ->withoutTrashed(),
+
+            BelongsTo::make('Customer', 'customer')
+                ->sortable()
+                ->withoutTrashed(),
+
+            Textarea::make('Description', 'description')
+                ->hideFromIndex()
+                ->rules('required'),
+
+
+
+            Date::make('Disposal date', 'disposal_date')
+                ->sortable()
+                ->hideFromIndex()
+                ->rules('required'),
+
+            BelongsToMany::make('Hashtags', 'hashtags', Hashtag::class)
+                ->hideFromIndex(),
 
             Image::make('The second image', 'image2')
-                ->path('images/project')
+                ->path('images/projects')
                 ->sortable()
+                ->hideFromIndex()
                 ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
             Image::make('The third image', 'image3', )
-                ->path('images/project')
+                ->path('images/projects')
                 ->sortable()
+                ->hideFromIndex()
                 ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
             Image::make('The fourth image', 'image4')
-                ->path('images/project')
+                ->path('images/projects')
                 ->sortable()
+                ->hideFromIndex()
                 ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
             Image::make('The fifth image', 'image5')
-                ->path('images/project')
+                ->path('images/projects')
                 ->sortable()
+                ->hideFromIndex()
                 ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
         ];
     }

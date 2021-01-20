@@ -7,7 +7,7 @@ use Intervention\Image\Facades\Image;
 
 class ImageService
 {
-    private const PUBLIC_PATH = '/img/project/';
+    private const PUBLIC_PATH = '/img/projects/';
     private const IMAGE_WIDTH = 996;
     private const IMAGE_HEIGHT = null;
     /**
