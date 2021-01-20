@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\Moderation;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
@@ -164,6 +165,8 @@ class Project extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new Moderation)
+        ];
     }
 }
