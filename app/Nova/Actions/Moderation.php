@@ -16,6 +16,7 @@ class Moderation extends Action
 {
     use InteractsWithQueue, Queueable;
 
+    public $name = 'Moderate';
     /**
      * Perform the action on the given models.
      *
@@ -27,10 +28,19 @@ class Moderation extends Action
     {
 
           foreach ($models as $model) {
-            $model-> status_id = $fields->projectStatus;
-            $model->update();
+              $data = $fields->projectStatus;
+              $title = ProjectStatus::pluck('title')->get($data - 1);
+              switch($title){
+                  case 'Archive':
+                      return Action::danger('Cannot be changed to "Archive"');
+                  case 'On moderation':
+                      return Action::danger('Cannot be changed to "On moderation"');
+                      break;
+              }
+              $model-> status_id = $fields->projectStatus;
+              $model->update();
           }
-        return Action::message('Project status changed');
+        return Action::message('Project status changed "'.  $title .'"');
     }
 
     /**
