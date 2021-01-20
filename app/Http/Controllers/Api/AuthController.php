@@ -4,17 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Services\CustomerService;
+use App\Services\HashTagService;
 use App\Services\SocialService;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegFbRequest;
 use App\Http\Requests\RegGoogleRequest;
-use Illuminate\Support\Facades\Storage;
-
+use App\Http\Requests\ProjectRequest;
 
 class AuthController extends Controller
 {
-    private const PUBLIC_PATH = '/public/photos/';
-
     protected $customerService;
     protected $socialService;
 
@@ -54,9 +52,11 @@ class AuthController extends Controller
         return response(['message' => 'Success!']);
     }
 
-    public function test (Request $request)
+    public function test (ProjectRequest $request)
     {
-        $imageUrl = $request['profileObj']['imageUrl'];
-
+        $sdf = new HashTagService();
+        return $sdf->findOrCreate($request->hashtags);
+//        return explode('#', $request->hashtags);
+//        return $request->all();
     }
 }

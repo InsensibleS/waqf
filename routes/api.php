@@ -46,3 +46,6 @@ Route::middleware('auth:api')->group( function () {
     // receiving projects of the current user, broken down by grants
     Route::post('/getProjectsForProfile', [ProjectController::class, 'getProjectsForProfile']);
 });
+
+// test
+Route::post('/test', [AuthController::class, 'test']);
