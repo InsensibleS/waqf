@@ -9,7 +9,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Hashtag extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $table = 'hashtags';
+
+    protected $guarded = ['id'];
+
     protected $dates = ['deleted_at'];
 
     public function projects(){

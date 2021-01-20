@@ -35,8 +35,7 @@ Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'v
 Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 // login wihit google
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
-
-//Get country
+// Get countries
 Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
 /**
  *  Routes for authorized users
@@ -44,5 +43,7 @@ Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
 Route::middleware('auth:api')->group( function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     // receiving projects of the current user, broken down by grants
-    Route::post('/getProjectsForProfile', [ProjectController::class, 'getProjectsForProfile']);
+    Route::get('/getProjectsForProfile', [ProjectController::class, 'getProjectsForProfile']);
+    // project creation by user
+    Route::post('/storeProject', [ProjectController::class, 'storeProject']);
 });

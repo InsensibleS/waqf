@@ -8,13 +8,9 @@ use App\Services\SocialService;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegFbRequest;
 use App\Http\Requests\RegGoogleRequest;
-use Illuminate\Support\Facades\Storage;
-
 
 class AuthController extends Controller
 {
-    private const PUBLIC_PATH = '/public/photos/';
-
     protected $customerService;
     protected $socialService;
 
@@ -52,11 +48,5 @@ class AuthController extends Controller
         $request->user()->update(['api_token' => null]);
 
         return response(['message' => 'Success!']);
-    }
-
-    public function test (Request $request)
-    {
-        $imageUrl = $request['profileObj']['imageUrl'];
-
     }
 }

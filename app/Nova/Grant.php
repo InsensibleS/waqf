@@ -199,7 +199,7 @@ class Grant extends Resource
                     return $this->id === 1 ? true : false;
                 }),
 
-            BelongsTo::make('Stage', 'grantStage', GrantStages::class)
+            BelongsTo::make('Stage', 'grantStage', GrantStage::class)
                 ->sortable()
                 ->default(1)
                 ->rules('required')

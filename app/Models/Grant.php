@@ -29,7 +29,7 @@ class Grant extends Model
 
     public function grantStage()
     {
-        return $this->belongsTo(GrantStages::class, 'grant_stage_id');
+        return $this->belongsTo(GrantStage::class, 'grant_stage_id');
     }
 
     public function projects(){
