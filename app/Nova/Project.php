@@ -160,6 +160,7 @@ class Project extends Resource
     {
         return [
             (new Moderation)
+               ->showOnTableRow()
         ];
     }
 }
