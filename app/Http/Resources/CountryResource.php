@@ -19,10 +19,13 @@ class CountryResource extends JsonResource
      * Transform the resource into an array.
      *
      * @param \Illuminate\Http\Request $request
-     * @return string
+     * @return array
      */
     public function toArray($request)
     {
-        return $this->countryData->title;
+        return[
+            'id' => $this->countryData->id,
+            'title' => $this->countryData->title,
+    ];
     }
 }
