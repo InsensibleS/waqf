@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
@@ -43,6 +44,8 @@ class Hashtag extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('Title', 'title'),
+            BelongsToMany::make('Projects', 'projects', Project::class)
+                ->hideFromIndex(),
         ];
     }
 

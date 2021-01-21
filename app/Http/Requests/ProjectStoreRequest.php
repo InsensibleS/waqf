@@ -2,11 +2,13 @@
 
 namespace App\Http\Requests;
 
+use App\Repositories\ProjectRepository;
 use App\Rules\MaxHashtagLength;
 use App\Rules\MaxNumberHashtags;
 use App\Services\HashTagService;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Rules\MaxNumberProject;
 
 class ProjectStoreRequest extends FormRequest
 {
@@ -35,6 +37,7 @@ class ProjectStoreRequest extends FormRequest
                 Rule::exists('grants','id')->where(function ($query) {
                     $query->where('grant_stage_id', 2);
                 }),
+                new MaxNumberProject(new ProjectRepository())
             ],
             'title' => 'required||max:255',
             'description' => 'required|max:10000',
@@ -46,7 +49,7 @@ class ProjectStoreRequest extends FormRequest
                 new MaxHashtagLength(new HashTagService())
             ],
             'images.0' => 'required',
-            'images.*' => 'file|max:15000|mimes:jpg,gif,png|dimensions:max_width=5000, max_height=5000'
+            'images.*' => 'file|max:15000|mimes:jpg,gif,png|dimensions:max_width=5000, max_height=5000',
         ];
     }
 }
