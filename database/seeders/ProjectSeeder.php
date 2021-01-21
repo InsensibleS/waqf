@@ -35,7 +35,7 @@ class ProjectSeeder extends Seeder
                 'country_id' => '13',
                 'grant_id' => '2',
                 'status_id' => '1',
-                'customer_id' => '2',
+                'customer_id' => 1,
                 'grant_stage_id' => '2',
                 'title' => 'Antiseptic for everyone!',
                 'description' => " Antiseptic are an integral part of our lives. Modern industry is not able to provide the whole world with antiseptic that could protect people from COVID-19, I have developed a business plan for the concern for the production of antiseptic to provide the whole world with masks, the concern will include a scientific bureau, factories that produce antiseptic. The outline of the plan is attached below.",
