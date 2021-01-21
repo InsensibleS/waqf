@@ -25,8 +25,8 @@ class Published extends Action
 
     public function handle(ActionFields $fields, Collection $models)
     {
-        foreach ($models as $model) {
-
+        foreach ($models as $model)
+        {
             $data = 1;
             $model-> status_id = $data;
             $model->update();
