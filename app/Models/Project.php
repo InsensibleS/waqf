@@ -51,4 +51,9 @@ class Project extends Model
     public function hashtags(){
         return $this->belongsToMany(Hashtag::class);
     }
+
+    public function status()
+    {
+        return $this->belongsTo(ProjectStatus::class,'status_id');
+    }
 }

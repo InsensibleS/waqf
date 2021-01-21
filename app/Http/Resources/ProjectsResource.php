@@ -24,6 +24,8 @@ class ProjectsResource extends JsonResource
         return [
             'id' => $this->projectData->id,
             'title' => $this->projectData->title,
+            'status' => $this->projectData->status->title,
+            'country' => $this->projectData->country->title,
             'description' => $this->projectData->description,
             'publication_date' => date('Y-m-d', strtotime($this->projectData->publication_date)),
             'image' => $this->projectData->image1,
