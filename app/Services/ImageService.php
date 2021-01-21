@@ -10,8 +10,6 @@ class ImageService
 {
     private const STORAGE_PATH = '/storage';
     private const PUBLIC_PATH = '/images/projects/';
-    private const IMAGE_WIDTH = 996;
-    private const IMAGE_HEIGHT = null;
 
     /**
      *
@@ -22,9 +20,7 @@ class ImageService
     public function uploadAndResizeImage($file): string
     {
         $name = time() . '_' . $file->getClientOriginalName();
-        Image::make($file)->resize(self::IMAGE_WIDTH, self::IMAGE_HEIGHT, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save(public_path(self::STORAGE_PATH . self::PUBLIC_PATH) . $name);
+        Image::make($file)->save(public_path(self::STORAGE_PATH . self::PUBLIC_PATH) . $name, 60);
 
         return self::PUBLIC_PATH . $name;
     }
