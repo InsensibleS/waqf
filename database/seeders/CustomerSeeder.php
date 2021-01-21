@@ -29,6 +29,13 @@ class CustomerSeeder extends Seeder
                 'email' => 'dwaqf@yandex.ru',
                 'avatar' => 'customer-photos/dwaqf'
             ],
+            [
+                'name' => 'Alexandr ',
+                'status_id' => 5,
+                'is_registered' => true,
+                'email' => 'alexandr.intern@softlex.pro',
+                'avatar' => 'customer-photos/useravatar.png'
+            ],
         ]);
     }
 }

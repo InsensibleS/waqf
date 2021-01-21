@@ -19,7 +19,7 @@ class ProjectSeeder extends Seeder
                 'country_id' => '13',
                 'grant_id' => '2',
                 'status_id' => '1',
-                'customer_id' => '2',
+                'customer_id' => '3',
                 'grant_stage_id' => '2',
                 'title' => 'Masks for everyone!',
                 'description' => " Masks are an integral part of our lives. Modern industry is not able to provide the whole world with masks that could protect people from COVID-19, I have developed a business plan for the concern for the production of masks to provide the whole world with masks, the concern will include a scientific bureau, factories that produce masks. The outline of the plan is attached below.",
@@ -67,7 +67,7 @@ class ProjectSeeder extends Seeder
                 'country_id' => '17',
                 'grant_id' => '2',
                 'status_id' => '1',
-                'customer_id' => '1',
+                'customer_id' => '3',
                 'grant_stage_id' => '2',
                 'title' => "The fight against coronavirus is everyone's business",
                 'description' => "Why do we care?
