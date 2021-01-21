@@ -22,15 +22,14 @@ class ImageService
     public function uploadAndResizeImage($file): string
     {
         $fileSize = Image::make($file)->filesize();
+        $name = time() . '_' . $file->getClientOriginalName();
 
         if($fileSize> self::MAX_FILE_SIZE)
         {
-            $name = time() . '_' . $file->getClientOriginalName();
             Image::make($file)->save(public_path(self::STORAGE_PATH . self::PUBLIC_PATH) . $name, self::QUALITY);
         }
         else
             {
-            $name = time() . '_' . $file->getClientOriginalName();
             Image::make($file)->save(public_path(self::STORAGE_PATH . self::PUBLIC_PATH) . $name);
         }
         return self::PUBLIC_PATH . $name;
