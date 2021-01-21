@@ -21,6 +21,8 @@ class Published extends Action
      * @param  \Illuminate\Support\Collection  $models
      * @return mixed
      */
+    public $name = 'Publish';
+
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
@@ -28,8 +30,13 @@ class Published extends Action
             $data = 1;
             $model-> status_id = $data;
             $model->update();
-            return Action::message('Project status changed "Published"');
+            return Action::message('Project status changed "Publish"');
         }
+    }
+
+    public function actionClass()
+    {
+        return 'bg-danger text-white';
     }
 
     /**

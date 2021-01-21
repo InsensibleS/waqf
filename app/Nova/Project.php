@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Nova\Actions\Published;
 use App\Nova\Actions\Rejected;
 use Illuminate\Http\Request;
+use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -174,21 +175,22 @@ class Project extends Resource
                 ->exceptOnIndex()
                 ->canSee(function($request){
                     return true;
-                })
-                ->canrun(function($request, $project){
+                })->canrun(function($request, $project){
                     return $project-> status_id  === 2;
-                }),
+                })->confirmText('Are you sure you want to publish this project?')
+                ->confirmButtonText('Publish')
+                ->cancelButtonText("Don't Publish"),
 
             (new Rejected)
                 ->showOnTableRow()
                 ->exceptOnIndex()
                 ->canSee(function($request){
                     return true;
-                })
-                ->canrun(function($request, $project){
-
-                    return $project-> status_id  === 2;
-                }),
+                })->canrun(function($request, $project){
+                    return $project->status_id === 2;
+                })->confirmText('Are you sure you want to reject this project?')
+                ->confirmButtonText('Reject')
+                ->cancelButtonText("Don't Reject"),
         ];
     }
 }

@@ -20,6 +20,7 @@ class Rejected extends Action
      * @param  \Illuminate\Support\Collection  $models
      * @return mixed
      */
+    public $name = 'Reject';
 
     public function handle(ActionFields $fields, Collection $models)
     {
@@ -28,8 +29,13 @@ class Rejected extends Action
             $data = 3;
             $model-> status_id = $data;
             $model->update();
-            return Action::message('Project status changed "Rejected"');
+            return Action::message('Project status changed "Reject"');
         }
+    }
+
+    public function actionClass()
+    {
+        return 'bg-danger text-white';
     }
 
     /**
