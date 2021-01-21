@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\GrantsAndProjectsForProfileResource;
+use App\Models\Project;
 use App\Repositories\GrantsAndProjectsForProfileRepository;
 use App\Http\Requests\ProjectStoreRequest;
+use App\Http\Requests\ProjectDeleteRequest;
 use App\Services\ImageService;
 use App\Services\ProjectService;
 use App\Services\HashTagService;
@@ -56,5 +58,13 @@ class ProjectController extends Controller
         }
 
         return response()->json(['message' => $message, 'response' => $response]);
+    }
+
+    public function deleteProject(ProjectDeleteRequest $request) {
+        $project = Project::find($request->project_id);
+        $this->hashTagService->detachHashtagsFromProject($project);
+        $this->projectService->delete($project->id);
+
+        return response()->json(['message' => 'Project deleted successfully']);
     }
 }

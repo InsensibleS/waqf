@@ -46,4 +46,6 @@ Route::middleware('auth:api')->group( function () {
     Route::get('/getProjectsForProfile', [ProjectController::class, 'getProjectsForProfile']);
     // project creation by user
     Route::post('/storeProject', [ProjectController::class, 'storeProject']);
+    // project creation by user
+    Route::post('/deleteProject', [ProjectController::class, 'deleteProject']);
 });

@@ -50,4 +50,9 @@ class HashTagService
             $project->hashtags()->attach($hashtagId);
         }
     }
+
+    public function detachHashtagsFromProject(Project $project)
+    {
+        $project->hashtags()->detach();
+    }
 }
