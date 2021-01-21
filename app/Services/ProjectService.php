@@ -30,4 +30,15 @@ class ProjectService
 
         return $this->project->create($request->all());
     }
+
+    /**
+     *
+     * @param  int  $id
+     * @return void
+     *
+     */
+    public function delete($id)
+    {
+        Project::destroy($id);
+    }
 }
