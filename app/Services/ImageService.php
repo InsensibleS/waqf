@@ -27,16 +27,13 @@ class ImageService
         {
             $name = time() . '_' . $file->getClientOriginalName();
             Image::make($file)->save(public_path(self::STORAGE_PATH . self::PUBLIC_PATH) . $name, self::QUALITY);
-
-            return self::PUBLIC_PATH . $name;
         }
         else
             {
             $name = time() . '_' . $file->getClientOriginalName();
             Image::make($file)->save(public_path(self::STORAGE_PATH . self::PUBLIC_PATH) . $name);
-
-            return self::PUBLIC_PATH . $name;
         }
+        return self::PUBLIC_PATH . $name;
     }
 
     /**
