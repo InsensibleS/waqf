@@ -168,27 +168,19 @@ class Project extends Resource
     public function actions(Request $request)
     {
         return [
-
             (new Published)
                 ->showOnTableRow()
                 ->exceptOnIndex()
-                ->canSee(function($request){
-                    return true;
-                })
-                ->canrun(function($request, $project){
-                    return $project-> status_id  === 2;
-                }),
+                ->confirmText('Do you really want to publish the project?')
+                ->confirmButtonText('Publish')
+                ->cancelButtonText("Don't Publish"),
 
             (new Rejected)
                 ->showOnTableRow()
                 ->exceptOnIndex()
-                ->canSee(function($request){
-                    return true;
-                })
-                ->canrun(function($request, $project){
-
-                    return $project-> status_id  === 2;
-                }),
+                ->confirmText('Do you really want to reject the project?')
+                ->confirmButtonText('Reject')
+                ->cancelButtonText("Don't Reject"),
         ];
     }
 }
