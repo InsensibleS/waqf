@@ -18,7 +18,7 @@ class GrantPageRepository
             ->where('grant_stage_id', '!=', 8)
             ->first();
 
-        $projects = $grant ? Project::where('grant_id', $grant->id)->get() : [];
+        $projects = $grant ? Project::where('grant_id', $grant->id)->where('status_id', 1)->get() : [];
         $grantStages = $grant ? GrantStage::all() : [];
 
         return [
