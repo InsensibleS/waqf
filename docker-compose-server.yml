@@ -1,17 +1,18 @@
 version: "3.7"
 services:
   app:
+    restart: always
     build:
       args:
         user: waqf
         uid: 1000
-      context: $PWD
+      context: /opt/waqf
       dockerfile: Dockerfile
     image: waqfapp
     container_name: app
     working_dir: /var/www/
     volumes:
-      - $PWD:/var/www
+      - /opt/waqf:/var/www
 
   db:
     image: mysql:5.7
@@ -33,6 +34,10 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - $PWD:/var/www
-      - $PWD/docker-compose/nginx:/etc/nginx/conf.d
-      - $PWD/ssl:/ssl
+      - /opt/waqf:/var/www
+      - /opt/waqf/docker-compose/nginx:/etc/nginx/conf.d
+      - /opt/waqf/ssl:/ssl
+
+  adminer:
+    image: adminer
+    restart: always

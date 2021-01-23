@@ -19,7 +19,15 @@ class DatabaseSeeder extends Seeder
             PartnerSeeder::class,
             CustomerStatusSeeder::class,
             NewsTableSeeder::class,
-            MainPageAttributeSeeder::class
+            MainPageAttributeSeeder::class,
+            CountrySeeder::class,
+            ProjectStatusSeeder::class,
+            GrantStagesSeeder::class,
+            HashtagSeeder::class,
+            GrantSeeder::class,
+            CustomerSeeder::class,
+            SocialAccountSeeder::class,
+            ProjectSeeder::class,
         ]);
     }
 }
