@@ -6,7 +6,7 @@ before_script:
 deploy:
   stage: deploy
   script:
-    - sudo mv /opt/waqf/storage /tmp
+    - sudo rsync -a --delete /opt/waqf/storage /tmp
     - sudo rm -rf /opt/waqf
     - sudo rm -rf .git
     - sudo mkdir -p /opt/waqf
