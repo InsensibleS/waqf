@@ -43,6 +43,5 @@ ENTRYPOINT [ "/entrypoint" ]
 
 USER $user
 
-
 EXPOSE 9000
 CMD ["php-fpm"]
