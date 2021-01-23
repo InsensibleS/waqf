@@ -8,7 +8,7 @@ before_script:
     - sudo mkdir -p /opt/waqf
     - sudo cp -rf . /opt/waqf
     - ls -la
-    - sudo cp .env.example /opt/waqf/.env
+    - sudo cp .env.${ENV} /opt/waqf/.env
     - cd /opt/waqf
     - rm -rf .git
     - export PWD=$(pwd)
@@ -19,6 +19,8 @@ before_script:
 
 deploy:
   <<: *deploy_templ
+  variables:
+    ENV: dev
   tags:
     - shell-dev
   only:
