@@ -11,7 +11,7 @@ deploy:
     - sudo rm -rf .git
     - sudo mkdir -p /opt/waqf
     - sudo cp -rf . /opt/waqf
-    - sudo mv -f /tmp/storage/. /opt/waqf/storage/
+    - sudo rsync -a /tmp/storage/. /opt/waqf/storage/
     - ls -la
     - sudo cp .env.dev /opt/waqf/.env
     - cd /opt/waqf
