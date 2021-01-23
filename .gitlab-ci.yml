@@ -1,26 +1,25 @@
 before_script:
     - env | sort
 
-.deploy_templ: &deploy_templ
+
+
+deploy:
   stage: deploy
   script:
+    - sudo mv /opt/waqf/storage /tmp
     - sudo rm -rf /opt/waqf
     - sudo rm -rf .git
     - sudo mkdir -p /opt/waqf
     - sudo cp -rf . /opt/waqf
+    - sudo mv /tmp/storage /opt/waqf
     - ls -la
-    - sudo cp .env.${ENV} /opt/waqf/.env
+    - sudo cp .env.dev /opt/waqf/.env
     - cd /opt/waqf
     - export PWD=$(pwd)
     - echo $PWD
     - sudo chown -R 1000:1001 /opt/waqf
     - docker-compose -f docker-compose-server.yml up -d --build --force-recreate
     - echo 'Successfully deploy'
-
-deploy:
-  <<: *deploy_templ
-  variables:
-    ENV: dev
   tags:
     - shell-dev
   only:
