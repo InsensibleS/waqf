@@ -10,10 +10,11 @@ before_script:
     - ls -la
     - sudo cp .env.example /opt/waqf/.env
     - cd /opt/waqf
+    - rm -rf .git
     - export PWD=$(pwd)
     - echo $PWD
     - sudo chown -R 1000:1001 /opt/waqf
-    - docker-compose -f docker-compose-server.yml up -d --build
+    - docker-compose -f docker-compose-server.yml up -d --build --force-recreate
     - echo 'Successfully deploy'
 
 deploy:
