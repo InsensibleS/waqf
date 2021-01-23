@@ -7,7 +7,8 @@ before_script:
     - sudo rm -rf /opt/waqf
     - sudo mkdir -p /opt/waqf
     - sudo cp -rf . /opt/waqf
-    - sudo cp .env.examlpe /opt/waqf/.env
+    - ls la
+    - sudo cp ./.env.examlpe /opt/waqf/.env
     - cd /opt/waqf
     - export PWD=$(pwd)
     - echo $PWD
