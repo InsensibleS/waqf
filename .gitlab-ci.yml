@@ -20,3 +20,4 @@ deploy:
     - shell-dev
   only:
     - develop
+    - devops/cicd
