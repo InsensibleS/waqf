@@ -4,15 +4,13 @@ before_script:
 .deploy_templ: &deploy_templ
   stage: deploy
   script:
-    - export IP=$(hostname -I | cut -f1 -d' ')
-    - echo $IP
-    - sed -i "s~http://localhost:8080;~http://$IP:8080;~" ./docker-compose/nginx/app.conf
+    - sudo rm -rf /opt/waqf
     - sudo mkdir -p /opt/waqf
     - sudo cp -rf . /opt/waqf
     - cd /opt/waqf
     - export PWD=$(pwd)
     - echo $PWD
-    - sudo chown -R 1000.1000 /opt/waqf
+    - sudo chown -R 1000:1000 /opt/waqf
     - docker-compose -f docker-compose-server.yml up -d --build
     - echo 'Successfully deploy'
 
@@ -22,4 +20,3 @@ deploy:
     - shell-dev
   only:
     - develop
-    - devops/cicd
