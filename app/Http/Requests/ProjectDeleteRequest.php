@@ -2,12 +2,11 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\MaxHashtagLength;
-use App\Rules\MaxNumberHashtags;
-use App\Services\HashTagService;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
-class ProjectRequest extends FormRequest
+class ProjectDeleteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,13 +26,15 @@ class ProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'hashtags' => [
+            'project_id' => [
                 'required',
-                'max:1280',
-                'starts_with:#',
-                new MaxNumberHashtags(new HashTagService()),
-                new MaxHashtagLength(new HashTagService())
-            ]
+                'integer',
+                Rule::exists('projects','id')->where(function ($query) {
+                    $query->where('customer_id', Auth::id());
+                    $query->where('status_id', 3);
+                    $query->where('deleted_at', null);
+                }),
+            ],
         ];
     }
 }

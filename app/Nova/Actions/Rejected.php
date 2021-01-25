@@ -8,10 +8,13 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
+use Laravel\Nova\Actions\DestructiveAction;
 
-class Rejected extends Action
+class Rejected extends DestructiveAction
 {
     use InteractsWithQueue, Queueable;
+
+    public $name = 'Reject';
 
     /**
      * Perform the action on the given models.
@@ -25,11 +28,13 @@ class Rejected extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
-
-            $data = 3;
-            $model-> status_id = $data;
-            $model->update();
-            return Action::message('Project status changed "Reject"');
+            if(!$model->status_id !== 2) {
+                return Action::danger('You can only change the status of the project under moderation!');
+            } else {
+                $model-> status_id = 3;
+                $model->update();
+                return Action::message('Project status changed "Reject"');
+            }
         }
     }
 
