@@ -1,25 +1,25 @@
 before_script:
     - env | sort
 
-.deploy_templ: &deploy_templ
+
+
+deploy:
   stage: deploy
   script:
-    - export IP=$(hostname -I | cut -f1 -d' ')
-    - echo $IP
+    - sudo rsync -a --delete /opt/waqf/storage /tmp
+    - sudo rm -rf /opt/waqf
+    - sudo rm -rf .git
     - sudo mkdir -p /opt/waqf
     - sudo cp -rf . /opt/waqf
+    - sudo rsync -a /tmp/storage/. /opt/waqf/storage/
+    - ls -la
+    - sudo cp .env.dev /opt/waqf/.env
     - cd /opt/waqf
     - export PWD=$(pwd)
     - echo $PWD
-    - sudo chown -R 1000.1000 /opt/waqf
-    - docker-compose -f docker-compose-server.yml down
-    - sudo docker-compose -f docker-compose-server.yml up -d --build
-    - sudo docker rm $(docker ps -aq) || echo "OK"
-    - sudo docker rmi $(docker images --filter "dangling=true" -q --no-trunc) || echo "OK"
+    - sudo chown -R 1000:1001 /opt/waqf
+    - docker-compose -f docker-compose-server.yml up -d --build --force-recreate
     - echo 'Successfully deploy'
-
-deploy:
-  <<: *deploy_templ
   tags:
     - shell-dev
   only:
