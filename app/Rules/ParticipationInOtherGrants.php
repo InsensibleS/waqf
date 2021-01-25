@@ -45,8 +45,8 @@ class ParticipationInOtherGrants implements Rule
                     return false;
                 } elseif ($this->startOrEndDate < $grant->start_date && $value > $grant->end_date) {
                     return false;
-                } else {
-                    return !($grant->start_date <= $value && $grant->end_date >= $value);
+                } elseif ($grant->start_date <= $value && $grant->end_date >= $value) {
+                    return false;
                 }
                 return true;
             }
