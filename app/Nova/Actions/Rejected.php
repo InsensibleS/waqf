@@ -29,16 +29,11 @@ class Rejected extends DestructiveAction
             if(!$model->status_id !== 2) {
                 return Action::danger('You can only change the status of the project under moderation!');
             } else {
-                $model-> status_id = 3;
+                $model->status_id = 3;
                 $model->update();
                 return Action::message('Project status changed "Reject"');
             }
         }
-    }
-
-    public function actionClass()
-    {
-        return 'bg-danger text-white';
     }
 
     /**
