@@ -34,7 +34,7 @@ class ProjectSeeder extends Seeder
             [
                 'country_id' => 13,
                 'grant_id' => 2,
-                'status_id' => 1,
+                'status_id' => 3,
                 'customer_id' => 2,
                 'grant_stage_id' => 2,
                 'title' => 'Antiseptic for everyone!',
