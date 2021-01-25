@@ -62,7 +62,7 @@ class Grant extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            Number::make('Cost of participation', 'publication_cost')
+            Number::make('Cost of participation $', 'publication_cost')
                 ->sortable()
                 ->rules('required'),
 
