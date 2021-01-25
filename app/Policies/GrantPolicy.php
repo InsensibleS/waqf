@@ -34,7 +34,7 @@ class GrantPolicy
 
     public function delete(User $user)
     {
-        return $user->role->is_admin;
+        return false;
     }
 
     public function restore(User $user)

@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Heading;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
@@ -64,6 +65,8 @@ class Grant extends Resource
                 ->sortable()
                 ->rules('required'),
 
+            Heading::make('Project selection'),
+
             Date::make('Start of grant', 'start_date')
                 ->sortable()
                 ->rules(
@@ -84,7 +87,9 @@ class Grant extends Resource
                         $request->end_selection_projects,
                         'The end date of the project selection cannot be earlier than the start of the grant.',
                     )
-                ),
+                )-> hideFromIndex(),
+
+            Heading::make('Moderation'),
 
             Date::make('Start moderation', 'start_moderation')
                 ->sortable()
@@ -95,7 +100,7 @@ class Grant extends Resource
                         $request->start_moderation,
                         "The moderation start date must be later than the end of the project selection period.",
                     )
-                ),
+                )-> hideFromIndex(),
 
             Date::make('End moderation', 'end_moderation')
                 ->sortable()
@@ -106,7 +111,9 @@ class Grant extends Resource
                         $request->end_moderation,
                         'The end date of moderation cannot be earlier than the start date of moderation.',
                     )
-                ),
+                )-> hideFromIndex(),
+
+            Heading::make('Qualification'),
 
             Date::make('Start of qualification', 'start_qualification')
                 ->sortable()
@@ -117,7 +124,7 @@ class Grant extends Resource
                         $request->start_qualification,
                         "Qualification start date must be later than the end of project moderation.",
                     )
-                ),
+                )-> hideFromIndex(),
 
             Date::make('End of qualification', 'end_qualification')
                 ->sortable()
@@ -128,7 +135,9 @@ class Grant extends Resource
                         $request->end_qualification,
                         'The end date of the qualification cannot be earlier than the start of the qualification.',
                     )
-                ),
+                )-> hideFromIndex(),
+
+            Heading::make('Semifinal'),
 
             Date::make('Semifinal start', 'start_semifinal')
                 ->sortable()
@@ -139,7 +148,7 @@ class Grant extends Resource
                         $request->start_semifinal,
                         "The start of the semi-final must be later than the end of the qualification.",
                     )
-                ),
+                )-> hideFromIndex(),
 
             Date::make('End of semi-final', 'end_semifinal')
                 ->sortable()
@@ -150,7 +159,9 @@ class Grant extends Resource
                         $request->end_semifinal,
                         'The end date of the semi-final cannot be earlier than the start date of the semi-final.',
                     )
-                ),
+                )-> hideFromIndex(),
+
+            Heading::make('Final'),
 
             Date::make('Finals start', 'start_final')
                 ->sortable()
@@ -161,7 +172,7 @@ class Grant extends Resource
                         $request->start_final,
                         "The beginning of the final must be later than the end of the semi-final.",
                     )
-                ),
+                )-> hideFromIndex(),
 
             Date::make('End of final', 'end_final')
                 ->sortable()
@@ -172,7 +183,9 @@ class Grant extends Resource
                         $request->end_final,
                         'The end date of the final cannot be earlier than the start date of the final.',
                     )
-                ),
+                )-> hideFromIndex(),
+
+            Heading::make('Summarize'),
 
             Date::make('Start of summarizing', 'start_summarizing')
                 ->sortable()
@@ -183,7 +196,8 @@ class Grant extends Resource
                         $request->start_summarizing,
                         "The start of summing up must be later than the end of the final.",
                     )
-                ),
+                )-> hideFromIndex(),
+
 
             Date::make('End of grant', 'end_date')
                 ->sortable()
@@ -198,6 +212,7 @@ class Grant extends Resource
                 ->readonly(function() {
                     return $this->id === 1 ? true : false;
                 }),
+            Heading::make(''),
 
             BelongsTo::make('Stage', 'grantStage', GrantStage::class)
                 ->sortable()
