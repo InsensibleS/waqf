@@ -30,6 +30,7 @@ class Country extends Resource
      */
     public static $search = [
         'id',
+        'title'
     ];
 
     /**

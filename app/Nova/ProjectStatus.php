@@ -30,6 +30,7 @@ class ProjectStatus extends Resource
      */
     public static $search = [
         'id',
+        'title'
     ];
 
     /**

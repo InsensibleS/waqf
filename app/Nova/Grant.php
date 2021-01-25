@@ -38,6 +38,8 @@ class Grant extends Resource
      */
     public static $search = [
         'id',
+        'title',
+        'publication_cost',
     ];
 
     /**
