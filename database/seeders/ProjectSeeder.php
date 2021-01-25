@@ -18,7 +18,7 @@ class ProjectSeeder extends Seeder
             [
                 'country_id' => 13,
                 'grant_id' => 2,
-                'status_id' => 1,
+                'status_id' => 2,
                 'customer_id' => 3,
                 'grant_stage_id' => 2,
                 'title' => 'Masks for everyone!',
@@ -50,7 +50,7 @@ class ProjectSeeder extends Seeder
             [
                 'country_id' => 13,
                 'grant_id' => 2,
-                'status_id' => 1,
+                'status_id' => 2,
                 'customer_id' => 1,
                 'grant_stage_id' => 2,
                 'title' => 'Development of an outdoor disinfectant',
