@@ -33,6 +33,10 @@ class Partner extends Resource
      */
     public static $search = [
         'id',
+        'title',
+        'description',
+        'order'
+
     ];
 
     /**

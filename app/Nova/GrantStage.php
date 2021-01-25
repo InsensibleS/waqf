@@ -30,6 +30,7 @@ class GrantStage extends Resource
      */
     public static $search = [
         'id',
+        'title'
     ];
 
     /**

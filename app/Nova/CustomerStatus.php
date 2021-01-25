@@ -31,6 +31,8 @@ class CustomerStatus extends Resource
      */
     public static $search = [
         'id',
+        'title',
+        'description'
     ];
 
     /**

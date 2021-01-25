@@ -31,6 +31,7 @@ class Hashtag extends Resource
      */
     public static $search = [
         'id',
+        'title'
     ];
 
     /**

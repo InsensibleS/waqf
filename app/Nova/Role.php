@@ -31,6 +31,7 @@ class Role extends Resource
      */
     public static $search = [
         'id',
+        'title'
     ];
 
     /**

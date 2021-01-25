@@ -32,6 +32,8 @@ class MainPageAttribute extends Resource
      */
     public static $search = [
         'id',
+        'heading',
+        'description'
     ];
 
     /**

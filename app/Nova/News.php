@@ -33,6 +33,9 @@ class News extends Resource
      */
     public static $search = [
         'id',
+        'title',
+        'description',
+        'publication_date'
     ];
 
     /**
