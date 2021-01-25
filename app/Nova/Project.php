@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Nova\Actions\Published;
 use App\Nova\Actions\Rejected;
 use Illuminate\Http\Request;
+use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;

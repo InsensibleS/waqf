@@ -23,6 +23,7 @@ class Rejected extends DestructiveAction
      * @param  \Illuminate\Support\Collection  $models
      * @return mixed
      */
+    public $name = 'Reject';
 
     public function handle(ActionFields $fields, Collection $models)
     {
@@ -35,6 +36,11 @@ class Rejected extends DestructiveAction
                 return Action::message('Project status changed "Reject"');
             }
         }
+    }
+
+    public function actionClass()
+    {
+        return 'bg-danger text-white';
     }
 
     /**

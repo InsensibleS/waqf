@@ -4,7 +4,7 @@ namespace App\Policies;
 
 use App\Models\User;
 
-class ProjectStatusPolicy extends DefaultPolicy
+class GrantStagePolicy extends DefaultPolicy
 {
     public function viewAny(User $user)
     {
