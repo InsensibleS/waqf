@@ -26,7 +26,7 @@ class Published extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
-            if(!$model->status_id !== 2) {
+            if($model->status_id !== 2) {
                 return Action::danger('You can only change the status of the project under moderation!');
             } else {
                 $model->status_id = 1;
