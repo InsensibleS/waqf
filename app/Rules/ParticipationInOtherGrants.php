@@ -37,16 +37,16 @@ class ParticipationInOtherGrants implements Rule
         $grants = $this->grantRepository->getFutureGrants();
         if($grants !== null) {
             foreach ($grants as $grant) {
-                if(!$this->is_start && $value < $grant->start_date) {
-                     if ($this->startOrEndDate >= $grant->start_date) {
-                         return false;
-                     }
-                } elseif (!$this->is_start && $value >= $grant->start_date && $value <= $grant->end_date) {
-                    return false;
-                } elseif ($this->startOrEndDate < $grant->start_date && $value > $grant->end_date) {
-                    return false;
-                } elseif ($grant->start_date <= $value && $grant->end_date >= $value) {
-                    return false;
+                if(!$this->is_start) {
+                   if ($value >= $grant->start_date && $value <= $grant->end_date) {
+                        return false;
+                   } elseif ($value < $grant->start_date) {
+                        return  $this->startOrEndDate !== null && $this->startOrEndDate < $grant->start_date;
+                   }
+                } else {
+                    if ($value >= $grant->start_date && $value <= $grant->end_date) {
+                        return false;
+                    }
                 }
                 return true;
             }

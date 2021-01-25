@@ -47,7 +47,7 @@ class GrantSeeder extends Seeder
                 'start_final' => '2021-02-03',
                 'end_final' => '2021-02-06',
                 'start_summarizing' => '2021-02-07',
-                'end_date' => '2021-02-10',
+                'end_date' => '2021-02-09',
                 'publication_cost' => 2000,
                 'number_finalists' => 5,
                 'number_semifinalists' => 50,
