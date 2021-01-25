@@ -181,14 +181,20 @@ class Project extends Resource
                 ->exceptOnIndex()
                 ->confirmText('Do you really want to publish the project?')
                 ->confirmButtonText('Publish')
-                ->cancelButtonText("Don't Publish"),
+                ->cancelButtonText("Don't Publish")
+                ->canRun(function() {
+                    return true;
+                }),
 
             (new Rejected)
                 ->showOnTableRow()
                 ->exceptOnIndex()
                 ->confirmText('Do you really want to reject the project?')
                 ->confirmButtonText('Reject')
-                ->cancelButtonText("Don't Reject"),
+                ->cancelButtonText("Don't Reject")
+                ->canRun(function() {
+                    return true;
+                }),
         ];
     }
 }

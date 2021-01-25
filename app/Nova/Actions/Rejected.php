@@ -8,9 +8,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
-use Laravel\Nova\Actions\DestructiveAction;
 
-class Rejected extends DestructiveAction
+class Rejected extends Action
 {
     use InteractsWithQueue, Queueable;
 
@@ -34,6 +33,11 @@ class Rejected extends DestructiveAction
                 return Action::message('Project status changed "Reject"');
             }
         }
+    }
+
+    public function actionClass()
+    {
+        return 'bg-danger text-white';
     }
 
     /**
