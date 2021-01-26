@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -40,6 +41,11 @@ class Hashtag extends Resource
      * @var string
      */
     public static $group = 'Grants & Projects';
+
+    public static function availableForNavigation(Request $request)
+    {
+        return Auth::user()->role->is_admin;
+    }
 
     /**
      * Get the fields displayed by the resource.

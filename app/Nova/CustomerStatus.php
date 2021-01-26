@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
@@ -41,6 +42,11 @@ class CustomerStatus extends Resource
      * @var string
      */
     public static $group = 'System dictionaries';
+
+    public static function availableForNavigation(Request $request)
+    {
+        return Auth::user()->role->is_admin;
+    }
 
     /**
      * Get the fields displayed by the resource.

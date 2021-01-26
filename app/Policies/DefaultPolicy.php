@@ -21,7 +21,10 @@ class DefaultPolicy
 
     public function viewAny(User $user)
     {
-        return $user->role->is_admin;
+        if (($user->role->id === 1) ||  ($user->role->id === 2)) {
+            return true;
+        }
+        return false;
     }
 
     public function view(User $user)
