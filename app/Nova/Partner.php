@@ -67,7 +67,8 @@ class Partner extends Resource
                 ->path('/images/partners-logo')
                 ->sortable()
                 ->creationRules('required', 'max:5000')
-                ->updateRules('max:5000'),
+                ->updateRules('max:5000')
+                ->deletable(false),
 
             Text::make('Company name', 'title')
                 ->sortable()

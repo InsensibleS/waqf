@@ -123,7 +123,7 @@ He recalled that a number of sectors of the economy, such as tourism, aviation a
                 'status_id' => 1,
                 'customer_id' => 1,
                 'grant_stage_id' => 2,
-                'title' => 'COVID-19. Measures to combat coronavirus infection and support the economy',
+                'title' => 'COVID-19. Measures to combat coronavirus infection',
                 'description' => "Meeting of the Presidium of the Coordination Council on the fight against coronavirus.
 The New Year holidays are over.  The Russian health care system worked in difficult conditions.  At this time, as a rule, the number of requests for medical care is growing.  Despite this, patients, including those with coronavirus, received the necessary treatment.
 Meeting participants

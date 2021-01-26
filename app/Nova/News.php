@@ -63,7 +63,8 @@ class News extends Resource
             Image::make('Image', 'image')
             ->path('/images/news')
             ->creationRules('required', 'max:5000')
-            ->updateRules('max:5000'),
+            ->updateRules('max:5000')
+            ->deletable(false),
 
             Textarea::make('Description', 'description')
             ->rules('required')
