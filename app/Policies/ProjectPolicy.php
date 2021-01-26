@@ -17,13 +17,27 @@ class ProjectPolicy
         return false;
     }
 
+    public function create(User $user)
+    {
+        if (($user->role->id === 1) ||  ($user->role->id === 2)) {
+            return true;
+        }
+        return false;
+    }
+
     public function delete(User $user)
     {
+        if (($user->role->id === 1) ||  ($user->role->id === 2)) {
+            return true;
+        }
         return false;
     }
 
     public function update(User $user)
     {
+        if (($user->role->id === 1) ||  ($user->role->id === 2)) {
+            return true;
+        }
         return false;
     }
 
