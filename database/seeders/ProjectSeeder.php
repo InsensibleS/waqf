@@ -133,7 +133,7 @@ Coronavirus vaccination continues throughout the country.  She went on non-worki
 There is one more question to which I would like to draw your attention.  The coronavirus has shown that additional measures are needed to minimize the risk of dangerous infections entering our country, and a clear plan to combat them.  The President signed the federal law On biological safety in the Russian Federation.  It provides comprehensive regulation in this area and involves a number of measures that are aimed at protecting citizens.  Now the Government defines a unified state policy in the field of biological safety, as well as coordinates the work of federal departments, regions, organizes their interaction on all related issues.  A state information system in this area will also be created.  Colleagues, we need to prepare all the necessary regulatory framework for the law to work in full force.",
                 'publication_date' => '2021-01-16',
                 'disposal_date' => '2020-01-23',
-                'image1' => '/images/projects/flag.jpg',
+                'image1' => '/images/projects/flag.png',
                 'image2' => '',
                 'image3' => '',
                 'image4' => '',
