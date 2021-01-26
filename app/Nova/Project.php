@@ -98,8 +98,7 @@ class Project extends Resource
 
             Date::make('Disposal date', 'disposal_date')
                 ->sortable()
-                ->hideFromIndex()
-                ->rules('required'),
+                ->hideFromIndex(),
 
             BelongsToMany::make('Hashtags', 'hashtags', Hashtag::class)
                 ->hideFromIndex(),
