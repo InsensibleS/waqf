@@ -8,10 +8,13 @@ use Illuminate\Database\Eloquent\Collection;
 class GrantRepository
 {
     /**
+     * @param int $id
      * @return Collection|null
      */
-    public function getFutureGrants()
+    public function getCurrentAndFutureGrants($id)
     {
-        return Grant::where('start_date', '>', date('Y-m-d'))->get();
+        return Grant::where('end_date', '>=', date('Y-m-d'))
+            ->where('id', '!=', $id)
+            ->get();
     }
 }

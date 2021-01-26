@@ -66,15 +66,15 @@ class Grant extends Resource
 
             Number::make('Cost of participation $', 'publication_cost')
                 ->sortable()
-                ->rules('required'),
+                ->rules('required', 'gte:0'),
 
             Number::make('Number of semi-finalists', 'number_semifinalists')
                 ->sortable()
-                ->rules('required'),
+                ->rules('required', 'gte:1'),
 
             Number::make('Number of finalists', 'number_finalists')
                 ->sortable()
-                ->rules('required'),
+                ->rules('required', 'gte:1'),
 
             Heading::make('Project selection'),
 
@@ -87,7 +87,12 @@ class Grant extends Resource
                         $request->start_date,
                         "The start date of the grant cannot be earlier than tomorrow's date.",
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(), $request->end_date, false)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->end_date,
+                        $request->resourceId,
+                        false
+                    )
                 ),
 
             Date::make('End of project selection', 'end_selection_projects')
@@ -99,7 +104,12 @@ class Grant extends Resource
                         $request->end_selection_projects,
                         'The end date of the project selection cannot be earlier than the start of the grant.',
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(),  $request->start_date, true)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->start_date,
+                        $request->resourceId,
+                        true
+                    )
                 )-> hideFromIndex(),
 
             Heading::make('Moderation'),
@@ -113,7 +123,12 @@ class Grant extends Resource
                         $request->start_moderation,
                         "The moderation start date must be later than the end of the project selection period.",
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(),  $request->start_date, true)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->start_date,
+                        $request->resourceId,
+                        true
+                    )
                 )-> hideFromIndex(),
 
             Date::make('End moderation', 'end_moderation')
@@ -125,7 +140,12 @@ class Grant extends Resource
                         $request->end_moderation,
                         'The end date of moderation cannot be earlier than the start date of moderation.',
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(),  $request->start_date, true)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->start_date,
+                        $request->resourceId,
+                        true
+                    )
                 )-> hideFromIndex(),
 
             Heading::make('Qualification'),
@@ -139,7 +159,12 @@ class Grant extends Resource
                         $request->start_qualification,
                         "Qualification start date must be later than the end of project moderation.",
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(),  $request->start_date, true)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->start_date,
+                        $request->resourceId,
+                        true
+                    )
                 )-> hideFromIndex(),
 
             Date::make('End of qualification', 'end_qualification')
@@ -151,7 +176,12 @@ class Grant extends Resource
                         $request->end_qualification,
                         'The end date of the qualification cannot be earlier than the start of the qualification.',
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(),  $request->start_date, true)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->start_date,
+                        $request->resourceId,
+                        true
+                    )
                 )-> hideFromIndex(),
 
             Heading::make('Semifinal'),
@@ -165,7 +195,12 @@ class Grant extends Resource
                         $request->start_semifinal,
                         "The start of the semi-final must be later than the end of the qualification.",
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(),  $request->start_date, true)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->start_date,
+                        $request->resourceId,
+                        true
+                    )
                 )-> hideFromIndex(),
 
             Date::make('End of semi-final', 'end_semifinal')
@@ -177,7 +212,12 @@ class Grant extends Resource
                         $request->end_semifinal,
                         'The end date of the semi-final cannot be earlier than the start date of the semi-final.',
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(),  $request->start_date, true)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->start_date,
+                        $request->resourceId,
+                        true
+                    )
                 )-> hideFromIndex(),
 
             Heading::make('Final'),
@@ -191,7 +231,12 @@ class Grant extends Resource
                         $request->start_final,
                         "The beginning of the final must be later than the end of the semi-final.",
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(),  $request->start_date, true)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->start_date,
+                        $request->resourceId,
+                        true
+                    )
                 )-> hideFromIndex(),
 
             Date::make('End of final', 'end_final')
@@ -203,7 +248,12 @@ class Grant extends Resource
                         $request->end_final,
                         'The end date of the final cannot be earlier than the start date of the final.',
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(),  $request->start_date, true)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->start_date,
+                        $request->resourceId,
+                        true
+                    )
                 )-> hideFromIndex(),
 
             Heading::make('Summarize'),
@@ -217,7 +267,12 @@ class Grant extends Resource
                         $request->start_summarizing,
                         "The start of summing up must be later than the end of the final.",
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(),  $request->start_date, true)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->start_date,
+                        $request->resourceId,
+                        true
+                    )
                 )-> hideFromIndex(),
 
 
@@ -230,11 +285,17 @@ class Grant extends Resource
                         $request->end_date,
                         'The end date of the grant cannot be earlier than the start date of the summing up.',
                     ),
-                    new ParticipationInOtherGrants(new GrantRepository(),  $request->start_date, true)
+                    new ParticipationInOtherGrants(
+                        new GrantRepository(),
+                        $request->start_date,
+                        $request->resourceId,
+                        true
+                    )
                 )
                 ->readonly(function() {
                     return $this->id === 1 ? true : false;
                 }),
+
             Heading::make(''),
 
             BelongsTo::make('Stage', 'grantStage', GrantStage::class)

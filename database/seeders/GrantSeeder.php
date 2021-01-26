@@ -59,7 +59,7 @@ class GrantSeeder extends Seeder
                 'end_selection_projects' => '2021-02-15',
                 'start_moderation' => '2021-02-16',
                 'end_moderation' => '2021-02-17',
-                'start_qualification' => '2021-02-17',
+                'start_qualification' => '2021-02-18',
                 'end_qualification' => '2021-02-20',
                 'start_semifinal' => '2021-02-21',
                 'end_semifinal' => '2021-02-23',

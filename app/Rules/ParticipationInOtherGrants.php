@@ -10,19 +10,22 @@ class ParticipationInOtherGrants implements Rule
     protected $grantRepository;
     protected $startOrEndDate;
     protected $is_start;
+    protected $grantId;
 
     /**
      * Create a new rule instance.
      *
      * @param GrantRepository $grantRepository
      * @param $startOrEndDate
+     * @param int|null $grantId
      * @param $is_start bool
      */
-    public function __construct(GrantRepository $grantRepository, $startOrEndDate, $is_start = true)
+    public function __construct(GrantRepository $grantRepository, $startOrEndDate, $grantId, $is_start = true)
     {
         $this->grantRepository = $grantRepository;
         $this->startOrEndDate = $startOrEndDate;
         $this->is_start = $is_start;
+        $this->grantId = $grantId;
     }
 
     /**
@@ -34,7 +37,8 @@ class ParticipationInOtherGrants implements Rule
      */
     public function passes($attribute, $value)
     {
-        $grants = $this->grantRepository->getFutureGrants();
+        $grants = $this->grantRepository->getCurrentAndFutureGrants($this->grantId);
+
         if($grants !== null) {
             foreach ($grants as $grant) {
                 if(!$this->is_start) {
@@ -48,9 +52,9 @@ class ParticipationInOtherGrants implements Rule
                         return false;
                     }
                 }
-                return true;
             }
         }
+        return true;
     }
 
     /**
