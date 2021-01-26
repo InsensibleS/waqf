@@ -5,9 +5,7 @@ namespace App\Policies;
 
 
 use App\Models\User;
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
+use App\Models\Project;
 
 class ProjectPolicy
 {
@@ -25,6 +23,21 @@ class ProjectPolicy
     }
 
     public function update(User $user)
+    {
+        return false;
+    }
+
+    public function attachHashtag(User $user, Project $project)
+    {
+        return false;
+    }
+
+    public function detachHashtag(User $user, Project $project)
+    {
+        return false;
+    }
+
+    public function attachAnyHashtag(User $user, Project $project)
     {
         return false;
     }
