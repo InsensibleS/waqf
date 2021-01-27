@@ -27,9 +27,6 @@ class ProjectPolicy
 
     public function delete(User $user)
     {
-        if (($user->role->id === 1) ||  ($user->role->id === 2)) {
-            return true;
-        }
         return false;
     }
 

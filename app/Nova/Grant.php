@@ -15,6 +15,7 @@ use App\Rules\ValidLateDate;
 use App\Rules\ValidEqualDate;
 use App\Rules\ParticipationInOtherGrants;
 use App\Repositories\GrantRepository;
+use App\Rules\ComparisonOfNumbers;
 
 class Grant extends Resource
 {
@@ -76,11 +77,19 @@ class Grant extends Resource
 
             Number::make('Number of semi-finalists', 'number_semifinalists')
                 ->sortable()
-                ->rules('required', 'gte:1'),
+                ->rules(
+                    'required',
+                    'gte:1',
+                    new ComparisonOfNumbers($request->number_finalists, $request->number_semifinalists)
+                ),
 
             Number::make('Number of finalists', 'number_finalists')
                 ->sortable()
-                ->rules('required', 'gte:1'),
+                ->rules(
+                    'required',
+                    'gte:1',
+                    new ComparisonOfNumbers($request->number_finalists, $request->number_semifinalists)
+                ),
 
             Heading::make('Project selection'),
 
