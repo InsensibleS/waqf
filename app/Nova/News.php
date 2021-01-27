@@ -67,7 +67,7 @@ class News extends Resource
             ->updateRules('max:5000'),
 
             Froala::make('Description', 'description')
-                ->withFiles ( 'public')->path('/images/news')
+                ->withFiles('public')->path('/images/news')
                 ->creationRules('required')
                 ->updateRules('')
                 ->alwaysShow(),
