@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Froala\NovaFroalaField\Froala;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -65,9 +66,11 @@ class News extends Resource
             ->creationRules('required', 'max:5000')
             ->updateRules('max:5000'),
 
-            Textarea::make('Description', 'description')
-            ->rules('required')
-            ->sortable(),
+            Froala::make('Description', 'description')
+                ->withFiles ( 'public')->path('/images/news')
+                ->creationRules('required')
+                ->updateRules('')
+                ->alwaysShow(),
 
             DateTime::make('Date','publication_date')
             ->hideFromIndex()
