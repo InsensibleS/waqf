@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Froala\NovaFroalaField\Froala;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
@@ -77,6 +78,10 @@ class News extends Resource
             ->hideFromIndex()
             ->rules('required')
             ->sortable(),
+
+            Boolean::make('OF comments', 'ban_comments'),
+            Boolean::make('Main news', 'is_main'),
+            Boolean::make('Priority news', 'is_second'),
 
         ];
     }
