@@ -68,7 +68,8 @@ class News extends Resource
             ->updateRules('max:5000')
             ->deletable(false),
 
-            Text::make('Small description', 'description'),
+            Text::make('Small description', 'description')
+            ->hideFromIndex(),
 
             Froala::make('Full description', 'full_description')
                 ->withFiles('public')
@@ -81,7 +82,8 @@ class News extends Resource
             ->rules('required')
             ->sortable(),
 
-            Boolean::make('OF comments', 'ban_comments'),
+            Boolean::make('OF comments', 'ban_comments')
+                ->hideFromIndex(),
 
             Boolean::make('Main news', 'is_main')
                 ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),

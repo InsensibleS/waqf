@@ -31,7 +31,10 @@ class СomparisonOfBooleanFields implements Rule
      */
     public function passes($attribute, $value)
     {
-        return $this->firstBoolean <> $this->secondBoolean;
+        if(($this->firstBoolean == true) and ($this->secondBoolean ==true)){
+            return  false;
+        }
+        return true;
     }
 
     /**
