@@ -71,7 +71,6 @@ class News extends Resource
                 ->withFiles('public')
                 ->path('/images/news')
                 ->creationRules('required')
-                ->updateRules('')
                 ->alwaysShow(),
 
             DateTime::make('Date','publication_date')

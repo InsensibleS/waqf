@@ -23,6 +23,7 @@ class CreateNewsTable extends Migration
             $table->dateTime('publication_date');
             $table->boolean('is_main')->default(false);
             $table->boolean('is_second')->default(false);
+            $table->boolean('ban_comments')->default(false);
             $table->softDeletes();
         });
     }
