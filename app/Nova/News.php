@@ -6,7 +6,6 @@ use Froala\NovaFroalaField\Froala;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -66,8 +65,11 @@ class News extends Resource
             ->creationRules('required', 'max:5000')
             ->updateRules('max:5000'),
 
-            Froala::make('Description', 'description')
-                ->withFiles('public')->path('/images/news')
+            Text::make('Small description', 'description'),
+
+            Froala::make('Full description', 'full_description')
+                ->withFiles('public')
+                ->path('/images/news')
                 ->creationRules('required')
                 ->updateRules('')
                 ->alwaysShow(),
