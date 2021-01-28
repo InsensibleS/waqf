@@ -4,11 +4,12 @@ namespace App\Nova;
 
 use Froala\NovaFroalaField\Froala;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Image;
+use App\Rules\СomparisonOfBooleanFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class News extends Resource
@@ -67,10 +68,12 @@ class News extends Resource
             ->updateRules('max:5000')
             ->deletable(false),
 
-            Froala::make('Description', 'description')
-                ->withFiles('public')->path('/images/news')
+            Text::make('Small description', 'description'),
+
+            Froala::make('Full description', 'full_description')
+                ->withFiles('public')
+                ->path('/images/news')
                 ->creationRules('required')
-                ->updateRules('')
                 ->alwaysShow(),
 
             DateTime::make('Date','publication_date')
@@ -78,6 +81,13 @@ class News extends Resource
             ->rules('required')
             ->sortable(),
 
+            Boolean::make('OF comments', 'ban_comments'),
+
+            Boolean::make('Main news', 'is_main')
+                ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),
+
+            Boolean::make('Priority news', 'is_second')
+                ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),
         ];
     }
 

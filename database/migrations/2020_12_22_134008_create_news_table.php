@@ -19,7 +19,11 @@ class CreateNewsTable extends Migration
             $table->string('title');
             $table->string('image');
             $table->text('description');
+            $table->text('full_description');
             $table->dateTime('publication_date');
+            $table->boolean('is_main')->default(false);
+            $table->boolean('is_second')->default(false);
+            $table->boolean('ban_comments')->default(false);
             $table->softDeletes();
         });
     }
