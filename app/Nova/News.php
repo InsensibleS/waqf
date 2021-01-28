@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Image;
+use App\Rules\СomparisonOfBooleanFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class News extends Resource
@@ -64,7 +65,8 @@ class News extends Resource
             Image::make('Image', 'image')
             ->path('/images/news')
             ->creationRules('required', 'max:5000')
-            ->updateRules('max:5000'),
+            ->updateRules('max:5000')
+            ->deletable(false),
 
             Text::make('Small description', 'description'),
 
@@ -80,9 +82,12 @@ class News extends Resource
             ->sortable(),
 
             Boolean::make('OF comments', 'ban_comments'),
-            Boolean::make('Main news', 'is_main'),
-            Boolean::make('Priority news', 'is_second'),
 
+            Boolean::make('Main news', 'is_main')
+                ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),
+
+            Boolean::make('Priority news', 'is_second')
+                ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),
         ];
     }
 

@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
@@ -51,6 +52,11 @@ class User extends Resource
     public static function label()
     {
         return 'BackofficeUsers';
+    }
+
+    public static function availableForNavigation(Request $request)
+    {
+        return Auth::user()->role->is_admin;
     }
 
     /**

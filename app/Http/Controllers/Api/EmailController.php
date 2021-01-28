@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CustomerResource;
 use App\Services\EmailService;
 use Illuminate\Http\Request;
 use App\Http\Requests\SendLinkToRegistrationRequest;
@@ -58,7 +59,12 @@ class EmailController extends Controller
         $customer = $this->customerService->findByRegistrationString($request);
         $this->customerService->registerCustomer($customer);
         $customerToken = $this->customerService->createToken($customer);
+        $customerData = new CustomerResource($customer);
 
-        return response()->json(['message' => 'Customer registered.', 'token' => $customerToken]);
+        return response()->json([
+            'message' => 'Customer registered.',
+            'token' => $customerToken,
+            'customer' => $customerData
+        ]);
     }
 }

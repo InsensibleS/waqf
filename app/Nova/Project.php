@@ -63,6 +63,30 @@ class Project extends Resource
                 ->creationRules('required', 'max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000')
                 ->updateRules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
 
+            Image::make('The second image', 'image2')
+                ->path('images/projects')
+                ->sortable()
+                ->hideFromIndex()
+                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
+
+            Image::make('The third image', 'image3', )
+                ->path('images/projects')
+                ->sortable()
+                ->hideFromIndex()
+                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
+
+            Image::make('The fourth image', 'image4')
+                ->path('images/projects')
+                ->sortable()
+                ->hideFromIndex()
+                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
+
+            Image::make('The fifth image', 'image5')
+                ->path('images/projects')
+                ->sortable()
+                ->hideFromIndex()
+                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
+
             BelongsTo::make('Country', 'country' )
                 ->sortable()
                 ->withoutTrashed(),
@@ -102,30 +126,6 @@ class Project extends Resource
 
             BelongsToMany::make('Hashtags', 'hashtags', Hashtag::class)
                 ->hideFromIndex(),
-
-            Image::make('The second image', 'image2')
-                ->path('images/projects')
-                ->sortable()
-                ->hideFromIndex()
-                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
-
-            Image::make('The third image', 'image3', )
-                ->path('images/projects')
-                ->sortable()
-                ->hideFromIndex()
-                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
-
-            Image::make('The fourth image', 'image4')
-                ->path('images/projects')
-                ->sortable()
-                ->hideFromIndex()
-                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
-
-            Image::make('The fifth image', 'image5')
-                ->path('images/projects')
-                ->sortable()
-                ->hideFromIndex()
-                ->rules('max:15000', 'mimes:jpg,gif,png', 'dimensions:max_width=5000, max_height=5000'),
         ];
     }
 

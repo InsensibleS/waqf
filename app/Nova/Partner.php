@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Number;
@@ -46,6 +47,10 @@ class Partner extends Resource
      */
     public static $group = 'Content pages';
 
+    public static function availableForNavigation(Request $request)
+    {
+        return Auth::user()->role->is_admin;
+    }
 
     /**
      * Get the fields displayed by the resource.
@@ -62,7 +67,8 @@ class Partner extends Resource
                 ->path('/images/partners-logo')
                 ->sortable()
                 ->creationRules('required', 'max:5000')
-                ->updateRules('max:5000'),
+                ->updateRules('max:5000')
+                ->deletable(false),
 
             Text::make('Company name', 'title')
                 ->sortable()

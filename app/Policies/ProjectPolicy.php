@@ -5,16 +5,22 @@ namespace App\Policies;
 
 
 use App\Models\User;
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
+use App\Models\Project;
 
-class ProjectPolicy extends DefaultPolicy
+class ProjectPolicy
 {
     public function view(User $user)
     {
-        if (($user->role->id=='1') or ($user->role->id=='2')){
-         return true;
+        if (($user->role->id === 1) ||  ($user->role->id === 2)) {
+            return true;
+        }
+        return false;
+    }
+
+    public function create(User $user)
+    {
+        if (($user->role->id === 1) ||  ($user->role->id === 2)) {
+            return true;
         }
         return false;
     }
@@ -25,6 +31,24 @@ class ProjectPolicy extends DefaultPolicy
     }
 
     public function update(User $user)
+    {
+        if (($user->role->id === 1) ||  ($user->role->id === 2)) {
+            return true;
+        }
+        return false;
+    }
+
+    public function attachHashtag(User $user, Project $project)
+    {
+        return false;
+    }
+
+    public function detachHashtag(User $user, Project $project)
+    {
+        return false;
+    }
+
+    public function attachAnyHashtag(User $user, Project $project)
     {
         return false;
     }

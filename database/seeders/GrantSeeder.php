@@ -30,8 +30,8 @@ class GrantSeeder extends Seeder
                 'start_summarizing' => '2020-12-25',
                 'end_date' => '2020-12-30',
                 'publication_cost' => 1000,
-                'number_finalists' => 50,
-                'number_semifinalists' => 5,
+                'number_finalists' => 5,
+                'number_semifinalists' => 50,
                 'grant_stage_id' => 8
             ],
             [
@@ -47,10 +47,10 @@ class GrantSeeder extends Seeder
                 'start_final' => '2021-02-03',
                 'end_final' => '2021-02-06',
                 'start_summarizing' => '2021-02-07',
-                'end_date' => '2021-02-10',
+                'end_date' => '2021-02-09',
                 'publication_cost' => 2000,
-                'number_finalists' => 50,
-                'number_semifinalists' => 5,
+                'number_finalists' => 5,
+                'number_semifinalists' => 50,
                 'grant_stage_id' => 2
             ],
             [
@@ -59,7 +59,7 @@ class GrantSeeder extends Seeder
                 'end_selection_projects' => '2021-02-15',
                 'start_moderation' => '2021-02-16',
                 'end_moderation' => '2021-02-17',
-                'start_qualification' => '2021-02-17',
+                'start_qualification' => '2021-02-18',
                 'end_qualification' => '2021-02-20',
                 'start_semifinal' => '2021-02-21',
                 'end_semifinal' => '2021-02-23',
@@ -68,8 +68,8 @@ class GrantSeeder extends Seeder
                 'start_summarizing' => '2021-02-27',
                 'end_date' => '2021-02-28',
                 'publication_cost' => 3000,
-                'number_finalists' => 50,
-                'number_semifinalists' => 5,
+                'number_finalists' => 5,
+                'number_semifinalists' => 50,
                 'grant_stage_id' => 1
             ],
         ]);
