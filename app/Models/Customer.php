@@ -34,11 +34,11 @@ class Customer extends Authenticatable
         return $this->hasMany(Project::class);
     }
 
-    public function newslikes(){
+    public function newsLikes(){
         return $this->hasMany(NewsLike::class);
     }
 
-    public function newscomments(){
+    public function newsComments(){
         return $this->hasMany(NewsComment::class);
     }
 }

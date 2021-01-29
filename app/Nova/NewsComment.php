@@ -36,7 +36,6 @@ class NewsComment extends Resource
         'id',
         'content',
         'publication_date',
-        'is_ban'
     ];
 
     /**
