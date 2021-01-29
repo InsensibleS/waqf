@@ -26,8 +26,10 @@ class DatabaseSeeder extends Seeder
             HashtagSeeder::class,
             GrantSeeder::class,
             CustomerSeeder::class,
+            NewsLikeSeeder::class,
             SocialAccountSeeder::class,
             ProjectSeeder::class,
+            NewsCommentSeeder::class,
             NewsHashtagSeeder::class,
             NewsHashtagForNewsSeeder::class,
         ]);

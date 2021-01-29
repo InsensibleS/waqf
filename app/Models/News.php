@@ -25,4 +25,12 @@ class News extends Model
     public function newsHashtags(){
         return $this->belongsToMany(NewsHashtag::class, 'news_hashtag_for_news', 'news_id', 'hashtag_id');
     }
+
+    public function newsLikes(){
+        return $this->hasOne(NewsLike::class);
+    }
+
+    public function newsComments(){
+        return $this->hasMany(NewsComment::class);
+    }
 }
