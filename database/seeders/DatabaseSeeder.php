@@ -28,6 +28,8 @@ class DatabaseSeeder extends Seeder
             CustomerSeeder::class,
             SocialAccountSeeder::class,
             ProjectSeeder::class,
+            NewsHashtagSeeder::class,
+            NewsHashtagForNewsSeeder::class,
         ]);
     }
 }

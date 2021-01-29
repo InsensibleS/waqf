@@ -40,16 +40,16 @@ class ProjectPolicy
 
     public function attachHashtag(User $user, Project $project)
     {
-        return false;
+        return $user->role->is_admin;
     }
 
     public function detachHashtag(User $user, Project $project)
     {
-        return false;
+        return $user->role->is_admin;
     }
 
     public function attachAnyHashtag(User $user, Project $project)
     {
-        return false;
+        return $user->role->is_admin;
     }
 }

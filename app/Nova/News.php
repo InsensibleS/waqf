@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use Froala\NovaFroalaField\Froala;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -59,17 +60,17 @@ class News extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
             Text::make('Title', 'title')
-            ->rules('required', 'max:255')
-            ->sortable(),
+                ->rules('required', 'max:255')
+                ->sortable(),
 
             Image::make('Image', 'image')
-            ->path('/images/news')
-            ->creationRules('required', 'max:5000')
-            ->updateRules('max:5000')
-            ->deletable(false),
+                ->path('/images/news')
+                ->creationRules('required', 'max:5000')
+                ->updateRules('max:5000')
+                ->deletable(false),
 
             Text::make('Small description', 'description')
-            ->hideFromIndex(),
+                ->hideFromIndex(),
 
             Froala::make('Full description', 'full_description')
                 ->withFiles('public')
@@ -78,9 +79,9 @@ class News extends Resource
                 ->alwaysShow(),
 
             DateTime::make('Date','publication_date')
-            ->hideFromIndex()
-            ->rules('required')
-            ->sortable(),
+                ->hideFromIndex()
+                ->rules('required')
+                ->sortable(),
 
             Boolean::make('OF comments', 'ban_comments')
                 ->hideFromIndex(),
@@ -90,6 +91,9 @@ class News extends Resource
 
             Boolean::make('Priority news', 'is_second')
                 ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),
+
+            BelongsToMany::make('News Hashtags', 'newsHashtags', NewsHashtag::class)
+                ->hideFromIndex(),
         ];
     }
 
