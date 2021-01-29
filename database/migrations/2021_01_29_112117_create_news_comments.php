@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewsLikesTables extends Migration
+class CreateNewsComments extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreateNewsLikesTables extends Migration
      */
     public function up()
     {
-        Schema::create('news_likes', function (Blueprint $table) {
+        Schema::create('news_comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained('customers');
             $table->foreignId('news_id')->constrained('news');
+            $table->integer('answer_to')->nullable();
+            $table->text('content');
+            $table->timestamp('publication_date');
+            $table->boolean('is_ban')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +33,6 @@ class CreateNewsLikesTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news_likes_tables');
+        Schema::dropIfExists('news_comments');
     }
 }

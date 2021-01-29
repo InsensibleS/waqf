@@ -37,4 +37,8 @@ class Customer extends Authenticatable
     public function newlike(){
         return $this->hasOne(NewsLike::class);
     }
+
+    public function newcomments(){
+        return $this->hasMany(NewsComment::class);
+    }
 }

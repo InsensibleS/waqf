@@ -5,11 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class NewsLike extends Model
+class NewsComment extends Model
 {
     use HasFactory;
 
-    protected $table = 'news_likes';
+    protected $table = 'news_comments';
+
+    public $timestamps = false;
+
+    protected $casts = [
+        'publication_date' => 'date'
+        ];
 
     public function news()
     {
