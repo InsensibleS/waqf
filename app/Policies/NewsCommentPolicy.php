@@ -6,7 +6,12 @@ use App\Models\User;
 
 class NewsCommentPolicy extends DefaultPolicy
 {
-    public function update(User $user)
+    public function create(User $user)
+    {
+        return false;
+    }
+
+    public function delete(User $user)
     {
         return false;
     }

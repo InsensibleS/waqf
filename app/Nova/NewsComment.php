@@ -34,6 +34,9 @@ class NewsComment extends Resource
      */
     public static $search = [
         'id',
+        'content',
+        'publication_date',
+        'is_ban'
     ];
 
     /**
@@ -48,8 +51,12 @@ class NewsComment extends Resource
             ID::make(__('ID'), 'id')->sortable(),
             BelongsTo::make('News', 'news')->withoutTrashed(),
             Belongsto::make('Customer', 'customer')->withoutTrashed(),
-            Number::make('Answer', 'answer_to'),
-            Textarea::make('Content', 'content'),
+
+            Textarea::make('Content', 'content')
+                ->withMeta(['extraAttributes' => [
+                    'readonly' => true
+                ]]),
+
             Date::make('Publication date','publication_date'),
             Boolean::make('Ban', 'is_ban')
 
