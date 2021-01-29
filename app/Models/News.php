@@ -21,4 +21,8 @@ class News extends Model
   protected $casts = [
         'publication_date' => 'datetime'
       ];
+
+    public function newlike(){
+        return $this->hasOne(NewsLike::class);
+    }
 }

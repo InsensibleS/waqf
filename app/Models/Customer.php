@@ -33,4 +33,8 @@ class Customer extends Authenticatable
     public function projects(){
         return $this->hasMany(Project::class);
     }
+
+    public function newlike(){
+        return $this->hasOne(NewsLike::class);
+    }
 }
