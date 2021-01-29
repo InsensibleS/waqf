@@ -41,4 +41,5 @@ class Customer extends Authenticatable
     public function newsComments(){
         return $this->hasMany(NewsComment::class);
     }
+
 }
