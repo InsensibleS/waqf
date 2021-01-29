@@ -109,7 +109,7 @@ class NewsCommentSeeder extends Seeder
             [
                 'news_id' => 1,
                 'customer_id' => 1,
-                'answer_to' => 1,
+                'answer_to' => null,
                 'content' => 'Would sooner end this',
                 'publication_date' => Carbon::createFromDate(2021,01,7)->toDateTimeString(),
                 'is_ban' => false,
@@ -118,8 +118,8 @@ class NewsCommentSeeder extends Seeder
             ],
             [
                 'news_id' => 1,
-                'customer_id' => 1,
-                'answer_to' => 1,
+                'customer_id' => 2,
+                'answer_to' => 10,
                 'content' => 'What a horror, if only it would be over already, otherwise the whole world fell into a drunken',
                 'publication_date' => Carbon::createFromDate(2021,01,8)->toDateTimeString(),
                 'is_ban' => false,
