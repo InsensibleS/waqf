@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\CountryController;
 use App\Http\Controllers\Api\GrantController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProjectController;
+use App\Http\Controllers\Api\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 // Get countries
 Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
+// Get news
+Route::get('/getNews/{link}', [NewsController::class, 'getNews']);
 /**
  *  Routes for authorized users
  */
