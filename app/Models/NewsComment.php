@@ -26,4 +26,9 @@ class NewsComment extends Model
     {
         return $this->belongsTo(Customer::class, 'customer_id');
     }
+
+    public function nestedСomments()
+    {
+        return $this->hasMany(NewsComment::class, 'answer_to', 'id');
+    }
 }

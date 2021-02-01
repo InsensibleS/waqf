@@ -3,20 +3,19 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Hashtag extends Resource
+class NewsHashtag extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Hashtag::class;
+    public static $model = \App\Models\NewsHashtag::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -31,8 +30,7 @@ class Hashtag extends Resource
      * @var array
      */
     public static $search = [
-        'id',
-        'title'
+        'id', 'title'
     ];
 
     /**
@@ -40,12 +38,7 @@ class Hashtag extends Resource
      *
      * @var string
      */
-    public static $group = 'Grants & Projects';
-
-    public static function availableForNavigation(Request $request)
-    {
-        return Auth::user()->role->is_admin;
-    }
+    public static $group = 'Content pages';
 
     /**
      * Get the fields displayed by the resource.
@@ -57,9 +50,11 @@ class Hashtag extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
+
             Text::make('Title', 'title')
                 ->rules('required', 'max:255'),
-            BelongsToMany::make('Projects', 'projects', Project::class)
+
+            BelongsToMany::make('News', 'news', NewsHashtag::class)
                 ->hideFromIndex(),
         ];
     }
