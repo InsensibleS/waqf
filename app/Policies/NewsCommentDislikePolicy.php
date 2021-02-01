@@ -4,7 +4,7 @@
 namespace App\Policies;
 
 
-class NewsCommentDislikePolicy extends DefaultPolicy
+class NewsCommentDislikePolicy
 {
 
 }
