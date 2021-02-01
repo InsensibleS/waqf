@@ -2,7 +2,6 @@
 
 namespace App\Nova;
 
-use Froala\NovaFroalaField\Froala;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
@@ -11,6 +10,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Image;
 use App\Rules\СomparisonOfBooleanFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Waynestate\Nova\CKEditor;
 
 class News extends Resource
 {
@@ -71,10 +71,9 @@ class News extends Resource
             Text::make('Small description', 'description')
             ->hideFromIndex(),
 
-            Froala::make('Full description', 'full_description')
-                ->withFiles('public')
-                ->path('/images/news')
+            CKeditor::make('Full description', 'full_description')
                 ->creationRules('required')
+                ->hideFromIndex()
                 ->alwaysShow(),
 
             DateTime::make('Date','publication_date')
