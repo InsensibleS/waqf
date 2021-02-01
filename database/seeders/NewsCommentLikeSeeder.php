@@ -14,7 +14,7 @@ class NewsCommentLikeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('comment_likes_news')->insert([
+        DB::table('news_comment_likes')->insert([
             [
                 'customer_id' => 1,
                 'news_comments_id' => 2,

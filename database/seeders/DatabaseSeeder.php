@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Nova\NewsComment;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -31,7 +30,7 @@ class DatabaseSeeder extends Seeder
             ProjectStatusSeeder::class,
             ProjectSeeder::class,
             NewsCommentSeeder::class,
-            NewsCommentDislikeSeeder::class,
+            NewsCommentLikeSeeder::class,
             NewsCommentDislikeSeeder::class,
         ]);
     }
