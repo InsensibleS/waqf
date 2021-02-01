@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class CreateNewsTable extends Migration
 {
@@ -24,7 +25,7 @@ class CreateNewsTable extends Migration
             $table->boolean('is_main')->default(false);
             $table->boolean('is_second')->default(false);
             $table->boolean('ban_comments')->default(false);
-            $table->string('link', 25);
+            $table->string('link', 25)->default(Str::random(20));
             $table->softDeletes();
         });
     }

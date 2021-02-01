@@ -28,11 +28,12 @@ class NewsPageResource extends JsonResource
                 'id' => $this->news->id,
                 'title' => $this->news->title,
                 'publication_date' => date('Y-m-d', strtotime($this->news->publication_date)),
+                'link' => url('getNews/' . $this->news->link ),
                 'content' => $this->news->full_description,
                 'hashtags' => HashtagResource::collection($this->news->newsHashtags),
                 'countLikes' => count($this->news->newsLikes),
                 'countComments' => count($this->news->newsComments),
-                'levelOne' => $this->news->newsComments->where('answer_to', null)->first()->nestedСomments
+                'comments' => CommentResource::collection($this->news->newsComments->where('answer_to', null))
             ],
             'latestNews' => NewsResource::collection($this->latestNews),
         ];
