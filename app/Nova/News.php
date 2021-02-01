@@ -73,6 +73,9 @@ class News extends Resource
 
             CKeditor::make('Full description', 'full_description')
                 ->creationRules('required')
+                ->options([
+                    'height' => 900,
+                ])
                 ->hideFromIndex()
                 ->alwaysShow(),
 
