@@ -29,6 +29,7 @@ class NewsTableSeeder extends Seeder
 
 <p>&nbsp;</p>',
                 'publication_date' =>  date('Y-m-d H:i:s'),
+                'link' => 'G4TJmJokwRsLirU9HSyr'
             ],
             [
                 'title' => '5m perform rituals at Grand Mosque since resumption',
@@ -40,6 +41,7 @@ class NewsTableSeeder extends Seeder
 
 <p>The Kingdom is getting back on track after earlier lockdowns while adhering to strict health protocols. On Sept. 22, the Kingdom announced a gradual resumption of Umrah pilgrimage in four phases. Tourist offices abroad are following their contracts with the Ministry of Hajj and Umrah so that pilgrims can come to perform Umrah rituals. In the first phase, which lasted for 14 days, 84,000 pilgrims were received &mdash; 6,000 people per day. A total of 210,000 pilgrims performed Umrah rituals during the second phase. The third phase, which started on Nov. 1, permitted pilgrims from abroad to perform the ritual alongside residents of the Kingdom.</p>',
                 'publication_date' =>  date('Y-m-d H:i:s'),
+                'link' => 'RQACxyTUioGpCGai73ud'
             ],
             [
                 'title' => 'Saudi national archives foundation Darah uncovering past with oral history tradition',
@@ -47,6 +49,7 @@ class NewsTableSeeder extends Seeder
                 'description' => 'RIYADH: From one generation to another, history is told and retold.',
                 'full_description'=> '<p><img class="fr-dii fr-fic fr-fil" src="http://127.0.0.1:8000/storage/images/news/whatsapp_image_2020-12-23_at_6.19.32_pm.jpg" style="float:right; height:391px; width:663px" /><span style="font-size:16px">RIYADH: From one generation to another, history is told and retold. But with time, large fragments are lost, so a Riyadh-based research center is helping preserve some of Saudi Arabia&rsquo;s most important historical facts. The earliest forms of storytelling for many cultures were primarily oral, combined with gestures and expressions, and at times, even drawings and paintings. With time these stories differ, their essence forgotten and countless tales lost through time. In recognition of the beauty of this dying art, the King Abdul Aziz Foundation for Research and Archives (Darah) has upgraded its work to record and preserve oral accounts of Saudi Arabian history and make them accessible to researchers. Speaking to Arab News, Darah spokesman Sultan Alawairdhi said the center&rsquo;s founding is in line with the government&rsquo;s policy to preserve its history. He added that it is of vital importance to ensure that historical narratives are accessible to all by using knowledge and historical facts told by the elderly who lived through major historical events that shaped the Kingdom.</span></p>',
                 'publication_date' =>  date('Y-m-d H:i:s'),
+                'link' => 'ei7KSfJoYynOsw8Efk8i'
             ],
             [
                 'title' => 'Saudi Arabia’s giftedness foundation Mawhiba signs deal to protect intellectual property rights',
@@ -63,6 +66,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 
 <p><span style="font-size:14px">ome one of the 26 entities that are part of SAIP&rsquo;s national network. SAIP aims to organize, support, sponsor, protect and promote intellectual property in the Kingdom in accordance with global best practices. Al-Sadhan said by joining the network Mawhiba has now gained access to other support services that suit the needs of its students and employees. &ldquo;The most important of these services is providing guidance on intellectual property rights such as the use of patents, industrial designs, trademarks, and copyrights,&rdquo; he said. SAIP Vice President Sami Al-Sudais welcomed Mawhiba aboard TISC, which enables users to acquire the technical skills needed to search intellectual property databases.</span></p>',
                 'publication_date' =>  date('Y-m-d H:i:s'),
+                'link' => 'ARZ8jBdrEeBAbWubXAC0'
             ],
             [
                 'title' => 'Jeddah streets and bridges embellished with Arabic calligraphy',
@@ -98,6 +102,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 
 <p>The deputy mayor for community services, A&rsquo;idh Al-Zahrani, said that the initiative was part of the UN Arabic Language Day, which is observed annually on Dec. 18.</p>',
                 'publication_date' =>  date('Y-m-d H:i:s'),
+                'link' => '6IAf2dBfkvjBWrYC3WS4'
             ],
         ]);
     }
