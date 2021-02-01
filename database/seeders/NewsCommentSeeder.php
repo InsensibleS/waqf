@@ -19,7 +19,7 @@ class NewsCommentSeeder extends Seeder
             [
                 'news_id' => 5,
                 'customer_id' => 1,
-                'answer_to' => 1,
+                'answer_to' => null,
                 'content' => 'This is very cool news!',
                 'publication_date' => Carbon::createFromDate(2021,01,29)->toDateTimeString(),
                 'is_ban' => false,
@@ -29,7 +29,7 @@ class NewsCommentSeeder extends Seeder
             [
                 'news_id' => 5,
                 'customer_id' => 2,
-                'answer_to' => 1,
+                'answer_to' => null,
                 'content' => 'Jeddah Charitable Association they rule!',
                 'publication_date' => Carbon::createFromDate(2021,01,30)->toDateTimeString(),
                 'is_ban' => false,
@@ -69,7 +69,7 @@ class NewsCommentSeeder extends Seeder
             [
                 'news_id' => 3,
                 'customer_id' => 2,
-                'answer_to' => 1,
+                'answer_to' => null,
                 'content' => 'Cool',
                 'publication_date' => Carbon::createFromDate(2021,01,4)->toDateTimeString(),
                 'is_ban' => false,
@@ -79,7 +79,7 @@ class NewsCommentSeeder extends Seeder
             [
                 'news_id' => 3,
                 'customer_id' => 2,
-                'answer_to' => 1,
+                'answer_to' => 6,
                 'content' => 'What do you think about it?',
                 'publication_date' => Carbon::createFromDate(2021,01,5)->toDateTimeString(),
                 'is_ban' => false,
@@ -89,7 +89,7 @@ class NewsCommentSeeder extends Seeder
             [
                 'news_id' => 3,
                 'customer_id' => 3,
-                'answer_to' => 1,
+                'answer_to' => 6,
                 'content' => 'I agree',
                 'publication_date' => Carbon::createFromDate(2021,01,6)->toDateTimeString(),
                 'is_ban' => false,
@@ -97,10 +97,10 @@ class NewsCommentSeeder extends Seeder
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'news_id' => 4,
+                'news_id' => 3,
                 'customer_id' => 2,
-                'answer_to' => 1,
-                'content' => 'I agree',
+                'answer_to' => 6,
+                'content' => 'I agree too',
                 'publication_date' => Carbon::createFromDate(2021,01,7)->toDateTimeString(),
                 'is_ban' => false,
                 'created_at' => Carbon::createFromDate(2021,01,7)->toDateTimeString(),
