@@ -22,15 +22,17 @@ class DatabaseSeeder extends Seeder
             NewsTableSeeder::class,
             MainPageAttributeSeeder::class,
             CountrySeeder::class,
-            ProjectStatusSeeder::class,
             GrantStagesSeeder::class,
             HashtagSeeder::class,
             GrantSeeder::class,
             CustomerSeeder::class,
             NewsLikeSeeder::class,
             SocialAccountSeeder::class,
+            ProjectStatusSeeder::class,
             ProjectSeeder::class,
             NewsCommentSeeder::class,
+            NewsCommentDislikeSeeder::class,
+            NewsCommentDislikeSeeder::class,
         ]);
     }
 }
