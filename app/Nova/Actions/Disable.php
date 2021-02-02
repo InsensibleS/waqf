@@ -31,6 +31,11 @@ class Disable extends Action
         }
     }
 
+    public function actionClass()
+    {
+        return 'bg-danger text-white';
+    }
+
     /**
      * Get the fields available on the action.
      *
