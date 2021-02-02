@@ -14,11 +14,9 @@ return [
             ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Print', 'SpellChecker', 'Scayt'],
             ['Undo', 'Redo', '-', 'Find', 'Replace', '-', 'SelectAll', 'RemoveFormat'],
             ['Image', 'Table', 'HorizontalRule', 'SpecialChar', 'PageBreak'],
-            '/',
             ['Bold', 'Italic', 'Strike', '-', 'Subscript', 'Superscript'],
             ['NumberedList', 'BulletedList', '-', 'Blockquote'],
             ['JustifyLeft', 'JustifyCenter', 'JustifyRight'],
-            '/',
             ['Format', 'FontSize'],
             ['Maximize', 'ShowBlocks']
         ]
