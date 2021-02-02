@@ -13,7 +13,7 @@ class Activate extends Action
 {
     use InteractsWithQueue, Queueable;
 
-    public $name = 'Activate comments';
+    public $name = 'Activate comment';
 
     /**
      * Perform the action on the given models.
@@ -25,13 +25,9 @@ class Activate extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
-            if($model->is_active == true) {
-                return Action::danger('This comment is already active and it is already displayed!');
-            } else {
                 $model->is_active = true;
                 $model->update();
                 return Action::message('Comment activated successfully!');
-            }
         }
     }
 

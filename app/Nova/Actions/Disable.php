@@ -13,7 +13,7 @@ class Disable extends Action
 {
     use InteractsWithQueue, Queueable;
 
-    public $name = 'Disable comments';
+    public $name = 'Disable comment';
 
     /**
      * Perform the action on the given models.
@@ -25,14 +25,9 @@ class Disable extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
-
-            if($model->is_active == false) {
-                return Action::danger('This comment is already disable!');
-            } else {
                 $model->is_active = false;
                 $model->update();
                 return Action::message('Comment disable successfully!');
-            }
         }
     }
 
