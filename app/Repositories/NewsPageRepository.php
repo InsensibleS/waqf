@@ -13,7 +13,10 @@ class NewsPageRepository
     public function getDataNewsPage(string $link)
     {
         return [
-            'news' => News::where('link', $link)->first(),
+            'news' => News::where('link', $link)
+                ->withCount('newsLikes')
+                ->withCount('newsComments')
+                ->first(),
             'latestNews' => News::orderBy('publication_date', 'desc')->limit(8)->get(),
         ];
     }
