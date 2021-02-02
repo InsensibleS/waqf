@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\Activate;
+use App\Nova\Actions\Disable;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -36,6 +38,7 @@ class NewsComment extends Resource
         'id',
         'content',
         'publication_date',
+
     ];
 
     /**
@@ -48,16 +51,29 @@ class NewsComment extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            BelongsTo::make('News', 'news')->withoutTrashed(),
-            Belongsto::make('Customer', 'customer')->withoutTrashed(),
+            BelongsTo::make('News', 'news')->withoutTrashed()
+                ->withMeta(['extraAttributes' => [
+                    'readonly' => true
+                ]])
+            ->hideFromIndex(),
 
-            Textarea::make('Content', 'content')
+            Belongsto::make('Customer', 'customer')->withoutTrashed()
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true
                 ]]),
 
-            Date::make('Publication date','publication_date'),
-            Boolean::make('Ban', 'is_ban')
+            Textarea::make('Content', 'content')
+                ->withMeta(['extraAttributes' => [
+                    'readonly' => true
+                ]])
+            ->showOnIndex(),
+
+            Date::make('Publication date','publication_date')
+                ->withMeta(['extraAttributes' => [
+                    'readonly' => true
+                ]]),
+
+            Boolean::make('Active comments', 'is_active')
 
         ];
     }
@@ -103,6 +119,20 @@ class NewsComment extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new Activate)
+                ->showOnTableRow()
+                ->exceptOnIndex()
+                ->confirmText('Do you really want to Active the comment?')
+                ->confirmButtonText('Activate')
+                ->cancelButtonText("Don't Activate"),
+
+            (new Disable)
+                ->showOnTableRow()
+                ->exceptOnIndex()
+                ->confirmText('Do you really want to Disable the comment?')
+                ->confirmButtonText('Disable')
+                ->cancelButtonText("Don't Disable")
+        ];
     }
 }

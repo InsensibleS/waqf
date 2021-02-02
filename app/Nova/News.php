@@ -80,12 +80,12 @@ class News extends Resource
                 ->hideFromIndex()
                 ->alwaysShow(),
 
-            DateTime::make('Date','publication_date')
+            DateTime::make('Publication date','publication_date')
                 ->hideFromIndex()
                 ->rules('required')
                 ->sortable(),
 
-            Boolean::make('OF comments', 'ban_comments')
+            Boolean::make('Disable comment', 'ban_comments')
                 ->hideFromIndex(),
 
             Boolean::make('Main news', 'is_main')

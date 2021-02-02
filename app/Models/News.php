@@ -34,6 +34,6 @@ class News extends Model
 
     public function newsComments()
     {
-        return $this->hasMany(NewsComment::class);
+        return $this->belongsToMany(NewsComment::class);
     }
 }
