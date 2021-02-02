@@ -37,7 +37,7 @@ class GrantSeeder extends Seeder
             [
                 'title' => 'United against COVID-19',
                 'start_date' => '2021-01-15',
-                'end_selection_projects' => '2021-02-28',
+                'end_selection_projects' => '2021-01-27',
                 'start_moderation' => '2021-01-28',
                 'end_moderation' => '2021-01-29',
                 'start_qualification' => '2021-01-30',
