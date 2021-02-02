@@ -13,6 +13,7 @@ use Laravel\Nova\Fields\Image;
 use App\Rules\СomparisonOfBooleanFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Waynestate\Nova\CKEditor;
+use Khalin\Nova\Field\Link;
 
 class News extends Resource
 {
@@ -95,6 +96,13 @@ class News extends Resource
 
             Boolean::make('Priority news', 'is_second')
                 ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),
+
+            Link::make('Link to view', 'link')
+                ->url(function () {
+                    return (\config('custom.frontendUrlGetNews') . $this->link);
+                })
+                ->text("Go to view")
+                ->hideFromIndex(),
 
             BelongsToMany::make('News Hashtags', 'newsHashtags', NewsHashtag::class)
                 ->hideFromIndex(),

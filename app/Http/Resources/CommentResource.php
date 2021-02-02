@@ -15,6 +15,8 @@ class CommentResource extends JsonResource
      */
     public function toArray($request)
     {
+        $customerId = auth('api')->user()->id ?? null;
+
         return [
             'is_active' => $this->is_active,
             'content' => $this->is_active ? $this->content : 'This comment was hidden',
@@ -23,9 +25,9 @@ class CommentResource extends JsonResource
             'publication_date' => date('Y-m-d', strtotime($this->publication_date)),
             'likes' => count($this->newsCommentLikes),
             'dislikes' => count($this->newsCommentDislikes),
-            'is_customer_liked' => count($this->newsCommentLikes->where('customer_id', Auth::id())) !== 0,
-            'is_customer_disliked' => count($this->newsCommentDislikes->where('customer_id', Auth::id())) !== 0,
-            'childrenComments' => CommentResource::collection($this->childrenComments)
+            'is_customer_liked' => count($this->newsCommentLikes->where('customer_id', $customerId)) !== 0,
+            'is_customer_disliked' => count($this->newsCommentDislikes->where('customer_id', $customerId)) !== 0,
+            'childrenComments' => CommentResource::collection($this->childrenComments),
         ];
     }
 }
