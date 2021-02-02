@@ -33,6 +33,7 @@ class NewsPageResource extends JsonResource
                 'hashtags' => HashtagResource::collection($this->news->newsHashtags),
                 'countLikes' => count($this->news->newsLikes),
                 'countComments' => count($this->news->newsComments),
+                'ban_comments' => $this->news->ban_comments,
                 'comments' => CommentResource::collection($this->news->newsComments->where('answer_to', null))
             ],
             'latestNews' => NewsResource::collection($this->latestNews),
