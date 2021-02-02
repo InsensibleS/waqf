@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
@@ -80,12 +81,12 @@ class News extends Resource
                 ->hideFromIndex()
                 ->alwaysShow(),
 
-            DateTime::make('Date','publication_date')
+            DateTime::make('Publication date','publication_date')
                 ->hideFromIndex()
                 ->rules('required')
                 ->sortable(),
 
-            Boolean::make('OF comments', 'ban_comments')
+            Boolean::make('Disable comment', 'ban_comments')
                 ->hideFromIndex(),
 
             Boolean::make('Main news', 'is_main')
@@ -96,6 +97,8 @@ class News extends Resource
 
             BelongsToMany::make('News Hashtags', 'newsHashtags', NewsHashtag::class)
                 ->hideFromIndex(),
+
+            HasMany::make('News Comments', 'newsComments', NewsComment::class)
         ];
     }
 

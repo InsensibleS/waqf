@@ -22,7 +22,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => null,
                 'content' => 'This is very cool news!',
                 'publication_date' => Carbon::createFromDate(2021,01,29)->toDateTimeString(),
-                'is_ban' => false,
+                'is_active' => true,
                 'created_at' => Carbon::createFromDate(2021,01,29)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -32,7 +32,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => null,
                 'content' => 'Jeddah Charitable Association they rule!',
                 'publication_date' => Carbon::createFromDate(2021,01,30)->toDateTimeString(),
-                'is_ban' => false,
+                'is_active' => true,
                 'created_at' => Carbon::createFromDate(2021,01,30)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -42,7 +42,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => 1,
                 'content' => 'Abdul Aziz is my favorite king',
                 'publication_date' => Carbon::createFromDate(2021,01,31)->toDateTimeString(),
-                'is_ban' => false,
+                'is_active' => true,
                 'created_at' => Carbon::createFromDate(2021,01,31)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -52,7 +52,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => 1,
                 'content' => 'I support everything they do',
                 'publication_date' => Carbon::createFromDate(2021,01,2)->toDateTimeString(),
-                'is_ban' => false,
+                'is_ban' => true,
                 'created_at' => Carbon::createFromDate(2021,01,30)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -62,7 +62,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => 1,
                 'content' => 'Hey, I was the first to comment on this news :D',
                 'publication_date' => Carbon::createFromDate(2021,01,2)->toDateTimeString(),
-                'is_ban' => false,
+                'is_active' => true,
                 'created_at' => Carbon::createFromDate(2021,01,2)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -72,7 +72,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => null,
                 'content' => 'Cool',
                 'publication_date' => Carbon::createFromDate(2021,01,4)->toDateTimeString(),
-                'is_ban' => false,
+                'is_active' => true,
                 'created_at' => Carbon::createFromDate(2021,01,4)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -82,7 +82,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => 6,
                 'content' => 'What do you think about it?',
                 'publication_date' => Carbon::createFromDate(2021,01,5)->toDateTimeString(),
-                'is_ban' => false,
+                'is_active' => true,
                 'created_at' => Carbon::createFromDate(2021,01,5)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -92,7 +92,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => 6,
                 'content' => 'I agree',
                 'publication_date' => Carbon::createFromDate(2021,01,6)->toDateTimeString(),
-                'is_ban' => false,
+                'is_active' => true,
                 'created_at' => Carbon::createFromDate(2021,01,6)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -102,7 +102,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => 6,
                 'content' => 'I agree too',
                 'publication_date' => Carbon::createFromDate(2021,01,7)->toDateTimeString(),
-                'is_ban' => false,
+                'is_active' => true,
                 'created_at' => Carbon::createFromDate(2021,01,7)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -112,7 +112,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => null,
                 'content' => 'Would sooner end this',
                 'publication_date' => Carbon::createFromDate(2021,01,7)->toDateTimeString(),
-                'is_ban' => false,
+                'is_active' => true,
                 'created_at' => Carbon::createFromDate(2021,01,7)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
@@ -122,7 +122,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => 10,
                 'content' => 'What a horror, if only it would be over already, otherwise the whole world fell into a drunken',
                 'publication_date' => Carbon::createFromDate(2021,01,8)->toDateTimeString(),
-                'is_ban' => false,
+                'is_active' => true,
                 'created_at' => Carbon::createFromDate(2021,01,8)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],

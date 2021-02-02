@@ -20,7 +20,7 @@ class CreateNewsComments extends Migration
             $table->integer('answer_to')->nullable();
             $table->text('content');
             $table->timestamp('publication_date');
-            $table->boolean('is_ban')->default(false);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });
