@@ -320,7 +320,7 @@ class Grant extends Resource
                 ->withoutTrashed()
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true
-            ]]),
+                ]]),
 
             HasMany::make('Projects', 'projects', Project::class)
         ];

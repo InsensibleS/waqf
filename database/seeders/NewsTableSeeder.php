@@ -14,12 +14,12 @@ class NewsTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('news')->insert([
-          [
-              'title' => 'More than 400,000 register for vaccine in Saudi Arabia',
-              'image' => '/images/news/1.jpg',
-              'description' => 'Number of virus cases dip below 50 in all regions',
-              'full_description' => '<p>&nbsp;</p>
+        DB::table('news')->insert([
+            [
+                'title' => 'More than 400,000 register for vaccine in Saudi Arabia',
+                'image' => '/images/news/1.jpg',
+                'description' => 'Number of virus cases dip below 50 in all regions',
+                'full_description' => '<p>&nbsp;</p>
 
 <p>Number of virus cases dip below 50 in all regions JEDDAH: More than 400,000 people from Saudi Arabia&rsquo;s high-risk group have registered to receive the coronavirus disease (COVID-19) vaccine through the Sehaty app, according to the Ministry of Health. &ldquo;Participants who received the first dose of the vaccine are in stable condition with no issues arising,&rdquo; said the Ministry of Health spokesman Dr. Mohammed Al-Abd Al-Aly. &ldquo;We remind all that it&rsquo;s vital that everyone receives their second dose (booster shots) in order to ensure full immunity against the virus.&rdquo; He said healthcare workers would maintain contact and follow up on the status of people who have had the first dose and give them appointments to receive the second, according to the schedule provided by the vaccination&rsquo;s manufacturers.&nbsp;</p>
 
@@ -28,29 +28,32 @@ class NewsTableSeeder extends Seeder
 <p>The Pfizer-BioNTech vaccine requires a priming dose followed by a booster shot with an interval of 21 days between each in order to achieve a 95 percent efficacy rate to prevent or decrease the symptomatic effects of a COVID-19 infection. At Sunday&rsquo;s press briefing the spokesman also noted the change in the rate of infections across the Kingdom&rsquo;s regions during the past two weeks. Six of the Kingdom&rsquo;s regions have shown some stability with a slight increase in numbers, up to 10 percent, whereas Riyadh, Qassim, Hail, Jazan and the Northern Borders have shown a 50 percent decrease in cases. &nbsp;</p>
 
 <p>&nbsp;</p>',
-              'publication_date' =>  date('Y-m-d H:i:s'),
-          ],
-          [
-            'title' => '5m perform rituals at Grand Mosque since resumption',
-            'image' => '/images/news/2.jpg',
-            'description' => 'JEDDAH: Saudi Arabia has received 5 million Umrah pilgrims and worshippers since the resumption of the rituals, said Minister of Hajj and Umrah Dr. Mohammed Saleh Benten.',
-            'full_description'=> '<p><p>JEDDAH: Saudi Arabia has received 5 million Umrah pilgrims and worshippers since the resumption of the rituals, said Minister of Hajj and Umrah Dr. Mohammed Saleh Benten. He said that no cases of<img class="fr-dii fr-fic fr-fil" src="http://127.0.0.1:8000/storage/images/news/Без названия.jpeg" style="float:left; height:190px; margin:10px; width:309px" /> COVID-19 infections were reported among pilgrims and worshippers. The statement came during a meeting with Makkah Gov. Prince Khaled Al-Faisal in Jeddah on Wednesday. Saudi Arabia suspended Umrah in March and significantly downsized the Hajj pilgrimage in July by only allowing about 1,000 pilgrims, all in response to the COVID-19 pandemic.</p>
+                'publication_date' =>  date('Y-m-d H:i:s'),
+                'link' => 'G4TJmJokwRsLirU9HSyr'
+            ],
+            [
+                'title' => '5m perform rituals at Grand Mosque since resumption',
+                'image' => '/images/news/2.jpg',
+                'description' => 'JEDDAH: Saudi Arabia has received 5 million Umrah pilgrims and worshippers since the resumption of the rituals, said Minister of Hajj and Umrah Dr. Mohammed Saleh Benten.',
+                'full_description'=> '<p>JEDDAH: Saudi Arabia has received 5 million Umrah pilgrims and worshippers since the resumption of the rituals, said Minister of Hajj and Umrah Dr. Mohammed Saleh Benten. He said that no cases of <img class="fr-dii fr-fic fr-fil" src="http://127.0.0.1:8000/storage/images/news/Без названия.jpeg" style="float:left; height:190px; margin:10px; width:309px" />COVID-19 infections were reported among pilgrims and worshippers. The statement came during a meeting with Makkah Gov. Prince Khaled Al-Faisal in Jeddah on Wednesday. Saudi Arabia suspended Umrah in March and significantly downsized the Hajj pilgrimage in July by only allowing about 1,000 pilgrims, all in response to the COVID-19 pandemic.</p>
 
 <p>The Kingdom is getting back on track after earlier lockdowns while adhering to strict health protocols. On Sept. 22, the Kingdom announced a gradual resumption of Umrah pilgrimage in four phases. Tourist offices abroad are following their contracts with the Ministry of Hajj and Umrah so that pilgrims can come to perform Umrah rituals. In the first phase, which lasted for 14 days, 84,000 pilgrims were received &mdash; 6,000 people per day. A total of 210,000 pilgrims performed Umrah rituals during the second phase. The third phase, which started on Nov. 1, permitted pilgrims from abroad to perform the ritual alongside residents of the Kingdom.</p>',
-            'publication_date' =>  date('Y-m-d H:i:s'),
-          ],
-          [
-            'title' => 'Saudi national archives foundation Darah uncovering past with oral history tradition',
-            'image' => '/images/news/3.jpg',
-            'description' => 'RIYADH: From one generation to another, history is told and retold.',
-            'full_description'=> '<p><img class="fr-dii fr-fic fr-fil" src="http://127.0.0.1:8000/storage/images/news/whatsapp_image_2020-12-23_at_6.19.32_pm.jpg" style="float:right; height:391px; margin:10px; width:663px" /><span style="font-size:16px">RIYADH: From one generation to another, history is told and retold. But with time, large fragments are lost, so a Riyadh-based research center is helping preserve some of Saudi Arabia&rsquo;s most important historical facts. The earliest forms of storytelling for many cultures were primarily oral, combined with gestures and expressions, and at times, even drawings and paintings. With time these stories differ, their essence forgotten and countless tales lost through time. In recognition of the beauty of this dying art, the King Abdul Aziz Foundation for Research and Archives (Darah) has upgraded its work to record and preserve oral accounts of Saudi Arabian history and make them accessible to researchers. Speaking to Arab News, Darah spokesman Sultan Alawairdhi said the center&rsquo;s founding is in line with the government&rsquo;s policy to preserve its history. He added that it is of vital importance to ensure that historical narratives are accessible to all by using knowledge and historical facts told by the elderly who lived through major historical events that shaped the Kingdom.</span></p>',
-            'publication_date' =>  date('Y-m-d H:i:s'),
-          ],
-          [
-              'title' => 'Saudi Arabia’s giftedness foundation Mawhiba signs deal to protect intellectual property rights',
-              'image' => '/images/news/4.png',
-              'description' => 'RIYADH: The King Abdul Aziz and His Companions Foundation for Giftedness and Creativity (Mawhiba) on Tuesday signed an agreement with the Saudi Authority for Intellectual Property (SAIP) joining the National Network of Technology and Innovation Support Centers (TISC).',
-              'full_description' => '<h4><span style="font-size:14px">RIYADH: The King Abdul Aziz and His Companions Foundation for Giftedness and Creativity (Mawhiba) on Tuesday signed an agreement with the Saudi Authority for Intellectual Property (SAIP) joining the National Network of Technology and Innovation Support Centers (TISC). The TISC enables innovators to protect and manage their intellectual property rights. The deputy secretary-general of Mawhiba, Basil Al-Sadhan, said the foundation seeks to create an environment that motivates talent and&nbsp;<img class="fr-dii fr-fic fr-fil" src="http://127.0.0.1:8000/storage/images/news/pic04578_lw.jpg" style="float:right; margin:10px; width:271px" />encourages the youth to pursue their passion for science and become future leaders.</span></h4>
+                'publication_date' =>  date('Y-m-d H:i:s'),
+                'link' => 'RQACxyTUioGpCGai73ud'
+            ],
+            [
+                'title' => 'Saudi national archives foundation Darah uncovering past with oral history tradition',
+                'image' => '/images/news/3.jpg',
+                'description' => 'RIYADH: From one generation to another, history is told and retold.',
+                'full_description'=> '<p><img class="fr-dii fr-fic fr-fil" src="http://127.0.0.1:8000/storage/images/news/whatsapp_image_2020-12-23_at_6.19.32_pm.jpg" style="float:right; height:391px; width:663px" /><span style="font-size:16px">RIYADH: From one generation to another, history is told and retold. But with time, large fragments are lost, so a Riyadh-based research center is helping preserve some of Saudi Arabia&rsquo;s most important historical facts. The earliest forms of storytelling for many cultures were primarily oral, combined with gestures and expressions, and at times, even drawings and paintings. With time these stories differ, their essence forgotten and countless tales lost through time. In recognition of the beauty of this dying art, the King Abdul Aziz Foundation for Research and Archives (Darah) has upgraded its work to record and preserve oral accounts of Saudi Arabian history and make them accessible to researchers. Speaking to Arab News, Darah spokesman Sultan Alawairdhi said the center&rsquo;s founding is in line with the government&rsquo;s policy to preserve its history. He added that it is of vital importance to ensure that historical narratives are accessible to all by using knowledge and historical facts told by the elderly who lived through major historical events that shaped the Kingdom.</span></p>',
+                'publication_date' =>  date('Y-m-d H:i:s'),
+                'link' => 'ei7KSfJoYynOsw8Efk8i'
+            ],
+            [
+                'title' => 'Saudi Arabia’s giftedness foundation Mawhiba signs deal to protect intellectual property rights',
+                'image' => '/images/news/4.png',
+                'description' => 'RIYADH: The King Abdul Aziz and His Companions Foundation for Giftedness and Creativity (Mawhiba) on Tuesday signed an agreement with the Saudi Authority for Intellectual Property (SAIP) joining the National Network of Technology and Innovation Support Centers (TISC).',
+                'full_description' => '<h4><span style="font-size:14px">RIYADH: The King Abdul Aziz and His Companions Foundation for Giftedness and Creativity (Mawhiba) on Tuesday signed an agreement with the Saudi Authority for Intellectual Property (SAIP) joining the National Network of Technology and Innovation Support Centers (TISC). The TISC enables innovators to protect and manage their intellectual property rights. The deputy secretary-general of Mawhiba, Basil Al-Sadhan, said the foundation seeks to create an environment that motivates talent and&nbsp;<img class="fr-dii fr-fic fr-fil" src="http://127.0.0.1:8000/storage/images/news/pic04578_lw.jpg" style="float:right; width:271px" />encourages the youth to pursue their passion for science and become future leaders.</span></h4>
 
 <p><span style="font-size:14px"><img class="fr-dii fr-fic fr-fir" src="http://127.0.0.1:8000/storage/images/news/151228-saudi-king-salman.jpg" style="float:left; margin:10px; width:275px" /><br />
 Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in achieving its core mission. &ldquo;TISC allows Mawhiba to access and employ technical and scientific expertise, provide assistance in searching and analyzing intellectual and technical property databases and obtain information on patents.&rdquo; By signing the deal, Mawhiba has bec</span></p>
@@ -60,13 +63,14 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p><span style="font-size:14px">ome one of the 26 entities that are part of SAIP&rsquo;s national network. SAIP aims to organize, support, sponsor, protect and promote intellectual property in the Kingdom in accordance with global best practices. Al-Sadhan said by joining the network Mawhiba has now gained access to other support services that suit the needs of its students and employees. &ldquo;The most important of these services is providing guidance on intellectual property rights such as the use of patents, industrial designs, trademarks, and copyrights,&rdquo; he said. SAIP Vice President Sami Al-Sudais welcomed Mawhiba aboard TISC, which enables users to acquire the technical skills needed to search intellectual property databases.</span></p>',
-              'publication_date' =>  date('Y-m-d H:i:s'),
-          ],
-          [
-            'title' => 'Jeddah streets and bridges embellished with Arabic calligraphy',
-            'image' => '/images/news/5.png',
-            'description' => 'JEDDAH: Jeddah municipality, in partnership with the Oyoun Jeddah Charitable Association (OJCA)',
-            'full_description' =>'<p>JEDDAH: Jeddah municipality, in partnership with the Oyoun Jeddah Charitable Association (OJCA), has launched an initiative to install 50 Arabic calligraphy murals across the city, including on some of its main flyovers. The initiative, which coincides with the UN&rsquo;s Arabic Language Day, aims to add an aesthetic touch to the city with Arabic calligraphy paintings and murals, some of which are more than 70 meters long and 3 meters high. The UN General Assembly approved Arabic as an official UN language in 1997. The day is meant to promote the equal use of all six of the UN&rsquo;s official working languages throughout the organization. In January, the Saudi Ministry of Culture announced 2020 as the Year of Arabic Calligraphy to highlight its importance in reflecting the richness of Arab culture. Jeddah Mayor Dr.</p>
+                'publication_date' =>  date('Y-m-d H:i:s'),
+                'link' => 'ARZ8jBdrEeBAbWubXAC0'
+            ],
+            [
+                'title' => 'Jeddah streets and bridges embellished with Arabic calligraphy',
+                'image' => '/images/news/5.png',
+                'description' => 'JEDDAH: Jeddah municipality, in partnership with the Oyoun Jeddah Charitable Association (OJCA)',
+                'full_description' =>'<p>JEDDAH: Jeddah municipality, in partnership with the Oyoun Jeddah Charitable Association (OJCA), has launched an initiative to install 50 Arabic calligraphy murals across the city, including on some of its main flyovers. The initiative, which coincides with the UN&rsquo;s Arabic Language Day, aims to add an aesthetic touch to the city with Arabic calligraphy paintings and murals, some of which are more than 70 meters long and 3 meters high. The UN General Assembly approved Arabic as an official UN language in 1997. The day is meant to promote the equal use of all six of the UN&rsquo;s official working languages throughout the organization. In January, the Saudi Ministry of Culture announced 2020 as the Year of Arabic Calligraphy to highlight its importance in reflecting the richness of Arab culture. Jeddah Mayor Dr.</p>
 
 <p><img class="fr-dii fr-fic fr-fil" src="http://127.0.0.1:8000/storage/images/news/eng._anas_mohammed_seirafi_copy.png" style="float:left; margin:10px; width:215px" /></p>
 
@@ -95,8 +99,9 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 <p>&ldquo;(This is) since the time of the late former mayor of Jeddah, Mohammed Saeed Farsi, who had invited prominent artists to beautify Jeddah with their works. The city has the largest open museum in the world, located on the Jeddah Corniche, where invaluable art pieces are found. What is taking place nowadays is an extension to that artistic revolution,&rdquo; Serafi said.</p>
 
 <p>The deputy mayor for community services, A&rsquo;idh Al-Zahrani, said that the initiative was part of the UN Arabic Language Day, which is observed annually on Dec. 18.</p>',
-            'publication_date' =>  date('Y-m-d H:i:s'),
-          ],
+                'publication_date' =>  date('Y-m-d H:i:s'),
+                'link' => '6IAf2dBfkvjBWrYC3WS4'
+            ],
         ]);
     }
 }

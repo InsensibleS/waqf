@@ -8,25 +8,32 @@ use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
-  use HasFactory,   SoftDeletes;
+    use HasFactory,   SoftDeletes;
 
-  protected $table = 'news';
-  protected $fillable = [
+    protected $table = 'news';
+    protected $fillable = [
       'title',
       'description',
       'image',
       'publication_date'
-  ];
+    ];
 
-  protected $casts = [
-        'publication_date' => 'datetime'
-      ];
+    protected $casts = [
+      'publication_date' => 'datetime'
+    ];
 
-    public function newlike(){
-        return $this->hasOne(NewsLike::class);
+    public function newsHashtags()
+    {
+        return $this->belongsToMany(NewsHashtag::class, 'news_hashtag_for_news', 'news_id', 'hashtag_id');
     }
 
-    public function newcomments(){
+    public function newsLikes()
+    {
+        return $this->hasMany(NewsLike::class);
+    }
+
+    public function newsComments()
+    {
         return $this->hasMany(NewsComment::class);
     }
 }

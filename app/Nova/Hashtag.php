@@ -57,7 +57,8 @@ class Hashtag extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Title', 'title'),
+            Text::make('Title', 'title')
+                ->rules('required', 'max:255'),
             BelongsToMany::make('Projects', 'projects', Project::class)
                 ->hideFromIndex(),
         ];

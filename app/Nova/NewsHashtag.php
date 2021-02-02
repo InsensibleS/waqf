@@ -4,23 +4,18 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\Image;
-use App\Rules\СomparisonOfBooleanFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Waynestate\Nova\CKEditor;
 
-class News extends Resource
+class NewsHashtag extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\News::class;
+    public static $model = \App\Models\NewsHashtag::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -35,10 +30,7 @@ class News extends Resource
      * @var array
      */
     public static $search = [
-        'id',
-        'title',
-        'description',
-        'publication_date'
+        'id', 'title'
     ];
 
     /**
@@ -60,41 +52,9 @@ class News extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
             Text::make('Title', 'title')
-                ->rules('required', 'max:255')
-                ->sortable(),
+                ->rules('required', 'max:255'),
 
-            Image::make('Image', 'image')
-                ->path('/images/news')
-                ->creationRules('required', 'max:5000')
-                ->updateRules('max:5000')
-                ->deletable(false),
-
-            Text::make('Small description', 'description')
-                ->hideFromIndex(),
-
-            CKeditor::make('Full description', 'full_description')
-                ->creationRules('required')
-                ->options([
-                    'height' => 900,
-                ])
-                ->hideFromIndex()
-                ->alwaysShow(),
-
-            DateTime::make('Date','publication_date')
-                ->hideFromIndex()
-                ->rules('required')
-                ->sortable(),
-
-            Boolean::make('OF comments', 'ban_comments')
-                ->hideFromIndex(),
-
-            Boolean::make('Main news', 'is_main')
-                ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),
-
-            Boolean::make('Priority news', 'is_second')
-                ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),
-
-            BelongsToMany::make('News Hashtags', 'newsHashtags', NewsHashtag::class)
+            BelongsToMany::make('News', 'news', NewsHashtag::class)
                 ->hideFromIndex(),
         ];
     }

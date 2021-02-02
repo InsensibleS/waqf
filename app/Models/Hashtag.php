@@ -16,7 +16,8 @@ class Hashtag extends Model
 
     protected $dates = ['deleted_at'];
 
-    public function projects(){
+    public function projects()
+    {
         return $this->belongsToMany(Project::class);
     }
 }
