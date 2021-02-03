@@ -28,4 +28,15 @@ class NewsService
 
         return $this->newsLike->create($request->all());
     }
+
+    /**
+     *
+     * @param  Request  $request
+     * @return NewsLike
+     *
+     */
+    public function delete($news_id)
+    {
+        NewsLike::destroy($news_id);
+    }
 }

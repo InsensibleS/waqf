@@ -6,7 +6,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 
-class LikeNewsSaveRequest extends FormRequest
+class LikeNewsDeleteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,7 +29,7 @@ class LikeNewsSaveRequest extends FormRequest
             'news_id' => [
                 'required',
                 'integer',
-                'exists:news,id'
+                'exists:news_likes,news_id'
             ],
         ];
     }

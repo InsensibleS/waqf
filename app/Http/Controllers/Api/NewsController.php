@@ -20,15 +20,9 @@ class NewsController extends Controller
     public function __construct(NewsPageRepository $newsPageRepository, NewsService $newsService)
     {
         $this->newsPageRepository = $newsPageRepository;
-        $this->newsService = $newsService;
     }
     public function getNews(NewsRequest $request)
     {
         return new NewsPageResource($this->newsPageRepository->getDataNewsPage($request->link));
-    }
-
-    public function addLikeToNews(LikeNewsSaveRequest $request){
-        $this->newsService->store($request);
-        return response()->json(['message'=> 'Like saving successfully!']);
     }
 }
