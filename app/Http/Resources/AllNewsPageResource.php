@@ -6,14 +6,18 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class AllNewsPageResource extends JsonResource
 {
-    protected $news;
-    protected $hashtags;
+    protected $firstNews;
+    protected $secondNews;
+    protected $remainder;
+    protected $newsHashtags;
 
     public function __construct($allNewsPageData)
     {
         parent::__construct($allNewsPageData);
-        $this->news = $allNewsPageData['news'];
-        $this->hashtags = $allNewsPageData['hashtags'];
+        $this->firstNews = $allNewsPageData['firstNews'];
+        $this->secondNews = $allNewsPageData['secondNews'];
+        $this->remainder = $allNewsPageData['remainder'];
+        $this->newsHashtags = $allNewsPageData['newsHashtags'];
     }
 
     /**

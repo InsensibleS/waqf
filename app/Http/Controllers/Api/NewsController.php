@@ -26,6 +26,6 @@ class NewsController extends Controller
     }
 
     public function getAllNews() {
-        return response()->json($this->allNewsPageRepository->getDataAllNewsPage());
+        return $this->allNewsPageRepository->getDataAllNewsPage();
     }
 }
