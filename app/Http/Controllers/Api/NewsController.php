@@ -29,6 +29,6 @@ class NewsController extends Controller
 
     public function addLikeToNews(LikeNewsSaveRequest $request){
         $this->newsService->store($request);
-        return response()->json(['message'=> 'я всёLike saving successfully!']);
+        return response()->json(['message'=> 'Like saving successfully!']);
     }
 }
