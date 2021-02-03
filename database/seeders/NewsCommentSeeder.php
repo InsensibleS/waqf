@@ -52,7 +52,7 @@ class NewsCommentSeeder extends Seeder
                 'answer_to' => 1,
                 'content' => 'I support everything they do',
                 'publication_date' => Carbon::createFromDate(2021,01,2)->toDateTimeString(),
-                'is_ban' => true,
+                'is_active' => true,
                 'created_at' => Carbon::createFromDate(2021,01,30)->toDateTimeString(),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
