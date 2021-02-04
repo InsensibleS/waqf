@@ -28,4 +28,23 @@ class NewsService
 
         return $this->newsLike->create($request->all());
     }
+
+    public function rememberMainNews($firstNews, $secondNews) {
+        $arrayMainNewsId = [];
+        if ($firstNews !== null)  {
+            array_push($arrayMainNewsId, $firstNews->id);
+        }
+
+        foreach ($secondNews as $news) {
+            array_push($arrayMainNewsId, $news->id);
+        }
+
+        session()->put('arrayMainNewsId', $arrayMainNewsId);
+    }
+
+    public function rememberSearchAndHashtag($request)
+    {
+        session()->put('searchWord', $request->search_word);
+        session()->put('hashtagId', $request->hashtag_id);
+    }
 }

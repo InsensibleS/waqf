@@ -30,8 +30,6 @@ class AllNewsPageResource extends JsonResource
      */
     public function toArray($request)
     {
-//        $customerId = auth('api')->user()->id ?? null;
-
         return [
             'firstNews' => new NewsFullResource($this->firstNews),
             'secondNews' => NewsFullResource::collection($this->secondNews),

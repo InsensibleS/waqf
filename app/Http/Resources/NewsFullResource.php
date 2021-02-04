@@ -26,6 +26,7 @@ class NewsFullResource extends JsonResource
             'countLikes' => $this->news_likes_count,
             'is_customer_liked' => count($this->newsLikes->where('customer_id', $customerId)) !== 0,
             'countComments' => $this->news_comments_count,
+            'hashtags' => HashtagResource::collection($this->newsHashtags),
         ];
     }
 }
