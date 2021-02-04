@@ -24,7 +24,7 @@ class PartnerResource extends JsonResource
         return [
             'title' => $this->partnersData->title,
             'description' => $this->partnersData->description,
-            'img' => $this->partnersData->image
+            'img' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->partnersData->image
         ];
     }
 }

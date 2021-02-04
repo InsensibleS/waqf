@@ -28,7 +28,7 @@ class ProjectsResource extends JsonResource
             'country' => $this->projectData->country->title,
             'description' => $this->projectData->description,
             'publication_date' => date('Y-m-d', strtotime($this->projectData->publication_date)),
-            'image' => $this->projectData->image1,
+            'image' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->projectData->image1,
             'hashtags' => HashtagResource::collection($this->projectData->hashtags)
         ];
     }
