@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class CustomerService
 {
     private const PUBLIC_PATH = '/public/customer-photos/';
-    private const FILES_PATH = 'customer-photos/';
+    private const FILES_PATH = '/customer-photos/';
 
     protected $customer;
 

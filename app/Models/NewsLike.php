@@ -11,6 +11,8 @@ class NewsLike extends Model
 
     protected $table = 'news_likes';
 
+    protected $guarded = ['id'];
+
     public function news()
     {
         return $this->belongsTo(News::class, 'news_id');

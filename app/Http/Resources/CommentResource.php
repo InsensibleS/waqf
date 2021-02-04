@@ -21,7 +21,7 @@ class CommentResource extends JsonResource
             'is_active' => $this->is_active,
             'content' => $this->is_active ? $this->content : 'This comment was hidden',
             'userName' => $this->customer->name,
-            'userAvatar' => \config('custom.storagePath') . $this->customer->avatar,
+            'userAvatar' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->customer->avatar,
             'publication_date' => date('Y-m-d', strtotime($this->publication_date)),
             'likes' => count($this->newsCommentLikes),
             'dislikes' => count($this->newsCommentDislikes),

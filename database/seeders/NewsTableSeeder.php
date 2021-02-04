@@ -28,8 +28,10 @@ class NewsTableSeeder extends Seeder
 <p>The Pfizer-BioNTech vaccine requires a priming dose followed by a booster shot with an interval of 21 days between each in order to achieve a 95 percent efficacy rate to prevent or decrease the symptomatic effects of a COVID-19 infection. At Sunday&rsquo;s press briefing the spokesman also noted the change in the rate of infections across the Kingdom&rsquo;s regions during the past two weeks. Six of the Kingdom&rsquo;s regions have shown some stability with a slight increase in numbers, up to 10 percent, whereas Riyadh, Qassim, Hail, Jazan and the Northern Borders have shown a 50 percent decrease in cases. &nbsp;</p>
 
 <p>&nbsp;</p>',
-                'publication_date' =>  date('Y-m-d H:i:s'),
-                'link' => 'G4TJmJokwRsLirU9HSyr'
+                'publication_date' =>  '2021-01-01',
+                'link' => 'G4TJmJokwRsLirU9HSyr',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => '5m perform rituals at Grand Mosque since resumption',
@@ -38,16 +40,20 @@ class NewsTableSeeder extends Seeder
                 'full_description'=> '<p>JEDDAH: Saudi Arabia has received 5 million Umrah pilgrims and worshippers since the resumption of the rituals, said Minister of Hajj and Umrah Dr. Mohammed Saleh Benten. He said that no cases of <img class="fr-dii fr-fic fr-fil" src="https://waqf-admin.softlex.pro/storage/images/news/Без названия.jpeg" style="float:left; height:190px; margin:10px; width:309px" />COVID-19 infections were reported among pilgrims and worshippers. The statement came during a meeting with Makkah Gov. Prince Khaled Al-Faisal in Jeddah on Wednesday. Saudi Arabia suspended Umrah in March and significantly downsized the Hajj pilgrimage in July by only allowing about 1,000 pilgrims, all in response to the COVID-19 pandemic.</p>
 
 <p>The Kingdom is getting back on track after earlier lockdowns while adhering to strict health protocols. On Sept. 22, the Kingdom announced a gradual resumption of Umrah pilgrimage in four phases. Tourist offices abroad are following their contracts with the Ministry of Hajj and Umrah so that pilgrims can come to perform Umrah rituals. In the first phase, which lasted for 14 days, 84,000 pilgrims were received &mdash; 6,000 people per day. A total of 210,000 pilgrims performed Umrah rituals during the second phase. The third phase, which started on Nov. 1, permitted pilgrims from abroad to perform the ritual alongside residents of the Kingdom.</p>',
-                'publication_date' =>  date('Y-m-d H:i:s'),
-                'link' => 'RQACxyTUioGpCGai73ud'
+                'publication_date' => '2020-01-8',
+                'link' => 'RQACxyTUioGpCGai73ud',
+                'is_main' => true,
+                'is_second' => false,
             ],
             [
                 'title' => 'Saudi national archives foundation Darah uncovering past with oral history tradition',
                 'image' => '/images/news/3.jpg',
                 'description' => 'RIYADH: From one generation to another, history is told and retold.',
                 'full_description'=> '<p><img class="fr-dii fr-fic fr-fil" src="https://waqf-admin.softlex.pro/storage/images/news/whatsapp_image_2020-12-23_at_6.19.32_pm.jpg" style="float:right; height:391px; width:663px" /><span style="font-size:16px">RIYADH: From one generation to another, history is told and retold. But with time, large fragments are lost, so a Riyadh-based research center is helping preserve some of Saudi Arabia&rsquo;s most important historical facts. The earliest forms of storytelling for many cultures were primarily oral, combined with gestures and expressions, and at times, even drawings and paintings. With time these stories differ, their essence forgotten and countless tales lost through time. In recognition of the beauty of this dying art, the King Abdul Aziz Foundation for Research and Archives (Darah) has upgraded its work to record and preserve oral accounts of Saudi Arabian history and make them accessible to researchers. Speaking to Arab News, Darah spokesman Sultan Alawairdhi said the center&rsquo;s founding is in line with the government&rsquo;s policy to preserve its history. He added that it is of vital importance to ensure that historical narratives are accessible to all by using knowledge and historical facts told by the elderly who lived through major historical events that shaped the Kingdom.</span></p>',
-                'publication_date' =>  date('Y-m-d H:i:s'),
-                'link' => 'ei7KSfJoYynOsw8Efk8i'
+                'publication_date' =>  '2021-01-08',
+                'link' => 'ei7KSfJoYynOsw8Efk8i',
+                'is_main' => true,
+                'is_second' => false,
             ],
             [
                 'title' => 'Saudi Arabia’s giftedness foundation Mawhiba signs deal to protect intellectual property rights',
@@ -63,8 +69,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p><span style="font-size:14px">ome one of the 26 entities that are part of SAIP&rsquo;s national network. SAIP aims to organize, support, sponsor, protect and promote intellectual property in the Kingdom in accordance with global best practices. Al-Sadhan said by joining the network Mawhiba has now gained access to other support services that suit the needs of its students and employees. &ldquo;The most important of these services is providing guidance on intellectual property rights such as the use of patents, industrial designs, trademarks, and copyrights,&rdquo; he said. SAIP Vice President Sami Al-Sudais welcomed Mawhiba aboard TISC, which enables users to acquire the technical skills needed to search intellectual property databases.</span></p>',
-                'publication_date' =>  date('Y-m-d H:i:s'),
-                'link' => 'ARZ8jBdrEeBAbWubXAC0'
+                'publication_date' =>  '2021-01-09',
+                'link' => 'ARZ8jBdrEeBAbWubXAC0',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Jeddah streets and bridges embellished with Arabic calligraphy',
@@ -99,8 +107,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 <p>&ldquo;(This is) since the time of the late former mayor of Jeddah, Mohammed Saeed Farsi, who had invited prominent artists to beautify Jeddah with their works. The city has the largest open museum in the world, located on the Jeddah Corniche, where invaluable art pieces are found. What is taking place nowadays is an extension to that artistic revolution,&rdquo; Serafi said.</p>
 
 <p>The deputy mayor for community services, A&rsquo;idh Al-Zahrani, said that the initiative was part of the UN Arabic Language Day, which is observed annually on Dec. 18.</p>',
-                'publication_date' =>  date('Y-m-d H:i:s'),
-                'link' => '6IAf2dBfkvjBWrYC3WS4'
+                'publication_date' => '2021-01-09',
+                'link' => '6IAf2dBfkvjBWrYC3WS4',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Trump’s “Big Lie” stirs a revolt and mars U.S. standing',
@@ -181,8 +191,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 <p style="margin-left:0px; margin-right:0px; text-align:left">&ldquo;There is truth and there are lies,&rdquo; Biden said in&nbsp;his inaugural address. &ldquo;Lies told for profit and for power. And each of us has a duty and responsibility &hellip; to defend the truth and defeat the lies.&rdquo;</p>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'dc2PZKGPeXaKUwZw'
+                'publication_date' => '2021-01-15',
+                'link' => 'dc2PZKGPeXaKUwZw',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'South Korea offers lessons for U.S. social movements',
@@ -233,8 +245,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">The patterns of protest in the Park Chung-hee era offer a word of caution for those attempting to suppress far-right extremism, but also some hope for activists: Social movements don&rsquo;t necessarily die, but can evolve and adapt.</span></p>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'pnW5eXk9FnKdA4jj'
+                'publication_date' =>'2021-01-16',
+                'link' => 'pnW5eXk9FnKdA4jj',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Conflict in strategic Ethiopia rings global alarm bells',
@@ -307,8 +321,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">Abiy&rsquo;s supporters say he had no alternative but to confront Tigray&rsquo;s leaders to curb a wave of rebellion and separatism, but his military offensive could have uncontrollable consequences with ramifications for a wide area of Africa and the Gulf.</span></p>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'JzLGRR2BqJtSZR2v'
+                'publication_date' => '2021-01-16',
+                'link' => 'JzLGRR2BqJtSZR2v',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Decoder: Can we fix nature’s crisis and protect Earth?',
@@ -389,8 +405,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">&ldquo;What happens next is up to us.&rdquo;</span></p>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'tJXbnS5rd4MTyc53'
+                'publication_date' => '2021-01-18',
+                'link' => 'tJXbnS5rd4MTyc53',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Decoder: Why are election polls so often wrong?',
@@ -461,8 +479,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">Will there be more accurate election polls in the future? Don&rsquo;t hold your breath.</span></p>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'RzHybqqz3AZL5VZP'
+                'publication_date' =>'2021-01-19',
+                'link' => 'RzHybqqz3AZL5VZP',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => "Jack Palladino: Private eye's photos used to track his suspected killers",
@@ -617,8 +637,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'UQctz4QqSJRdKBCg'
+                'publication_date' =>'2021-01-19',
+                'link' => 'UQctz4QqSJRdKBCg',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Marilyn Manson dropped by record label over abuse allegations',
@@ -806,8 +828,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'kJT8kCk4s4gHLnZR'
+                'publication_date' =>'2021-01-23',
+                'link' => 'kJT8kCk4s4gHLnZR',
+                'is_main' => false,
+                'is_second' => true,
             ],
             [
                 'title' => 'Ancient mummies with golden tongues unearthed in Egypt
@@ -887,8 +911,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'NYVUaB92zQ7dHZU4'
+                'publication_date' =>'2021-01-23',
+                'link' => 'NYVUaB92zQ7dHZU4',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Newspaper run by prisoners offers a new chance to convicts',
@@ -979,8 +1005,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'BVmn4hF4fUaSynq5'
+                'publication_date' =>'2021-01-23',
+                'link' => 'BVmn4hF4fUaSynq5',
+                'is_main' => false,
+                'is_second' => true,
             ],
             [
                 'title' => 'Biden, Harris will not permit white supremacy, students told',
@@ -1051,8 +1079,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'geLgnj6dmN2kERBq'
+                'publication_date' =>'2021-01-24',
+                'link' => 'geLgnj6dmN2kERBq',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Deepfakes and AI spur disinformation and threaten democracy',
@@ -1111,8 +1141,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'Nyw4dQTpxymqwKfP'
+                'publication_date' =>'2021-01-24',
+                'link' => 'Nyw4dQTpxymqwKfP',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Even NGOs can have political leanings. So, follow the money.',
@@ -1187,8 +1219,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => ''
+                'publication_date' =>'2021-01-27',
+                'link' => 'JBtw3PJS9yaXBCFj',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Want to take news photos? Then always be prepared.',
@@ -1231,8 +1265,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'Nt9AqChcQzwm7sEE'
+                'publication_date' =>'2021-01-28',
+                'link' => 'Nt9AqChcQzwm7sEE',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Our ‘zine’ offers a creative antidote for COVID-19',
@@ -1287,8 +1323,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'XNWRrHHPA2rn4Qya'
+                'publication_date' =>'2021-01-31',
+                'link' => 'XNWRrHHPA2rn4Qya',
+                'is_main' => false,
+                'is_second' => true,
             ],
             [
                 'title' => 'Will U.S., under Biden, seek ‘primacy’ against rival China?',
@@ -1359,8 +1397,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 </div>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => 'tsVgqvFrqpq24Nzs'
+                'publication_date' =>'2021-02-1',
+                'link' => 'tsVgqvFrqpq24Nzs',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' => 'Will we exercise more at home after COVID-19?',
@@ -1423,8 +1463,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">Gyms have long had the advantage of bringing people together and facilitating competition. But with online workouts more common, at-home equipment widely available and lockdown restrictions easing in many places, it&rsquo;s anyone&rsquo;s guess whether people will continue working out at home or return to gyms.</span></p>
 
 <p>&nbsp;</p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
-                'link' => '6NZgfkn8BB3r8Hu2'
+                'publication_date' =>'2021-02-01',
+                'link' => '6NZgfkn8BB3r8Hu2',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' =>'Malik Figaro: From Student Ambassador to News Decoder intern',
@@ -1483,8 +1525,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px"><em>ND: What do you think people outside the News Decoder community should know about News Decoder?</em></span></p>
 
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px"><strong>Figaro</strong>:&nbsp;News Decoder puts a lot of thought into trustworthy reporting, and besides the many correspondents with many years of experience who have their stories published, News Decoder provides young students from around the world a chance to learn how to report and publish a story. Supporting News Decoder is also supporting the next generation of journalists. Get involved by subscribing to the newsletter or donating!</span></p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
+                'publication_date' =>'2021-02-02',
                 'link' => 'jGXmRjY6vJgjAMGK',
+                'is_main' => false,
+                'is_second' => true,
             ],
             [
                 'title' =>'International space station benefits those of us on Earth',
@@ -1539,8 +1583,10 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">A trip to Mars will take at least eight months each way, not including the time on the red planet, which means the journey could be crippling for humans unless these studies can provide answers. Meanwhile, knowledge gained is helping older people combat bone loss that can lead to osteoporosis.</span></p>
 
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">None of the challenges have deterred Rubins. The U.S.&nbsp;National Aeronautics and Space Administration has&nbsp;announced that Rubins is a member of the team of astronauts who will return to the Moon later in the decade. And their first task will be to establish a research base, a lunar home for more extraordinary science.</span></p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
+                'publication_date' =>'2021-02-02',
                 'link' => 'kaq4hF6GaRpnkNHt',
+                'is_main' => false,
+                'is_second' => false,
             ],
             [
                 'title' =>'Listen: How is COVID-19 affecting youth climate activism?',
@@ -1577,8 +1623,56 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">The Thacher School is one of 19 News Decoder&nbsp;partner schools&nbsp;in 14 countries. For more work by Thacher students on News Decoder, click&nbsp;here.</span></p>
 
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px"><em>The Kids Are Alright</em>&nbsp;is produced with News Decoder partner&nbsp;Podium.me. Charlie Duffield edited this episode.</span></p>',
-                'publication_date' =>date('Y-m-d H:i:s'),
+                'publication_date' =>'2021-02-03',
                 'link' => 'BEjnX7mnhevFJe2N',
+                'is_main' => false,
+                'is_second' => false,
+            ],
+            [
+                'title' =>'Jeff Bezos to step down as Amazon chief executive',
+                'image' =>'/images/news/25.jpg',
+                'description' => 'Amazon founder Jeff Bezos is to step down as chief executive of the e-commerce giant that he started in his garage nearly 30 years ago.',
+                'full_description' => '<div>
+<div>
+<p>He will become executive chairman, a move he said would give him &quot;time and energy&quot; to focus on his other ventures.</p>
+</div>
+</div>
+
+<div>
+<div>
+<p>Mr Bezos, the world&#39;s richest man, will be replaced by Andy Jassy, who currently leads Amazon&#39;s cloud computing business.</p>
+</div>
+</div>
+
+<div>
+<div>
+<p>The change will take place in the second half of 2021, the company said.</p>
+</div>
+</div>
+
+<div>
+<div>
+<p>&quot;Being the CEO of Amazon is a deep responsibility, and it&#39;s consuming. When you have a responsibility like that, it&#39;s hard to put attention on anything else,&quot; Mr Bezos said in an letter to Amazon staff on Tuesday.</p>
+</div>
+</div>
+
+<div>
+<div>
+<p>&quot;As Exec Chair I will stay engaged in important Amazon initiatives but also have the time and energy I need to focus on the Day 1 Fund, the Bezos Earth Fund, Blue Origin, The Washington Post, and my other passions.&quot;</p>
+</div>
+</div>
+
+<div>
+<div>
+<p>&quot;I&#39;ve never had more energy, and this isn&#39;t about retiring. I&#39;m super passionate about the impact I think these organizations can have,&quot; he added.</p>
+</div>
+</div>
+
+<p>&nbsp;</p>',
+                'publication_date' => '2021-02-23',
+                'link' =>'k3NnwhphSaucYC3E',
+                'is_main' => false,
+                'is_second' => false,
             ]
 
         ]);

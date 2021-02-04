@@ -3,29 +3,25 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Models\News;
 use App\Http\Requests\NewsRequest;
 use App\Repositories\NewsPageRepository;
 use App\Http\Resources\NewsPageResource;
-use App\Repositories\AllNewsPageRepository;
 
 
 class NewsController extends Controller
 {
     protected $newsPageRepository;
-    protected $allNewsPageRepository;
 
-    public function __construct(NewsPageRepository $newsPageRepository, AllNewsPageRepository $allNewsPageRepository)
+    public function __construct(NewsPageRepository $newsPageRepository)
     {
         $this->newsPageRepository = $newsPageRepository;
-        $this->allNewsPageRepository = $allNewsPageRepository;
     }
 
     public function getNews(NewsRequest $request)
     {
         return new NewsPageResource($this->newsPageRepository->getDataNewsPage($request->link));
-    }
-
-    public function getAllNews() {
-        return $this->allNewsPageRepository->getDataAllNewsPage();
     }
 }

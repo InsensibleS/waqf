@@ -17,7 +17,7 @@ class CustomerResource extends JsonResource
         return [
             'name' => $this->name,
             'email' => $this->email,
-            'avatar' => \config('custom.storagePath') . $this->avatar,
+            'avatar' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->avatar,
             'is_password' => $this->password !== null
         ];
     }
