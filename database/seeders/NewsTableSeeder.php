@@ -28,9 +28,9 @@ class NewsTableSeeder extends Seeder
 <p>The Pfizer-BioNTech vaccine requires a priming dose followed by a booster shot with an interval of 21 days between each in order to achieve a 95 percent efficacy rate to prevent or decrease the symptomatic effects of a COVID-19 infection. At Sunday&rsquo;s press briefing the spokesman also noted the change in the rate of infections across the Kingdom&rsquo;s regions during the past two weeks. Six of the Kingdom&rsquo;s regions have shown some stability with a slight increase in numbers, up to 10 percent, whereas Riyadh, Qassim, Hail, Jazan and the Northern Borders have shown a 50 percent decrease in cases. &nbsp;</p>
 
 <p>&nbsp;</p>',
-                'publication_date' =>  '2021-01-01',
+                'publication_date' =>  '2021-02-04',
                 'link' => 'G4TJmJokwRsLirU9HSyr',
-                'is_main' => false,
+                'is_main' => true,
                 'is_second' => false,
             ],
             [

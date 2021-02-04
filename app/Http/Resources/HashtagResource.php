@@ -10,10 +10,13 @@ class HashtagResource extends JsonResource
      * Transform the resource into an array.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return string
+     * @return array
      */
     public function toArray($request)
     {
-        return '#' . $this->title;
+        return [
+            'id' => $this->id,
+            'title' => '#' . $this->title
+        ];
     }
 }
