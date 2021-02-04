@@ -9,7 +9,7 @@ use App\Http\Resources\NewsPageResource;
 use App\Repositories\AllNewsPageRepository;
 use App\Http\Resources\AllNewsPageResource;
 use App\Http\Requests\GetMoreNewsRequest;
-use App\Http\Resources\NewsFullResource;
+use App\Http\Resources\MoreNewsResource;
 use App\Http\Requests\GetAllNewsRequest;
 use App\Services\NewsService;
 
@@ -44,6 +44,6 @@ class NewsController extends Controller
 
     public function getMoreNews(GetMoreNewsRequest $request)
     {
-        return NewsFullResource::collection($this->allNewsPageRepository->getDataMoreNews($request->page));
+        return new MoreNewsResource($this->allNewsPageRepository->getDataMoreNews($request->page));
     }
 }

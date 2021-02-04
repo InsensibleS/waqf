@@ -103,6 +103,9 @@ class AllNewsPageRepository
             })
             ->get();
 
-        return $remainingNews->forPage($page, self::FOR_PAGE);
+        return [
+            'news' => $remainingNews->forPage($page, self::FOR_PAGE),
+            'isThereStill' => count($remainingNews->forPage($page + 1, self::FOR_PAGE)) > 0
+        ];
     }
 }
