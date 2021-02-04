@@ -10,6 +10,7 @@ class AllNewsPageResource extends JsonResource
     protected $secondNews;
     protected $remainder;
     protected $newsHashtags;
+    protected $isThereStill;
 
     public function __construct($allNewsPageData)
     {
@@ -18,6 +19,7 @@ class AllNewsPageResource extends JsonResource
         $this->secondNews = $allNewsPageData['secondNews'];
         $this->remainder = $allNewsPageData['remainder'];
         $this->newsHashtags = $allNewsPageData['newsHashtags'];
+        $this->isThereStill = $allNewsPageData['isThereStill'];
     }
 
     /**
@@ -31,20 +33,11 @@ class AllNewsPageResource extends JsonResource
 //        $customerId = auth('api')->user()->id ?? null;
 
         return [
-//            'news' => [
-//                'id' => $this->news->id,
-//                'title' => $this->news->title,
-//                'publication_date' => date('Y-m-d', strtotime($this->news->publication_date)),
-//                'link' => \config('custom.frontendUrlGetNews') . $this->news->link,
-//                'content' => $this->news->full_description,
-//                'hashtags' => HashtagResource::collection($this->news->newsHashtags),
-//                'countLikes' => $this->news->news_likes_count,
-//                'is_customer_liked' => count($this->news->newsLikes->where('customer_id', $customerId)) !== 0,
-//                'countComments' => $this->news->news_comments_count,
-//                'ban_comments' => $this->news->ban_comments,
-//                'comments' => CommentResource::collection($this->news->newsComments->where('answer_to', null))
-//            ],
-//            'latestNews' => NewsResource::collection($this->latestNews),
+            'firstNews' => new NewsFullResource($this->firstNews),
+            'secondNews' => NewsFullResource::collection($this->secondNews),
+            'remainder' => NewsFullResource::collection($this->remainder),
+            'newsHashtags' => HashtagResource::collection($this->newsHashtags),
+            'isThereStill' => $this->isThereStill
         ];
     }
 }

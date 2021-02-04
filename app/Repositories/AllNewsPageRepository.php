@@ -8,26 +8,34 @@ use Illuminate\Support\Collection;
 
 class AllNewsPageRepository
 {
+    private const FOR_PAGE = 12;
+
     /**
      * @return array
      */
     public function getDataAllNewsPage()
     {
-        $allNews = News::orderBy('publication_date', 'desc')->get();
+        $allNews = News::orderBy('publication_date', 'desc')
+            ->withCount('newsLikes')
+            ->withCount('newsComments')
+            ->get();
         $firstNews = [];
         $secondNews = [];
         $remainder = [];
+        $isThereStill = null;
 
         if (count($allNews) !== 0) {
             $firstNews = $this->getMainNews($allNews);
             $secondNews = $this->getSecondNews($allNews, $firstNews);
-            $remainder = array_values($allNews->diff($secondNews)->whereNotIn('id', [$firstNews->id])->take(12)->toArray());
+            $remainder = $allNews->diff($secondNews)->whereNotIn('id', [$firstNews->id])->take(self::FOR_PAGE);
+            $isThereStill = count($allNews->diff($secondNews, $remainder)->whereNotIn('id', [$firstNews->id])->forPage(2, self::FOR_PAGE)) > 0;
         }
 
         return [
             'firstNews' => $firstNews,
             'secondNews' => $secondNews,
             'remainder' => $remainder,
+            'isThereStill' => $isThereStill,
             'newsHashtags' => NewsHashtag::withCount('news')
                 ->orderBy('news_count', 'desc')
                 ->limit(5)
@@ -54,11 +62,14 @@ class AllNewsPageRepository
      * @return Collection|null
      */
     private function getSecondNews($allNews, $firstNews) {
+
         $secondNews = News::where('is_second', 1)
-                            ->whereNotIn('id', [$firstNews->id])
-                            ->orderBy('publication_date', 'desc')
-                            ->limit(3)
-                            ->get();
+            ->whereNotIn('id', [$firstNews->id])
+            ->withCount('newsLikes')
+            ->withCount('newsComments')
+            ->orderBy('publication_date', 'desc')
+            ->limit(3)
+            ->get();
 
         while (count($secondNews) < 3) {
             $addNews = $allNews->diff($secondNews)->whereNotIn('id', [$firstNews->id])->first();
