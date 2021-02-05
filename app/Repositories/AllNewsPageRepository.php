@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\News;
 use App\Models\NewsHashtag;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use App\Services\NewsService;
 use Illuminate\Http\Request;
@@ -14,12 +15,19 @@ class AllNewsPageRepository
 
     protected $newsService;
 
+    public function __construct(NewsService $newsService)
+    {
+        $this->newsService = $newsService;
+    }
+
     /**
      * @param Collection|null $allNews
      * @return News|null
      */
-    private function getMainNews($allNews) {
-        $mainNews = $allNews->where('is_main', true)->first();
+    private function getMainNews($allNews)
+    {
+        $mainNews = $allNews->where('is_main', true) ->first();
+
         if ($mainNews === null) {
             $mainNews = $allNews->first();
         }
@@ -32,8 +40,14 @@ class AllNewsPageRepository
      * @param News|null $firstNews
      * @return Collection|null
      */
-    private function getSecondNews($allNews, $firstNews) {
+    private function getSecondNews($allNews, $firstNews, $hashtagId)
+    {
         $secondNews = News::where('is_second', 1)
+            ->when($hashtagId, function ($query, $hashtagId) {
+                return $query->whereHas('newsHashtags', function (Builder $q) use ($hashtagId) {
+                    $q->where('hashtag_id', $hashtagId);
+                });
+            })
             ->whereNotIn('id', [$firstNews->id])
             ->withCount('newsLikes')
             ->withCount('newsComments')
@@ -52,20 +66,24 @@ class AllNewsPageRepository
         return $secondNews;
     }
 
-    public function __construct(NewsService $newsService)
-    {
-        $this->newsService = $newsService;
-    }
 
     /**
      * @return array
      */
-    public function getDataAllNewsPage()
+    public function getDataAllNewsPage(Request $request)
     {
+        $hashtagId = $request->hashtag_id;
+
         $allNews = News::orderBy('publication_date', 'desc')
+            ->when($hashtagId, function ($query, $hashtagId) {
+                return $query->whereHas('newsHashtags', function (Builder $q) use ($hashtagId) {
+                    $q->where('hashtag_id', $hashtagId);
+                });
+            })
             ->withCount('newsLikes')
             ->withCount('newsComments')
             ->get();
+
         $firstNews = [];
         $secondNews = [];
         $remainder = [];
@@ -73,7 +91,7 @@ class AllNewsPageRepository
 
         if (count($allNews) !== 0) {
             $firstNews = $this->getMainNews($allNews);
-            $secondNews = $this->getSecondNews($allNews, $firstNews);
+            $secondNews = $this->getSecondNews($allNews, $firstNews, $request->hashtag_id);
             $remainder = $allNews->diff($secondNews)->whereNotIn('id', [$firstNews->id])->take(self::FOR_PAGE);
             $isThereStill = count($allNews->diff($secondNews, $remainder)->whereNotIn('id', [$firstNews->id])->forPage(2, self::FOR_PAGE)) > 0;
         }
@@ -96,8 +114,14 @@ class AllNewsPageRepository
     {
         $arrayMainNewsId = $request->arrayMainNewsId;
         $page = $request->page;
+        $hashtagId = $request->hashtag_id;
 
         $remainingNews = News::orderBy('publication_date', 'desc')
+            ->when($hashtagId, function ($query, $hashtagId) {
+                return $query->whereHas('newsHashtags', function (Builder $q) use ($hashtagId) {
+                    $q->where('hashtag_id', $hashtagId);
+                });
+            })
             ->withCount('newsLikes')
             ->withCount('newsComments')
             ->when($arrayMainNewsId, function ($query, $arrayMainNewsId) {

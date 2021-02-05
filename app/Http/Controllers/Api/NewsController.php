@@ -32,13 +32,12 @@ class NewsController extends Controller
 
     public function getNews(NewsRequest $request)
     {
-
         return new NewsPageResource($this->newsPageRepository->getDataNewsPage($request->link));
     }
 
     public function getAllNews(GetAllNewsRequest $request)
     {
-        return new AllNewsPageResource($this->allNewsPageRepository->getDataAllNewsPage());
+        return new AllNewsPageResource($this->allNewsPageRepository->getDataAllNewsPage($request));
     }
 
     public function getMoreNews(GetMoreNewsRequest $request)

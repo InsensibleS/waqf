@@ -25,6 +25,7 @@ class GetAllNewsRequest extends FormRequest
     {
         return [
             'hashtag_id' => 'integer|exists:news_hashtags,id',
+            'search_word' => 'string|max:255'
         ];
     }
 }

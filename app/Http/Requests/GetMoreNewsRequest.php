@@ -29,7 +29,9 @@ class GetMoreNewsRequest extends FormRequest
                 'integer'
             ],
             'arrayMainNewsId' => 'required|array',
-            'arrayMainNewsId.*' => 'exists:news,id'
+            'arrayMainNewsId.*' => 'exists:news,id',
+            'hashtag_id' => 'integer|exists:news_hashtags,id',
+            'search_word' => 'string|max:255'
         ];
     }
 }
