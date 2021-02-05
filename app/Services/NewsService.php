@@ -31,7 +31,7 @@ class NewsService
 
     public function rememberMainNews($firstNews, $secondNews) {
         $arrayMainNewsId = [];
-        if ($firstNews !== null)  {
+        if ($firstNews)  {
             array_push($arrayMainNewsId, $firstNews->id);
         }
 

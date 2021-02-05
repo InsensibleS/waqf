@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class CreateNewsTable extends Migration
 {
@@ -28,6 +29,8 @@ class CreateNewsTable extends Migration
             $table->string('link', 25)->default(Str::random(20));
             $table->softDeletes();
         });
+
+        DB::statement('ALTER TABLE news ADD FULLTEXT full(title, description)');
     }
 
     /**

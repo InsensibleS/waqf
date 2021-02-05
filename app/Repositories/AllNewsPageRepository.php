@@ -26,7 +26,10 @@ class AllNewsPageRepository
      */
     private function getMainNews($allNews)
     {
-        $mainNews = $allNews->where('is_main', true) ->first();
+        $mainNews = null;
+        if($allNews) {
+            $mainNews = $allNews->where('is_main', true) ->first();
+        }
 
         if ($mainNews === null) {
             $mainNews = $allNews->first();
@@ -40,13 +43,16 @@ class AllNewsPageRepository
      * @param News|null $firstNews
      * @return Collection|null
      */
-    private function getSecondNews($allNews, $firstNews, $hashtagId)
+    private function getSecondNews($allNews, $firstNews, $hashtagId, $searchWord)
     {
         $secondNews = News::where('is_second', 1)
             ->when($hashtagId, function ($query, $hashtagId) {
                 return $query->whereHas('newsHashtags', function (Builder $q) use ($hashtagId) {
                     $q->where('hashtag_id', $hashtagId);
                 });
+            })
+            ->when($searchWord, function ($query) use ($searchWord) {
+                return $query->whereRaw("MATCH(title,description) AGAINST(? IN BOOLEAN MODE)", array($searchWord));
             })
             ->whereNotIn('id', [$firstNews->id])
             ->withCount('newsLikes')
@@ -73,12 +79,17 @@ class AllNewsPageRepository
     public function getDataAllNewsPage(Request $request)
     {
         $hashtagId = $request->hashtag_id;
+        $searchWord = $request->search_word;
+        $searchWord = $searchWord ? '%' . $searchWord . '%' : null;
 
-        $allNews = News::orderBy('publication_date', 'desc')
+        $allNews = News::with('newsHashtags')->orderBy('publication_date', 'desc')
             ->when($hashtagId, function ($query, $hashtagId) {
                 return $query->whereHas('newsHashtags', function (Builder $q) use ($hashtagId) {
                     $q->where('hashtag_id', $hashtagId);
                 });
+            })
+            ->when($searchWord, function ($query) use ($searchWord) {
+                return $query->whereRaw("MATCH(title,description) AGAINST(? IN BOOLEAN MODE)", array($searchWord));
             })
             ->withCount('newsLikes')
             ->withCount('newsComments')
@@ -87,11 +98,11 @@ class AllNewsPageRepository
         $firstNews = [];
         $secondNews = [];
         $remainder = [];
-        $isThereStill = null;
+        $isThereStill = false;
 
         if (count($allNews) !== 0) {
             $firstNews = $this->getMainNews($allNews);
-            $secondNews = $this->getSecondNews($allNews, $firstNews, $request->hashtag_id);
+            $secondNews = $this->getSecondNews($allNews, $firstNews, $request->hashtag_id, $searchWord);
             $remainder = $allNews->diff($secondNews)->whereNotIn('id', [$firstNews->id])->take(self::FOR_PAGE);
             $isThereStill = count($allNews->diff($secondNews, $remainder)->whereNotIn('id', [$firstNews->id])->forPage(2, self::FOR_PAGE)) > 0;
         }

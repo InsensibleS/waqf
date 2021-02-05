@@ -14,6 +14,10 @@ class NewsFullResource extends JsonResource
      */
     public function toArray($request)
     {
+        if(!isset( $this->id)) {
+            return [];
+        }
+
         $customerId = auth('api')->user()->id ?? null;
 
         return [
