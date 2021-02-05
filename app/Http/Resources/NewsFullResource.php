@@ -23,6 +23,7 @@ class NewsFullResource extends JsonResource
             'img' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->image,
             'publication_date' => date('Y-m-d', strtotime($this->publication_date)),
             'link' => \config('custom.frontendUrlGetNews') . $this->link,
+            'short_link' => $this->link,
             'countLikes' => $this->news_likes_count,
             'is_customer_liked' => count($this->newsLikes->where('customer_id', $customerId)) !== 0,
             'countComments' => $this->news_comments_count,
