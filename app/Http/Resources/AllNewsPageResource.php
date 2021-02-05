@@ -35,7 +35,8 @@ class AllNewsPageResource extends JsonResource
             'secondNews' => NewsFullResource::collection($this->secondNews),
             'remainder' => NewsFullResource::collection($this->remainder),
             'newsHashtags' => HashtagResource::collection($this->newsHashtags),
-            'isThereStill' => $this->isThereStill
+            'isThereStill' => $this->isThereStill,
+            'arrayMainNewsId' => session()->get('arrayMainNewsId')
         ];
     }
 }

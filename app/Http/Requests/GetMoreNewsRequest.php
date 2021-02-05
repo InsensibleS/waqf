@@ -28,6 +28,8 @@ class GetMoreNewsRequest extends FormRequest
                 'required',
                 'integer'
             ],
+            'arrayMainNewsId' => 'required|array',
+            'arrayMainNewsId.*' => 'exists:news,id'
         ];
     }
 }

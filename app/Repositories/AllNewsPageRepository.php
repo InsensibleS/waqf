@@ -6,6 +6,7 @@ use App\Models\News;
 use App\Models\NewsHashtag;
 use Illuminate\Support\Collection;
 use App\Services\NewsService;
+use Illuminate\Http\Request;
 
 class AllNewsPageRepository
 {
@@ -91,9 +92,10 @@ class AllNewsPageRepository
         ];
     }
 
-    public function getDataMoreNews($page)
+    public function getDataMoreNews(Request $request)
     {
-        $arrayMainNewsId =  session()->get('arrayMainNewsId');
+        $arrayMainNewsId = $request->arrayMainNewsId;
+        $page = $request->page;
 
         $remainingNews = News::orderBy('publication_date', 'desc')
             ->withCount('newsLikes')

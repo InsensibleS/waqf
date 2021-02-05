@@ -24,7 +24,7 @@ class GetAllNewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'hashtag_id' => 'integer|exist:news_hashtags,id'
+            'hashtag_id' => 'integer|exists:news_hashtags,id',
         ];
     }
 }
