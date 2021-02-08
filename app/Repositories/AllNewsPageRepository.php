@@ -95,8 +95,6 @@ class AllNewsPageRepository
             ->withCount('newsComments')
             ->get();
 
-        dd($allNews, $searchWord);
-
         $firstNews = [];
         $secondNews = [];
         $remainder = [];
