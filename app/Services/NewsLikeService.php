@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class NewsLikeService
 {
-    protected $newsLike;
+    protected  $newsLikeService;
 
-    public function __construct(NewsLike $newsLike)
+    public function __construct(NewsLike  $newsLikeService)
     {
-        $this->newsLike = $newsLike;
+        $this-> newsLikeService =  $newsLikeService;
     }
 
     /**
@@ -26,7 +26,7 @@ class NewsLikeService
     {
         $request['customer_id'] = Auth::id();
 
-        return $this->newsLike->create($request->all());
+        return $this->newsLikeService->create($request->all());
     }
 
     /**
@@ -34,9 +34,9 @@ class NewsLikeService
      * @return NewsLike
      *
      */
-    public function delete($newsLike){
-
-        NewsLike::destroy($newsLike->id);
+    public function delete($newsLikeService)
+    {
+        NewsLike::destroy($newsLikeService->id);
     }
 
 
@@ -48,7 +48,6 @@ class NewsLikeService
      */
     public function findLike($request)
     {
-
         return NewsLike::where('customer_id', Auth::id())->where('news_id', $request['news_id'])->first();
     }
 }

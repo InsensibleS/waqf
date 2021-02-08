@@ -20,6 +20,7 @@ class NewsLikeController extends Controller
     public function addLikeToNews(LikeNewsSaveRequest $request)
     {
         $this->newsLikeService->store($request);
+        
         return response()->json(['message'=> 'Like saving successfully!']);
     }
 
@@ -27,6 +28,7 @@ class NewsLikeController extends Controller
     {
         $like = $this->newsLikeService->findLike($request);
         $this->newsLikeService->delete($like);
+
         return response()->json(['message'=>'Like deleted successfully!']);
     }
 }
