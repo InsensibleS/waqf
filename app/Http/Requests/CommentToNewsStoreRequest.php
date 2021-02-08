@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
-class CreateCommentToNewsRequest extends FormRequest
+class CommentToNewsStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,7 +13,7 @@ class CreateCommentToNewsRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::check();
+        return true;
     }
 
     /**
@@ -26,6 +25,8 @@ class CreateCommentToNewsRequest extends FormRequest
     {
         return [
             'news_id' => 'required',
+            'answer_to' => 'integer|exists:news_comments,id',
+            'content' => 'required|string'
         ];
     }
 }
