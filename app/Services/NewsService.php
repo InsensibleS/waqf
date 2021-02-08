@@ -26,10 +26,4 @@ class NewsService
 
         session()->put('arrayMainNewsId', $arrayMainNewsId);
     }
-
-    public function rememberSearchAndHashtag($request)
-    {
-        session()->put('searchWord', $request->search_word);
-        session()->put('hashtagId', $request->hashtag_id);
-    }
 }

@@ -11,6 +11,8 @@ class NewsComment extends Model
 
     protected $table = 'news_comments';
 
+    protected $guarded = ['id'];
+
     public $timestamps = false;
 
     protected $casts = [

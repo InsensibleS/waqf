@@ -19,7 +19,7 @@ class CreateNewsComments extends Migration
             $table->foreignId('news_id')->constrained('news');
             $table->integer('answer_to')->nullable();
             $table->text('content');
-            $table->timestamp('publication_date');
+            $table->timestamp('publication_date')->useCurrent();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();
