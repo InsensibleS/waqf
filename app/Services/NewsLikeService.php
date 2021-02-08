@@ -34,8 +34,8 @@ class NewsLikeService
      * @return NewsLike
      *
      */
-    public function delete($newsLike){
-
+    public function delete($newsLike)
+    {
         NewsLike::destroy($newsLike->id);
     }
 
@@ -48,7 +48,6 @@ class NewsLikeService
      */
     public function findLike($request)
     {
-
         return NewsLike::where('customer_id', Auth::id())->where('news_id', $request['news_id'])->first();
     }
 }
