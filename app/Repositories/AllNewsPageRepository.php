@@ -80,7 +80,7 @@ class AllNewsPageRepository
     {
         $hashtagId = $request->hashtag_id;
         $searchWord = $request->search_word;
-        $searchWord = $searchWord ? '%' . $searchWord . '%' : null;
+        $searchWord = $searchWord ? '*' . $searchWord . '*' : null;
 
         $allNews = News::with('newsHashtags')->orderBy('publication_date', 'desc')
             ->when($hashtagId, function ($query, $hashtagId) {
@@ -94,6 +94,8 @@ class AllNewsPageRepository
             ->withCount('newsLikes')
             ->withCount('newsComments')
             ->get();
+
+        dd($allNews, $searchWord);
 
         $firstNews = [];
         $secondNews = [];
