@@ -31,12 +31,23 @@ class NewsService
 
     /**
      *
+     * @return NewsLike
+     *
+     */
+    public function delete($newsLike){
+
+        NewsLike::destroy($newsLike->id);
+    }
+
+
+    /**
+     *
      * @param  Request  $request
      * @return NewsLike
      *
      */
-    public function delete($news_id)
-    {
-        NewsLike::destroy($news_id);
+    public function fintData($request){
+
+        return NewsLike::where('customer_id',  $request['customer_id'] = Auth::id())->where('news_id', $request->news_id)->first();
     }
 }
