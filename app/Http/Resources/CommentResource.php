@@ -18,6 +18,7 @@ class CommentResource extends JsonResource
         $customerId = auth('api')->user()->id ?? null;
 
         return [
+            'id' => $this->id,
             'is_active' => $this->is_active,
             'content' => $this->is_active ? $this->content : 'This comment was hidden',
             'userName' => $this->customer->name,
