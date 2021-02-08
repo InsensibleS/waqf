@@ -31,7 +31,6 @@ class LikeNewsDeleteRequest extends FormRequest
             'news_id' => [
                 'required',
                 'integer',
-                'exists:news_likes,news_id',
                 'exists:news,id',
                   Rule::exists('news_likes','news_id')->where(function ($query) {
                       $query->where('customer_id', Auth::id());

@@ -10,23 +10,23 @@ use App\Services\NewsLikeService;
 
 class NewsLikeController extends Controller
 {
-    protected $newsService;
+    protected $newsLikeService;
 
-    public function __construct(NewsLikeService $newsService)
+    public function __construct(NewsLikeService $newsLikeService)
     {
-        $this->newsService = $newsService;
+        $this->newsLikeService = $newsLikeService;
     }
 
     public function addLikeToNews(LikeNewsSaveRequest $request)
     {
-        $this->newsService->store($request);
+        $this->newsLikeService->store($request);
         return response()->json(['message'=> 'Like saving successfully!']);
     }
 
     public function deleteLikeToNews(LikeNewsDeleteRequest $request)
     {
-        $dislike = $this->newsService->serchData($request);
-        $this->newsService->delete($dislike);
+        $like = $this->newsLikeService->findLike($request);
+        $this->newsLikeService->delete($like);
         return response()->json(['message'=>'Like deleted successfully!']);
     }
 }

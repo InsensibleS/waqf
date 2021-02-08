@@ -46,9 +46,9 @@ class NewsLikeService
      * @return NewsLike
      *
      */
-    public function serchData($request)
+    public function findLike($request)
     {
 
-        return NewsLike::where('customer_id', $request['customer_id'] = Auth::id())->where('news_id', $request->news_id)->first();
+        return NewsLike::where('customer_id', Auth::id())->where('news_id', $request['news_id'])->first();
     }
 }
