@@ -6,7 +6,7 @@ use App\Models\News;
 use App\Models\NewsHashtag;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use App\Services\NewsLikeService;
+use App\Services\NewsService;
 use Illuminate\Http\Request;
 
 class AllNewsPageRepository
@@ -15,7 +15,7 @@ class AllNewsPageRepository
 
     protected $newsService;
 
-    public function __construct(NewsLikeService $newsService)
+    public function __construct(NewsService $newsService)
     {
         $this->newsService = $newsService;
     }
