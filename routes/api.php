@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\DislikeCommentsController;
+use App\Http\Controllers\Api\LikeCommentsController;
 use App\Http\Controllers\Api\NewsLikeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,9 +35,9 @@ Route::get('/getCurrentGrantWithProjects', [GrantController::class, 'getCurrentG
 Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLinkToCompleteRegistration']);
 // link validation to complete registration
 Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
-// logit with fb
+// login with fb
 Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
-// login wihit google
+// login with google
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 // Get countries
 Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
@@ -60,4 +62,12 @@ Route::middleware('auth:api')->group( function () {
     Route::post('/addLikeToNews', [NewsLikeController::class, 'addLikeToNews']);
     //delete Like news
     Route::post('/deleteLikeToNews', [NewsLikeController::class, 'deleteLikeToNews']);
+    //save Like comments
+    Route::post('/addLikeToComments', [LikeCommentsController::class, 'addLikeToComment']);
+    //delete Like  comments
+    Route::post('/deleteLikeToComments', [LikeCommentsController::class, 'deleteLikeToComment']);
+    //save Dislike comments
+    Route::post('/addDislikeToComments', [DislikeCommentsController::class, 'addDislikeToComment']);
+    //delete Dislike  comments
+    Route::post('/deleteDislikeToComments', [DislikeCommentsController::class, 'deleteDislikeToComment']);
 });
