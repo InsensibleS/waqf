@@ -29,7 +29,8 @@ class LikeNewsSaveRequest extends FormRequest
             'news_id' => [
                 'required',
                 'integer',
-                'exists:news,id'
+                'exists:news,id',
+                'unique:news_likes'
             ],
         ];
     }
