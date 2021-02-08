@@ -18,7 +18,7 @@ class NewsTableSeeder extends Seeder
             [
                 'title' => 'More than 400,000 register for vaccine in Saudi Arabia',
                 'image' => '/images/news/1.jpg',
-                'description' => 'Number of virus cases dip below 50 in all regions',
+                'description' => 'Number of virus cases dip below 50 in all regions. JEDDAH. COVID-19',
                 'full_description' => '<p>&nbsp;</p>
 
 <p>Number of virus cases dip below 50 in all regions JEDDAH: More than 400,000 people from Saudi Arabia&rsquo;s high-risk group have registered to receive the coronavirus disease (COVID-19) vaccine through the Sehaty app, according to the Ministry of Health. &ldquo;Participants who received the first dose of the vaccine are in stable condition with no issues arising,&rdquo; said the Ministry of Health spokesman Dr. Mohammed Al-Abd Al-Aly. &ldquo;We remind all that it&rsquo;s vital that everyone receives their second dose (booster shots) in order to ensure full immunity against the virus.&rdquo; He said healthcare workers would maintain contact and follow up on the status of people who have had the first dose and give them appointments to receive the second, according to the schedule provided by the vaccination&rsquo;s manufacturers.&nbsp;</p>
@@ -28,9 +28,9 @@ class NewsTableSeeder extends Seeder
 <p>The Pfizer-BioNTech vaccine requires a priming dose followed by a booster shot with an interval of 21 days between each in order to achieve a 95 percent efficacy rate to prevent or decrease the symptomatic effects of a COVID-19 infection. At Sunday&rsquo;s press briefing the spokesman also noted the change in the rate of infections across the Kingdom&rsquo;s regions during the past two weeks. Six of the Kingdom&rsquo;s regions have shown some stability with a slight increase in numbers, up to 10 percent, whereas Riyadh, Qassim, Hail, Jazan and the Northern Borders have shown a 50 percent decrease in cases. &nbsp;</p>
 
 <p>&nbsp;</p>',
-                'publication_date' =>  '2021-01-01',
+                'publication_date' =>  '2021-02-04',
                 'link' => 'G4TJmJokwRsLirU9HSyr',
-                'is_main' => false,
+                'is_main' => true,
                 'is_second' => false,
             ],
             [
@@ -48,7 +48,7 @@ class NewsTableSeeder extends Seeder
             [
                 'title' => 'Saudi national archives foundation Darah uncovering past with oral history tradition',
                 'image' => '/images/news/3.jpg',
-                'description' => 'RIYADH: From one generation to another, history is told and retold.',
+                'description' => 'RIYADH: From one generation to another, history is told and retold. COVID-19',
                 'full_description'=> '<p><img class="fr-dii fr-fic fr-fil" src="https://waqf-admin.softlex.pro/storage/images/news/whatsapp_image_2020-12-23_at_6.19.32_pm.jpg" style="float:right; height:391px; width:663px" /><span style="font-size:16px">RIYADH: From one generation to another, history is told and retold. But with time, large fragments are lost, so a Riyadh-based research center is helping preserve some of Saudi Arabia&rsquo;s most important historical facts. The earliest forms of storytelling for many cultures were primarily oral, combined with gestures and expressions, and at times, even drawings and paintings. With time these stories differ, their essence forgotten and countless tales lost through time. In recognition of the beauty of this dying art, the King Abdul Aziz Foundation for Research and Archives (Darah) has upgraded its work to record and preserve oral accounts of Saudi Arabian history and make them accessible to researchers. Speaking to Arab News, Darah spokesman Sultan Alawairdhi said the center&rsquo;s founding is in line with the government&rsquo;s policy to preserve its history. He added that it is of vital importance to ensure that historical narratives are accessible to all by using knowledge and historical facts told by the elderly who lived through major historical events that shaped the Kingdom.</span></p>',
                 'publication_date' =>  '2021-01-08',
                 'link' => 'ei7KSfJoYynOsw8Efk8i',
@@ -56,7 +56,7 @@ class NewsTableSeeder extends Seeder
                 'is_second' => false,
             ],
             [
-                'title' => 'Saudi Arabia’s giftedness foundation Mawhiba signs deal to protect intellectual property rights',
+                'title' => 'Saudi Arabia’s giftedness foundation Mawhiba signs deal to protect intellectual property rights. JEDDAH. COVID-19',
                 'image' => '/images/news/4.png',
                 'description' => 'RIYADH: The King Abdul Aziz and His Companions Foundation for Giftedness and Creativity (Mawhiba) on Tuesday signed an agreement with the Saudi Authority for Intellectual Property (SAIP) joining the National Network of Technology and Innovation Support Centers (TISC).',
                 'full_description' => '<h4><span style="font-size:14px">RIYADH: The King Abdul Aziz and His Companions Foundation for Giftedness and Creativity (Mawhiba) on Tuesday signed an agreement with the Saudi Authority for Intellectual Property (SAIP) joining the National Network of Technology and Innovation Support Centers (TISC). The TISC enables innovators to protect and manage their intellectual property rights. The deputy secretary-general of Mawhiba, Basil Al-Sadhan, said the foundation seeks to create an environment that motivates talent and&nbsp;<img class="fr-dii fr-fic fr-fil" src="https://waqf-admin.softlex.pro/storage/images/news/pic04578_lw.jpg" style="float:right; width:271px" />encourages the youth to pursue their passion for science and become future leaders.</span></h4>
@@ -113,7 +113,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
                 'is_second' => false,
             ],
             [
-                'title' => 'Trump’s “Big Lie” stirs a revolt and mars U.S. standing',
+                'title' => 'Trump’s “Big Lie” stirs a revolt and mars U.S. standing. COVID-19',
                 'image' => '/images/news/6.jpg',
                 'description' => 'Donald Trump’s “Big Lie” — that Joe Biden stole the U.S. presidential election — has stoked a domestic revolt and tarnished America’s global stature.',
                 'full_description' =>'<p>&nbsp;</p>
@@ -197,9 +197,9 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
                 'is_second' => false,
             ],
             [
-                'title' => 'South Korea offers lessons for U.S. social movements',
+                'title' => 'South Korea offers lessons for U.S. social movements. COVID-19',
                 'image' => '/images/news/7.jpg',
-                'description' => 'A pro-democracy movement in South Korea offers lessons to two U.S. social movements — against police brutality and for a defeated ex-president.',
+                'description' => 'JEDDAH. A pro-democracy movement in South Korea offers lessons to two U.S. social movements — against police brutality and for a defeated ex-president.',
                 'full_description' =>'<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">What do protests in South Korea during a period of authoritarian rule last century have to do with American social movements today?</span></p>
 
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">A social movement in the 1970s and 1980s that eventually brought down a dictatorial regime in the Asian nation adapted to changing circumstances and intensified as it was repressed, according to Harvard Sociology Professor Paul Chang. Much the same seems to be happening in the United States today.</span></p>
@@ -253,7 +253,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             [
                 'title' => 'Conflict in strategic Ethiopia rings global alarm bells',
                 'image' => '/images/news/8.jpg',
-                'description' => 'A military conflict has broken out in Ethiopia, raising fears of instability and a humanitarian crisis in the strategic Horn of Africa.',
+                'description' => 'COVID-19. A military conflict has broken out in Ethiopia, raising fears of instability and a humanitarian crisis in the strategic Horn of Africa.',
                 'full_description' =>'<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">A military conflict in northern Ethiopia has raised fears of dangerous instability and a major humanitarian crisis in the Horn of Africa, one of the world&rsquo;s most strategic areas.</span></p>
 
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">It has also underlined the potential pitfalls after repressive regimes are overthrown in ethnically diverse countries and illustrates how winners of the Nobel Peace Prize can quickly lose their shine when reality strikes.</span></p>
@@ -329,7 +329,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             [
                 'title' => 'Decoder: Can we fix nature’s crisis and protect Earth?',
                 'image' => '/images/news/9.jpg',
-                'description' => 'Without a push to protect nature, Earth faces the worst extinction crisis since dinosaurs were wiped out. A summit next year offers a dwindling chance.',
+                'description' => 'JEDDAH. Without a push to protect nature, Earth faces the worst extinction crisis since dinosaurs were wiped out. A summit next year offers a dwindling chance.',
                 'full_description' =>'<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">Among bleak scientific findings about nature, a million species of plants and animals are&nbsp;threatened with extinction&nbsp;because of human activities.</span></p>
 
 <p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">Tropical forests vanished at a rate of a&nbsp;football pitch every six seconds in 2019, often cleared to make way for farms.&nbsp;About 12 million tonnes of plastic pollution enter the oceans every year.</span></p>
@@ -485,7 +485,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
                 'is_second' => false,
             ],
             [
-                'title' => "Jack Palladino: Private eye's photos used to track his suspected killers",
+                'title' => "Jack Palladino: Private eye's photos used to track his suspected killers. JEDDAH",
                 'image' => '/images/news/11.jpg',
                 'description' => 'A well-known private investigator whose clients included celebrities and presidents has died from injuries sustained during an attempted robbery.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -837,7 +837,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
                 'title' => 'Ancient mummies with golden tongues unearthed in Egypt
 ',
                 'image' => '/images/news/13.jpg',
-                'description' => 'Archaeologists have unearthed 2,000-year-old mummies with golden tongues placed inside their mouths in northern Egypt, the antiquities ministry says.',
+                'description' => 'JEDDAH. Archaeologists have unearthed 2,000-year-old mummies with golden tongues placed inside their mouths in northern Egypt, the antiquities ministry says.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px">
@@ -1013,7 +1013,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             [
                 'title' => 'Biden, Harris will not permit white supremacy, students told',
                 'image' => '/images/news/15.png',
-                'description' => 'In a shift from the Trump administration, Joe Biden and Kamala Harris will not tolerate white supremacy, two experts tell a News Decoder webinar.',
+                'description' => 'JEDDAH. In a shift from the Trump administration, Joe Biden and Kamala Harris will not tolerate white supremacy, two experts tell a News Decoder webinar.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px">
@@ -1147,7 +1147,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
                 'is_second' => false,
             ],
             [
-                'title' => 'Even NGOs can have political leanings. So, follow the money.',
+                'title' => 'Even NGOs can have political leanings. So, follow the money. JEDDAH',
                 'image' => '/images/news/17.jpg',
                 'description' => 'Journalists and NGOs often rely on each other to inform the world. But beware vested interests. It’s best to follow the money trail to see the full picture.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -1225,7 +1225,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
                 'is_second' => false,
             ],
             [
-                'title' => 'Want to take news photos? Then always be prepared.',
+                'title' => 'Want to take news photos? Then always be prepared. JEDDAH',
                 'image' => '/images/news/18.jpg',
                 'description' => 'Technology has revolutionized news photos since I launched my career decades ago. But the maxim “always be prepared” still holds true.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -1273,7 +1273,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             [
                 'title' => 'Our ‘zine’ offers a creative antidote for COVID-19',
                 'image' => '/images/news/19.png',
-                'description' => 'We were students seeking solace from COVID-19. Then, with a burst of artistic creativity, an online ‘zine’ was born.',
+                'description' => 'We were students seeking solace from COVID-19. JEDDAH. Then, with a burst of artistic creativity, an online ‘zine’ was born.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px">
@@ -1331,7 +1331,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             [
                 'title' => 'Will U.S., under Biden, seek ‘primacy’ against rival China?',
                 'image' => '/images/news/20.jpg',
-                'description' => 'A top secret White House document, surprisingly declassified, says the U.S. should seek “primacy” against rival China and promote ties with India.',
+                'description' => 'COVID-19. A top secret White House document, surprisingly declassified, says the U.S. should seek “primacy” against rival China and promote ties with India.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px">
@@ -1469,7 +1469,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
                 'is_second' => false,
             ],
             [
-                'title' =>'Malik Figaro: From Student Ambassador to News Decoder intern',
+                'title' =>'Malik Figaro: From Student Ambassador to News Decoder intern. COVID-19',
                 'image' =>'/images/news/22.jpg',
                 'description' => 'A former Student Ambassador, Malik Figaro was News Decoder’s first intern from a partner school. Here are lessons he has drawn in his gap year.',
                 'full_description' =>'<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">Malik Figaro, News Decoder&rsquo;s most recent intern, was nervous before he decided to take a year off between high school and university. It would be his first year away from school since he was four years old, and how would he make good use of his time?</span></p>
@@ -1629,7 +1629,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
                 'is_second' => false,
             ],
             [
-                'title' =>'Jeff Bezos to step down as Amazon chief executive',
+                'title' =>'Jeff Bezos to step down as Amazon chief executive. COVID-19',
                 'image' =>'/images/news/25.jpg',
                 'description' => 'Amazon founder Jeff Bezos is to step down as chief executive of the e-commerce giant that he started in his garage nearly 30 years ago.',
                 'full_description' => '<div>

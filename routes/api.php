@@ -41,6 +41,10 @@ Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
 // Get news
 Route::get('/getNews/{link}', [NewsController::class, 'getNews']);
+// Get all news
+Route::get('/getAllNews', [NewsController::class, 'getAllNews']);
+// Get more news
+Route::get('/getMoreNews', [NewsController::class, 'getMoreNews']);
 /**
  *  Routes for authorized users
  */
