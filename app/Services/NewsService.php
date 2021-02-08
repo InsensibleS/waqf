@@ -4,8 +4,6 @@ namespace App\Services;
 
 
 use App\Models\NewsLike;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class NewsService
 {
@@ -16,38 +14,22 @@ class NewsService
         $this->newsLike = $newsLike;
     }
 
-    /**
-     *
-     * @param  Request  $request
-     * @return NewsLike
-     *
-     */
-    public function store($request)
+    public function rememberMainNews($firstNews, $secondNews) {
+        $arrayMainNewsId = [];
+        if ($firstNews)  {
+            array_push($arrayMainNewsId, $firstNews->id);
+        }
+
+        foreach ($secondNews as $news) {
+            array_push($arrayMainNewsId, $news->id);
+        }
+
+        session()->put('arrayMainNewsId', $arrayMainNewsId);
+    }
+
+    public function rememberSearchAndHashtag($request)
     {
-        $request['customer_id'] = Auth::id();
-
-        return $this->newsLike->create($request->all());
-    }
-
-    /**
-     *
-     * @return NewsLike
-     *
-     */
-    public function delete($newsLike){
-
-        NewsLike::destroy($newsLike->id);
-    }
-
-
-    /**
-     *
-     * @param  Request  $request
-     * @return NewsLike
-     *
-     */
-    public function fintData($request){
-
-        return NewsLike::where('customer_id',  $request['customer_id'] = Auth::id())->where('news_id', $request->news_id)->first();
+        session()->put('searchWord', $request->search_word);
+        session()->put('hashtagId', $request->hashtag_id);
     }
 }
