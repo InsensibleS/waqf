@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\NewsLikeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\MainPageController;
@@ -55,6 +56,8 @@ Route::middleware('auth:api')->group( function () {
     Route::post('/storeProject', [ProjectController::class, 'storeProject']);
     // project creation by user
     Route::post('/deleteProject', [ProjectController::class, 'deleteProject']);
-    //store Like news
-    Route::post('/addLikeToNews', [NewsController::class, 'addLikeToNews']);
+    //save Like news
+    Route::post('/addLikeToNews', [NewsLikeController::class, 'addLikeToNews']);
+    //delete Like news
+    Route::post('/deleteLikeToNews', [NewsLikeController::class, 'deleteLikeToNews']);
 });

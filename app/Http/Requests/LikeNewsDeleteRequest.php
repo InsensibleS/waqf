@@ -4,9 +4,11 @@ namespace App\Http\Requests;
 
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 
-class LikeNewsSaveRequest extends FormRequest
+class LikeNewsDeleteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,7 +31,10 @@ class LikeNewsSaveRequest extends FormRequest
             'news_id' => [
                 'required',
                 'integer',
-                'exists:news,id'
+                'exists:news,id',
+                  Rule::exists('news_likes','news_id')->where(function ($query) {
+                      $query->where('customer_id', Auth::id());
+                  }),
             ],
         ];
     }
