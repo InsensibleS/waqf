@@ -58,8 +58,6 @@ Route::middleware('auth:api')->group( function () {
     // project creation by user
     Route::post('/deleteProject', [ProjectController::class, 'deleteProject']);
     //store Like news
-    Route::post('/addLikeToNews', [NewsController::class, 'addLikeToNews']);
-    //store Like news
     Route::post('/addCommentToNews', [NewsCommentController::class, 'addCommentToNews']);
     //save Like news
     Route::post('/addLikeToNews', [NewsLikeController::class, 'addLikeToNews']);
