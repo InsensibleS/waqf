@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Image;
 use App\Rules\СomparisonOfBooleanFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use NovaAttachMany\AttachMany;
 use Waynestate\Nova\CKEditor;
 use Khalin\Nova\Field\Link;
 
@@ -102,10 +103,12 @@ class News extends Resource
                     return (\config('custom.frontendUrlGetNews') . $this->link);
                 })
                 ->text("Go to view")
-                ->hideFromIndex(),
+                ->hideFromIndex()
+                ->hideWhenCreating(),
 
-            BelongsToMany::make('News Hashtags', 'newsHashtags', NewsHashtag::class)
-                ->hideFromIndex(),
+            BelongsToMany::make('News Hashtags', 'newsHashtags', NewsHashtag::class),
+
+            AttachMany::make('News Hashtags', 'newsHashtags', NewsHashtag::class),
 
             HasMany::make('News Comments', 'newsComments', NewsComment::class)
         ];

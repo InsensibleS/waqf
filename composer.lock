@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4079b86c4ef857cde027e26d08741eee",
+    "content-hash": "c45a8bbca5763c35f1f4df3ae0417253",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1880,6 +1880,50 @@
                 "source": "https://github.com/laravel/ui/tree/v3.2.0"
             },
             "time": "2021-01-06T19:20:22+00:00"
+        },
+        {
+            "name": "laravelrotebal/nova-attach-many",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravelrotebal/nova-attach-many.git",
+                "reference": "3afa92e656a9186a2a802b0b24de4cc21cab0818"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravelrotebal/nova-attach-many/zipball/3afa92e656a9186a2a802b0b24de4cc21cab0818",
+                "reference": "3afa92e656a9186a2a802b0b24de4cc21cab0818",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NovaAttachMany\\Providers\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NovaAttachMany\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Attach Many Nova field",
+            "keywords": [
+                "laravel",
+                "nova"
+            ],
+            "support": {
+                "source": "https://github.com/laravelrotebal/nova-attach-many/tree/2.0.0"
+            },
+            "time": "2019-08-07T14:43:45+00:00"
         },
         {
             "name": "league/commonmark",

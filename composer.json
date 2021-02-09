@@ -24,6 +24,7 @@
         "laravel/nova": "*",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
+        "laravelrotebal/nova-attach-many": "^2.0",
         "waynestate/nova-ckeditor4-field": "^0.7.0"
     },
     "require-dev": {
