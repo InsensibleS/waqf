@@ -54,6 +54,7 @@ class AllNewsPageRepository
             ->when($searchWord, function ($query) use ($searchWord) {
                 return $query->whereRaw("MATCH(title,description) AGAINST(? IN BOOLEAN MODE)", array($searchWord));
             })
+            ->where('publication_date', '<', date('Y-m-d H:i'))
             ->whereNotIn('id', [$firstNews->id])
             ->withCount('newsLikes')
             ->withCount('newsComments')
@@ -91,6 +92,7 @@ class AllNewsPageRepository
             ->when($searchWord, function ($query) use ($searchWord) {
                 return $query->whereRaw("MATCH(title,description) AGAINST(? IN BOOLEAN MODE)", array($searchWord));
             })
+            ->where('publication_date', '<', date('Y-m-d H:i'))
             ->withCount('newsLikes')
             ->withCount('newsComments')
             ->get();
@@ -134,6 +136,7 @@ class AllNewsPageRepository
                     $q->where('hashtag_id', $hashtagId);
                 });
             })
+            ->where('publication_date', '<', date('Y-m-d H:i'))
             ->withCount('newsLikes')
             ->withCount('newsComments')
             ->when($arrayMainNewsId, function ($query, $arrayMainNewsId) {
