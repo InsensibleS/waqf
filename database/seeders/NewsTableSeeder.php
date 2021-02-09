@@ -17,7 +17,7 @@ class NewsTableSeeder extends Seeder
         DB::table('news')->insert([
             [
                 'title' => 'More than 400,000 register for vaccine in Saudi Arabia',
-                'image' => '/images/news/1.jpg',
+                'image' => 'images/news/1.jpg',
                 'description' => 'Number of virus cases dip below 50 in all regions. JEDDAH. COVID-19',
                 'full_description' => '<p>&nbsp;</p>
 
@@ -35,7 +35,7 @@ class NewsTableSeeder extends Seeder
             ],
             [
                 'title' => '5m perform rituals at Grand Mosque since resumption',
-                'image' => '/images/news/2.jpg',
+                'image' => 'images/news/2.jpg',
                 'description' => 'JEDDAH: Saudi Arabia has received 5 million Umrah pilgrims and worshippers since the resumption of the rituals, said Minister of Hajj and Umrah Dr. Mohammed Saleh Benten.',
                 'full_description'=> '<p>JEDDAH: Saudi Arabia has received 5 million Umrah pilgrims and worshippers since the resumption of the rituals, said Minister of Hajj and Umrah Dr. Mohammed Saleh Benten. He said that no cases of <img class="fr-dii fr-fic fr-fil" src="https://waqf-admin.softlex.pro/storage/images/news/Без названия.jpeg" style="float:left; height:190px; margin:10px; width:309px" />COVID-19 infections were reported among pilgrims and worshippers. The statement came during a meeting with Makkah Gov. Prince Khaled Al-Faisal in Jeddah on Wednesday. Saudi Arabia suspended Umrah in March and significantly downsized the Hajj pilgrimage in July by only allowing about 1,000 pilgrims, all in response to the COVID-19 pandemic.</p>
 
@@ -47,7 +47,7 @@ class NewsTableSeeder extends Seeder
             ],
             [
                 'title' => 'Saudi national archives foundation Darah uncovering past with oral history tradition',
-                'image' => '/images/news/3.jpg',
+                'image' => 'images/news/3.jpg',
                 'description' => 'RIYADH: From one generation to another, history is told and retold. COVID-19',
                 'full_description'=> '<p><img class="fr-dii fr-fic fr-fil" src="https://waqf-admin.softlex.pro/storage/images/news/whatsapp_image_2020-12-23_at_6.19.32_pm.jpg" style="float:right; height:391px; width:663px" /><span style="font-size:16px">RIYADH: From one generation to another, history is told and retold. But with time, large fragments are lost, so a Riyadh-based research center is helping preserve some of Saudi Arabia&rsquo;s most important historical facts. The earliest forms of storytelling for many cultures were primarily oral, combined with gestures and expressions, and at times, even drawings and paintings. With time these stories differ, their essence forgotten and countless tales lost through time. In recognition of the beauty of this dying art, the King Abdul Aziz Foundation for Research and Archives (Darah) has upgraded its work to record and preserve oral accounts of Saudi Arabian history and make them accessible to researchers. Speaking to Arab News, Darah spokesman Sultan Alawairdhi said the center&rsquo;s founding is in line with the government&rsquo;s policy to preserve its history. He added that it is of vital importance to ensure that historical narratives are accessible to all by using knowledge and historical facts told by the elderly who lived through major historical events that shaped the Kingdom.</span></p>',
                 'publication_date' =>  '2021-01-08',
@@ -57,7 +57,7 @@ class NewsTableSeeder extends Seeder
             ],
             [
                 'title' => 'Saudi Arabia’s giftedness foundation Mawhiba signs deal to protect intellectual property rights. JEDDAH. COVID-19',
-                'image' => '/images/news/4.png',
+                'image' => 'images/news/4.png',
                 'description' => 'RIYADH: The King Abdul Aziz and His Companions Foundation for Giftedness and Creativity (Mawhiba) on Tuesday signed an agreement with the Saudi Authority for Intellectual Property (SAIP) joining the National Network of Technology and Innovation Support Centers (TISC).',
                 'full_description' => '<h4><span style="font-size:14px">RIYADH: The King Abdul Aziz and His Companions Foundation for Giftedness and Creativity (Mawhiba) on Tuesday signed an agreement with the Saudi Authority for Intellectual Property (SAIP) joining the National Network of Technology and Innovation Support Centers (TISC). The TISC enables innovators to protect and manage their intellectual property rights. The deputy secretary-general of Mawhiba, Basil Al-Sadhan, said the foundation seeks to create an environment that motivates talent and&nbsp;<img class="fr-dii fr-fic fr-fil" src="https://waqf-admin.softlex.pro/storage/images/news/pic04578_lw.jpg" style="float:right; width:271px" />encourages the youth to pursue their passion for science and become future leaders.</span></h4>
 
@@ -76,7 +76,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Jeddah streets and bridges embellished with Arabic calligraphy',
-                'image' => '/images/news/5.png',
+                'image' => 'images/news/5.png',
                 'description' => 'JEDDAH: Jeddah municipality, in partnership with the Oyoun Jeddah Charitable Association (OJCA)',
                 'full_description' =>'<p>JEDDAH: Jeddah municipality, in partnership with the Oyoun Jeddah Charitable Association (OJCA), has launched an initiative to install 50 Arabic calligraphy murals across the city, including on some of its main flyovers. The initiative, which coincides with the UN&rsquo;s Arabic Language Day, aims to add an aesthetic touch to the city with Arabic calligraphy paintings and murals, some of which are more than 70 meters long and 3 meters high. The UN General Assembly approved Arabic as an official UN language in 1997. The day is meant to promote the equal use of all six of the UN&rsquo;s official working languages throughout the organization. In January, the Saudi Ministry of Culture announced 2020 as the Year of Arabic Calligraphy to highlight its importance in reflecting the richness of Arab culture. Jeddah Mayor Dr.</p>
 
@@ -114,7 +114,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Trump’s “Big Lie” stirs a revolt and mars U.S. standing. COVID-19',
-                'image' => '/images/news/6.jpg',
+                'image' => 'images/news/6.jpg',
                 'description' => 'Donald Trump’s “Big Lie” — that Joe Biden stole the U.S. presidential election — has stoked a domestic revolt and tarnished America’s global stature.',
                 'full_description' =>'<p>&nbsp;</p>
 
@@ -198,7 +198,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'South Korea offers lessons for U.S. social movements. COVID-19',
-                'image' => '/images/news/7.jpg',
+                'image' => 'images/news/7.jpg',
                 'description' => 'JEDDAH. A pro-democracy movement in South Korea offers lessons to two U.S. social movements — against police brutality and for a defeated ex-president.',
                 'full_description' =>'<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">What do protests in South Korea during a period of authoritarian rule last century have to do with American social movements today?</span></p>
 
@@ -252,7 +252,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Conflict in strategic Ethiopia rings global alarm bells',
-                'image' => '/images/news/8.jpg',
+                'image' => 'images/news/8.jpg',
                 'description' => 'COVID-19. A military conflict has broken out in Ethiopia, raising fears of instability and a humanitarian crisis in the strategic Horn of Africa.',
                 'full_description' =>'<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">A military conflict in northern Ethiopia has raised fears of dangerous instability and a major humanitarian crisis in the Horn of Africa, one of the world&rsquo;s most strategic areas.</span></p>
 
@@ -328,7 +328,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Decoder: Can we fix nature’s crisis and protect Earth?',
-                'image' => '/images/news/9.jpg',
+                'image' => 'images/news/9.jpg',
                 'description' => 'JEDDAH. Without a push to protect nature, Earth faces the worst extinction crisis since dinosaurs were wiped out. A summit next year offers a dwindling chance.',
                 'full_description' =>'<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">Among bleak scientific findings about nature, a million species of plants and animals are&nbsp;threatened with extinction&nbsp;because of human activities.</span></p>
 
@@ -412,7 +412,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Decoder: Why are election polls so often wrong?',
-                'image' => '/images/news/10.jpg',
+                'image' => 'images/news/10.jpg',
                 'description' => 'Once again, polls forecasting the outcome of a U.S. election were way off target. Why are pollsters so often wrong? Can polls be made more accurate?',
                 'full_description' =>'<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">Four years ago, spectacular failures of gauging popular opinion and forecasting the outcome of a British referendum and American elections prompted questions on both sides of the Atlantic.</span></p>
 
@@ -486,7 +486,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => "Jack Palladino: Private eye's photos used to track his suspected killers. JEDDAH",
-                'image' => '/images/news/11.jpg',
+                'image' => 'images/news/11.jpg',
                 'description' => 'A well-known private investigator whose clients included celebrities and presidents has died from injuries sustained during an attempted robbery.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -644,7 +644,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Marilyn Manson dropped by record label over abuse allegations',
-                'image' => '/images/news/12.jpg',
+                'image' => 'images/news/12.jpg',
                 'description' => 'Marilyn Manson has been dropped by his record label following claims by actress Evan Rachel Wood that she was "horrifically abused" by the musician.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -836,7 +836,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             [
                 'title' => 'Ancient mummies with golden tongues unearthed in Egypt
 ',
-                'image' => '/images/news/13.jpg',
+                'image' => 'images/news/13.jpg',
                 'description' => 'JEDDAH. Archaeologists have unearthed 2,000-year-old mummies with golden tongues placed inside their mouths in northern Egypt, the antiquities ministry says.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -918,7 +918,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Newspaper run by prisoners offers a new chance to convicts',
-                'image' => '/images/news/14.jpg',
+                'image' => 'images/news/14.jpg',
                 'description' => 'Prisoners run a newspaper from inside a California jail. The monthly raises awareness of social justice issues and offers a new chance to convicts.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -1012,7 +1012,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Biden, Harris will not permit white supremacy, students told',
-                'image' => '/images/news/15.png',
+                'image' => 'images/news/15.png',
                 'description' => 'JEDDAH. In a shift from the Trump administration, Joe Biden and Kamala Harris will not tolerate white supremacy, two experts tell a News Decoder webinar.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -1086,7 +1086,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Deepfakes and AI spur disinformation and threaten democracy',
-                'image' => '/images/news/16.jpg',
+                'image' => 'images/news/16.jpg',
                 'description' => 'Fake news is already eroding our shared sense of reality. Now, deepfakes and AI stand to fuel disinformation and imperil democracy.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -1148,7 +1148,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Even NGOs can have political leanings. So, follow the money. JEDDAH',
-                'image' => '/images/news/17.jpg',
+                'image' => 'images/news/17.jpg',
                 'description' => 'Journalists and NGOs often rely on each other to inform the world. But beware vested interests. It’s best to follow the money trail to see the full picture.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -1226,7 +1226,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Want to take news photos? Then always be prepared. JEDDAH',
-                'image' => '/images/news/18.jpg',
+                'image' => 'images/news/18.jpg',
                 'description' => 'Technology has revolutionized news photos since I launched my career decades ago. But the maxim “always be prepared” still holds true.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -1272,7 +1272,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Our ‘zine’ offers a creative antidote for COVID-19',
-                'image' => '/images/news/19.png',
+                'image' => 'images/news/19.png',
                 'description' => 'We were students seeking solace from COVID-19. JEDDAH. Then, with a burst of artistic creativity, an online ‘zine’ was born.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -1330,7 +1330,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Will U.S., under Biden, seek ‘primacy’ against rival China?',
-                'image' => '/images/news/20.jpg',
+                'image' => 'images/news/20.jpg',
                 'description' => 'COVID-19. A top secret White House document, surprisingly declassified, says the U.S. should seek “primacy” against rival China and promote ties with India.',
                 'full_description' =>'<div style="margin-left:0px; margin-right:0px; text-align:start">
 <div style="margin-left:0px; margin-right:0px; text-align:start">
@@ -1404,7 +1404,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' => 'Will we exercise more at home after COVID-19?',
-                'image' => '/images/news/21.jpg',
+                'image' => 'images/news/21.jpg',
                 'description' => 'Lockdowns under COVID-19 have kept many people away from gyms. But some are working out more. Is at-home exercise here to stay?',
                 'full_description' => '<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">You&rsquo;d be excused for assuming that people have generally exercised less during the COVID-19 pandemic. After all, lockdowns to curb the spread of the coronavirus have kept people in many parts of the world close to home.</span></p>
 
@@ -1470,7 +1470,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' =>'Malik Figaro: From Student Ambassador to News Decoder intern. COVID-19',
-                'image' =>'/images/news/22.jpg',
+                'image' =>'images/news/22.jpg',
                 'description' => 'A former Student Ambassador, Malik Figaro was News Decoder’s first intern from a partner school. Here are lessons he has drawn in his gap year.',
                 'full_description' =>'<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">Malik Figaro, News Decoder&rsquo;s most recent intern, was nervous before he decided to take a year off between high school and university. It would be his first year away from school since he was four years old, and how would he make good use of his time?</span></p>
 
@@ -1532,7 +1532,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' =>'International space station benefits those of us on Earth',
-                'image' =>'/images/news/23.jpg',
+                'image' =>'images/news/23.jpg',
                 'description' => 'It’s hundreds of miles above Earth. But the International Space Station is a scientific laboratory that is bringing myriad benefits to humans far below.',
                 'full_description' =>'<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">For scientist Kate Rubins, it&rsquo;s another day at the laboratory running experiments. But her lab is different. It&rsquo;s a workplace that travels at 17,500 miles per hour as it orbits 240 miles above the Earth. And it&rsquo;s located on the International Space Station (ISS), which has been orbiting our planet for 20 years, producing extraordinary science that can&rsquo;t be done on Earth.</span></p>
 
@@ -1590,7 +1590,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' =>'Listen: How is COVID-19 affecting youth climate activism?',
-                'image' =>'/images/news/24.jpg',
+                'image' =>'images/news/24.jpg',
                 'description' => 'In our latest podcast episode, two students at Thacher School in California examine how COVID-19 is affecting youth climate change activism.',
                 'full_description' =>'<p style="margin-left:0px; margin-right:0px; text-align:left"><span style="font-size:16px">The&nbsp;coronavirus pandemic has forced many young people around the world to stay home. So how is COVID-19&nbsp;affecting young activists&rsquo; efforts to combat climate change?</span></p>
 
@@ -1630,7 +1630,7 @@ Al-Sadhan said Mawhiba found the TISC initiative launched by the SAIP helpful in
             ],
             [
                 'title' =>'Jeff Bezos to step down as Amazon chief executive. COVID-19',
-                'image' =>'/images/news/25.jpg',
+                'image' =>'images/news/25.jpg',
                 'description' => 'Amazon founder Jeff Bezos is to step down as chief executive of the e-commerce giant that he started in his garage nearly 30 years ago.',
                 'full_description' => '<div>
 <div>
