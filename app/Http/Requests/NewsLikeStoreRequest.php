@@ -2,13 +2,10 @@
 
 namespace App\Http\Requests;
 
-
+use App\Rules\CheckIfUserHasNoLikeThisNews;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
 
-
-class LikeNewsDeleteRequest extends FormRequest
+class NewsLikeStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,9 +29,7 @@ class LikeNewsDeleteRequest extends FormRequest
                 'required',
                 'integer',
                 'exists:news,id',
-                  Rule::exists('news_likes','news_id')->where(function ($query) {
-                      $query->where('customer_id', Auth::id());
-                  }),
+                new CheckIfUserHasNoLikeThisNews()
             ],
         ];
     }

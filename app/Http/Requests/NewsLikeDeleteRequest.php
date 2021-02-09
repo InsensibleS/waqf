@@ -2,11 +2,10 @@
 
 namespace App\Http\Requests;
 
-
+use App\Rules\CheckIfUserHasLikeThisNews;
 use Illuminate\Foundation\Http\FormRequest;
 
-
-class LikeNewsSaveRequest extends FormRequest
+class NewsLikeDeleteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,7 +29,7 @@ class LikeNewsSaveRequest extends FormRequest
                 'required',
                 'integer',
                 'exists:news,id',
-                'unique:news_likes'
+                new CheckIfUserHasLikeThisNews()
             ],
         ];
     }
