@@ -16,7 +16,7 @@ class CreateNewsCommentLikes extends Migration
         Schema::create('news_comment_likes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')-> constrained('customers');
-            $table->foreignId('news_comments_id')-> constrained('news_comments');
+            $table->foreignId('news_comment_id')-> constrained('news_comments');
             $table->timestamps();
         });
     }

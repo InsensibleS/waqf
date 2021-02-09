@@ -17,7 +17,7 @@ class NewsCommentService
 
     /**
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return NewsComment
      *
      */

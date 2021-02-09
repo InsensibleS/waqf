@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-
 use App\Models\NewsLike;
 
 class NewsService
@@ -14,9 +13,10 @@ class NewsService
         $this->newsLike = $newsLike;
     }
 
-    public function rememberMainNews($firstNews, $secondNews) {
+    public function rememberMainNews($firstNews, $secondNews)
+    {
         $arrayMainNewsId = [];
-        if ($firstNews)  {
+        if ($firstNews) {
             array_push($arrayMainNewsId, $firstNews->id);
         }
 

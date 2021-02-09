@@ -1,14 +1,11 @@
 <?php
 
-
 namespace App\Http\Requests;
 
-
+use App\Rules\CheckIfUserHasLikeThisComment;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
 
-class DislikeCommentsDeleteRequest extends FormRequest
+class CommentLikeDeleteRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,15 +25,12 @@ class DislikeCommentsDeleteRequest extends FormRequest
     public function rules()
     {
         return [
-            'news_comments_id' => [
+            'news_comment_id' => [
                 'required',
                 'integer',
-                'exists:news_comment_likes,news_comments_id',
-                Rule::exists('news_comment_dislikes','news_comments_id')->where(function ($query) {
-                    $query->where('customer_id', Auth::id());
-                }),
+                'exists:news_comments,id',
+                new CheckIfUserHasLikeThisComment()
             ],
         ];
     }
-
 }

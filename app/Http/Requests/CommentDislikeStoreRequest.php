@@ -1,13 +1,11 @@
 <?php
 
-
 namespace App\Http\Requests;
 
-
+use App\Rules\CheckIfUserHasNoDislikeThisComment;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class LikeCommentsSaveRequest extends FormRequest
+class CommentDislikeStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +25,12 @@ class LikeCommentsSaveRequest extends FormRequest
     public function rules()
     {
         return [
-            'news_comments_id' => 'required|integer',
+            'news_comment_id' => [
+                'required',
+                'integer',
+                'exists:news_comments,id',
+                new CheckIfUserHasNoDislikeThisComment()
+            ],
         ];
     }
 }

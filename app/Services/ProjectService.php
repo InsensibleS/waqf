@@ -17,11 +17,11 @@ class ProjectService
 
     /**
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return Project
      *
      */
-    public function store ($request)
+    public function store($request)
     {
         $request['status_id'] = 2;
         $request['customer_id'] = Auth::id();
@@ -33,7 +33,7 @@ class ProjectService
 
     /**
      *
-     * @param  int  $id
+     * @param int $id
      * @return void
      *
      */

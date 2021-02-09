@@ -6,7 +6,6 @@ use App\Models\SocialAccount;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
-use phpDocumentor\Reflection\Types\Boolean;
 use Throwable;
 
 class SocialService
@@ -59,7 +58,7 @@ class SocialService
     {
         try {
             $user = Socialite::driver('facebook')->userFromToken($request->accessToken);
-            if($user->id === $request->userID) {
+            if ($user->id === $request->userID) {
                 return true;
             }
         } catch (Throwable $exception) {
@@ -78,7 +77,7 @@ class SocialService
     {
         try {
             $user = Socialite::driver('google')->userFromToken($request->accessToken);
-            if($user->id === $request->googleId) {
+            if ($user->id === $request->googleId) {
                 return true;
             }
         } catch (Throwable $exception) {
@@ -98,7 +97,7 @@ class SocialService
     public function createOrUpdateSocialAccount(Request $request, Customer $customer, $userId, $provider): SocialAccount
     {
         $socialAccount = $this->checkClientExists($provider, $userId);
-        if($socialAccount === null) {
+        if ($socialAccount === null) {
             $socialAccount = $this->createSocialAccount($userId, $request->accessToken, $customer->id, $provider);
         } else {
             $socialAccount->token = $request->accessToken;

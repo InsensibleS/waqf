@@ -41,11 +41,11 @@ class NewsComment extends Model
 
     public function newsCommentLikes()
     {
-        return $this->hasMany(NewsCommentLike::class, 'news_comments_id', 'id');
+        return $this->hasMany(NewsCommentLike::class, 'news_comment_id', 'id');
     }
 
     public function newsCommentDislikes()
     {
-        return $this->hasMany(NewsCommentDislike::class, 'news_comments_id', 'id');
+        return $this->hasMany(NewsCommentDislike::class, 'news_comment_id', 'id');
     }
 }

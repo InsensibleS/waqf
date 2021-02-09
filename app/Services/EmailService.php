@@ -11,7 +11,7 @@ class EmailService
 
     /**
      *
-     * @param  Customer  $customer
+     * @param Customer $customer
      * @return string
      *
      */

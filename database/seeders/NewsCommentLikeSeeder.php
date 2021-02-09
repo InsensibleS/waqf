@@ -17,35 +17,35 @@ class NewsCommentLikeSeeder extends Seeder
         DB::table('news_comment_likes')->insert([
             [
                 'customer_id' => 1,
-                'news_comments_id' => 2,
+                'news_comment_id' => 2,
             ],
             [
                 'customer_id' => 2,
-                'news_comments_id' => 1,
+                'news_comment_id' => 1,
             ],
             [
                 'customer_id' => 2,
-                'news_comments_id' => 3,
+                'news_comment_id' => 3,
             ],
             [
                 'customer_id' => 1,
-                'news_comments_id' => 4,
+                'news_comment_id' => 4,
             ],
             [
                 'customer_id' => 2,
-                'news_comments_id' => 5,
+                'news_comment_id' => 5,
             ],
             [
                 'customer_id' => 2,
-                'news_comments_id' => 4,
+                'news_comment_id' => 4,
             ],
             [
                 'customer_id' => 1,
-                'news_comments_id' => 6,
+                'news_comment_id' => 6,
             ],
             [
                 'customer_id' => 2,
-                'news_comments_id' => 6,
+                'news_comment_id' => 6,
             ],
         ]);
     }

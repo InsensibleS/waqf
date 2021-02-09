@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\DislikeCommentsController;
-use App\Http\Controllers\Api\LikeCommentsController;
+use App\Http\Controllers\Api\CommentDislikeController;
+use App\Http\Controllers\Api\CommentLikeController;
 use App\Http\Controllers\Api\NewsLikeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -66,11 +66,11 @@ Route::middleware('auth:api')->group( function () {
     //delete Like news
     Route::post('/deleteLikeToNews', [NewsLikeController::class, 'deleteLikeToNews']);
     //save Like comments
-    Route::post('/addLikeToComments', [LikeCommentsController::class, 'addLikeToComment']);
+    Route::post('/addLikeToComment', [CommentLikeController::class, 'addLikeToComment']);
     //delete Like  comments
-    Route::post('/deleteLikeToComments', [LikeCommentsController::class, 'deleteLikeToComment']);
+    Route::post('/deleteLikeToComment', [CommentLikeController::class, 'deleteLikeToComment']);
     //save Dislike comments
-    Route::post('/addDislikeToComments', [DislikeCommentsController::class, 'addDislikeToComment']);
+    Route::post('/addDislikeToComment', [CommentDislikeController::class, 'addDislikeToComment']);
     //delete Dislike  comments
-    Route::post('/deleteDislikeToComments', [DislikeCommentsController::class, 'deleteDislikeToComment']);
+    Route::post('/deleteDislikeToComment', [CommentDislikeController::class, 'deleteDislikeToComment']);
 });

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\LikeNewsDeleteRequest;
-use App\Http\Requests\LikeNewsSaveRequest;
+use App\Http\Requests\NewsLikeDeleteRequest;
+use App\Http\Requests\NewsLikeStoreRequest;
 use App\Services\NewsLikeService;
 
 
@@ -17,17 +17,16 @@ class NewsLikeController extends Controller
         $this->newsLikeService = $newsLikeService;
     }
 
-    public function addLikeToNews(LikeNewsSaveRequest $request)
+    public function addLikeToNews(NewsLikeStoreRequest $request)
     {
         $this->newsLikeService->store($request);
 
         return response()->json(['message'=> 'Like saving successfully!']);
     }
 
-    public function deleteLikeToNews(LikeNewsDeleteRequest $request)
+    public function deleteLikeToNews(NewsLikeDeleteRequest $request)
     {
-        $like = $this->newsLikeService->findLike($request);
-        $this->newsLikeService->delete($like);
+        $this->newsLikeService->delete($request);
 
         return response()->json(['message'=>'Like deleted successfully!']);
     }

@@ -21,11 +21,11 @@ class CustomerService
 
     /**
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return Customer
      *
      */
-    public function store ($request)
+    public function store($request)
     {
         $request['status_id'] = 1;
 
@@ -44,7 +44,7 @@ class CustomerService
 
     /**
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return Customer
      *
      */
@@ -55,7 +55,7 @@ class CustomerService
 
     /**
      *
-     * @param  Customer  $customer
+     * @param Customer $customer
      * @return void
      *
      */
@@ -67,19 +67,19 @@ class CustomerService
 
     /**
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return Customer
      *
      */
     public function findOrCreateWithFb(Request $request)
     {
-       $customer = null;
+        $customer = null;
 
-        if($request->email !== null) {
+        if ($request->email !== null) {
             $customer = $this->customer->where('email', $request->email)->first();
         }
 
-        if($customer === null) {
+        if ($customer === null) {
             $imageUrl = $request['picture']['data']['url'] ?? null;
             $customerData = [
                 'name' => $request->name,
@@ -88,7 +88,7 @@ class CustomerService
                 'avatar' => $this->createCustomerAvatar($imageUrl),
                 'is_registered' => true
             ];
-            $customer =  $this->customer->create($customerData);
+            $customer = $this->customer->create($customerData);
         }
 
         return $customer;
@@ -96,18 +96,19 @@ class CustomerService
 
     /**
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return Customer
      *
      */
-    public function findOrCreateWithGoogle(Request $request) {
+    public function findOrCreateWithGoogle(Request $request)
+    {
         $customer = null;
 
-        if($request['profileObj']['email'] !== null) {
+        if ($request['profileObj']['email'] !== null) {
             $customer = $this->customer->where('email', $request['profileObj']['email'])->first();
         }
 
-        if($customer === null) {
+        if ($customer === null) {
             $imageUrl = $request['profileObj']['imageUrl'] ?? null;
             $customerData = [
                 'name' => $request['profileObj']['name'],
@@ -116,14 +117,14 @@ class CustomerService
                 'avatar' => $this->createCustomerAvatar($imageUrl),
                 'is_registered' => true
             ];
-            $customer =  $this->customer->create($customerData);
+            $customer = $this->customer->create($customerData);
         }
         return $customer;
     }
 
     /**
      *
-     * @param  Customer  $customer
+     * @param Customer $customer
      * @return string
      *
      */
@@ -138,13 +139,13 @@ class CustomerService
 
     /**
      *
-     * @param  string|null  $imageUrl
+     * @param string|null $imageUrl
      * @return string|null
      *
      */
     public function createCustomerAvatar($imageUrl)
     {
-        if($imageUrl !== null) {
+        if ($imageUrl !== null) {
             $contents = file_get_contents($imageUrl);
             $name = (string)time();
             Storage::put(self::PUBLIC_PATH . $name, $contents);

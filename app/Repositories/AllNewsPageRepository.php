@@ -104,7 +104,7 @@ class AllNewsPageRepository
             $firstNews = $this->getMainNews($allNews);
             $secondNews = $this->getSecondNews($allNews, $firstNews, $request->hashtag_id, $searchWord);
             $remainder = $allNews->diff($secondNews)->whereNotIn('id', [$firstNews->id])->take(self::FOR_PAGE);
-            $isThereStill = count($allNews->diff($secondNews, $remainder)->whereNotIn('id', [$firstNews->id])->forPage(2, self::FOR_PAGE)) > 0;
+            $isThereStill = count($allNews->diff($secondNews)->whereNotIn('id', [$firstNews->id])->forPage(2, self::FOR_PAGE)) > 0;
         }
 
         $this->newsService->rememberMainNews($firstNews, $secondNews);
@@ -116,6 +116,7 @@ class AllNewsPageRepository
             'isThereStill' => $isThereStill,
             'newsHashtags' => NewsHashtag::withCount('news')
                 ->orderBy('news_count', 'desc')
+                ->orderBy('id', 'desc')
                 ->limit(5)
                 ->get()
         ];

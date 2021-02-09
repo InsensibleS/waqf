@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Services;
-
 
 use App\Models\NewsCommentLike;
 use Illuminate\Http\Request;
@@ -10,16 +8,16 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentsLikeService
 {
-    protected  $newsCommentLikeService;
+    protected $newsCommentLike;
 
-    public function __construct(NewsCommentLike   $newsCommentLikeService)
+    public function __construct(NewsCommentLike $newsCommentLike)
     {
-        $this-> newsCommentLikeService =   $newsCommentLikeService;
+        $this->newsCommentLike = $newsCommentLike;
     }
 
     /**
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return NewsCommentLike
      *
      */
@@ -27,27 +25,20 @@ class CommentsLikeService
     {
         $request['customer_id'] = Auth::id();
 
-        return $this->newsCommentLikeService->create($request->all());
+        return $this->newsCommentLike->create($request->all());
     }
 
     /**
      *
-     * @return NewsCommentLike
+     * @param Request $request
+     * @return void
      *
      */
-    public function delete($newsCommentLikeService)
+    public function deleteIfExists(Request $request)
     {
-        NewsCommentLike::destroy($newsCommentLikeService->id);
-    }
-
-    /**
-     *
-     * @param  Request  $request
-     * @return NewsCommentLike
-     *
-     */
-    public function findLike($request)
-    {
-        return NewsCommentLike::where('customer_id', Auth::id())->where('news_comments_id', $request['news_comments_id'])->first();
+        $newsCommentLike = NewsCommentLike::where('customer_id', Auth::id())->where('news_comment_id', $request['news_comment_id'])->first();
+        if($newsCommentLike) {
+            $newsCommentLike->delete();
+        }
     }
 }

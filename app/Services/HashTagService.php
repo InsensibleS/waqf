@@ -14,7 +14,7 @@ class HashTagService
      */
     public function getHashtagsFromString(string $hashtagString): array
     {
-         $hashtags = array_filter(explode('#', $hashtagString), function($element) {
+        $hashtags = array_filter(explode('#', $hashtagString), function ($element) {
             return $element !== '';
         });
 
@@ -30,7 +30,7 @@ class HashTagService
      */
     public function findOrCreate(string $hashtagTitle): int
     {
-        $hashtag =Hashtag::where('title', $hashtagTitle)->first();
+        $hashtag = Hashtag::where('title', $hashtagTitle)->first();
         $hashtag = $hashtag ?: Hashtag::create(['title' => $hashtagTitle]);
 
         return $hashtag->id;
