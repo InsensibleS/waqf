@@ -10,7 +10,8 @@ class NewsHashtag extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public function news(){
+    public function news()
+    {
         return $this->belongsToMany(News::class, 'news_hashtag_for_news', 'hashtag_id', 'news_id');
     }
 }

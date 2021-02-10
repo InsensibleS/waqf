@@ -54,7 +54,7 @@ class NewsHashtag extends Resource
             Text::make('Title', 'title')
                 ->rules('required', 'max:255'),
 
-            BelongsToMany::make('News', 'news', NewsHashtag::class)
+            BelongsToMany::make('News', 'news', News::class)
                 ->hideFromIndex(),
         ];
     }

@@ -79,8 +79,15 @@ class NewsComment extends Resource
                     'readonly' => true
                 ]]),
 
-            Boolean::make('Active comments', 'is_active')
+            Boolean::make('Active comments', 'is_active'),
 
+            Number::make('Number of likes', function ($request) {
+                return $request->newsCommentLikes->count();
+            }),
+
+            Number::make('Number of dislikes', function ($request) {
+                return $request->newsCommentDislikes->count();
+            })
         ];
     }
 

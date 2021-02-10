@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Image;
@@ -97,6 +98,10 @@ class News extends Resource
 
             Boolean::make('Priority news', 'is_second')
                 ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),
+
+            Number::make('Number of likes', function ($request) {
+                return $request->newsLikes->count();
+            }),
 
             Link::make('Link to view', 'link')
                 ->url(function () {
