@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Nova\Actions\Activate;
 use App\Nova\Actions\Disable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Date;
@@ -47,6 +48,11 @@ class NewsComment extends Resource
      */
     public static $group = 'Content pages';
 
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query->withCount('newsCommentLikes')->withCount('newsCommentDislikes');
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -72,22 +78,22 @@ class NewsComment extends Resource
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true
                 ]])
-            ->showOnIndex(),
+            ->showOnIndex()
+            ->displayUsing(function ($content) {
+                return Str::limit($content, 70);
+            }),
 
             Date::make('Publication date','publication_date')
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true
-                ]]),
+                ]])
+                ->sortable(),
 
             Boolean::make('Active comments', 'is_active'),
 
-            Number::make('Number of likes', function ($request) {
-                return $request->newsCommentLikes->count();
-            }),
+            Number::make('Number of likes', 'news_comment_likes_count')->sortable(),
 
-            Number::make('Number of dislikes', function ($request) {
-                return $request->newsCommentDislikes->count();
-            })
+            Number::make('Number of dislikes', 'news_comment_dislikes_count')->sortable(),
         ];
     }
 

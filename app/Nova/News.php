@@ -52,6 +52,11 @@ class News extends Resource
      */
     public static $group = 'Content pages';
 
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query->withCount('newsLikes');
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -99,9 +104,7 @@ class News extends Resource
             Boolean::make('Priority news', 'is_second')
                 ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),
 
-            Number::make('Number of likes', function ($request) {
-                return $request->newsLikes->count();
-            }),
+            Number::make('Number of likes', 'news_likes_count')->sortable(),
 
             Link::make('Link to view', 'link')
                 ->url(function () {
