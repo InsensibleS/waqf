@@ -15,7 +15,9 @@ class MainPageRepository
     {
         return [
             'mainPageAttributes' => MainPageAttribute::first(),
-            'newsData' => News::orderBy('publication_date', 'desc')->get(),
+            'newsData' => News::orderBy('publication_date', 'desc')
+                ->where('publication_date', '<', date('Y-m-d H:i'))
+                ->get(),
             'partnersData' => Partner::orderBy('order')->get(),
         ];
     }

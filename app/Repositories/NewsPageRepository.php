@@ -12,12 +12,20 @@ class NewsPageRepository
      */
     public function getDataNewsPage(string $link)
     {
+        $news = News::where('link', $link)
+            ->withCount('newsLikes')
+            ->withCount('newsComments')
+            ->first();
+
         return [
-            'news' => News::where('link', $link)
-                ->withCount('newsLikes')
-                ->withCount('newsComments')
-                ->first(),
-            'latestNews' => News::orderBy('publication_date', 'desc')->limit(8)->get(),
+            'news' => $news,
+            'latestNews' => News::orderBy('publication_date', 'desc')
+                ->when($news, function ($query) use ($news) {
+                    return $query->whereNotIn('id', [$news->id]);
+                })
+                ->where('publication_date', '<', date('Y-m-d H:i'))
+                ->limit(8)
+                ->get(),
         ];
     }
 }
