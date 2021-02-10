@@ -38,7 +38,7 @@ class NewsPageResource extends JsonResource
                 'is_customer_liked' => count($this->news->newsLikes->where('customer_id', $customerId)) !== 0,
                 'countComments' => $this->news->news_comments_count,
                 'ban_comments' => $this->news->ban_comments,
-                'comments' => CommentResource::collection($this->news->newsComments->where('answer_to', null))
+                'comments' => CommentResource::collection($this->news->newsComments->where('answer_to', null)->sortByDesc('publication_date'))
             ],
             'latestNews' => NewsResource::collection($this->latestNews),
         ];

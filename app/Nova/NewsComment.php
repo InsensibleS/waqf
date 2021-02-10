@@ -38,8 +38,14 @@ class NewsComment extends Resource
         'id',
         'content',
         'publication_date',
-
     ];
+
+    /**
+     * The logical group associated with the resource.
+     *
+     * @var string
+     */
+    public static $group = 'Content pages';
 
     /**
      * Get the fields displayed by the resource.

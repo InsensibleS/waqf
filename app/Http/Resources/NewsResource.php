@@ -26,6 +26,8 @@ class NewsResource extends JsonResource
             'description' => $this->newsData->description,
             'img' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->newsData->image,
             'publication_date' => date('Y-m-d', strtotime($this->newsData->publication_date)),
+            'link' => \config('custom.frontendUrlGetNews') . $this->newsData->link,
+            'short_link' => $this->newsData->link,
         ];
     }
 }
