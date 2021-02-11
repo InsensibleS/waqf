@@ -2,8 +2,6 @@
 
 namespace App\Nova;
 
-use App\Nova\Actions\Activate;
-use App\Nova\Actions\Disable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Laravel\Nova\Fields\BelongsTo;
@@ -14,14 +12,14 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class NewsComment extends Resource
+class ProjectComment extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\NewsComment::class;
+    public static $model = \App\Models\ProjectComment::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -37,8 +35,6 @@ class NewsComment extends Resource
      */
     public static $search = [
         'id',
-        'content',
-        'publication_date',
     ];
 
     /**
@@ -46,12 +42,7 @@ class NewsComment extends Resource
      *
      * @var string
      */
-    public static $group = 'Content pages';
-
-    public static function indexQuery(NovaRequest $request, $query)
-    {
-        return $query->withCount('newsCommentLikes')->withCount('newsCommentDislikes');
-    }
+    public static $group = 'Grants & Projects';
 
     /**
      * Get the fields displayed by the resource.
@@ -63,11 +54,11 @@ class NewsComment extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            BelongsTo::make('News', 'news')->withoutTrashed()
+            BelongsTo::make('Project', 'project')->withoutTrashed()
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true
                 ]])
-            ->hideFromIndex(),
+                ->hideFromIndex(),
 
             Belongsto::make('Customer', 'customer')->withoutTrashed()
                 ->withMeta(['extraAttributes' => [
@@ -78,10 +69,10 @@ class NewsComment extends Resource
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true
                 ]])
-            ->showOnIndex()
-            ->displayUsing(function ($content) {
-                return Str::limit($content, 70);
-            }),
+                ->showOnIndex()
+                ->displayUsing(function ($content) {
+                    return Str::limit($content, 70);
+                }),
 
             Date::make('Publication date','publication_date')
                 ->withMeta(['extraAttributes' => [
@@ -91,9 +82,9 @@ class NewsComment extends Resource
 
             Boolean::make('Active comment', 'is_active'),
 
-            Number::make('Number of likes', 'news_comment_likes_count')->sortable(),
-
-            Number::make('Number of dislikes', 'news_comment_dislikes_count')->sortable(),
+//            Number::make('Number of likes', 'news_comment_likes_count')->sortable(),
+//
+//            Number::make('Number of dislikes', 'news_comment_dislikes_count')->sortable(),
         ];
     }
 
@@ -138,20 +129,6 @@ class NewsComment extends Resource
      */
     public function actions(Request $request)
     {
-        return [
-            (new Activate)
-                ->showOnTableRow()
-                ->exceptOnIndex()
-                ->confirmText('Do you really want to Active the comment?')
-                ->confirmButtonText('Activate')
-                ->cancelButtonText("Don't Activate"),
-
-            (new Disable)
-                ->showOnTableRow()
-                ->exceptOnIndex()
-                ->confirmText('Do you really want to Disable the comment?')
-                ->confirmButtonText('Disable')
-                ->cancelButtonText("Don't Disable")
-        ];
+        return [];
     }
 }

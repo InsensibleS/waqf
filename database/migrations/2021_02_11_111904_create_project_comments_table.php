@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewsComments extends Migration
+class CreateProjectCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateNewsComments extends Migration
      */
     public function up()
     {
-        Schema::create('news_comments', function (Blueprint $table) {
+        Schema::create('project_comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained('customers');
-            $table->foreignId('news_id')->constrained('news');
+            $table->foreignId('project_id')->constrained('projects');
             $table->integer('answer_to')->nullable();
             $table->text('content');
             $table->timestamp('publication_date')->useCurrent();
             $table->boolean('is_active')->default(true);
+            $table->timestamps();
             $table->softDeletes();
         });
     }
@@ -32,6 +33,6 @@ class CreateNewsComments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news_comments');
+        Schema::dropIfExists('project_comments');
     }
 }
