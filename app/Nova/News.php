@@ -104,7 +104,9 @@ class News extends Resource
             Boolean::make('Priority news', 'is_second')
                 ->rules( new СomparisonOfBooleanFields($request->is_main, $request->is_second)),
 
-            Number::make('Number of likes', 'news_likes_count')->sortable(),
+            Number::make('Number of likes', 'news_likes_count')
+                ->sortable()
+                ->hideWhenUpdating(),
 
             Link::make('Link to view', 'link')
                 ->url(function () {
@@ -112,7 +114,8 @@ class News extends Resource
                 })
                 ->text("Go to view")
                 ->hideFromIndex()
-                ->hideWhenCreating(),
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
 
             BelongsToMany::make('News Hashtags', 'newsHashtags', NewsHashtag::class),
 
