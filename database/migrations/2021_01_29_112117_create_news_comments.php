@@ -21,6 +21,7 @@ class CreateNewsComments extends Migration
             $table->text('content');
             $table->timestamp('publication_date')->useCurrent();
             $table->boolean('is_active')->default(true);
+            $table->timestamps();
             $table->softDeletes();
         });
     }
