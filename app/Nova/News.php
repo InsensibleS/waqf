@@ -106,6 +106,7 @@ class News extends Resource
 
             Number::make('Number of likes', 'news_likes_count')
                 ->sortable()
+                ->hideWhenCreating()
                 ->hideWhenUpdating(),
 
             Link::make('Link to view', 'link')
