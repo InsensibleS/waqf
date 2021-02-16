@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class CreateProjectsTable extends Migration
 {
@@ -31,6 +32,8 @@ class CreateProjectsTable extends Migration
             $table->string('image3','255')->nullable();
             $table->string('image4','255')->nullable();
             $table->string('image5','255')->nullable();
+            $table->string('link', 25)->default(Str::random(20));
+            $table->boolean('ban_comments')->default(false);
             $table->softDeletes();
         });
     }

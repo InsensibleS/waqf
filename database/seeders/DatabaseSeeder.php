@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             SocialAccountSeeder::class,
             ProjectStatusSeeder::class,
             ProjectSeeder::class,
+            ProjectHashtagForProjectSeeder::class,
             NewsCommentSeeder::class,
             NewsCommentLikeSeeder::class,
             NewsCommentDislikeSeeder::class,

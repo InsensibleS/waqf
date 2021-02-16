@@ -30,6 +30,7 @@ class ProjectSeeder extends Seeder
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
+                'link' => 'G4TJmJokwRsLirU9HSyr',
             ],
             [
                 'country_id' => 13,
@@ -46,6 +47,7 @@ class ProjectSeeder extends Seeder
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
+                'link' => 'RQACxyTUioGpCGai73ud',
             ],
             [
                 'country_id' => 13,
@@ -62,6 +64,7 @@ class ProjectSeeder extends Seeder
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
+                'link' => 'ei7KSfJoYynOsw8Efk8i',
             ],
             [
                 'country_id' => 17,
@@ -96,6 +99,7 @@ The Secretary General has identified the necessary actions in three key areas:
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
+                'link' => 'ARZ8jBdrEeBAbWubXAC0',
             ],
             [
                 'country_id' => 13,
@@ -116,6 +120,7 @@ He recalled that a number of sectors of the economy, such as tourism, aviation a
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
+                'link' => '6IAf2dBfkvjBWrYC3WS4',
             ],
             [
                 'country_id' => 13,
@@ -138,6 +143,7 @@ There is one more question to which I would like to draw your attention.  The co
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
+                'link' => 'dc2PZKGPeXaKUwZw',
             ],
             //Archive//**
             [
@@ -164,6 +170,7 @@ Drainroof Geoplast suspended gardens have been selected for a new luxury residen
                 'image3' => 'images/projects/Afric3.jpg',
                 'image4' => 'images/projects/Afric4.jpg',
                 'image5' => 'images/projects/Afric5.jpg',
+                'link' => 'pnW5eXk9FnKdA4jj',
             ],
             [
                 'country_id' => 187,
@@ -180,6 +187,7 @@ Drainroof Geoplast suspended gardens have been selected for a new luxury residen
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
+                'link' => 'JzLGRR2BqJtSZR2v',
             ],
             [
                 'country_id' => 187,
@@ -197,128 +205,8 @@ According to forecasts of the International Renewable Energy Agency (IRENA), as 
                 'image3' => '',
                 'image4' => '',
                 'image5' => '',
+                'link' => 'tJXbnS5rd4MTyc53',
             ],
         ]);
-
-        DB::table('hashtag_project')->insert([
-            //The first Project(id)
-            [
-                'hashtag_id' => 1,
-                'project_id' => 1
-            ],
-            [
-                'hashtag_id' => 2,
-                'project_id' => 1
-            ],
-            [
-                'hashtag_id' => 3,
-                'project_id' => 1
-            ],
-            //The second Project(id)
-            [
-                'hashtag_id' => 4,
-                'project_id' => 2
-            ],
-            [
-                'hashtag_id' => 5,
-                'project_id' => 2
-            ],
-            [
-                'hashtag_id' => 1,
-                'project_id' => 2
-            ],
-            //The third Project(id)
-            [
-                'hashtag_id' => 2,
-                'project_id' => 3
-            ],
-            [
-                'hashtag_id' => 3,
-                'project_id' => 3
-            ],
-            [
-                'hashtag_id' => 4,
-                'project_id' => 3
-            ],
-            //The fourth  Project(id)
-            [
-                'hashtag_id' => 5,
-                'project_id' => 4
-            ],
-            [
-                'hashtag_id' => 1,
-                'project_id' => 4
-            ],
-            [
-                'hashtag_id' => 2,
-                'project_id' => 4
-            ],
-            //The fifth Project(id)
-            [
-                'hashtag_id' => 3,
-                'project_id' => 5
-            ],
-            [
-                'hashtag_id' => 4,
-                'project_id' => 5
-            ],
-            [
-                'hashtag_id' => 5,
-                'project_id' => 5
-            ],
-            //The sixth Project(id)
-            [
-                'hashtag_id' => 1,
-                'project_id' => 6
-            ],
-            [
-                'hashtag_id' => 2,
-                'project_id' => 6
-            ],
-            [
-                'hashtag_id' => 3,
-                'project_id' => 6
-            ],
-            //The seventh Project(id)
-            [
-                'hashtag_id' => 4,
-                'project_id' => 7
-            ],
-            [
-                'hashtag_id' => 5,
-                'project_id' => 7
-            ],
-            [
-                'hashtag_id' => 1,
-                'project_id' => 7
-            ],
-            //The eighth Project(id)
-            [
-                'hashtag_id' => 2,
-                'project_id' => 8
-            ],
-            [
-                'hashtag_id' => 3,
-                'project_id' => 8
-            ],
-            [
-                'hashtag_id' => 4,
-                'project_id' => 8
-            ],
-            //The ninth Project(id)
-            [
-                'hashtag_id' => 5,
-                'project_id' => 9
-            ],
-            [
-                'hashtag_id' => 1,
-                'project_id' => 9
-            ],
-            [
-                'hashtag_id' => 2,
-                'project_id' => 9
-            ],
-        ]);
-
     }
 }

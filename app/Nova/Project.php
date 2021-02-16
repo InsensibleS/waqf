@@ -5,8 +5,10 @@ namespace App\Nova;
 use App\Nova\Actions\Published;
 use App\Nova\Actions\Rejected;
 use Illuminate\Http\Request;
+use Khalin\Nova\Field\Link;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -131,6 +133,18 @@ class Project extends Resource
             Date::make('Disposal date', 'disposal_date')
                 ->sortable()
                 ->hideFromIndex(),
+
+            Boolean::make('Disable comment', 'ban_comments')
+                ->hideFromIndex(),
+
+            Link::make('Link to view', 'link')
+                ->url(function () {
+                    return (\config('custom.frontendUrlGetProject') . $this->link);
+                })
+                ->text("Go to view")
+                ->hideFromIndex()
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
 
             BelongsToMany::make('Hashtags', 'hashtags', Hashtag::class)
                 ->hideFromIndex(),
