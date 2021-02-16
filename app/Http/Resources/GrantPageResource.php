@@ -42,7 +42,7 @@ class GrantPageResource extends JsonResource
             'grant' => $grant,
             'grantStages' => $this->grantStages,
             'news' => NewsResource::collection($this->news),
-            'projects' => ProjectsResource::collection($this->projects),
+            'projects' => ProjectResource::collection($this->projects),
         ];
     }
 }

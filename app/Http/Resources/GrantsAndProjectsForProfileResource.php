@@ -28,7 +28,7 @@ class GrantsAndProjectsForProfileResource extends JsonResource
             'id' => $this->grantsAndProjectsForProfileData->id,
             'title' => $this->grantsAndProjectsForProfileData->title . $addStringForTitle,
             'stage' => $grantStage,
-            'projects' => ProjectsResource::collection($this->grantsAndProjectsForProfileData->customerProjects)
+            'projects' => ProjectResource::collection($this->grantsAndProjectsForProfileData->customerProjects)
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
@@ -36,6 +37,8 @@ class CreateProjectsTable extends Migration
             $table->boolean('ban_comments')->default(false);
             $table->softDeletes();
         });
+
+        DB::statement('ALTER TABLE projects ADD FULLTEXT full(title, description)');
     }
 
     /**
