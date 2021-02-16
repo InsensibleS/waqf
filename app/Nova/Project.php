@@ -43,6 +43,14 @@ class Project extends Resource
         'publication_date'
     ];
 
+
+    /**
+     * The logical group associated with the resource.
+     *
+     * @var string
+     */
+    public static $group = 'Grants & Projects';
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -161,13 +169,6 @@ class Project extends Resource
     {
         return [];
     }
-
-    /**
-     * The logical group associated with the resource.
-     *
-     * @var string
-     */
-    public static $group = 'Grants & Projects';
 
     /**
      * Get the actions available for the resource.
