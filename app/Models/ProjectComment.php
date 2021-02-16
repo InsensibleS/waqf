@@ -37,10 +37,10 @@ class ProjectComment extends Model
         return $this->belongsTo(ProjectComment::class, 'answer_to', 'id');
     }
 
-//    public function newsCommentLikes()
-//    {
-//        return $this->hasMany(NewsCommentLike::class, 'news_comment_id', 'id');
-//    }
+    public function projectCommentLikes()
+    {
+        return $this->hasMany(ProjectCommentLike::class, 'project_comment_id', 'id');
+    }
 //
 //    public function newsCommentDislikes()
 //    {

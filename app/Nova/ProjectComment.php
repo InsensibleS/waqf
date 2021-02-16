@@ -44,6 +44,12 @@ class ProjectComment extends Resource
      */
     public static $group = 'Grants & Projects';
 
+    public static function indexQuery(NovaRequest $request, $query)
+    {
+        return $query->withCount('projectCommentLikes');
+//        ->withCount('projectCommentDislikes')
+    }
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -82,7 +88,7 @@ class ProjectComment extends Resource
 
             Boolean::make('Active comment', 'is_active'),
 
-//            Number::make('Number of likes', 'news_comment_likes_count')->sortable(),
+            Number::make('Number of likes', 'project_comment_likes_count')->sortable(),
 //
 //            Number::make('Number of dislikes', 'news_comment_dislikes_count')->sortable(),
         ];
