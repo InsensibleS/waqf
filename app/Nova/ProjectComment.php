@@ -46,8 +46,7 @@ class ProjectComment extends Resource
 
     public static function indexQuery(NovaRequest $request, $query)
     {
-        return $query->withCount('projectCommentLikes');
-//        ->withCount('projectCommentDislikes')
+        return $query->withCount('projectCommentLikes')->withCount('projectCommentDislikes');
     }
 
     /**
@@ -90,7 +89,7 @@ class ProjectComment extends Resource
 
             Number::make('Number of likes', 'project_comment_likes_count')->sortable(),
 //
-//            Number::make('Number of dislikes', 'news_comment_dislikes_count')->sortable(),
+            Number::make('Number of dislikes', 'project_comment_dislikes_count')->sortable(),
         ];
     }
 

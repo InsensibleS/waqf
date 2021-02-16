@@ -41,9 +41,9 @@ class ProjectComment extends Model
     {
         return $this->hasMany(ProjectCommentLike::class, 'project_comment_id', 'id');
     }
-//
-//    public function newsCommentDislikes()
-//    {
-//        return $this->hasMany(NewsCommentDislike::class, 'news_comment_id', 'id');
-//    }
+
+    public function projectCommentDislikes()
+    {
+        return $this->hasMany(ProjectCommentDislike::class, 'project_comment_id', 'id');
+    }
 }
