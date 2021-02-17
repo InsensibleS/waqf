@@ -13,6 +13,8 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\NewsCommentController;
+use App\Http\Controllers\Api\ProjectCommentLikeController;
+use App\Http\Controllers\Api\ProjectCommentDislikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,12 +71,20 @@ Route::middleware('auth:api')->group( function () {
     Route::post('/addLikeToNews', [NewsLikeController::class, 'addLikeToNews']);
     //delete Like news
     Route::post('/deleteLikeToNews', [NewsLikeController::class, 'deleteLikeToNews']);
-    //save Like comments
+    //add Like to news comment
     Route::post('/addLikeToComment', [CommentLikeController::class, 'addLikeToComment']);
-    //delete Like  comments
+    //delete Like from news comment
     Route::post('/deleteLikeToComment', [CommentLikeController::class, 'deleteLikeToComment']);
-    //save Dislike comments
+    //add Dislike to news comment
     Route::post('/addDislikeToComment', [CommentDislikeController::class, 'addDislikeToComment']);
-    //delete Dislike  comments
+    //delete Dislike from news comment
     Route::post('/deleteDislikeToComment', [CommentDislikeController::class, 'deleteDislikeToComment']);
+    //add Like to project comment
+    Route::post('/addLikeToProjectComment', [ProjectCommentLikeController::class, 'addLikeToComment']);
+    //delete Like from project comment
+    Route::post('/deleteLikeFromProjectComment', [ProjectCommentLikeController::class, 'deleteLikeFromComment']);
+    //add Dislike project comment
+    Route::post('/addDislikeToProjectComment', [ProjectCommentDislikeController::class, 'addDislikeToComment']);
+    //delete Dislike from project comment
+    Route::post('/deleteDislikeFromProjectComment', [ProjectCommentDislikeController::class, 'deleteDislikeFromComment']);
 });
