@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\GetAllProjectsRequest;
 use Throwable;
 use App\Http\Resources\AllProjectsPageResource;
+use App\Http\Requests\ProjectRequest;
+use App\Http\Resources\ProjectPageResource;
+use App\Repositories\ProjectRepository;
 
 class ProjectController extends Controller
 {
@@ -24,19 +27,23 @@ class ProjectController extends Controller
     protected $imageService;
     protected $hashTagService;
     protected $allProjectsPageRepository;
+    protected $projectRepository;
 
     public function __construct(
         GrantsAndProjectsForProfileRepository $grantsAndProjectsForProfileRepository,
         ProjectService $projectService,
         ImageService $imageService,
         HashTagService $hashTagService,
-        AllProjectsPageRepository $allProjectsPageRepository    )
+        AllProjectsPageRepository $allProjectsPageRepository,
+        ProjectRepository $projectRepository
+    )
     {
         $this->grantsAndProjectsForProfileRepository = $grantsAndProjectsForProfileRepository;
         $this->projectService = $projectService;
         $this->imageService = $imageService;
         $this->hashTagService = $hashTagService;
         $this->allProjectsPageRepository = $allProjectsPageRepository;
+        $this->projectRepository = $projectRepository;
     }
 
     public function getProjectsForProfile()
@@ -75,5 +82,10 @@ class ProjectController extends Controller
     public function getAllProjects(GetAllProjectsRequest $request)
     {
         return new AllProjectsPageResource($this->allProjectsPageRepository->getDataAllProjectsPage($request));
+    }
+
+    public function getProject(ProjectRequest $request)
+    {
+        return new ProjectPageResource($this->projectRepository->getProjectFromLink($request->link));
     }
 }

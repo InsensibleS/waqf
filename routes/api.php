@@ -50,6 +50,8 @@ Route::get('/getAllNews', [NewsController::class, 'getAllNews']);
 Route::get('/getMoreNews', [NewsController::class, 'getMoreNews']);
 // Get all projects
 Route::get('/getAllProjects', [ProjectController::class, 'getAllProjects']);
+// Get project
+Route::get('/getProject/{link}', [ProjectController::class, 'getProject']);
 /**
  *  Routes for authorized users
  */

@@ -21,4 +21,17 @@ class ProjectRepository
             'grant_id' => $grantId
         ])->get();
     }
+
+    /**
+     *
+     * @param  string  $link
+     * @return Project
+     *
+     */
+    public function getProjectFromLink(string $link): Project
+    {
+        return Project::where('link', $link)
+            ->withCount('projectComments')
+            ->first();
+    }
 }

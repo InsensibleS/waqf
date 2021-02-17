@@ -72,6 +72,10 @@ class ProjectCommentLikeSeeder extends Seeder
                 'project_comment_id' => 5,
             ],
             [
+                'customer_id' => 2,
+                'project_comment_id' => 10,
+            ],
+            [
                 'customer_id' => 3,
                 'project_comment_id' => 10,
             ],
