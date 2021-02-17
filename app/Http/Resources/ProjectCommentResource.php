@@ -19,7 +19,7 @@ class ProjectCommentResource extends JsonResource
         return [
             'id' => $this->id,
             'is_active' => $this->is_active,
-            'content' => $this->is_active ? $this->content : 'This comment was hidden',
+            'content' => $this->is_active ? $this->content : 'This comment has been blocked by site administration',
             'userName' => $this->customer->name,
             'userAvatar' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->customer->avatar,
             'publication_date' => date('Y-m-d', strtotime($this->publication_date)),
