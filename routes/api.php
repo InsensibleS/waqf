@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\NewsCommentController;
 use App\Http\Controllers\Api\ProjectCommentLikeController;
 use App\Http\Controllers\Api\ProjectCommentDislikeController;
+use App\Http\Controllers\Api\ProjectCommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,7 +66,7 @@ Route::middleware('auth:api')->group( function () {
     Route::post('/storeProject', [ProjectController::class, 'storeProject']);
     // project creation by user
     Route::post('/deleteProject', [ProjectController::class, 'deleteProject']);
-    //store Like news
+    //store comment to news
     Route::post('/addCommentToNews', [NewsCommentController::class, 'addCommentToNews']);
     //save Like news
     Route::post('/addLikeToNews', [NewsLikeController::class, 'addLikeToNews']);
@@ -87,4 +88,6 @@ Route::middleware('auth:api')->group( function () {
     Route::post('/addDislikeToProjectComment', [ProjectCommentDislikeController::class, 'addDislikeToComment']);
     //delete Dislike from project comment
     Route::post('/deleteDislikeFromProjectComment', [ProjectCommentDislikeController::class, 'deleteDislikeFromComment']);
+    //store comment to project
+    Route::post('/addCommentToProject', [ProjectCommentController::class, 'addCommentToProject']);
 });
