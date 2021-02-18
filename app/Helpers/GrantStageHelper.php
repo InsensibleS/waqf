@@ -76,4 +76,26 @@ class GrantStageHelper
 
         return date('Y-m-d', strtotime($grant->$fieldInGrantTable));
     }
+
+    /**
+     *
+     * @param Grant $grant
+     *
+     * @return integer|null
+     */
+    public function getGrantStage(Grant $grant): ?int
+    {
+        foreach (self::RATIO_TABLE_FIELDS_AND_STAGES as $stageId => $dates) {
+            $current = date('Y-m-d');
+            $startDate =  date('Y-m-d', strtotime($grant[$dates['field_start']]));
+            $endDate =  date('Y-m-d', strtotime($grant[$dates['field_end']]));
+            if ($stageId === 8) {
+                $endDate = date('Y-m-d', strtotime('2150-12-31'));
+            }
+            if($startDate <= $current && $endDate >= $current) {
+                return $stageId;
+            }
+        }
+        return null;
+    }
 }

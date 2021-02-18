@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Models\Grant;
-use Illuminate\Database\Eloquent\Collection;
 use App\Helpers\GrantStageHelper;
 
 class GrantStageProcessingService
@@ -35,5 +34,18 @@ class GrantStageProcessingService
         }
 
         return $processedGrantStages;
+    }
+
+    public function changeGrantsStages(GrantStageHelper $grantStageHelper)
+    {
+        $grants = Grant::where('grant_stage_id', '!=', 8)->get();
+
+        foreach ($grants as $grant) {
+            $stageId = $grantStageHelper->getGrantStage($grant);
+            if($stageId !== null) {
+                $grant->grant_stage_id = $stageId;
+                $grant->save();
+            }
+        }
     }
 }
