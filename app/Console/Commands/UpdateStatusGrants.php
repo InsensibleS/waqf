@@ -2,8 +2,9 @@
 
 namespace App\Console\Commands;
 
-use App\Models\ProjectCommentLike;
+use App\Helpers\GrantStageHelper;
 use Illuminate\Console\Command;
+use App\Services\GrantStageProcessingService;
 
 class UpdateStatusGrants extends Command
 {
@@ -13,6 +14,8 @@ class UpdateStatusGrants extends Command
      * @var string
      */
     protected $signature = 'grants:update_status';
+
+    protected $grantStageProcessingService;
 
     /**
      * The console command description.
@@ -24,11 +27,12 @@ class UpdateStatusGrants extends Command
     /**
      * Create a new command instance.
      *
-     * @return void
+     * @param GrantStageProcessingService $grantStageProcessingService
      */
-    public function __construct()
+    public function __construct(GrantStageProcessingService $grantStageProcessingService)
     {
         parent::__construct();
+        $this->grantStageProcessingService = $grantStageProcessingService;
     }
 
     /**
@@ -38,6 +42,6 @@ class UpdateStatusGrants extends Command
      */
     public function handle()
     {
-        ProjectCommentLike::first()->delete();
+        $this->grantStageProcessingService->changeGrantsStages(new GrantStageHelper);
     }
 }
