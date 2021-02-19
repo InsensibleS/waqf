@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\UpdateStagesForGrants;
+use App\Services\GrantStageProcessingService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Nova\Fields\BelongsTo;
@@ -367,6 +369,11 @@ class Grant extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new UpdateStagesForGrants(new GrantStageProcessingService))
+                ->confirmText('Do you really want to update stages for grants?')
+                ->confirmButtonText('Update')
+                ->cancelButtonText("Don't update"),
+        ];
     }
 }

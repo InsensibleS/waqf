@@ -17,6 +17,7 @@
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
+        "gobrightspot/nova-detached-actions": "^1.1",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.5",
         "khalin/nova-link-field": "^1.2",
