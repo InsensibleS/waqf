@@ -92,7 +92,11 @@ class GrantStageHelper
             if ($stageId === 8) {
                 $endDate = date('Y-m-d', strtotime('2150-12-31'));
             }
-            if($startDate <= $current && $endDate >= $current) {
+            if($stageId === 1) {
+                if($startDate < $current && $endDate > $current) {
+                    return $stageId;
+                }
+            } elseif($startDate <= $current && $endDate >= $current) {
                 return $stageId;
             }
         }
