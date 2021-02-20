@@ -37,7 +37,8 @@ class DatabaseSeeder extends Seeder
             NewsHashtagForNewsSeeder::class,
             ProjectCommentSeeder::class,
             ProjectCommentLikeSeeder::class,
-            ProjectCommentDislikeSeeder::class
+            ProjectCommentDislikeSeeder::class,
+            GrantStagesUpdateSeeder::class
         ]);
     }
 }
