@@ -8,7 +8,6 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Http\Requests\NovaRequest;
 
 class GrantStagesUpdate extends Resource
 {
@@ -34,6 +33,13 @@ class GrantStagesUpdate extends Resource
     public static $search = [
         'id',
     ];
+
+    /**
+     * The logical group associated with the resource.
+     *
+     * @var string
+     */
+    public static $group = 'Administration';
 
     public static function availableForNavigation(Request $request)
     {

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helpers\GrantStageHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\MainPageResource;
 use App\Repositories\MainPageRepository;
-use Illuminate\Http\Request;
+use App\Services\GrantStageProcessingService;
 
 class MainPageController extends Controller
 {
@@ -19,5 +20,11 @@ class MainPageController extends Controller
     public function getDataMainPage()
     {
         return new MainPageResource($this->mainPageRepository->getDataMainPage());
+    }
+
+    public function test()
+    {
+        $service = new GrantStageProcessingService;
+        $service->changeGrantsStages(new GrantStageHelper());
     }
 }

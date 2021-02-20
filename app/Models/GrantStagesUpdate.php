@@ -11,6 +11,8 @@ class GrantStagesUpdate extends Model
 
     protected $table = 'grant_stages_updates';
 
+    protected $guarded = ['id'];
+
     protected $casts = [
         'start_process' => 'datetime',
         'end_process' => 'datetime',

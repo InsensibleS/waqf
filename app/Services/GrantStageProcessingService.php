@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Grant;
 use App\Helpers\GrantStageHelper;
+use Throwable;
 
 class GrantStageProcessingService
 {
@@ -38,14 +39,22 @@ class GrantStageProcessingService
 
     public function changeGrantsStages(GrantStageHelper $grantStageHelper)
     {
+        $dataForNewGrantStagesUpdate = GrantStagesUpdateService::getDataForNewGrantStagesUpdate();
+
         $grants = Grant::where('grant_stage_id', '!=', 8)->get();
 
         foreach ($grants as $grant) {
-            $stageId = $grantStageHelper->getGrantStage($grant);
-            if($stageId !== null) {
-                $grant->grant_stage_id = $stageId;
-                $grant->save();
+            try{
+                $stageId = $grantStageHelper->getGrantStage($grant);
+                if($stageId !== null && $stageId !== $grant->grant_stage_id) {
+                    $grant->grant_stage_id = $stageId;
+                    $grant->save();
+                    array_push($dataForNewGrantStagesUpdate['updates_grants_id'], $grant->id);
+                                 }
+            } catch (Throwable $exception) {
+                $dataForNewGrantStagesUpdate['is_successful'] = false;
             }
         }
+        GrantStagesUpdateService::storeGrantStagesUpdate($dataForNewGrantStagesUpdate);
     }
 }
