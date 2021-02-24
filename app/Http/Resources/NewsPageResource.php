@@ -32,6 +32,7 @@ class NewsPageResource extends JsonResource
                 'title' => $this->news->title,
                 'publication_date' => date('Y-m-d', strtotime($this->news->publication_date)),
                 'link' => \config('custom.frontendUrlGetNews') . $this->news->link,
+                'img' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->image,
                 'content' => $this->news->full_description,
                 'hashtags' => HashtagResource::collection($this->news->newsHashtags),
                 'countLikes' => $this->news->news_likes_count,
