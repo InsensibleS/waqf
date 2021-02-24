@@ -225,7 +225,6 @@ According to forecasts of the International Renewable Energy Agency (IRENA), as 
                 'image4' =>'images/projects/Cou4.jpeg',
                 'image5' =>'',
                 'link' =>'5CiOuDrEPYMKECpv',
-
             ],
             [
                 'country_id' => 164,
@@ -251,7 +250,6 @@ Integer commodo sapien ut lectus accumsan tincidunt id eget lorem. Quisque neque
                 'image4' =>'images/projects/Ugl2.jpg',
                 'image5' =>'images/projects/Ugl3.jpg',
                 'link' =>'sJO0utOHcVEr5qzS',
-
             ],
             [
                 'country_id' =>8,
@@ -273,7 +271,6 @@ Places around the world are taking action to reduce the negative impacts of fire
                 'image4' =>'',
                 'image5' =>'',
                 'link' =>'j96XgYxdF4s3GJkg',
-
             ],
             [
                 'country_id' =>7,
@@ -297,7 +294,6 @@ More sustainable plant-derived materials are making headway as substitutes for a
                 'image4' =>'',
                 'image5' =>'',
                 'link' =>'v35YqCVcnOY1zmN4',
-
             ],
             [
                 'country_id' =>145,
@@ -315,7 +311,6 @@ More sustainable plant-derived materials are making headway as substitutes for a
                 'image4' =>'',
                 'image5' =>'',
                 'link' =>'Iuc185Ex5kTEN5eY',
-
             ],
             [
                 'country_id' =>11,
@@ -343,7 +338,6 @@ Praesent urna tellus, hendrerit eu diam ac, blandit egestas risus. Maecenas feug
                 'image4' =>'',
                 'image5' =>'',
                 'link' =>'Io2cCd61dox9tiSi',
-
             ],
             [
                 'country_id' =>14,
@@ -367,7 +361,6 @@ Nulla imperdiet id dolor vel hendrerit. Nam vehicula vel leo eget fringilla. Nul
                 'image4' =>'',
                 'image5' =>'',
                 'link' =>'3s1otrdFgwjKKYJ3',
-
             ],
             [
                 'country_id' =>1,
@@ -376,9 +369,7 @@ Nulla imperdiet id dolor vel hendrerit. Nam vehicula vel leo eget fringilla. Nul
                 'customer_id' =>3,
                 'grant_stage_id'=>4,
                 'title' =>'Thorium reactors',
-                'description' =>'
-
-Praesent imperdiet eros non felis tempor pharetra. Quisque molestie bibendum dolor eu pulvinar. Ut a maximus urna, sed malesuada urna. Donec euismod facilisis eros, in commodo quam faucibus sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus lorem est, mattis id volutpat ut, ultricies sodales metus. Cras mattis in sapien eu venenatis. Fusce eu cursus metus.
+                'description' =>'Praesent imperdiet eros non felis tempor pharetra. Quisque molestie bibendum dolor eu pulvinar. Ut a maximus urna, sed malesuada urna. Donec euismod facilisis eros, in commodo quam faucibus sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus lorem est, mattis id volutpat ut, ultricies sodales metus. Cras mattis in sapien eu venenatis. Fusce eu cursus metus.
 
 Duis ullamcorper dolor eu porta ullamcorper. Maecenas quis orci at urna facilisis porta at sed velit. Nulla suscipit porta nisl, ac sagittis velit mattis a. Sed euismod porta justo, nec vulputate arcu pellentesque quis. Nam semper pellentesque tellus vitae iaculis. Maecenas hendrerit eros felis, facilisis laoreet sapien commodo dictum. Praesent vestibulum felis eget lacus tincidunt malesuada. Ut fermentum porta felis, eget sodales sem feugiat at. Aenean commodo arcu elit, sit amet vehicula eros aliquam in. Suspendisse nec ultricies sem, ac dapibus nisi. Proin massa nisi, cursus vel nunc sit amet, fermentum auctor odio. In urna neque, tristique vel ornare eu, iaculis sed lacus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 
@@ -395,7 +386,6 @@ Vestibulum at odio magna. Nulla malesuada mauris a lorem pellentesque, et rutrum
                 'image4' =>'',
                 'image5' =>'',
                 'link' =>'Ofxvz2ZydKesQr1z',
-
             ],
             [
                 'country_id' =>17,
@@ -437,7 +427,6 @@ Etiam et purus eget libero faucibus sodales in in lorem. Aliquam congue sagittis
                 'image4' =>'',
                 'image5' =>'',
                 'link' =>'6NfTvAAxob01hBek',
-
             ],
             [
                 'country_id' =>13,
@@ -458,7 +447,6 @@ Nunc vel ipsum ligula. Nam ligula justo, fringilla ac molestie finibus, accumsan
                 'image4' =>'',
                 'image5' =>'',
                 'link' =>'EjMW0CSzbQ1cwZOv',
-
             ],
             [
                 'country_id' =>4,
@@ -500,7 +488,6 @@ Quisque ac faucibus augue. Aenean eget euismod tortor, eu finibus urna. Morbi co
                 'image4' =>'',
                 'image5' =>'',
                 'link' =>'bGjY9W8rW3RxMEFd',
-
             ],
         ]);
     }
