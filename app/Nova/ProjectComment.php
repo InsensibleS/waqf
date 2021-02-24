@@ -2,6 +2,8 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\ActivateProjectComment;
+use App\Nova\Actions\DisableProjectComment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Laravel\Nova\Fields\BelongsTo;
@@ -134,6 +136,20 @@ class ProjectComment extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new ActivateProjectComment)
+                ->showOnTableRow()
+                ->exceptOnIndex()
+                ->confirmText('Do you really want to Active the comment?')
+                ->confirmButtonText('Activate')
+                ->cancelButtonText("Don't Activate"),
+
+            (new DisableProjectComment)
+                ->showOnTableRow()
+                ->exceptOnIndex()
+                ->confirmText('Do you really want to Disable the comment?')
+                ->confirmButtonText('Disable')
+                ->cancelButtonText("Don't Disable")
+        ];
     }
 }

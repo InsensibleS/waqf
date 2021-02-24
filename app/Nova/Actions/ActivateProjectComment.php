@@ -9,11 +9,9 @@ use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 
-class Disable extends Action
+class ActivateProjectComment extends Action
 {
     use InteractsWithQueue, Queueable;
-
-    public $name = 'Disable comment';
 
     /**
      * Perform the action on the given models.
@@ -25,15 +23,10 @@ class Disable extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
-                $model->is_active = false;
-                $model->update();
-                return Action::message('Comment disabled successfully!');
+            $model->is_active = true;
+            $model->update();
+            return Action::message('Comment activated successfully!');
         }
-    }
-
-    public function actionClass()
-    {
-        return 'bg-danger text-white';
     }
 
     /**
