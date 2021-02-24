@@ -3,6 +3,7 @@
 namespace App\Helpers;
 
 use App\Models\Grant;
+use Carbon\Carbon;
 
 class GrantStageHelper
 {
@@ -86,11 +87,11 @@ class GrantStageHelper
     public function getGrantStage(Grant $grant): ?int
     {
         foreach (self::RATIO_TABLE_FIELDS_AND_STAGES as $stageId => $dates) {
-            $current = date('Y-m-d');
-            $startDate =  date('Y-m-d', strtotime($grant[$dates['field_start']]));
-            $endDate =  date('Y-m-d', strtotime($grant[$dates['field_end']]));
+            $current = Carbon::today();
+            $startDate = Carbon::parse($grant->{$dates['field_start']});
+            $endDate = Carbon::parse($grant->{$dates['field_end']});
             if ($stageId === 8) {
-                $endDate = date('Y-m-d', strtotime('2150-12-31'));
+                $endDate =Carbon::parse('2150-12-31');
             }
             if($stageId === 1) {
                 if($startDate < $current && $endDate > $current) {
