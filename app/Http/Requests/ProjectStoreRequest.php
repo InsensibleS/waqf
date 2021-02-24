@@ -50,6 +50,7 @@ class ProjectStoreRequest extends FormRequest
             ],
             'images.0' => 'required',
             'images.*' => 'file|max:15000|mimes:jpg,gif,png|dimensions:max_width=5000, max_height=5000',
+            'ban_comments' => 'required|boolean'
         ];
     }
 }
