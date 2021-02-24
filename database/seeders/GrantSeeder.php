@@ -36,7 +36,7 @@ class GrantSeeder extends Seeder
             ],
             [
                 'title' => 'United against COVID-19',
-                'start_date' => '2021-02-24',
+                'start_date' => '2021-02-25',
                 'end_selection_projects' => '2021-02-24',
                 'start_moderation' => '2021-03-02',
                 'end_moderation' => '2021-03-03',
@@ -51,7 +51,7 @@ class GrantSeeder extends Seeder
                 'publication_cost' => 2000,
                 'number_finalists' => 5,
                 'number_semifinalists' => 50,
-                'grant_stage_id' => 8
+                'grant_stage_id' => 1
             ],
             [
                 'title' => 'Good climate all over the world',
