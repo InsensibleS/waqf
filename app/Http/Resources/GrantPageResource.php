@@ -40,6 +40,7 @@ class GrantPageResource extends JsonResource
 
         return [
             'grant' => $grant,
+            'grantType' => end($this->grantStages)['status'] === 'passed' ? 'archive' : 'current',
             'grantStages' => $this->grantStages,
             'news' => NewsResource::collection($this->news),
             'projects' => ProjectResource::collection($this->projects),

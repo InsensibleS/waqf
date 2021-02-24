@@ -17,19 +17,15 @@ class ProjectStatusSeeder extends Seeder
         DB::table('project_statuses')->insert([
             [
                 'title' => 'Published',
-
             ],
             [
                 'title' => 'On moderation',
-
             ],
             [
                 'title' => 'Rejected',
-
             ],
             [
                 'title' => 'Archive',
-
             ],
         ]);
     }
