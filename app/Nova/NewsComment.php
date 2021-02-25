@@ -91,9 +91,15 @@ class NewsComment extends Resource
 
             Boolean::make('Active comment', 'is_active'),
 
-            Number::make('Number of likes', 'news_comment_likes_count')->sortable(),
+            Number::make('Number of likes', 'news_comment_likes_count')
+                ->sortable()
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
 
-            Number::make('Number of dislikes', 'news_comment_dislikes_count')->sortable(),
+            Number::make('Number of dislikes', 'news_comment_dislikes_count')
+                ->sortable()
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
         ];
     }
 

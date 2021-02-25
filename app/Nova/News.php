@@ -116,7 +116,8 @@ class News extends Resource
                 ->text("Go to view")
                 ->hideFromIndex()
                 ->hideWhenCreating()
-                ->hideWhenUpdating(),
+                ->hideWhenUpdating()
+                ->blank(),
 
             BelongsToMany::make('News Hashtags', 'newsHashtags', NewsHashtag::class),
 

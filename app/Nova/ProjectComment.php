@@ -89,9 +89,15 @@ class ProjectComment extends Resource
 
             Boolean::make('Active comment', 'is_active'),
 
-            Number::make('Number of likes', 'project_comment_likes_count')->sortable(),
-//
-            Number::make('Number of dislikes', 'project_comment_dislikes_count')->sortable(),
+            Number::make('Number of likes', 'project_comment_likes_count')
+                ->sortable()
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
+
+            Number::make('Number of dislikes', 'project_comment_dislikes_count')
+                ->sortable()
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
         ];
     }
 

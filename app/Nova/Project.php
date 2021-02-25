@@ -144,7 +144,8 @@ class Project extends Resource
                 ->text("Go to view")
                 ->hideFromIndex()
                 ->hideWhenCreating()
-                ->hideWhenUpdating(),
+                ->hideWhenUpdating()
+                ->blank(),
 
             BelongsToMany::make('Hashtags', 'hashtags', Hashtag::class)
                 ->hideFromIndex(),
