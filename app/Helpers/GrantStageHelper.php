@@ -87,9 +87,9 @@ class GrantStageHelper
     public function getGrantStage(Grant $grant): ?int
     {
         foreach (self::RATIO_TABLE_FIELDS_AND_STAGES as $stageId => $dates) {
-            $current = Carbon::today();
-            $startDate = Carbon::parse($grant->{$dates['field_start']});
-            $endDate = Carbon::parse($grant->{$dates['field_end']});
+            $current = Carbon::now()->setTimezone(\config('app.timezone'))->format('Y-m-d');
+            $startDate = Carbon::parse($grant->{$dates['field_start']})->setTimezone(\config('app.timezone'))->format('Y-m-d');
+            $endDate = Carbon::parse($grant->{$dates['field_end']})->setTimezone(\config('app.timezone'))->format('Y-m-d');
             if ($stageId === 8) {
                 $endDate =Carbon::parse('2150-12-31');
             }

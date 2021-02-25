@@ -38,7 +38,6 @@ class DatabaseSeeder extends Seeder
             ProjectCommentSeeder::class,
             ProjectCommentLikeSeeder::class,
             ProjectCommentDislikeSeeder::class,
-            GrantStagesUpdateSeeder::class
         ]);
     }
 }

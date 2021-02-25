@@ -21,10 +21,4 @@ class MainPageController extends Controller
     {
         return new MainPageResource($this->mainPageRepository->getDataMainPage());
     }
-
-    public function test()
-    {
-        $service = new GrantStageProcessingService;
-        $service->changeGrantsStages(new GrantStageHelper());
-    }
 }
