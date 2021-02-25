@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Rules\CheckIfUserHasNoDislikeThisComment;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CommentDislikeStoreRequest extends FormRequest
 {
@@ -29,6 +30,9 @@ class CommentDislikeStoreRequest extends FormRequest
                 'required',
                 'integer',
                 'exists:news_comments,id',
+                Rule::exists('news_comments','id')->where(function ($query) {
+                    $query->where('is_active', true);
+                }),
                 new CheckIfUserHasNoDislikeThisComment()
             ],
         ];

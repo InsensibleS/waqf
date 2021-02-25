@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Rules\CheckIfUserHasNoDislikeThisProjectComment;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ProjectCommentDislikeStoreRequest extends FormRequest
 {
@@ -28,7 +29,9 @@ class ProjectCommentDislikeStoreRequest extends FormRequest
             'project_comment_id' => [
                 'required',
                 'integer',
-                'exists:project_comments,id',
+                Rule::exists('project_comments','id')->where(function ($query) {
+                    $query->where('is_active', true);
+                }),
                 new CheckIfUserHasNoDislikeThisProjectComment()
             ],
         ];
