@@ -91,13 +91,11 @@ class ProjectComment extends Resource
 
             Number::make('Number of likes', 'project_comment_likes_count')
                 ->sortable()
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
+                ->onlyOnIndex(),
 
             Number::make('Number of dislikes', 'project_comment_dislikes_count')
                 ->sortable()
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
+                ->onlyOnIndex(),
         ];
     }
 

@@ -93,13 +93,11 @@ class NewsComment extends Resource
 
             Number::make('Number of likes', 'news_comment_likes_count')
                 ->sortable()
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
+                ->onlyOnIndex(),
 
             Number::make('Number of dislikes', 'news_comment_dislikes_count')
                 ->sortable()
-                ->hideWhenCreating()
-                ->hideWhenUpdating(),
+                ->onlyOnIndex(),
         ];
     }
 

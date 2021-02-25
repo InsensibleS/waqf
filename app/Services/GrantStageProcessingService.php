@@ -50,7 +50,7 @@ class GrantStageProcessingService
                     $grant->grant_stage_id = $stageId;
                     $grant->save();
                     array_push($dataForNewGrantStagesUpdate['updates_grants_id'], $grant->id);
-                                 }
+                 }
             } catch (Throwable $exception) {
                 $dataForNewGrantStagesUpdate['is_successful'] = false;
             }
