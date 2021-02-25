@@ -30,6 +30,33 @@ class HashtagSeeder extends Seeder
             [
                 'title' => 'earth',
             ],
+            [
+                'title' => 'COV19'
+            ],
+            [
+                'title' => 'health'
+            ],
+            [
+                'title' => 'mask'
+            ],
+            [
+                'title' => 'pandemic'
+            ],
+            [
+                'title' => 'Africa'
+            ],
+            [
+                'title' => 'technologies'
+            ],
+            [
+                'title' => '#happy'
+            ],
+            [
+                'title' => 'happy'
+            ],
+            [
+                'title' => ' self-isolation'
+            ],
         ]);
     }
 }
