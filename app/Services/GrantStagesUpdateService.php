@@ -13,7 +13,9 @@ class GrantStagesUpdateService
     public static function getDataForNewGrantStagesUpdate(): array
     {
         return [
-            'updates_grants_id' => [],
+            'updated_grant_id' => null,
+            'activated_grant_id' => null,
+            'archived_grant_id' => null,
             'start_process' => date('Y-m-d H:i:s'),
             'end_process' => '',
             'is_successful' => true
@@ -28,7 +30,6 @@ class GrantStagesUpdateService
     public static function storeGrantStagesUpdate(array $dataForNewGrantStagesUpdate): void
     {
         $dataForNewGrantStagesUpdate['end_process'] = date('Y-m-d H:i:s');
-        $dataForNewGrantStagesUpdate['updates_grants_id'] = $dataForNewGrantStagesUpdate['updates_grants_id'] ? implode(', ', $dataForNewGrantStagesUpdate['updates_grants_id']) : '-';
         GrantStagesUpdate::create($dataForNewGrantStagesUpdate);
     }
 }

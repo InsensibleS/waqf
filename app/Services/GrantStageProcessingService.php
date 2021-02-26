@@ -49,8 +49,14 @@ class GrantStageProcessingService
                 if($stageId !== null && $stageId !== $grant->grant_stage_id) {
                     $grant->grant_stage_id = $stageId;
                     $grant->save();
-                    array_push($dataForNewGrantStagesUpdate['updates_grants_id'], $grant->id);
-                 }
+                    if ($stageId === 8) {
+                        $dataForNewGrantStagesUpdate['archived_grant_id'] = $grant->id;
+                    } else if ($stageId === 2) {
+                        $dataForNewGrantStagesUpdate['activated_grant_id'] = $grant->id;
+                    } else {
+                        $dataForNewGrantStagesUpdate['updated_grant_id'] = $grant->id;
+                    }
+                }
             } catch (Throwable $exception) {
                 $dataForNewGrantStagesUpdate['is_successful'] = false;
             }

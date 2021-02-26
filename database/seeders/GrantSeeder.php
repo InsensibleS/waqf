@@ -32,7 +32,7 @@ class GrantSeeder extends Seeder
                 'publication_cost' => 1000,
                 'number_finalists' => 5,
                 'number_semifinalists' => 50,
-                'grant_stage_id' => 8
+                'grant_stage_id' => 7
             ],
             [
                 'title' => 'United against COVID-19',

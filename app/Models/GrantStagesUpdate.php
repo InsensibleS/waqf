@@ -19,4 +19,19 @@ class GrantStagesUpdate extends Model
     ];
 
     public $timestamps = false;
+
+    public function archivedGrant()
+    {
+        return $this->belongsTo(Grant::class, 'archived_grant_id');
+    }
+
+    public function activatedGrant()
+    {
+        return $this->belongsTo(Grant::class, 'activated_grant_id');
+    }
+
+    public function updatedGrant()
+    {
+        return $this->belongsTo(Grant::class, 'updated_grant_id');
+    }
 }

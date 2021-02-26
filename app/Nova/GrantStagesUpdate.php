@@ -4,10 +4,10 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
 
 class GrantStagesUpdate extends Resource
 {
@@ -65,8 +65,13 @@ class GrantStagesUpdate extends Resource
                 ->rules('required')
                 ->sortable(),
 
-            Text::make('Id of modified grants', 'updates_grants_id')
-                ->rules('required', 'max:255')
+            BelongsTo::make('Archived Grant', 'archivedGrant', Grant::class)
+                 ->sortable(),
+
+            BelongsTo::make('Activated Grant', 'activatedGrant', Grant::class)
+                ->sortable(),
+
+            BelongsTo::make('Updated Grant', 'updatedGrant', Grant::class)
                 ->sortable(),
 
             Boolean::make('Completed successfully', 'is_successful'),
