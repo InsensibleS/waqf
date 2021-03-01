@@ -1,0 +1,3 @@
+div[dusk="project-comments-index-component"] table td.td-fit span:last-of-type {
+    display: none !important;
+}

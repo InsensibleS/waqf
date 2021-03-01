@@ -19,6 +19,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         parent::boot();
 
         Nova::style('miami-ice-theme', public_path('css/miami.css'));
+        Nova::style('miami-button-theme', public_path('css/miamiButtonEdit.css'));
     }
 
     /**
