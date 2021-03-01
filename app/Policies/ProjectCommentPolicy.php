@@ -11,11 +11,6 @@ class ProjectCommentPolicy extends DefaultPolicy
         return false;
     }
 
-    public function update(User $user)
-    {
-        return false;
-    }
-
     public function delete(User $user)
     {
         return false;
