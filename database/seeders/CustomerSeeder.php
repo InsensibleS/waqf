@@ -21,7 +21,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 4,
                 'is_registered' => true,
                 'email' => 'r.bell.sirop@gmail.com',
-                'avatar' => 'images/customer-photos/r.bell'
+                'avatar' => 'customer-photos/r.bell'
             ],
             //2
             [
@@ -29,7 +29,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 5,
                 'is_registered' => true,
                 'email' => 'dwaqf@yandex.ru',
-                'avatar' => 'images/customer-photos/dwaqf'
+                'avatar' => 'customer-photos/dwaqf'
             ],
             //3
             [
@@ -37,7 +37,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 5,
                 'is_registered' => true,
                 'email' => 'alexandr.intern@softlex.pro',
-                'avatar' => 'images/customer-photos/useravatar.png'
+                'avatar' => 'customer-photos/useravatar.png'
             ],
             //4
             [
@@ -45,7 +45,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 3,
                 'is_registered' => true,
                 'email' => 'koskin@gmail.com',
-                'avatar' => 'images/customer-photos/4.jpg'
+                'avatar' => 'customer-photos/4.jpg'
             ],
             //5
             [
@@ -53,7 +53,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 5,
                 'is_registered' => true,
                 'email' => 'pandora_one@gmail.com',
-                'avatar' => 'images/customer-photos/5.jpg'
+                'avatar' => 'customer-photos/5.jpg'
             ],
             //6
             [
@@ -61,7 +61,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 2,
                 'is_registered' => true,
                 'email' => 'Ben_workn@gmail.com',
-                'avatar' => 'images/customer-photos/6.jpeg'
+                'avatar' => 'customer-photos/6.jpeg'
             ],
             //7
             [
@@ -69,7 +69,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 4,
                 'is_registered' => true,
                 'email' => 'first_Qunea@gmail.com',
-                'avatar' => 'images/customer-photos/7.jpg'
+                'avatar' => 'customer-photos/7.jpg'
             ],
             //8
             [
@@ -77,7 +77,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 3,
                 'is_registered' => true,
                 'email' => 'Daisy@gmail.com',
-                'avatar' => 'images/customer-photos/8.jpg'
+                'avatar' => 'customer-photos/8.jpg'
             ],
             //9
             [
@@ -85,7 +85,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 2,
                 'is_registered' => true,
                 'email' => 'Erin@gmail.com',
-                'avatar' => 'images/customer-photos/9.jpg'
+                'avatar' => 'customer-photos/9.jpg'
             ],
             //10
             [
@@ -93,7 +93,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 2,
                 'is_registered' => true,
                 'email' => 'Erenn@gmail.com',
-                'avatar' => 'images/customer-photos/10.jpg'
+                'avatar' => 'customer-photos/10.jpg'
             ],
             //11
             [
@@ -101,7 +101,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 3,
                 'is_registered' => true,
                 'email' => 'Akerman@gmail.com',
-                'avatar' => 'images/customer-photos/11.jpeg'
+                'avatar' => 'customer-photos/11.jpeg'
             ],
             //12
             [
@@ -109,7 +109,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 2,
                 'is_registered' => true,
                 'email' => 'Ervin@gmail.com',
-                'avatar' => 'images/customer-photos/12.jpg'
+                'avatar' => 'customer-photos/12.jpg'
             ],
             //13
             [
@@ -117,7 +117,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 4,
                 'is_registered' => true,
                 'email' => 'Kenly.com',
-                'avatar' => 'images/customer-photos/13.jpg'
+                'avatar' => 'customer-photos/13.jpg'
             ],
             //14
             [
@@ -125,7 +125,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 5,
                 'is_registered' => true,
                 'email' => 'Duck_forave@gmail.com',
-                'avatar' => 'images/customer-photos/14.jpg'
+                'avatar' => 'customer-photos/14.jpg'
             ],
             //15
             [
@@ -133,7 +133,7 @@ class CustomerSeeder extends Seeder
                 'status_id' => 2,
                 'is_registered' => true,
                 'email' => 'Mock@gmail.com',
-                'avatar' => 'images/customer-photos/15.jpg'
+                'avatar' => 'customer-photos/15.jpg'
             ],
         ]);
     }
