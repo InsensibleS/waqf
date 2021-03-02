@@ -38,6 +38,9 @@ class DatabaseSeeder extends Seeder
             ProjectCommentSeeder::class,
             ProjectCommentLikeSeeder::class,
             ProjectCommentDislikeSeeder::class,
+            NotificationTypeSeeder::class,
+            NotificationSeeder::class,
+            ProjectVoteSeeder::class
         ]);
     }
 }

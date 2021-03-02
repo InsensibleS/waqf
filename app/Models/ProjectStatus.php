@@ -15,4 +15,7 @@ class ProjectStatus extends Model
     public function projects(){
         return $this->belongsToMany(Project::class);
     }
+    public function projectVote(){
+        return $this->hasOne(ProjectVote::class);
+    }
 }
