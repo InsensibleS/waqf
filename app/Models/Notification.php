@@ -16,6 +16,7 @@ class Notification extends Model
     {
         return $this->belongsTo(NotificationType::class, 'type_id');
     }
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);

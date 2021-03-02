@@ -16,10 +16,12 @@ class ProjectVote extends Model
     {
         return $this->belongsTo(Project::class);
     }
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);
     }
+
     public function customerStatus()
     {
         return $this->belongsTo(CustomerStatus::class);

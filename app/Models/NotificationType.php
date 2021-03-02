@@ -10,6 +10,7 @@ class NotificationType extends Model
     use HasFactory;
 
     protected $table = 'notification_types';
+
     public function notifications()
     {
         return $this->hasMany(Notification::class);
