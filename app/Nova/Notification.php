@@ -32,6 +32,7 @@ class Notification extends Resource
      */
     public static $search = [
         'id',
+        'description'
     ];
 
     /**
@@ -55,8 +56,7 @@ class Notification extends Resource
             Text::make('Description', 'description')
                 ->rules('required'),
 
-            DateTime::make('Date', 'created_at'),
-
+            DateTime::make('Date', 'created_at')
         ];
     }
 

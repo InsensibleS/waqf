@@ -47,6 +47,6 @@ class Customer extends Authenticatable
     }
 
     public function projectVotes(){
-        return $this->hasOne(ProjectVote::class);
+        return $this->hasMany(ProjectVote::class);
     }
 }

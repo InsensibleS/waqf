@@ -10,8 +10,6 @@ class ProjectVote extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'project_vote';
-
     public function project()
     {
         return $this->belongsTo(Project::class);

@@ -11,4 +11,8 @@ class CustomerStatus extends Model
     use HasFactory,  SoftDeletes;
     protected $dates = ['deleted_at'];
     public $timestamps = false;
+
+    public function projectVote(){
+        return $this->hasOne(ProjectVote::class);
+    }
 }

@@ -16,7 +16,7 @@ class ProjectVoteSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('project_vote')->insert([
+        DB::table('project_votes')->insert([
             [
                 'customer_id' => 1,
                 'project_id' => 1,

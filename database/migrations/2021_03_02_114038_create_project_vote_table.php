@@ -13,14 +13,14 @@ class CreateProjectVoteTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_vote', function (Blueprint $table) {
+        Schema::create('project_votes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained('customers');
             $table->foreignId('project_id')->constrained('projects');
             $table->foreignId('customer_status_id')->constrained('customer_statuses');
             $table->integer('number_rating_points');
             $table->softDeletes();
-            $table->timestamps();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 
@@ -31,6 +31,6 @@ class CreateProjectVoteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_vote');
+        Schema::dropIfExists('project_votes');
     }
 }

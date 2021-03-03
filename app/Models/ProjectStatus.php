@@ -9,13 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ProjectStatus extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $table = 'project_statuses';
+
     protected $dates = ['deleted_at'];
 
     public function projects(){
         return $this->belongsToMany(Project::class);
-    }
-    public function projectVote(){
-        return $this->hasOne(ProjectVote::class);
     }
 }
