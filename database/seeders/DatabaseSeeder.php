@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
             ProjectVoteSeeder::class,
             TeamMemberSeeder::class,
             CustomerLetterSeeder::class,
+            AboutPageSeeder::class,
         ]);
     }
 }
