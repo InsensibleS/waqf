@@ -18,7 +18,10 @@ class CustomerResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'avatar' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->avatar,
-            'is_password' => $this->password !== null
+            'is_password' => $this->password !== null,
+            'status' => $this->status->title,
+            'status_image' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->status->image,
+            'number_of_projects' => $this->projects->count()
         ];
     }
 }

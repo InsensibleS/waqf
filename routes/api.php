@@ -92,6 +92,6 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('/addCommentToProject', [ProjectCommentController::class, 'addCommentToProject']);
 });
 
-Route::get('/test', [MainPageController::class, 'test']);
+Route::get('/test', [MainPageController::class, 'test'])->middleware('auth:sanctum');
 
 

@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\GrantStageHelper;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CustomerResource;
 use App\Http\Resources\MainPageResource;
 use App\Models\Customer;
 use App\Repositories\MainPageRepository;
 use App\Services\GrantStageProcessingService;
+use Illuminate\Support\Facades\Auth;
 
 class MainPageController extends Controller
 {
@@ -25,7 +27,6 @@ class MainPageController extends Controller
 
     public function test()
     {
-        $customer = Customer::first();
-        dd($customer->createToken('token for ' . $customer->id)->plainTextToken);
+       return new CustomerResource(Auth::user());
     }
 }
