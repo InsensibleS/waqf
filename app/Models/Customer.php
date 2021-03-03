@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class Customer extends Authenticatable
 {
-    use Notifiable, HasFactory,  SoftDeletes;
+    use Notifiable, HasFactory,  SoftDeletes, HasApiTokens;
 
     protected $dates = ['deleted_at'];
 

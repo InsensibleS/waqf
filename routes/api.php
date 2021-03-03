@@ -58,7 +58,7 @@ Route::get('/getProject/{link}', [ProjectController::class, 'getProject']);
 /**
  *  Routes for authorized users
  */
-Route::middleware('auth:api')->group( function () {
+Route::middleware('auth:sanctum')->group( function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     // receiving projects of the current user, broken down by grants
     Route::get('/getProjectsForProfile', [ProjectController::class, 'getProjectsForProfile']);
@@ -91,3 +91,7 @@ Route::middleware('auth:api')->group( function () {
     //store comment to project
     Route::post('/addCommentToProject', [ProjectCommentController::class, 'addCommentToProject']);
 });
+
+Route::get('/test', [MainPageController::class, 'test']);
+
+

@@ -32,7 +32,7 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'Success!',
-            'token' => $this->customerService->createToken($socialAccount->customer),
+            'token' => $customer->createToken('token for ' . $customer->id)->plainTextToken,
             'customer' => $customerData
         ]);
     }
@@ -49,14 +49,14 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'Success!',
-            'token' => $this->customerService->createToken($socialAccount->customer),
+            'token' => $customer->createToken('token for ' . $customer->id)->plainTextToken,
             'customer' => $customerData
         ]);
     }
 
     public function logout (Request $request)
     {
-        $request->user()->update(['api_token' => null]);
+        $request->user()->currentAccessToken()->delete();
 
         return response(['message' => 'Success!']);
     }
