@@ -10,8 +10,6 @@ class Notification extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $timestamps = false;
-
     protected $dates = ['created_at'];
 
     public function notificationType()

@@ -19,7 +19,7 @@ class CreateNotificationsTable extends Migration
             $table->foreignId('type_id')->constrained('notification_types');
             $table->string('description','255');
             $table->softDeletes();
-            $table->timestamps();
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 
