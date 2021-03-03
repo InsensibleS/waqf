@@ -18,7 +18,7 @@ class CreateCustomerLettersTable extends Migration
             $table->string('name', '255');
             $table->string('email', '255');
             $table->text('description');
-            $table->dateTime('created_at');
+            $table->dateTime('created_at')->useCurrent();
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -31,6 +32,9 @@ class CustomerLetter extends Resource
      */
     public static $search = [
         'id',
+        'name',
+        'email',
+        'description'
     ];
 
     /**
@@ -50,6 +54,7 @@ class CustomerLetter extends Resource
 
             Textarea::make('Description', 'description'),
 
+            DateTime::make('Date', 'created_at')
         ];
     }
 

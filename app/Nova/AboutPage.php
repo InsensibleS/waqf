@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Waynestate\Nova\CKEditor;
 
 class AboutPage extends Resource
 {
@@ -47,8 +48,12 @@ class AboutPage extends Resource
             Text::make('Heading', 'heading')
                 ->rules('required','max:255'),
 
-            Textarea::make('Description', 'description')
-                ->rules('required')
+            CKeditor::make('Description', 'description')
+                ->creationRules('required')
+                ->options([
+                    'language' => 'en',
+                    'height' => 700,
+                ])
         ];
     }
 
