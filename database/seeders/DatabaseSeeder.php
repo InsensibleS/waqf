@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
             NotificationSeeder::class,
             ProjectVoteSeeder::class,
             TeamMemberSeeder::class,
+            CustomerLetterSeeder::class,
         ]);
     }
 }
