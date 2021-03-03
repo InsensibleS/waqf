@@ -61,4 +61,8 @@ class Project extends Model
     {
         return $this->hasMany(ProjectComment::class);
     }
+    public function projectVotes()
+    {
+        return $this->hasMany(ProjectVote::class);
+    }
 }
