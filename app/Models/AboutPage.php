@@ -10,4 +10,9 @@ class AboutPage extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $fillable = [
+        'heading',
+        'description'
+    ];
 }

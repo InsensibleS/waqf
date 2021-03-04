@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AboutPageController;
 use App\Http\Controllers\Api\CommentDislikeController;
 use App\Http\Controllers\Api\CommentLikeController;
 use App\Http\Controllers\Api\NewsLikeController;
@@ -33,6 +34,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 // data for the frontend on the main page
 Route::get('/getMainPage', [MainPageController::class, 'getDataMainPage']);
+// data for the frontend on the about page
+Route::get('/getAboutPage', [AboutPageController::class, 'getDataAboutPage']);
 // data for the frontend on the grant page
 Route::get('/getCurrentGrantWithProjects', [GrantController::class, 'getCurrentGrantWithProjects']);
 // sending an email with a link to end registration
