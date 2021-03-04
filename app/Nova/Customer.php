@@ -2,10 +2,15 @@
 
 namespace App\Nova;
 
+use App\Nova\Actions\ActivateCustomer;
+use App\Nova\Actions\ActivateProjectComment;
+use App\Nova\Actions\DisableCustomer;
+use App\Nova\Actions\DisableProjectComment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -79,6 +84,8 @@ class Customer extends Resource
             Text::make('Phone', 'phone')
                 ->sortable()
                 ->rules('max:255'),
+
+            Boolean::make('Active customer', 'is_active'),
         ];
     }
 
@@ -123,6 +130,20 @@ class Customer extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            (new ActivateCustomer)
+                ->showOnTableRow()
+                ->exceptOnIndex()
+                ->confirmText('Do you really want to Active the customer?')
+                ->confirmButtonText('Activate')
+                ->cancelButtonText("Don't Activate"),
+
+            (new DisableCustomer)
+                ->showOnTableRow()
+                ->exceptOnIndex()
+                ->confirmText('Do you really want to Disable the customer?')
+                ->confirmButtonText('Disable')
+                ->cancelButtonText("Don't Disable")
+        ];
     }
 }

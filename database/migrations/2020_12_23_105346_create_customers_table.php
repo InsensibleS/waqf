@@ -26,6 +26,7 @@ class CreateCustomersTable extends Migration
             $table->boolean('is_registered')->default(false);
             $table->string('registration_string', 32)->nullable();
             $table->string('api_token', 80)->unique()->nullable()->default(null);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();
         });

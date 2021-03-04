@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\NewsCommentController;
 use App\Http\Controllers\Api\ProjectCommentLikeController;
 use App\Http\Controllers\Api\ProjectCommentDislikeController;
 use App\Http\Controllers\Api\ProjectCommentController;
+use \App\Http\Controllers\Api\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +91,8 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('/deleteDislikeFromProjectComment', [ProjectCommentDislikeController::class, 'deleteDislikeFromComment']);
     //store comment to project
     Route::post('/addCommentToProject', [ProjectCommentController::class, 'addCommentToProject']);
+    // change customer password
+    Route::post('/changePassword', [CustomerController::class, 'changePassword']);
 });
 
 Route::get('/test', [MainPageController::class, 'test'])->middleware('auth:sanctum');

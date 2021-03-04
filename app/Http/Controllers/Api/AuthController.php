@@ -27,6 +27,9 @@ class AuthController extends Controller
             return response()->json(['error' => 'The user was not verified in FB!']);
         }
         $customer = $this->customerService->findOrCreateWithFb($request);
+        if(!$customer->is_active) {
+            return response()->json(['error' => 'Customer blocked.'], 401);
+        }
         $socialAccount = $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->userID, 'facebook');
         $customerData = new CustomerResource($customer);
 
@@ -44,6 +47,9 @@ class AuthController extends Controller
         }
 
         $customer = $this->customerService->findOrCreateWithGoogle($request);
+        if(!$customer->is_active) {
+            return response()->json(['error' => 'Customer blocked.'], 401);
+        }
         $socialAccount = $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->googleId, 'google');
         $customerData = new CustomerResource($customer);
 
