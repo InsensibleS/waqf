@@ -12,11 +12,11 @@ class AboutPageRepository
     /**
      * @return array
      */
-    public function getDataMainPage()
+    public function getDataAboutPage()
     {
         return [
-            'AboutPage' => AboutPage::first(),
-            'TeamMember' => TeamMember::all(),
+            'aboutPage' => AboutPage::first(),
+            'teamMember' => TeamMember::all(),
             'partnersData' => Partner::orderBy('order')->get(),
         ];
     }

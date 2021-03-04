@@ -18,6 +18,6 @@ class AboutPageController extends Controller
 
     public function getDataAboutPage()
     {
-        return new AboutPageResource($this->aboutPageRepository->getDataMainPage());
+        return new AboutPageResource($this->aboutPageRepository->getDataAboutPage());
     }
 }

@@ -14,8 +14,8 @@ class AboutPageResource extends JsonResource
 
     public function __construct($aboutPageData)
     {
-        $this->aboutPageData = $aboutPageData['AboutPage'];
-        $this->teamMembersData = $aboutPageData['TeamMember'];
+        $this->aboutPageData = $aboutPageData['aboutPage'];
+        $this->teamMembersData = $aboutPageData['teamMember'];
         $this->partnersData = $aboutPageData['partnersData'];
     }
 

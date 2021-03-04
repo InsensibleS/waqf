@@ -7,13 +7,6 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class TeamMemberResource extends JsonResource
 {
-    protected $teamData;
-
-    public function __construct($teamData)
-    {
-        $this->teamData = $teamData;
-    }
-
     /**
      * Transform the resource into an array.
      *
@@ -23,9 +16,9 @@ class TeamMemberResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'name' => $this->teamData->name,
-            'description' => $this->teamData->description,
-            'photo' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->teamData->photo
+            'name' => $this->name,
+            'description' => $this->description,
+            'photo' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->photo
         ];
     }
 }
