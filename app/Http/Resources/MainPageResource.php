@@ -9,12 +9,14 @@ class MainPageResource extends JsonResource
     protected $mainPageData;
     protected $newsData;
     protected $partnersData;
+    protected $projectData;
 
     public function __construct($mainPageData)
     {
         $this->mainPageData = $mainPageData['mainPageAttributes'];
         $this->newsData = $mainPageData['newsData'];
         $this->partnersData = $mainPageData['partnersData'];
+        $this->projectData = $mainPageData['projectsData'];
     }
 
     /**
@@ -34,6 +36,7 @@ class MainPageResource extends JsonResource
                 'seo_description' => $this->mainPageData->seo_description,
             ],
             'newsData' => NewsResource::collection($this->newsData),
+            'projectData' =>ProjectResource::collection($this->projectData),
             'partnersData' => PartnerResource::collection($this->partnersData),
             'footerData' => [
                 'email' => $this->mainPageData->footer_email,
