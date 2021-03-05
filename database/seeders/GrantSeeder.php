@@ -30,6 +30,7 @@ class GrantSeeder extends Seeder
                 'start_summarizing' => '2020-12-25',
                 'end_date' => '2020-12-30',
                 'publication_cost' => 1000,
+                'number_wins' => 1,
                 'number_finalists' => 5,
                 'number_semifinalists' => 50,
                 'grant_stage_id' => 7
@@ -49,6 +50,7 @@ class GrantSeeder extends Seeder
                 'start_summarizing' => '2021-03-10',
                 'end_date' => '2021-03-11',
                 'publication_cost' => 2000,
+                'number_wins' => 2,
                 'number_finalists' => 5,
                 'number_semifinalists' => 50,
                 'grant_stage_id' => 1
@@ -68,6 +70,7 @@ class GrantSeeder extends Seeder
                 'start_summarizing' => '2021-04-06',
                 'end_date' => '2021-04-07',
                 'publication_cost' => 3000,
+                'number_wins' => 1,
                 'number_finalists' => 5,
                 'number_semifinalists' => 50,
                 'grant_stage_id' => 1

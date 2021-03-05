@@ -32,6 +32,7 @@ class CreateGrantsTable extends Migration
             $table->foreignId('grant_stage_id')->constrained('grant_stages');
             $table->integer('number_finalists');
             $table->integer('number_semifinalists');
+            $table->integer('number_wins');
             $table->timestamps();
             $table->softDeletes();
         });
