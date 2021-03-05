@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Customer;
+use App\Models\SocialAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -73,9 +74,14 @@ class CustomerService
      */
     public function findOrCreateWithFb(Request $request)
     {
-        $customer = null;
+        $socialAccount = SocialAccount::where([
+            ['provider', 'facebook'],
+            ['customer_id_by_provider', $request->userID],
+        ])->first();
 
-        if ($request->email !== null) {
+        $customer = $socialAccount ? $socialAccount->customer : null;
+
+        if ($request->email !== null && $customer === null) {
             $customer = $this->customer->where('email', $request->email)->first();
         }
 
@@ -103,9 +109,14 @@ class CustomerService
      */
     public function findOrCreateWithGoogle(Request $request)
     {
-        $customer = null;
+        $socialAccount = SocialAccount::where([
+            ['provider', 'google'],
+            ['customer_id_by_provider', $request->googleId],
+        ])->first();
 
-        if ($request['profileObj']['email'] !== null) {
+        $customer = $socialAccount ? $socialAccount->customer : null;
+
+        if ($request['profileObj']['email'] !== null && $customer === null) {
             $customer = $this->customer->where('email', $request['profileObj']['email'])->first();
         }
 

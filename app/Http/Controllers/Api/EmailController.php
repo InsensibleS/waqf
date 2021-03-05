@@ -8,7 +8,6 @@ use App\Http\Resources\CustomerResource;
 use App\Mail\AddressingTheTeam;
 use App\Services\CustomerLetterService;
 use App\Services\EmailService;
-use Illuminate\Http\Request;
 use App\Http\Requests\SendLinkToRegistrationRequest;
 use App\Http\Requests\ValidateLinkRequest;
 use App\Services\CustomerService;
@@ -74,13 +73,9 @@ class EmailController extends Controller
     }
     public function sendingAnEmailMessage(EmailSandingFromTheAboutPageRequest $request)
     {
-         $name = $request->name;
-         $description = $request->description;
-         $email = $request->email;
-
         Mail::to(config('mail.from.address'))->send(new AddressingTheTeam($request));
         $this->customerLetterService->saveCustommerLetter($request);
 
-        return response()->json('Message sent successfully!');
+        return response()->json(['message' => 'Message sent successfully!']);
     }
 }

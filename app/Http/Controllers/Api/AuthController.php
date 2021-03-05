@@ -30,13 +30,14 @@ class AuthController extends Controller
         if(!$customer->is_active) {
             return response()->json(['error' => 'Customer blocked.'], 401);
         }
-        $socialAccount = $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->userID, 'facebook');
+        $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->userID, 'facebook');
         $customerData = new CustomerResource($customer);
 
         return response()->json([
             'message' => 'Success!',
             'token' => $customer->createToken('token for ' . $customer->id)->plainTextToken,
-            'customer' => $customerData
+            'customer' => $customerData,
+            'login_with' => 'facebook'
         ]);
     }
 
@@ -50,13 +51,14 @@ class AuthController extends Controller
         if(!$customer->is_active) {
             return response()->json(['error' => 'Customer blocked.'], 401);
         }
-        $socialAccount = $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->googleId, 'google');
+        $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->googleId, 'google');
         $customerData = new CustomerResource($customer);
 
         return response()->json([
             'message' => 'Success!',
             'token' => $customer->createToken('token for ' . $customer->id)->plainTextToken,
-            'customer' => $customerData
+            'customer' => $customerData,
+            'login_with' => 'google'
         ]);
     }
 

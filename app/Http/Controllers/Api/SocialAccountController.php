@@ -66,5 +66,34 @@ class SocialAccountController extends Controller
                 },
             ]
         ])->validate();
+
+        if(!$this->socialService->checkGoogleAccount($request)) {
+            return response()->json(['error' => 'The user was not verified in Google!']);
+        }
+        $this->socialService->createOrUpdateSocialAccount($request, Auth::user(), $request->googleId, 'google');
+
+        return response()->json(['message' => 'Google account successfully attached.']);
+    }
+
+    public function detachFb()
+    {
+        $socialAccount = Auth::user()->profileFb;
+        if(!$socialAccount) {
+            return response()->json(['error' => 'FB account not found.']);
+        }
+        $socialAccount->delete();
+
+        return response()->json(['message' => 'FB account successfully detached.']);
+    }
+
+    public function detachGoogle()
+    {
+        $socialAccount = Auth::user()->profileGoogle;
+        if(!$socialAccount) {
+            return response()->json(['error' => 'Google account not found.']);
+        }
+        $socialAccount->delete();
+
+        return response()->json(['message' => 'Google account successfully detached.']);
     }
 }

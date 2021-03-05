@@ -49,7 +49,7 @@ Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 // login with google
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 //sending message from the About Page
-Route::post('/messageFromTheAboutPage', [EmailController::class, 'sendingAnEmailMessage']);
+Route::post('/sendLetterFromAbout', [EmailController::class, 'sendingAnEmailMessage']);
 // Get countries
 Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
 // Get news
@@ -103,6 +103,10 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('/attachFb', [SocialAccountController::class, 'attachFb']);
     // attach profile google
     Route::post('/attachGoogle', [SocialAccountController::class, 'attachGoogle']);
+    // detach profile fb
+    Route::get('/detachFb', [SocialAccountController::class, 'detachFb']);
+    // detach profile google
+    Route::get('/detachGoogle', [SocialAccountController::class, 'detachGoogle']);
 });
 
 Route::get('/test', [MainPageController::class, 'test'])->middleware('auth:sanctum');
