@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class TeamMember extends Resource
@@ -46,12 +47,14 @@ class TeamMember extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 
             Text::make('Name', 'name')
-                ->rules('required'),
+                ->rules('required', 'max:255'),
 
             Image::make('Photo', 'photo')
                 ->path('images/team')
                 ->sortable()
                 ->rules('required','max:5000', 'dimensions:max_width=1000, max_height=1000'),
+
+            Textarea::make('Description', 'description')
         ];
     }
 

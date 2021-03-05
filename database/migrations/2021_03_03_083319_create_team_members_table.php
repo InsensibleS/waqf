@@ -17,6 +17,7 @@ class CreateTeamMembersTable extends Migration
             $table->id();
             $table->string('name', '255');
             $table->string('photo', '255');
+            $table->text('description');
             $table->softDeletes();
             $table->timestamps();
         });
