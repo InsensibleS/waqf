@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EmailSandingFromTheAboutPageRequest;
 use App\Http\Resources\CustomerResource;
+use App\Mail\AddressingTheTeam;
+use App\Services\CustomerLetterService;
 use App\Services\EmailService;
 use Illuminate\Http\Request;
 use App\Http\Requests\SendLinkToRegistrationRequest;
@@ -17,11 +20,13 @@ class EmailController extends Controller
 {
     protected $customerService;
     protected $emailService;
+    protected $customerLatterService;
 
-    public function __construct(CustomerService $customerService, EmailService $emailService)
+    public function __construct(CustomerService $customerService, EmailService $emailService, CustomerLetterService $customerLatterService)
     {
         $this->customerService = $customerService;
         $this->emailService = $emailService;
+        $this->customerLatterService = $customerLatterService;
     }
 
     /**
@@ -66,5 +71,16 @@ class EmailController extends Controller
             'token' => $customerToken,
             'customer' => $customerData
         ]);
+    }
+    public function sendingAnEmailMessage(EmailSandingFromTheAboutPageRequest $request)
+    {
+         $name = $request->name;
+         $description = $request->description;
+         $email = $request->email;
+
+        Mail::to(config('mail.from.address'))->send(new AddressingTheTeam($name, $description, $email));
+        $this->customerLatterService->saveCustommerLatter($request);
+
+        return response()->json('Message sent successfully!');
     }
 }
