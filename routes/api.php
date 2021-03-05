@@ -48,6 +48,8 @@ Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'v
 Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 // login with google
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
+//sending message from the About Page
+Route::post('/messageFromTheAboutPage', [AuthController::class, 'loginWithGoogle']);
 // Get countries
 Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
 // Get news
