@@ -3,9 +3,9 @@
 <head>
 </head>
 <body>
-<h1>New message from the customer from the about us page!</h1>
-    <h2>Message from {{$name}}</h2>
-        <h5>{{$description}}</h5>
-            <h3>Mailbox:{{$email}}</h3>
+<h3>New message from the customer from the about us page!</h3>
+    <b>Message from:</b>  {{$name}}
+        <p>{{$description}}</p>
+            <b>Mailbox:</b> {{$email}}
 </body>
 </html>

@@ -20,13 +20,13 @@ class EmailController extends Controller
 {
     protected $customerService;
     protected $emailService;
-    protected $customerLatterService;
+    protected $customerLetterService;
 
-    public function __construct(CustomerService $customerService, EmailService $emailService, CustomerLetterService $customerLatterService)
+    public function __construct(CustomerService $customerService, EmailService $emailService, CustomerLetterService $customerLetterService)
     {
         $this->customerService = $customerService;
         $this->emailService = $emailService;
-        $this->customerLatterService = $customerLatterService;
+        $this->customerLetterService = $customerLetterService;
     }
 
     /**
@@ -78,8 +78,8 @@ class EmailController extends Controller
          $description = $request->description;
          $email = $request->email;
 
-        Mail::to(config('mail.from.address'))->send(new AddressingTheTeam($name, $description, $email));
-        $this->customerLatterService->saveCustommerLatter($request);
+        Mail::to(config('mail.from.address'))->send(new AddressingTheTeam($request));
+        $this->customerLetterService->saveCustommerLetter($request);
 
         return response()->json('Message sent successfully!');
     }

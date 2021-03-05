@@ -14,7 +14,7 @@ class CustomerLetterService
      * @return CustomerLetter
      *
      */
-    public function saveCustommerLatter(Request $request)
+    public function saveCustommerLetter(Request $request)
     {
         return CustomerLetter::create($request->all());
     }

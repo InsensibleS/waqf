@@ -20,11 +20,11 @@ class AddressingTheTeam extends Mailable
      *
      * @return void
      */
-    public function __construct($name, $description, $email)
+    public function __construct($request)
     {
-        $this->name = $name;
-        $this->description = $description;
-        $this->email= $email;
+        $this->name = $request->name;
+        $this->description = $request->description;
+        $this->email = $request->email;
     }
 
     /**

@@ -35,14 +35,4 @@ class EmailSandingFromTheAboutPageRequest extends FormRequest
             ]
         ];
     }
-
-    public function messages()
-    {
-        return [
-            'email.required' => 'Email field is required',
-            'email.email' => 'The email field must be a valid email',
-            'name.required' => 'Name field is required',
-            'description.required' => 'Description field is required',
-        ];
-    }
 }
