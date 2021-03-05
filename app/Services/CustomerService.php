@@ -86,7 +86,8 @@ class CustomerService
                 'email' => $request->email,
                 'status_id' => 1,
                 'avatar' => $this->createCustomerAvatar($imageUrl),
-                'is_registered' => true
+                'is_registered' => true,
+                'is_active' => 1
             ];
             $customer = $this->customer->create($customerData);
         }
@@ -115,7 +116,8 @@ class CustomerService
                 'email' => $request['profileObj']['email'],
                 'status_id' => 1,
                 'avatar' => $this->createCustomerAvatar($imageUrl),
-                'is_registered' => true
+                'is_registered' => true,
+                'is_active' => 1
             ];
             $customer = $this->customer->create($customerData);
         }

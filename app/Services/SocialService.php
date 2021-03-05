@@ -4,7 +4,9 @@ namespace App\Services;
 
 use App\Models\SocialAccount;
 use App\Models\Customer;
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Throwable;
 
@@ -90,11 +92,11 @@ class SocialService
     /**
      *
      * @param Request $request
-     * @param Customer $customer
+     * @param $customer
      * @param SocialAccount $socialAccount
      * @return SocialAccount
      */
-    public function createOrUpdateSocialAccount(Request $request, Customer $customer, $userId, $provider): SocialAccount
+    public function createOrUpdateSocialAccount(Request $request, $customer, $userId, $provider): SocialAccount
     {
         $socialAccount = $this->checkClientExists($provider, $userId);
         if ($socialAccount === null) {

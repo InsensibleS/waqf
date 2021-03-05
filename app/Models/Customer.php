@@ -50,4 +50,8 @@ class Customer extends Authenticatable
     public function projectVotes(){
         return $this->hasMany(ProjectVote::class);
     }
+
+    public function profileFb(){
+        return $this->hasOne(SocialAccount::class)->where('provider', 'facebook');
+    }
 }

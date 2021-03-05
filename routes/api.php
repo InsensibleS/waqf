@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\ProjectCommentLikeController;
 use App\Http\Controllers\Api\ProjectCommentDislikeController;
 use App\Http\Controllers\Api\ProjectCommentController;
 use \App\Http\Controllers\Api\CustomerController;
+use \App\Http\Controllers\Api\SocialAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +97,10 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('/addCommentToProject', [ProjectCommentController::class, 'addCommentToProject']);
     // change customer password
     Route::post('/changePassword', [CustomerController::class, 'changePassword']);
+    // attach profile fb
+    Route::post('/attachFb', [SocialAccountController::class, 'attachFb']);
+    // attach profile google
+    Route::post('/attachGoogle', [SocialAccountController::class, 'attachGoogle']);
 });
 
 Route::get('/test', [MainPageController::class, 'test'])->middleware('auth:sanctum');
