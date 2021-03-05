@@ -12,4 +12,10 @@ class CustomerLetter extends Model
     const UPDATED_AT = null;
 
     protected $dates = ['created_at'];
+
+    protected $fillable =[
+      'name',
+      'email',
+      'description'
+    ];
 }

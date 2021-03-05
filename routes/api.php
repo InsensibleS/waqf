@@ -49,7 +49,7 @@ Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 // login with google
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 //sending message from the About Page
-Route::post('/messageFromTheAboutPage', [AuthController::class, 'loginWithGoogle']);
+Route::post('/messageFromTheAboutPage', [EmailController::class, 'sendingAnEmailMessage']);
 // Get countries
 Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
 // Get news
