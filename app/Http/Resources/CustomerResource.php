@@ -21,7 +21,11 @@ class CustomerResource extends JsonResource
             'is_password' => $this->password !== null,
             'status' => $this->status->title,
             'status_image' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->status->image,
-            'number_of_projects' => $this->projects->count()
+            'number_of_projects' => $this->projects->count(),
+            'social_networks' => [
+                'facebook' => $this->profileFb ? true : false,
+                'google' => $this->profileGoogle ? true : false,
+            ]
         ];
     }
 }
