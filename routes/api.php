@@ -99,6 +99,8 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('/addCommentToProject', [ProjectCommentController::class, 'addCommentToProject']);
     // change customer password
     Route::post('/changePassword', [CustomerController::class, 'changePassword']);
+    // change customer data
+    Route::post('/changeProfileData', [CustomerController::class, 'changeProfileData']);
     // attach profile fb
     Route::post('/attachFb', [SocialAccountController::class, 'attachFb']);
     // attach profile google

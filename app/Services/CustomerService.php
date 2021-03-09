@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Customer;
 use App\Models\SocialAccount;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -167,5 +168,19 @@ class CustomerService
         }
 
         return null;
+    }
+
+    /**
+     *
+     * @param Request $request
+     * @return void
+     *
+     */
+    public function changeProfileData(Request $request)
+    {
+        $customer = Auth::user();
+        $customer->name = $request->name ?? $customer->name;
+        $customer->phone = $request->phone ?? $customer->phone;
+        $customer->save();
     }
 }
