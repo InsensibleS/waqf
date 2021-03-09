@@ -104,9 +104,9 @@ Route::middleware('auth:sanctum')->group( function () {
     // attach profile google
     Route::post('/attachGoogle', [SocialAccountController::class, 'attachGoogle']);
     // detach profile fb
-    Route::get('/detachFb', [SocialAccountController::class, 'detachFb']);
+    Route::post('/detachFb', [SocialAccountController::class, 'detachFb']);
     // detach profile google
-    Route::get('/detachGoogle', [SocialAccountController::class, 'detachGoogle']);
+    Route::post('/detachGoogle', [SocialAccountController::class, 'detachGoogle']);
 });
 
 Route::get('/test', [MainPageController::class, 'test'])->middleware('auth:sanctum');

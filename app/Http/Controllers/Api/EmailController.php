@@ -71,6 +71,7 @@ class EmailController extends Controller
             'customer' => $customerData
         ]);
     }
+
     public function sendingAnEmailMessage(EmailSandingFromTheAboutPageRequest $request)
     {
         Mail::to(config('mail.from.address'))->send(new AddressingTheTeam($request));
