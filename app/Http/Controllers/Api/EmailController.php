@@ -12,6 +12,7 @@ use App\Http\Requests\SendLinkToRegistrationRequest;
 use App\Http\Requests\ValidateLinkRequest;
 use App\Services\CustomerService;
 use \App\Mail\LinkShipped;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Throwable;
 
@@ -39,6 +40,29 @@ class EmailController extends Controller
         try {
             $customer = $this->customerService->checkClientExists($request);
             $customer = $customer === null ? $this->customerService->store($request) : $customer;
+            $link = $this->emailService->createLink($customer);
+            Mail::to($customer->email)->send(new LinkShipped($customer, $link));
+            $response = $link;
+            $message = 'email sent successfully';
+        } catch (Throwable $exception) {
+            $response = null;
+            $message = 'there was an error sending the letter';
+            report($exception);
+        }
+
+        return response()->json(['message' => $message, 'response' => $response]);
+    }
+
+    /**
+     *
+     * @param  SendLinkToRegistrationRequest  $request
+     * @return string
+     *
+     */
+    public function sendLinkToChangeEmail(SendLinkToRegistrationRequest $request)
+    {
+        try {
+            $customer = Auth::user();
             $link = $this->emailService->createLink($customer);
             Mail::to($customer->email)->send(new LinkShipped($customer, $link));
             $response = $link;
