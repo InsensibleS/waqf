@@ -44,6 +44,10 @@ class NotificationTypeSeeder extends Seeder
                 'title' => 'The project from your favorites has passed to the next stage of rhe grant',
                 'image' => 'images/notification-types/Star.jpg',
             ],
+            [
+                'title' => 'The status of your project has been updated',
+                'image' => 'images/notification-types/Vectornews.jpg' ,
+            ],
         ]);
     }
 }

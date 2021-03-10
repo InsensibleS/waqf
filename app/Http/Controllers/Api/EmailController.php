@@ -74,13 +74,8 @@ class EmailController extends Controller
     }
     public function sendingAnEmailMessage(EmailSandingFromTheAboutPageRequest $request)
     {
-         $name = $request->name;
-         $description = $request->description;
-         $email = $request->email;
-
         Mail::to(config('mail.from.address'))->send(new AddressingTheTeam($request));
         $this->customerLetterService->saveCustommerLetter($request);
-
         return response()->json('Message sent successfully!');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Nova\Actions;
 
+use App\Http\Controllers\Jobs\SaveProjectNotificationController;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -15,6 +16,18 @@ class Rejected extends Action
 
     public $name = 'Reject';
 
+    protected $saveProjectNotificationController;
+    /**
+     * Create a new command instance.
+     *
+     * @param SaveProjectNotificationController $saveProjectNotificationController
+     */
+
+    public function __construct(SaveProjectNotificationController $saveProjectNotificationController)
+    {
+        $this->saveProjectNotificationController = $saveProjectNotificationController;
+    }
+
     /**
      * Perform the action on the given models.
      *
@@ -25,11 +38,12 @@ class Rejected extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
-            if($model->status_id !== 2) {
+            if ($model->status_id !== 2) {
                 return Action::danger('You can only change the status of the project under moderation!');
             } else {
                 $model->status_id = 3;
                 $model->update();
+                $this->saveProjectNotificationController->SavingRejectedProjectNotification($model);
                 return Action::message('Project status changed "Reject"');
             }
         }

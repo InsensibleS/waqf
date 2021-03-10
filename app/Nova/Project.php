@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Http\Controllers\Jobs\SaveProjectNotificationController;
 use App\Nova\Actions\Published;
 use App\Nova\Actions\Rejected;
 use Illuminate\Http\Request;
@@ -194,7 +195,7 @@ class Project extends Resource
     public function actions(Request $request)
     {
         return [
-            (new Published)
+            (new Published(new SaveProjectNotificationController()))
                 ->showOnTableRow()
                 ->exceptOnIndex()
                 ->confirmText('Do you really want to publish the project?')
@@ -204,7 +205,7 @@ class Project extends Resource
                     return true;
                 }),
 
-            (new Rejected)
+            (new Rejected(new SaveProjectNotificationController()))
                 ->showOnTableRow()
                 ->exceptOnIndex()
                 ->confirmText('Do you really want to reject the project?')

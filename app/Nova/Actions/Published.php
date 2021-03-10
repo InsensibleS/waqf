@@ -8,6 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
+use App\Http\Controllers\Jobs\SaveProjectNotificationController;
 
 
 class Published extends Action
@@ -16,6 +17,17 @@ class Published extends Action
 
     public $name = 'Publish';
 
+    protected $saveProjectNotificationController;
+    /**
+     * Create a new command instance.
+     *
+     * @param SaveProjectNotificationController $saveProjectNotificationController
+     */
+
+    public function __construct(SaveProjectNotificationController $saveProjectNotificationController)
+    {
+        $this->saveProjectNotificationController = $saveProjectNotificationController;
+    }
     /**
      * Perform the action on the given models.
      *
@@ -31,6 +43,8 @@ class Published extends Action
             } else {
                 $model->status_id = 1;
                 $model->update();
+                $model->project_id;
+                $this->saveProjectNotificationController->SavingPublishedProjectNotification($model);
                 return Action::message('Project status changed "Publish"');
             }
         }
