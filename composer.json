@@ -23,6 +23,7 @@
         "khalin/nova-link-field": "^1.2",
         "laravel/framework": "^8.12",
         "laravel/nova": "*",
+        "laravel/sanctum": "^2.9",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
         "laravelrotebal/nova-attach-many": "^2.0",

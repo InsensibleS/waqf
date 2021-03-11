@@ -3,7 +3,9 @@
 namespace App\Services;
 
 use App\Models\Customer;
+use App\Models\SocialAccount;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -73,9 +75,14 @@ class CustomerService
      */
     public function findOrCreateWithFb(Request $request)
     {
-        $customer = null;
+        $socialAccount = SocialAccount::where([
+            ['provider', 'facebook'],
+            ['customer_id_by_provider', $request->userID],
+        ])->first();
 
-        if ($request->email !== null) {
+        $customer = $socialAccount ? $socialAccount->customer : null;
+
+        if ($request->email !== null && $customer === null) {
             $customer = $this->customer->where('email', $request->email)->first();
         }
 
@@ -86,7 +93,8 @@ class CustomerService
                 'email' => $request->email,
                 'status_id' => 1,
                 'avatar' => $this->createCustomerAvatar($imageUrl),
-                'is_registered' => true
+                'is_registered' => true,
+                'is_active' => 1
             ];
             $customer = $this->customer->create($customerData);
         }
@@ -102,9 +110,14 @@ class CustomerService
      */
     public function findOrCreateWithGoogle(Request $request)
     {
-        $customer = null;
+        $socialAccount = SocialAccount::where([
+            ['provider', 'google'],
+            ['customer_id_by_provider', $request->googleId],
+        ])->first();
 
-        if ($request['profileObj']['email'] !== null) {
+        $customer = $socialAccount ? $socialAccount->customer : null;
+
+        if ($request['profileObj']['email'] !== null && $customer === null) {
             $customer = $this->customer->where('email', $request['profileObj']['email'])->first();
         }
 
@@ -115,7 +128,8 @@ class CustomerService
                 'email' => $request['profileObj']['email'],
                 'status_id' => 1,
                 'avatar' => $this->createCustomerAvatar($imageUrl),
-                'is_registered' => true
+                'is_registered' => true,
+                'is_active' => 1
             ];
             $customer = $this->customer->create($customerData);
         }
@@ -154,5 +168,31 @@ class CustomerService
         }
 
         return null;
+    }
+
+    /**
+     *
+     * @param Request $request
+     * @return void
+     *
+     */
+    public function changeProfileData(Request $request)
+    {
+        $customer = Auth::user();
+        $customer->name = $request->name ?? $customer->name;
+        $customer->phone = $request->phone ?? $customer->phone;
+        $customer->save();
+    }
+
+    /**
+     *
+     * @param Customer $customer
+     * @param Request $request
+     * @return void
+     */
+    public function changeEmail(Customer $customer, Request$request)
+    {
+        $customer->email = $request->new_email;
+        $customer->save();
     }
 }

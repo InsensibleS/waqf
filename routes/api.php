@@ -17,6 +17,8 @@ use App\Http\Controllers\Api\NewsCommentController;
 use App\Http\Controllers\Api\ProjectCommentLikeController;
 use App\Http\Controllers\Api\ProjectCommentDislikeController;
 use App\Http\Controllers\Api\ProjectCommentController;
+use \App\Http\Controllers\Api\CustomerController;
+use \App\Http\Controllers\Api\SocialAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,12 +44,14 @@ Route::get('/getCurrentGrantWithProjects', [GrantController::class, 'getCurrentG
 Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLinkToCompleteRegistration']);
 // link validation to complete registration
 Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
+// link validation to complete registration
+Route::post('/validationLinkToCompleteEmailChange', [EmailController::class, 'validationLinkToCompleteEmailChange']);
 // login with fb
 Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 // login with google
 Route::post('/login/google', [AuthController::class, 'loginWithGoogle']);
 //sending message from the About Page
-Route::post('/messageFromTheAboutPage', [EmailController::class, 'sendingAnEmailMessage']);
+Route::post('/sendLetterFromAbout', [EmailController::class, 'sendingAnEmailMessage']);
 // Get countries
 Route::get('/getCountries', [CountryController::class, 'getDataCountries']);
 // Get news
@@ -63,7 +67,7 @@ Route::get('/getProject/{link}', [ProjectController::class, 'getProject']);
 /**
  *  Routes for authorized users
  */
-Route::middleware('auth:api')->group( function () {
+Route::middleware('auth:sanctum')->group( function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     // receiving projects of the current user, broken down by grants
     Route::get('/getProjectsForProfile', [ProjectController::class, 'getProjectsForProfile']);
@@ -95,4 +99,22 @@ Route::middleware('auth:api')->group( function () {
     Route::post('/deleteDislikeFromProjectComment', [ProjectCommentDislikeController::class, 'deleteDislikeFromComment']);
     //store comment to project
     Route::post('/addCommentToProject', [ProjectCommentController::class, 'addCommentToProject']);
+    // change customer password
+    Route::post('/changePassword', [CustomerController::class, 'changePassword']);
+    // change customer data
+    Route::post('/changeProfileData', [CustomerController::class, 'changeProfileData']);
+    // change customer email
+    Route::post('/sendLinkToChangeEmail', [EmailController::class, 'sendLinkToChangeEmail']);
+    // attach profile fb
+    Route::post('/attachFb', [SocialAccountController::class, 'attachFb']);
+    // attach profile google
+    Route::post('/attachGoogle', [SocialAccountController::class, 'attachGoogle']);
+    // detach profile fb
+    Route::post('/detachFb', [SocialAccountController::class, 'detachFb']);
+    // detach profile google
+    Route::post('/detachGoogle', [SocialAccountController::class, 'detachGoogle']);
 });
+
+Route::get('/test', [MainPageController::class, 'test'])->middleware('auth:sanctum');
+
+

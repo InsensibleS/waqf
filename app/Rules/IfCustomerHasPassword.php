@@ -3,9 +3,10 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
-use App\Models\Customer;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
-class LinkExpired implements Rule
+class IfCustomerHasPassword implements Rule
 {
     /**
      * Create a new rule instance.
@@ -26,12 +27,10 @@ class LinkExpired implements Rule
      */
     public function passes($attribute, $value)
     {
-        $customer = Customer::where('registration_string', $value)->first();
-        if($customer && (strtotime($customer->sending_email_with_link) + 48*3600) >= time()) {
-            return true;
+        if(Auth::user()->password) {
+            return Hash::check($value, Auth::user()->password);
         }
-
-        return false;
+        return true;
     }
 
     /**
@@ -41,6 +40,6 @@ class LinkExpired implements Rule
      */
     public function message()
     {
-        return 'link expired.';
+        return 'Old customer password does not match.';
     }
 }

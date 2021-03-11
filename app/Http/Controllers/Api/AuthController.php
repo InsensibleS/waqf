@@ -27,13 +27,17 @@ class AuthController extends Controller
             return response()->json(['error' => 'The user was not verified in FB!']);
         }
         $customer = $this->customerService->findOrCreateWithFb($request);
-        $socialAccount = $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->userID, 'facebook');
+        if(!$customer->is_active) {
+            return response()->json(['error' => 'Customer blocked.'], 401);
+        }
+        $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->userID, 'facebook');
         $customerData = new CustomerResource($customer);
 
         return response()->json([
             'message' => 'Success!',
-            'token' => $this->customerService->createToken($socialAccount->customer),
-            'customer' => $customerData
+            'token' => $customer->createToken('token for ' . $customer->id)->plainTextToken,
+            'customer' => $customerData,
+            'login_with' => 'facebook'
         ]);
     }
 
@@ -44,19 +48,23 @@ class AuthController extends Controller
         }
 
         $customer = $this->customerService->findOrCreateWithGoogle($request);
-        $socialAccount = $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->googleId, 'google');
+        if(!$customer->is_active) {
+            return response()->json(['error' => 'Customer blocked.'], 401);
+        }
+        $this->socialService->createOrUpdateSocialAccount($request, $customer, $request->googleId, 'google');
         $customerData = new CustomerResource($customer);
 
         return response()->json([
             'message' => 'Success!',
-            'token' => $this->customerService->createToken($socialAccount->customer),
-            'customer' => $customerData
+            'token' => $customer->createToken('token for ' . $customer->id)->plainTextToken,
+            'customer' => $customerData,
+            'login_with' => 'google'
         ]);
     }
 
     public function logout (Request $request)
     {
-        $request->user()->update(['api_token' => null]);
+        $request->user()->currentAccessToken()->delete();
 
         return response(['message' => 'Success!']);
     }

@@ -93,6 +93,14 @@ class Grant extends Resource
                     new ComparisonOfNumbers($request->number_finalists, $request->number_semifinalists)
                 ),
 
+            Number::make('Number of wins', 'number_wins')
+                ->sortable()
+                ->rules(
+                    'required',
+                    'gte:1',
+                    new ComparisonOfNumbers($request->number_wins, $request->number_finalists)
+                ),
+
             Heading::make('Project selection'),
 
             Date::make('Start of grant', 'start_date')

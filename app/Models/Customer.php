@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class Customer extends Authenticatable
 {
-    use Notifiable, HasFactory,  SoftDeletes;
+    use Notifiable, HasFactory,  SoftDeletes, HasApiTokens;
 
     protected $dates = ['deleted_at'];
 
@@ -30,23 +30,38 @@ class Customer extends Authenticatable
     {
         return $this->belongsTo(CustomerStatus::class, 'status_id');
     }
-    public function projects(){
+    public function projects()
+    {
         return $this->hasMany(Project::class);
     }
 
-    public function newsLikes(){
+    public function newsLikes()
+    {
         return $this->hasMany(NewsLike::class);
     }
 
-    public function newsComments(){
+    public function newsComments()
+    {
         return $this->hasMany(NewsComment::class);
     }
 
-    public function notifications(){
+    public function notifications()
+    {
         return $this->hasMany(Notification::class);
     }
 
-    public function projectVotes(){
+    public function projectVotes()
+    {
         return $this->hasMany(ProjectVote::class);
+    }
+
+    public function profileFb()
+    {
+        return $this->hasOne(SocialAccount::class)->where('provider', 'facebook');
+    }
+
+    public function profileGoogle()
+    {
+        return $this->hasOne(SocialAccount::class)->where('provider', 'google');
     }
 }
