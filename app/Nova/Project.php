@@ -195,7 +195,7 @@ class Project extends Resource
     public function actions(Request $request)
     {
         return [
-            (new Published())
+            (new Published(new ProjectNotificationService))
                 ->showOnTableRow()
                 ->exceptOnIndex()
                 ->confirmText('Do you really want to publish the project?')
@@ -205,7 +205,7 @@ class Project extends Resource
                     return true;
                 }),
 
-            (new Rejected())
+            (new Rejected(new ProjectNotificationService))
                 ->showOnTableRow()
                 ->exceptOnIndex()
                 ->confirmText('Do you really want to reject the project?')

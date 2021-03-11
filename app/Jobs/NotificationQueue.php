@@ -9,29 +9,28 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class NotificationActionOnTheProject implements ShouldQueue
+class NotificationQueue implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-
-    protected $model;
-    protected $actionOnTheProject;
+    protected $description;
     protected $projectNotificationService;
+    protected $customer;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($model, $actionOnTheProject, $projectNotificationService )
+    public function __construct($description, $projectNotificationService, $customer)
     {
-        $this->model = $model;
-        $this->actionOnTheProject = $actionOnTheProject;
         $this->projectNotificationService = $projectNotificationService;
+        $this->customer = $customer;
+        $this->description = $description;
     }
 
     public function handle()
     {
-     $this->projectNotificationService->CreateProjectNotification($this->model, $this->actionOnTheProject);
+         $this->projectNotificationService->store($this->description, $this->customer);
     }
 }

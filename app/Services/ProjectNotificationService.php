@@ -4,7 +4,7 @@
 namespace App\Services;
 
 use App\Http\Controllers\Controller;
-use App\Jobs\NotificationActionOnTheProject;
+use App\Jobs\NotificationQueue;
 use App\Models\Notification;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 
@@ -20,19 +20,14 @@ class ProjectNotificationService
      */
     const TYPE = 8;
 
-    protected $customer;
-    protected $description;
-    protected $type;
-
-
-    public function CreateProjectNotification($model, $actionOnTheProject)
+    public function CreateProjectNotification($actionOnTheProject, $model, $projectNotificationService)
     {
         $customer= $model->customer_id;
         $description = 'The status of your project has been changed to "' . $actionOnTheProject . '"';
-        self::store($customer, $description);
+        $this->dispatch(new NotificationQueue($description, $projectNotificationService, $customer));
     }
 
-    public function store($customer, $description)
+    public function store($description, $customer)
     {
         Notification::create([
             'customer_id' => $customer,
