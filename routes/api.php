@@ -44,6 +44,8 @@ Route::get('/getCurrentGrantWithProjects', [GrantController::class, 'getCurrentG
 Route::post('/sendLinkToCompleteRegistration', [EmailController::class, 'sendLinkToCompleteRegistration']);
 // link validation to complete registration
 Route::post('/validationLinkToCompleteRegistration', [EmailController::class, 'validationLinkToCompleteRegistration']);
+// link validation to complete registration
+Route::post('/validationLinkToCompleteEmailChange', [EmailController::class, 'validationLinkToCompleteEmailChange']);
 // login with fb
 Route::post('/login/fb', [AuthController::class, 'loginWithFb']);
 // login with google
@@ -101,6 +103,8 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('/changePassword', [CustomerController::class, 'changePassword']);
     // change customer data
     Route::post('/changeProfileData', [CustomerController::class, 'changeProfileData']);
+    // change customer email
+    Route::post('/sendLinkToChangeEmail', [EmailController::class, 'sendLinkToChangeEmail']);
     // attach profile fb
     Route::post('/attachFb', [SocialAccountController::class, 'attachFb']);
     // attach profile google

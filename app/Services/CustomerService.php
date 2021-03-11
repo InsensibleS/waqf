@@ -183,4 +183,16 @@ class CustomerService
         $customer->phone = $request->phone ?? $customer->phone;
         $customer->save();
     }
+
+    /**
+     *
+     * @param Customer $customer
+     * @param Request $request
+     * @return void
+     */
+    public function changeEmail(Customer $customer, Request$request)
+    {
+        $customer->email = $request->new_email;
+        $customer->save();
+    }
 }

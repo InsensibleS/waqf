@@ -102,7 +102,7 @@ font-family: 'Red Hat Display';
                                         margin-bottom: 35px;
                                         margin-top: 0;
                                         font-weight: bold;">
-                            Account Created</h1>
+                            @yield('heading')</h1>
                     </td>
                 </tr>
             </table>

@@ -27,7 +27,7 @@ class LinkExpired implements Rule
     public function passes($attribute, $value)
     {
         $customer = Customer::where('registration_string', $value)->first();
-        if((strtotime($customer->sending_email_with_link) + 48*3600) >= time()) {
+        if($customer && (strtotime($customer->sending_email_with_link) + 48*3600) >= time()) {
             return true;
         }
 

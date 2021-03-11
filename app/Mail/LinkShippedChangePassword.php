@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class LinkShipped extends Mailable
+class LinkShippedChangePassword extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,7 +31,7 @@ class LinkShipped extends Mailable
     public function build()
     {
         return $this->from(config('mail.from.address'), 'Digital WAQF')
-            ->subject('Confirm your email address')
-            ->view('emails.send_link');
+            ->subject('Confirm change of your email address')
+            ->view('emails.send_link_change_email');
     }
 }

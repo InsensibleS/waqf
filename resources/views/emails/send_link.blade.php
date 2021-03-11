@@ -27,6 +27,8 @@
     </table>
 @endsection
 
+@section('heading', 'Account Created')
+
 @section('text-before-link')
     Your account has been successfully created<br>
     Just follow this link below to confirm your email address and you can return
