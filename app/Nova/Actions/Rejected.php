@@ -2,9 +2,11 @@
 
 namespace App\Nova\Actions;
 
-use App\Http\Controllers\Jobs\SaveProjectNotificationController;
+use App\Jobs\NotificationActionOnTheProject;
+use App\Services\ProjectNotificationService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
@@ -14,19 +16,9 @@ class Rejected extends Action
 {
     use InteractsWithQueue, Queueable;
 
+    use DispatchesJobs;
+
     public $name = 'Reject';
-
-    protected $saveProjectNotificationController;
-    /**
-     * Create a new command instance.
-     *
-     * @param SaveProjectNotificationController $saveProjectNotificationController
-     */
-
-    public function __construct(SaveProjectNotificationController $saveProjectNotificationController)
-    {
-        $this->saveProjectNotificationController = $saveProjectNotificationController;
-    }
 
     /**
      * Perform the action on the given models.
@@ -43,7 +35,8 @@ class Rejected extends Action
             } else {
                 $model->status_id = 3;
                 $model->update();
-                $this->saveProjectNotificationController->SavingRejectedProjectNotification($model);
+                $actionOnTheProject = 'Reject';
+                $this->dispatch(new NotificationActionOnTheProject($model, $actionOnTheProject, new ProjectNotificationService()));
                 return Action::message('Project status changed "Reject"');
             }
         }

@@ -12,6 +12,8 @@ class Notification extends Model
 
     const UPDATED_AT = null;
 
+    protected $guarded = ['id'];
+
     protected $dates = ['created_at'];
 
     public function notificationType()
