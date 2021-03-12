@@ -72,8 +72,6 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     // receiving projects of the current user, broken down by grants
     Route::get('/getProjectsForProfile', [ProjectController::class, 'getProjectsForProfile']);
-    // receiving notifications of the current user
-    Route::get('/getNotificationsForProfile', [NotificationController::class, 'getNotificationsForProfile']);
     // project creation by user
     Route::post('/storeProject', [ProjectController::class, 'storeProject']);
     // project creation by user
@@ -116,6 +114,10 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('/detachFb', [SocialAccountController::class, 'detachFb']);
     // detach profile google
     Route::post('/detachGoogle', [SocialAccountController::class, 'detachGoogle']);
+    // receiving notifications of the current user
+    Route::get('/getNotificationsForProfile', [NotificationController::class, 'getNotificationsForProfile']);
+    // read notification
+    Route::post('/readNotification', [NotificationController::class, 'readNotification']);
 });
 
 Route::get('/test', [MainPageController::class, 'test'])->middleware('auth:sanctum');

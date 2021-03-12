@@ -15,12 +15,12 @@ class NotificationResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'title' => $this->notificationType->title,
             'icon' => \config('custom.backendUrl') . \config('custom.storagePath') . $this->notificationType->image,
             'description' => $this->description,
             'is_read' => $this->is_read,
-            'date' => $this->created_at->format('Y-m-d'),
-            'time' => $this->created_at->format('H:i'),
+            'date' => $this->created_at->format('Y-m-d H:i'),
         ];
     }
 }
