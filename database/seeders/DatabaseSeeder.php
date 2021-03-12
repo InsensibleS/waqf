@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
             TeamMemberSeeder::class,
             CustomerLetterSeeder::class,
             AboutPageSeeder::class,
+            NotificationFilterSeeder::class
         ]);
     }
 }

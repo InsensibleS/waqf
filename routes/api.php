@@ -19,6 +19,7 @@ use App\Http\Controllers\Api\ProjectCommentDislikeController;
 use App\Http\Controllers\Api\ProjectCommentController;
 use \App\Http\Controllers\Api\CustomerController;
 use \App\Http\Controllers\Api\SocialAccountController;
+use \App\Http\Controllers\Api\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,8 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     // receiving projects of the current user, broken down by grants
     Route::get('/getProjectsForProfile', [ProjectController::class, 'getProjectsForProfile']);
+    // receiving notifications of the current user
+    Route::get('/getNotificationsForProfile', [NotificationController::class, 'getNotificationsForProfile']);
     // project creation by user
     Route::post('/storeProject', [ProjectController::class, 'storeProject']);
     // project creation by user

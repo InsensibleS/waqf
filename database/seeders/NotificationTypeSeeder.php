@@ -48,6 +48,10 @@ class NotificationTypeSeeder extends Seeder
                 'title' => 'The status of your project has been updated',
                 'image' => 'images/notification-types/Vectornews.jpg' ,
             ],
+            [
+                'title' => 'Your comment has been blocked by the site administration',
+                'image' => 'images/notification-types/Vector.jpg',
+            ],
         ]);
     }
 }

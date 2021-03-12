@@ -18,6 +18,8 @@ class CreateNotificationsTable extends Migration
             $table->foreignId('customer_id')->constrained('customers');
             $table->foreignId('type_id')->constrained('notification_types');
             $table->string('description','255');
+            $table->index('description','description');
+            $table->boolean('is_read')->default(false);
             $table->softDeletes();
             $table->dateTime('created_at')->useCurrent();
         });
