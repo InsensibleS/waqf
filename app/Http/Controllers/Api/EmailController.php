@@ -65,10 +65,9 @@ class EmailController extends Controller
     {
         try {
             $customer = Auth::user();
-            $link = $this->emailService->getLinkForPasswordUpdate($customer, $request->email);
+            $link = $this->emailService->getLinkForEmailUpdate($customer, $request->email);
 
             Mail::to($request->email)->send(new LinkShippedChangePassword($link));
-
             $response = $link;
             $message = 'email sent successfully';
         } catch (Throwable $exception) {

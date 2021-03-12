@@ -26,10 +26,10 @@ class EmailService
         return \config('custom.frontendUrl') . \config('custom.endpointAccSettings') . $registrationString;
     }
 
-    public function getLinkForPasswordUpdate($customer, $newEmail)
+    public function getLinkForEmailUpdate($customer, $newEmail)
     {
         $registrationString = self::createLink($customer);
 
-        return \config('custom.frontendUrl') . \config('custom.endpointAccSettings') . $registrationString . '?email=' . $newEmail;
+        return \config('custom.frontendUrl') . \config('custom.endpointAccSettings') . $registrationString . '/' . $newEmail;
     }
 }
