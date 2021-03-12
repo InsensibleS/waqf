@@ -2,19 +2,33 @@
 
 namespace App\Nova\Actions;
 
+use App\Jobs\NotificationQueue;
+use App\Services\ProjectNotificationService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
-use Laravel\Nova\Fields\ActionFields;
-
+use Laravel\Nova\Fields\ActionFields;;
 
 class Published extends Action
 {
-    use InteractsWithQueue, Queueable;
+    use InteractsWithQueue, Queueable, DispatchesJobs;
 
     public $name = 'Publish';
+    protected $projectNotificationService;
+    
+    /**
+     * Create a new command instance.
+     *
+     * @param ProjectNotificationService $projectNotificationService
+     */
+
+    public function __construct(ProjectNotificationService $projectNotificationService)
+    {
+        $this->projectNotificationService = $projectNotificationService;
+    }
 
     /**
      * Perform the action on the given models.
@@ -31,6 +45,8 @@ class Published extends Action
             } else {
                 $model->status_id = 1;
                 $model->update();
+                $actionOnTheProject = 'Publish';
+                $this->projectNotificationService->CreateProjectNotification($actionOnTheProject,  $model, new ProjectNotificationService());
                 return Action::message('Project status changed "Publish"');
             }
         }

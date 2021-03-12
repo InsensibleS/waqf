@@ -2,8 +2,11 @@
 
 namespace App\Nova\Actions;
 
+use App\Jobs\NotificationQueue;
+use App\Services\ProjectNotificationService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
@@ -11,9 +14,22 @@ use Laravel\Nova\Fields\ActionFields;
 
 class Rejected extends Action
 {
-    use InteractsWithQueue, Queueable;
+    use InteractsWithQueue, Queueable, DispatchesJobs;
 
     public $name = 'Reject';
+
+    protected $projectNotificationService;
+
+    /**
+     * Create a new command instance.
+     *
+     * @param ProjectNotificationService $projectNotificationService
+     */
+
+    public function __construct(ProjectNotificationService $projectNotificationService)
+    {
+        $this->projectNotificationService = $projectNotificationService;
+    }
 
     /**
      * Perform the action on the given models.
@@ -25,11 +41,13 @@ class Rejected extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
-            if($model->status_id !== 2) {
+            if ($model->status_id !== 2) {
                 return Action::danger('You can only change the status of the project under moderation!');
             } else {
                 $model->status_id = 3;
                 $model->update();
+                $actionOnTheProject = 'Reject';
+                $this->projectNotificationService->CreateProjectNotification($actionOnTheProject,  $model, new ProjectNotificationService());
                 return Action::message('Project status changed "Reject"');
             }
         }
