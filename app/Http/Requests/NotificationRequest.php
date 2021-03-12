@@ -25,10 +25,10 @@ class NotificationRequest extends FormRequest
     {
         return [
             'search_word' => 'exclude_if:search_word,""|string|max:255',
-            'type' => 'required|string|max:255',
+            'filter' => 'exclude_if:filter,""|string|max:255',
             'page' => 'exclude_if:page,""|integer|min:1',
             'is_unread' => 'exclude_if:is_unread,""|bool',
-            'sort_by_date' => 'required|string',
+            'sort_by_date' => 'exclude_if:sort_by_date,""|string',
         ];
     }
 }

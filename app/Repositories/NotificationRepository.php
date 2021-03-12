@@ -24,15 +24,16 @@ class NotificationRepository
      */
     public function getCustomerNotifications(Request $request): array
     {
-        $notificationTypes = self::NOTIFICATION_FILTERS[$request->type];
+        $filter = $request->filter ? $request->filter : 'all';
+        $notificationTypes = self::NOTIFICATION_FILTERS[$filter];
         $searchWord = $request->search_word ? '%' . $request->search_word . '%' : null;
         $is_unread = $request->is_unread;
         $page = $request->page ?: 1;
-        $sortByDate = $request->sort_by_date === 'desc' ? 'desc' : 'asc';
+        $sortByDate = $request->sort_by_date === 'asc' ? 'asc' : 'desc';
 
         $allNotifications = Notification::with('notificationType')->orderBy('id', $sortByDate)
             ->where('customer_id', Auth::id())
-            ->when($request->type !== 'all', function ($query) use ($notificationTypes){
+            ->when($filter !== 'all', function ($query) use ($notificationTypes){
                   return $query->whereIn('type_id', $notificationTypes);
             })
             ->when($searchWord, function ($query) use ($searchWord) {

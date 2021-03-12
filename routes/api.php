@@ -73,7 +73,7 @@ Route::middleware('auth:sanctum')->group( function () {
     // receiving projects of the current user, broken down by grants
     Route::get('/getProjectsForProfile', [ProjectController::class, 'getProjectsForProfile']);
     // receiving notifications of the current user
-    Route::post('/getNotificationsForProfile', [NotificationController::class, 'getNotificationsForProfile']);
+    Route::get('/getNotificationsForProfile', [NotificationController::class, 'getNotificationsForProfile']);
     // project creation by user
     Route::post('/storeProject', [ProjectController::class, 'storeProject']);
     // project creation by user
