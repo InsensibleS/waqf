@@ -38,7 +38,9 @@ RUN mkdir -p /home/$user/.composer && \
 WORKDIR /var/www
 
 COPY entrypoint /entrypoint
+COPY entrypoint-websocket /entrypoint-websocket
 RUN chmod +x /entrypoint
+RUN chmod +x /entrypoint-websocket
 
 ENTRYPOINT [ "/entrypoint" ]
 

@@ -11,6 +11,23 @@ services:
     image: waqfapp
     container_name: app
     working_dir: /var/www
+    volumes:
+      - /opt/waqf:/var/www
+
+
+  websocket:
+    build:
+      args:
+        user: waqf
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: waqfapp-websocket
+    entrypoint: /entrypoint-websocket
+    command: php artisan websockets:serve
+    container_name: websocket
+    restart: unless-stopped
+    working_dir: /var/www/
     ports:
       - "10.130.0.3:6001:6001"
     volumes:
