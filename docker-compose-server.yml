@@ -29,7 +29,7 @@ services:
     restart: unless-stopped
     working_dir: /var/www/
     ports:
-      - "10.130.0.3:6001:6001"
+      - "6001:6001"
     volumes:
       - /opt/waqf:/var/www
 
