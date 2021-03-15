@@ -69,6 +69,8 @@ services:
   adminer:
     image: adminer
     restart: always
+    networks:
+      - travellist
 
 networks:
   travellist:
